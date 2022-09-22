@@ -323,7 +323,7 @@
         "id": "c30e7c41.d78fb",
         "type": "exec",
         "z": "b66acd7.74f2a3",
-        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
         "addpay": true,
         "append": "",
         "useSpawn": "false",
@@ -335,7 +335,9 @@
         "wires": [
             [],
             [],
-            []
+            [
+                "eff2dc49.1cfd"
+            ]
         ]
     },
     {
@@ -1347,7 +1349,7 @@
         "outputs": "2",
         "noerr": 0,
         "x": 280,
-        "y": 2220,
+        "y": 2180,
         "wires": [
             [],
             [
@@ -1369,7 +1371,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 870,
-        "y": 2240,
+        "y": 2200,
         "wires": [
             [
                 "b3934d1.0fb78b"
@@ -1385,7 +1387,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 580,
-        "y": 2180,
+        "y": 2140,
         "wires": [
             [
                 "bc4a3cb9.3f088",
@@ -1402,7 +1404,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 580,
-        "y": 2220,
+        "y": 2180,
         "wires": [
             [
                 "bc4a3cb9.3f088",
@@ -1419,7 +1421,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 500,
-        "y": 2340,
+        "y": 2300,
         "wires": [
             [
                 "bc4a3cb9.3f088",
@@ -1436,7 +1438,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 2380,
+        "y": 2340,
         "wires": [
             [
                 "bc4a3cb9.3f088",
@@ -1453,7 +1455,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 540,
-        "y": 2420,
+        "y": 2380,
         "wires": [
             [
                 "bc4a3cb9.3f088",
@@ -1470,7 +1472,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 880,
-        "y": 2280,
+        "y": 2240,
         "wires": [
             [
                 "c30e7c41.d78fb"
@@ -2368,8 +2370,8 @@
         "id": "a99da21f.41866",
         "type": "start-up-trigger",
         "z": "b66acd7.74f2a3",
-        "x": 520,
-        "y": 2480,
+        "x": 280,
+        "y": 2620,
         "wires": [
             [
                 "6827eb5c.49e3c4"
@@ -2389,8 +2391,8 @@
         "units": "s",
         "reset": "",
         "name": "",
-        "x": 740,
-        "y": 2480,
+        "x": 520,
+        "y": 2620,
         "wires": [
             [
                 "11e523a1.ac2f1c"
@@ -2401,12 +2403,12 @@
         "id": "11e523a1.ac2f1c",
         "type": "function",
         "z": "b66acd7.74f2a3",
-        "name": "intialisation variable",
+        "name": "gate scan",
         "func": "if(global.get('spy_scan') === true)\n{\n    return msg\n}",
         "outputs": 1,
         "noerr": 0,
-        "x": 970,
-        "y": 2480,
+        "x": 720,
+        "y": 2620,
         "wires": [
             [
                 "71db5810.c17cb8",
@@ -2422,8 +2424,8 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 1170,
-        "y": 2480,
+        "x": 890,
+        "y": 2620,
         "wires": []
     },
     {
@@ -2505,7 +2507,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 580,
-        "y": 2260,
+        "y": 2220,
         "wires": [
             [
                 "bc4a3cb9.3f088",
@@ -2522,7 +2524,7 @@
         "outputs": "2",
         "noerr": 0,
         "x": 280,
-        "y": 2580,
+        "y": 2480,
         "wires": [
             [],
             [
@@ -2542,7 +2544,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 520,
-        "y": 2560,
+        "y": 2440,
         "wires": [
             [
                 "c80aea08.6d0d58",
@@ -2559,7 +2561,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 550,
-        "y": 2600,
+        "y": 2480,
         "wires": [
             [
                 "c80aea08.6d0d58"
@@ -2575,7 +2577,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 2680,
+        "y": 2560,
         "wires": [
             [
                 "f26957c9.4d4b48",
@@ -2592,7 +2594,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 890,
-        "y": 2640,
+        "y": 2520,
         "wires": [
             []
         ]
@@ -2606,7 +2608,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 890,
-        "y": 2560,
+        "y": 2440,
         "wires": [
             []
         ]
@@ -2619,8 +2621,8 @@
         "func": "msg.payload=`TAB`\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 1190,
-        "y": 2520,
+        "x": 910,
+        "y": 2660,
         "wires": [
             [
                 "b3934d1.0fb78b"
@@ -2636,7 +2638,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 880,
-        "y": 2600,
+        "y": 2480,
         "wires": [
             [
                 "c30e7c41.d78fb"
@@ -2652,7 +2654,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 880,
-        "y": 2680,
+        "y": 2560,
         "wires": [
             [
                 "c30e7c41.d78fb"
@@ -2668,12 +2670,53 @@
         "outputs": 1,
         "noerr": 0,
         "x": 510,
-        "y": 2640,
+        "y": 2520,
         "wires": [
             [
                 "c80aea08.6d0d58",
                 "99c5ef5d.fdd3c"
             ]
         ]
+    },
+    {
+        "id": "53cf4596.a9a80c",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "scan",
+        "info": "\n\n",
+        "x": 50,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "767105c6.c95b1c",
+        "type": "inject",
+        "z": "b66acd7.74f2a3",
+        "name": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 770,
+        "y": 2080,
+        "wires": [
+            [
+                "b72bbd67.d948f"
+            ]
+        ]
+    },
+    {
+        "id": "eff2dc49.1cfd",
+        "type": "debug",
+        "z": "b66acd7.74f2a3",
+        "name": "debug",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 1610,
+        "y": 1840,
+        "wires": []
     }
 ]
