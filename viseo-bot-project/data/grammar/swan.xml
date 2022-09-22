@@ -1,0 +1,107 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="Swan" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="Swan" scope="public">
+		<tag>out.action=new Object(); </tag>
+
+		<item>SWAN</item>
+		<one-of>
+			<item>es tu là</item>
+			<item>tu es là</item>
+			<item>tu m'entends</item>
+			<item>tu es avec moi</item>
+			<item>on se réveille</item>
+			<!--swan on - off -->
+			<item>mise en veille code alpha un cinq neuf cinq</item>
+			<item>mise en someil code alpha un cinq neuf cinq</item>
+			<item>mise en attente code delta un sept cinq un</item>
+			<!--porte -->
+			<item>ouvre la porte</item>
+			<item>ouvre les portes</item>
+			<item>ouvre le sasse</item>
+			<item>ouvre les sasse</item>
+			<item>ouvre la soute</item>
+			<item>ouvre les soutes</item>
+			<item>ferme la porte</item>
+			<item>ferme les portes</item>
+			<item>ferme le sasse</item>
+			<item>ferme les sasse</item>
+			<item>ferme la soute</item>
+			<item>ferme les soutes</item>
+			<!--appel station -->
+			<item>appel la station</item>
+			<item>appel la base</item>
+			<item>ouvre le hangar</item>
+			<item>appel le hangar</item>
+			<!--train -->
+			<item>sort le train d'attérissage</item>
+			<item>sort les trains d'attérissage</item>
+			<item>sort les trains</item>
+			<item>sort le train</item>
+			<item>ouvre le train d'attérissage</item>
+			<item>ouvre les trains d'attérissage</item>
+			<item>ouvre les trains</item>
+			<item>ouvre le train</item>
+			<item>ferme le train d'attérissage</item>
+			<item>ferme les trains d'attérissage</item>
+			<item>ferme les trains</item>
+			<item>ferme le train</item>
+			<item>rentre le train d'attérissage</item>
+			<item>rentre les trains d'attérissage</item>
+			<item>rentre les trains</item>
+			<item>rentre le train</item>
+			<!--eclairage -->
+			<item>on y voit rien</item>
+			<item>un peu de lumiére</item>
+			<item>allume les phares</item>
+			<item>allume les feux</item>
+			<item>allumes les spots</item>
+			<item>éclair la zone</item>
+			<item>éteint les phares</item>
+			<item>éteint les feux</item>
+			<item>éteint les spots</item>
+			<item>coupe les phares</item>
+			<item>coupe les feux</item>
+			<item>coupe les spots</item>
+			<!--mise en route générale-->
+			<item>démarre les systèmes</item>
+			<item>démarre le vaisseaux</item>
+			<item>démarre l'appareil</item>
+			<item>allume le vaisseaux</item>
+			<item>allume l'appareil</item>
+			<item>met en chauffe l'appareil</item>
+			<item>met en chauffe le vaisseau</item>
+			<item>fait chauffer l'appareil</item>
+			<item>fait chauffer les systèmes</item>
+			<item>fait chauffer le système</item>
+			<!--Starmap-->
+			<item>affiche la carte</item>
+			<item>affiche la position</item>
+			<item>affiche la starmap</item>
+			<item>affiche moi la carte</item>
+			<item>affiche moi notre position</item>
+			<item>affiche moi la starmap</item>
+			<item>où on est</item>
+			<item>montre la carte</item>
+			<item>montre la position</item>
+			<item>montre la starmap</item>
+			<item>montre moi la carte</item>
+			<item>montre moi notre position</item>
+			<item>montre moi la starmap</item>
+			<item>prépare l'itinéraire</item>
+			<item>prépare un itinéraire</item>
+
+			<!--
+			<item></item>
+			<item></item>
+			<item></item>
+			<item></item>
+		-->
+
+		</one-of>
+
+
+	
+	<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/time";</tag>
+
+
+</rule> 
+</grammar>

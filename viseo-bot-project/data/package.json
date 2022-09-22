@@ -1,0 +1,11 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {
+        "node-red-contrib-keypress": "~1.0.1",
+        "node-red-contrib-play-soundfile": "0.0.4",
+        "node-red-contrib-powershell": "0.0.3",
+        "node-red-contrib-startup-trigger": "~0.1.0"
+    }
+}
