@@ -2401,11 +2401,11 @@
         "id": "11e523a1.ac2f1c",
         "type": "function",
         "z": "b66acd7.74f2a3",
-        "name": "intialisation variable",
+        "name": "gate scan",
         "func": "if(global.get('spy_scan') === true)\n{\n    return msg\n}",
         "outputs": 1,
         "noerr": 0,
-        "x": 970,
+        "x": 940,
         "y": 2480,
         "wires": [
             [
