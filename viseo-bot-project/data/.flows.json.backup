@@ -330,8 +330,8 @@
         "timer": "",
         "oldrc": false,
         "name": "vlc",
-        "x": 1270,
-        "y": 1300,
+        "x": 1290,
+        "y": 1920,
         "wires": [
             [],
             [],
@@ -569,8 +569,8 @@
         "timer": "",
         "oldrc": false,
         "name": "lancement autohotkey",
-        "x": 1320,
-        "y": 1240,
+        "x": 1340,
+        "y": 1860,
         "wires": [
             [],
             [],
@@ -2544,7 +2544,8 @@
         "y": 2560,
         "wires": [
             [
-                "c80aea08.6d0d58"
+                "c80aea08.6d0d58",
+                "99c5ef5d.fdd3c"
             ]
         ]
     },
@@ -2576,7 +2577,8 @@
         "y": 2640,
         "wires": [
             [
-                "f26957c9.4d4b48"
+                "f26957c9.4d4b48",
+                "3badfb38.a14444"
             ]
         ]
     },
@@ -2621,6 +2623,38 @@
         "wires": [
             [
                 "b3934d1.0fb78b"
+            ]
+        ]
+    },
+    {
+        "id": "99c5ef5d.fdd3c",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "réponse random",
+        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n  \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"activation balayage.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"mise en route balayage.mp4\\\"\";\n    }\n        if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n\n\n    return msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 2600,
+        "wires": [
+            [
+                "c30e7c41.d78fb"
+            ]
+        ]
+    },
+    {
+        "id": "3badfb38.a14444",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "réponse random",
+        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 3)\n  \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"coupure balyage\\\"\";\n    }\n  if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n \n\n    return msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 2680,
+        "wires": [
+            [
+                "c30e7c41.d78fb"
             ]
         ]
     }

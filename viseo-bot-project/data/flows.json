@@ -2528,7 +2528,8 @@
             [
                 "62b1987a.e4b4b8",
                 "406a03dd.d06e5c",
-                "ad29e320.37a9a"
+                "ad29e320.37a9a",
+                "a4163b32.d55088"
             ]
         ]
     },
@@ -2574,7 +2575,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 2640,
+        "y": 2680,
         "wires": [
             [
                 "f26957c9.4d4b48",
@@ -2655,6 +2656,23 @@
         "wires": [
             [
                 "c30e7c41.d78fb"
+            ]
+        ]
+    },
+    {
+        "id": "a4163b32.d55088",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "scan la zone",
+        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"scan la zone\") )\n    {\n        return msg;\n    }   \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 2640,
+        "wires": [
+            [
+                "c80aea08.6d0d58",
+                "99c5ef5d.fdd3c"
             ]
         ]
     }
