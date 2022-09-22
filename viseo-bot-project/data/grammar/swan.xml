@@ -79,6 +79,17 @@
 			<item>affiche moi la carte</item>
 			<item>affiche moi notre position</item>
 			<item>affiche moi la starmap</item>
+			<item>ouvre la carte</item>
+			<item>ouvre la starmap</item>
+			<item>ouvre moi la carte</item>
+			<item>ouvre moi notre position</item>
+			<item>ouvre moi la starmap</item>
+			<item>ferme la carte</item>
+			<item>ferme la starmap</item>
+			<item>ferme moi la carte</item>
+			<item>ferme moi notre position</item>
+			<item>ferme moi la starmap</item>
+
 			<item>où on est</item>
 			<item>montre la carte</item>
 			<item>montre la position</item>
@@ -88,6 +99,10 @@
 			<item>montre moi la starmap</item>
 			<item>prépare l'itinéraire</item>
 			<item>prépare un itinéraire</item>
+			<!--scan actif vol au radar-->
+			<item>Balaye la zone</item>
+			<item>passe en balayage actif</item>
+			<item>coupe le balayage</item>
 
 			<!--
 			<item></item>
