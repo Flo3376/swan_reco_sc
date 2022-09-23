@@ -18,11 +18,16 @@
 			****************************************************-->
 			<item>Passe en mod discret</item>
 			<item>Met toi en mod discret</item>
-			<!--<item>mise en someil code alpha un cinq neuf cinq</item>-->
-			<!--<item>mise en attente code delta un sept cinq un</item>-->
-			<!--<item>mise en attente code delta un sept cinq un</item>-->
-			<!--<item>mise en attente code delta un sept cinq un</item>-->
-			
+			<item>active le mod discret</item>
+			<item>activation du mod discret</item>
+			<item>coupe le mod discret</item>
+			<item>désactivation du mod discret</item>
+			<item>Sort du mod discret</item>
+			<item>repasse en mod normale</item>
+			<item>met toi en sommeil</item>
+			<item>met toi en veille</item>
+			<item>remet toi en écoute</item>
+
 			<!--**************************************************
 			*         	  Gestion des portes et soutes
 			****************************************************-->
@@ -99,6 +104,15 @@
 			<item>ouvre la starmap</item>
 			<item>ouvre moi la carte</item>
 			<item>ouvre moi la starmap</item>
+			<!--montre -->
+			<item>montre la carte</item>
+			<item>montre la starmap</item>
+			<item>montre moi la carte</item>
+			<item>montre moi notre position</item>
+			<item>montre moi la starmap</item>
+			<!--autre -->
+			<item>prépare l'itinéraire</item>
+			<item>prépare un itinéraire</item>
 			<!--ferme -->
 			<item>ferme la carte</item>
 			<item>ferme la starmap</item>
@@ -109,15 +123,7 @@
 			<item>coupe la map</item>
 			<item>coupe moi la starmap</item>
 			<item>coupe moi la map</item>
-			<!--montre -->
-			<item>montre la carte</item>
-			<item>montre la starmap</item>
-			<item>montre moi la carte</item>
-			<item>montre moi notre position</item>
-			<item>montre moi la starmap</item>
-			<!--autre -->
-			<item>prépare l'itinéraire</item>
-			<item>prépare un itinéraire</item>
+			
 			
 			<!--**************************************************
 			*         	 scan actif et vol au radar
@@ -129,13 +135,46 @@
 			<item>coupe le balayage</item>
 
 			<!--**************************************************
-			*         	  Gestion des portes et soutes
+			*         	  Gestion du bras de minage
 			****************************************************-->
 			<item>sort la tête de minage</item>
 			<item>sort le bras de minage</item>
 			<item>rentre la tête de minage</item>
 			<item>rentre le bras de minage</item>
 
+			<!--**************************************************
+			*         	  Gestion des generateur
+			****************************************************-->
+			<item>démarre le générateur</item>
+			<item>démarre les générateurs</item>
+			<item>lance le générateur</item>
+			<item>lance les générateurs</item>
+			<item>arrête le générateur</item>
+			<item>arrête les générateurd</item>
+			<item>coupe le générateur</item>
+			<item>coupe les générateurs</item>
+			<item>éteint le générateur</item>
+			<item>éteint les générateurs</item>
+
+			<!--**************************************************
+			*         	  Gestion des moteur
+			****************************************************-->
+			<item>démarre le moteur</item>
+			<item>démarre les moteurs</item>
+			<item>lance le moteur</item>
+			<item>lance les moteurs</item>
+			<item>arrête le moteur</item>
+			<item>arrête les moteurs</item>
+			<item>coupe le moteur</item>
+			<item>coupe les moteurs</item>
+			<item>éteint le moteur</item>
+			<item>éteint les moteurs</item>
+
+			<!--**************************************************
+			*         	 autre
+			****************************************************-->
+			<item>envoie une invitation discord</item>
+			<item>envoie mon discord</item>
 
 			<!--
 			<item></item>

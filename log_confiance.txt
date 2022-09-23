@@ -1,0 +1,111 @@
+2022-09-23 11:10:35    0.9352227    SWAN tu es là
+2022-09-23 11:10:45    0.9547271    SWAN ouvre les portes
+2022-09-23 11:11:48    0.7692506    tu es là
+2022-09-23 11:12:28    0.9576475    SWAN tu es là
+2022-09-23 11:12:30    0.9400127    SWAN tu m'entends
+2022-09-23 11:12:35    0.92085    SWAN tu es avec moi
+2022-09-23 11:17:33    0.8159158    SWAN appel la base
+2022-09-23 11:17:42    0.9464695    SWAN appel la base
+2022-09-23 11:22:14    0.9483851    SWAN ouvre les trains
+2022-09-23 11:22:17    0.9381108    SWAN ouvre les trains
+2022-09-23 11:22:22    0.8420537    SWAN rentre le train
+2022-09-23 11:22:28    0.9491674    SWAN ouvre les trains
+2022-09-23 11:23:1    0.9239199    SWAN ouvre les trains
+2022-09-23 11:23:5    0.9279318    SWAN ferme les trains
+2022-09-23 11:32:41    0.9395007    SWAN tu es là
+2022-09-23 11:46:36    0.9143212    SWAN tu es là
+2022-09-23 11:55:43    0.8955401    SWAN tu es là
+2022-09-23 12:0:32    0.9299474    SWAN Passe en mod discret
+2022-09-23 12:5:0    0.9232273    SWAN Passe en mod discret
+2022-09-23 12:5:20    0.9632488    SWAN Met toi en mod discret
+2022-09-23 12:9:53    0.9100154    SWAN Passe en mod discret
+2022-09-23 12:10:11    0.951252    SWAN Met toi en mod discret
+2022-09-23 12:13:12    0.922376    SWAN Passe en mod discret
+2022-09-23 12:14:33    0.8103664    es tu là
+2022-09-23 12:15:23    0.7325055    coupe les phares
+2022-09-23 12:15:48    0.747077    ouvre le sasse
+2022-09-23 12:19:9    0.9271671    SWAN Passe en mod discret
+2022-09-23 12:19:34    0.9456455    SWAN Passe en mod discret
+2022-09-23 12:19:49    0.9561035    SWAN Passe en mod discret
+2022-09-23 12:20:38    0.7085283    SWAN ouvre le train
+2022-09-23 12:20:54    0.9461501    SWAN Passe en mod discret
+2022-09-23 12:21:48    0.9370267    SWAN met toi en veille
+2022-09-23 12:23:53    0.7848539    es tu là
+2022-09-23 12:25:40    0.8368518    es tu là
+2022-09-23 12:27:4    0.941712    SWAN Passe en mod discret
+2022-09-23 12:27:14    0.9454955    SWAN Passe en mod discret
+2022-09-23 12:34:35    0.9008724    tu es là
+2022-09-23 12:38:12    0.9577538    SWAN Passe en mod discret
+2022-09-23 12:38:44    0.95024    SWAN Passe en mod discret
+2022-09-23 12:39:32    0.942471    SWAN active le mod discret
+2022-09-23 12:40:57    0.9517457    SWAN active le mod discret
+2022-09-23 12:43:39    0.7196496    ferme les sasse
+2022-09-23 12:43:42    0.7428889    met toi en veille
+2022-09-23 12:44:33    0.9304956    SWAN Passe en mod discret
+2022-09-23 12:44:48    0.9156367    SWAN Sort du mod discret
+2022-09-23 12:44:51    0.9523466    SWAN tu es là
+2022-09-23 12:44:54    0.9285984    SWAN Passe en mod discret
+2022-09-23 12:44:59    0.9553651    SWAN tu es là
+2022-09-23 12:47:41    0.7075651    es tu là
+2022-09-23 12:48:5    0.7646402    on y voit rien
+2022-09-23 12:56:22    0.7518805    es tu là
+2022-09-23 12:57:45    0.7074946    appel la base
+2022-09-23 12:58:36    0.7028949    éteint les phares
+2022-09-23 13:10:25    0.8208048    es tu là
+2022-09-23 13:14:39    0.7094461    tu es là
+2022-09-23 13:15:58    0.7345942    ouvre la soute
+2022-09-23 13:38:45    0.9299217    SWAN tu es là
+2022-09-23 13:39:1    0.9365399    SWAN sort les trains
+2022-09-23 13:39:5    0.9444518    SWAN ouvre les trains
+2022-09-23 13:39:10    0.9572408    SWAN ouvre les trains
+2022-09-23 13:39:21    0.9151388    SWAN rentre les trains
+2022-09-23 13:39:27    0.9002095    SWAN on y voit rien
+2022-09-23 13:39:30    0.9406403    SWAN éclair la zone
+2022-09-23 13:39:36    0.9306239    SWAN allume les phares
+2022-09-23 13:39:42    0.9384912    SWAN allumes les spots
+2022-09-23 13:39:47    0.9342556    SWAN ouvre les portes
+2022-09-23 13:39:51    0.9388941    SWAN ferme les portes
+2022-09-23 13:39:54    0.9558456    SWAN ferme les portes
+2022-09-23 13:42:20    0.9416186    SWAN met en chauffe l'appareil
+2022-09-23 13:42:34    0.9552924    SWAN affiche la carte
+2022-09-23 13:42:51    0.9633148    SWAN Passe en mod discret
+2022-09-23 13:42:58    0.9636105    ouvre la porte
+2022-09-23 13:43:3    0.8952115    SWAN Sort du mod discret
+2022-09-23 13:43:6    0.9437695    SWAN ouvre la porte
+2022-09-23 13:43:14    0.9492304    SWAN met toi en veille
+2022-09-23 13:43:18    0.9243165    SWAN ouvre les portes
+2022-09-23 13:43:23    0.9249166    SWAN remet toi en écoute
+2022-09-23 13:43:28    0.9620699    SWAN tu es là
+2022-09-23 13:43:36    0.9581232    SWAN tu es là
+2022-09-23 13:43:59    0.9357111    SWAN remet toi en écoute
+2022-09-23 13:45:0    0.9442045    SWAN remet toi en écoute
+2022-09-23 13:45:50    0.8853969    SWAN remet toi en écoute
+2022-09-23 13:50:34    0.9591323    SWAN tu es là
+2022-09-23 13:50:41    0.9539063    SWAN tu es là
+2022-09-23 13:52:53    0.950233    SWAN active le mod discret
+2022-09-23 13:59:19    0.8264859    ouvre la soute
+2022-09-23 14:3:11    0.7357395    tu es là
+2022-09-23 14:4:17    0.7239828    coupe les feux
+2022-09-23 14:4:33    0.7045419    es tu là
+2022-09-23 14:5:32    0.9070081    tu es là
+2022-09-23 14:5:52    0.7273033    SWAN met toi en veille
+2022-09-23 14:9:33    0.736064    met toi en veille
+2022-09-23 14:10:21    0.8721663    ouvre le sasse
+2022-09-23 14:21:12    0.7906768    es tu là
+2022-09-23 14:21:50    0.7299982    ouvre le sasse
+2022-09-23 14:33:15    0.7367843    on y voit rien
+2022-09-23 14:55:46    0.740397    met toi en veille
+2022-09-23 14:58:21    0.7401739    on se réveille
+2022-09-23 14:59:38    0.8021652    SWAN es tu là
+2022-09-23 15:3:51    0.7215008    on se réveille
+2022-09-23 15:27:0    0.9452564    SWAN démarre les moteurs
+2022-09-23 15:27:6    0.9245263    coupe le moteur
+2022-09-23 15:36:46    0.9518603    SWAN démarre le générateur
+2022-09-23 15:37:13    0.9204391    SWAN démarre le générateur
+2022-09-23 15:37:32    0.937812    SWAN démarre le générateur
+2022-09-23 15:37:36    0.9203502    SWAN coupe le générateur
+2022-09-23 15:37:41    0.9415458    SWAN coupe le générateur
+2022-09-23 15:37:48    0.8551146    SWAN coupe le générateur
+2022-09-23 15:37:52    0.9510754    SWAN coupe le générateur
+2022-09-23 15:39:12    0.9206786    SWAN coupe le générateur
+2022-09-23 15:39:16    0.9204509    SWAN coupe le générateur

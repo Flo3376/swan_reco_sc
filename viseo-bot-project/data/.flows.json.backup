@@ -12,13 +12,6 @@
         "info": ""
     },
     {
-        "id": "604b0c0f.642064",
-        "type": "tab",
-        "label": "Flow 2",
-        "disabled": true,
-        "info": ""
-    },
-    {
         "id": "65f33c0b.3eaaa4",
         "type": "win-listen-config",
         "z": "",
@@ -36,6 +29,23 @@
         "directory": "C:\\sarah\\mpg123"
     },
     {
+        "id": "c03cd534.842208",
+        "type": "mqtt-broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
         "id": "6b346f7b.1a9e",
         "type": "win-sarah",
         "z": "b66acd7.74f2a3",
@@ -44,12 +54,13 @@
         "options": "65f33c0b.3eaaa4",
         "grammar": "",
         "x": 90,
-        "y": 180,
+        "y": 120,
         "wires": [
             [
                 "169f3390.c83f7c",
                 "52adfb92.88b324",
-                "1a17be4d.985b42"
+                "1a17be4d.985b42",
+                "7148a91d.ef9b48"
             ]
         ]
     },
@@ -61,16 +72,18 @@
         "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 300,
-        "y": 260,
+        "x": 340,
+        "y": 200,
         "wires": [
             [
                 "ba21a4c.ff4fb58"
             ],
             [
                 "dc190f3d.ae95b",
-                "de2368c3.b82de8",
-                "98af96ea.981d38"
+                "2426945c.782b3c",
+                "74020766.bb2d28",
+                "522ef241.663c2c",
+                "4992daa8.ce4cd4"
             ]
         ]
     },
@@ -82,8 +95,8 @@
         "active": false,
         "console": "false",
         "complete": "true",
-        "x": 290,
-        "y": 180,
+        "x": 330,
+        "y": 120,
         "wires": []
     },
     {
@@ -186,77 +199,13 @@
         "wires": []
     },
     {
-        "id": "6fd69a25.3f44a4",
-        "type": "exec",
-        "z": "b66acd7.74f2a3",
-        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "vlc",
-        "x": 1030,
-        "y": 320,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "96077466.68bd18",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "Filtre pour go + réponse",
-        "func": "if (msg.topic===true)\n{\n    let msg={}\n    msg.topic=true\n    msg.payload=\"\\\"\"+global.get(\"path_sound\")+\"désolé circuit pas connecté.mp4\\\"\";\n    \n    return msg\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 690,
-        "y": 320,
-        "wires": [
-            [
-                "6fd69a25.3f44a4",
-                "2732b701.0f0598"
-            ]
-        ]
-    },
-    {
-        "id": "2732b701.0f0598",
-        "type": "debug",
-        "z": "b66acd7.74f2a3",
-        "name": "debug",
-        "active": false,
-        "console": "false",
-        "complete": "payload",
-        "x": 1030,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "a8193914.b7acb8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "Filtre pour go + réponse random",
-        "func": "if (msg.topic===true)\n{\n    let msg={}\n    msg.topic=true\n    let random=Math.floor(Math.random() * 3)\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas compris1.mp4\\\"\";\n    }\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas compris2.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas compris3.mp4\\\"\";\n    }\n    \n   \n   // let resp1=\"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris1.mp4\\\"\"\n   // let resp2=\"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris2.mp4\\\"\"\n   // let resp3=\"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris3.mp4\\\"\"\n   // let response={resp1,resp2,resp3}\n    \n   \n    //msg2.payload= \"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris1.mp4\\\"\";\n    return msg\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 670,
-        "y": 240,
-        "wires": [
-            [
-                "956b8e54.e5765"
-            ]
-        ]
-    },
-    {
         "id": "b5b221b9.e8b9f",
         "type": "comment",
         "z": "b66acd7.74f2a3",
         "name": "Step 1_Trieur de confiance",
         "info": "Dans cette partie, on régle un niveau de confiance.\nPlus il est élevé, plus le risque de refus et grand\n",
         "x": 110,
-        "y": 120,
+        "y": 80,
         "wires": []
     },
     {
@@ -270,56 +219,6 @@
         "wires": []
     },
     {
-        "id": "cfce5b12.ffe9d8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "ouvrir porte du vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"porte\") && msg.payload.includes(\"ouvre\")) || ( msg.payload.includes(\"portes\") && msg.payload.includes(\"ouvre\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 600,
-        "wires": [
-            [
-                "c7d9a639.5c0c08",
-                "69c982af.68a47c"
-            ]
-        ]
-    },
-    {
-        "id": "b1b43d51.a9a12",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "fermer porte du vaisseau",
-        "func": "if (msg.topic===true){\n    if((msg.payload.includes(\"porte\") && msg.payload.includes(\"ferme\")) || ( msg.payload.includes(\"portes\") && msg.payload.includes(\"ferme\")))\n    {\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 740,
-        "wires": [
-            [
-                "e41e089.e978ff8",
-                "ae8abcfe.9d7dc"
-            ]
-        ]
-    },
-    {
-        "id": "c7d9a639.5c0c08",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "info fichier MP3",
-        "func": "msg.topic=true\nmsg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ouverture des portes.mp4\\\"\";\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 600,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
         "id": "c30e7c41.d78fb",
         "type": "exec",
         "z": "b66acd7.74f2a3",
@@ -330,185 +229,12 @@
         "timer": "5",
         "oldrc": true,
         "name": "vlc",
-        "x": 1290,
-        "y": 1920,
-        "wires": [
-            [],
-            [],
-            [
-                "eff2dc49.1cfd"
-            ]
-        ]
-    },
-    {
-        "id": "e41e089.e978ff8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "info fichier MP3",
-        "func": "msg.topic=true\nmsg.payload= \"\\\"\"+global.get(\"path_sound\")+\"fermeture des portes.mp4\\\"\";\n    \nreturn msg\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 740,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "956b8e54.e5765",
-        "type": "exec",
-        "z": "b66acd7.74f2a3",
-        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop ",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "vlc",
-        "x": 870,
-        "y": 240,
+        "x": 1330,
+        "y": 1000,
         "wires": [
             [],
             [],
             []
-        ]
-    },
-    {
-        "id": "95d6d1ed.45dba",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "ouvrir sasse du vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"sasse\") && msg.payload.includes(\"ouvre\")) || ( msg.payload.includes(\"sasses\") && msg.payload.includes(\"ouvre\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 640,
-        "wires": [
-            [
-                "c7d9a639.5c0c08",
-                "69c982af.68a47c"
-            ]
-        ]
-    },
-    {
-        "id": "152a7776.9ae899",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "fermer sasse du vaisseau",
-        "func": "if (msg.topic===true){\n    if((msg.payload.includes(\"sasse\") && msg.payload.includes(\"ferme\")) || ( msg.payload.includes(\"sasses\") && msg.payload.includes(\"ferme\")))\n    {\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 780,
-        "wires": [
-            [
-                "e41e089.e978ff8",
-                "ae8abcfe.9d7dc"
-            ]
-        ]
-    },
-    {
-        "id": "63384ec6.8a1c4",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "ouvrir soute du vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"soute\") && msg.payload.includes(\"ouvre\")) || ( msg.payload.includes(\"soutes\") && msg.payload.includes(\"ouvre\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 680,
-        "wires": [
-            [
-                "c7d9a639.5c0c08",
-                "69c982af.68a47c"
-            ]
-        ]
-    },
-    {
-        "id": "fdf0ec6c.af087",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "fermer soute du vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"soute\") && msg.payload.includes(\"ferme\")) || ( msg.payload.includes(\"ferme\") && msg.payload.includes(\"ouvre\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 820,
-        "wires": [
-            [
-                "e41e089.e978ff8",
-                "ae8abcfe.9d7dc"
-            ]
-        ]
-    },
-    {
-        "id": "5ecac7e5.2058c8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "appel le hangar",
-        "func": "if (msg.topic===true){\n    if ( msg.payload.includes(\"appel\") && msg.payload.includes(\"hangar\"))\n    {\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 920,
-        "wires": [
-            [
-                "c906628b.62438",
-                "4e306748.d2cf18"
-            ]
-        ]
-    },
-    {
-        "id": "f9ee6cbf.2e5d7",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "appel la base",
-        "func": "if (msg.topic===true){\n    if(( msg.payload.includes(\"appel\") && msg.payload.includes(\"base\")))\n    {\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 960,
-        "wires": [
-            [
-                "c906628b.62438",
-                "4e306748.d2cf18"
-            ]
-        ]
-    },
-    {
-        "id": "b484025.8e711",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "appel le pad",
-        "func": "if (msg.topic===true){\n    if((msg.payload.includes(\"appel\") && msg.payload.includes(\"pad\")))\n    {\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 880,
-        "wires": [
-            [
-                "c906628b.62438",
-                "4e306748.d2cf18"
-            ]
-        ]
-    },
-    {
-        "id": "784b72ab.0fbf9c",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "appel la station",
-        "func": "if (msg.topic===true){\n    if(( msg.payload.includes(\"appel\") && msg.payload.includes(\"station\")))\n    {\n        return msg;\n    }\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 1000,
-        "wires": [
-            [
-                "c906628b.62438",
-                "4e306748.d2cf18"
-            ]
         ]
     },
     {
@@ -519,44 +245,11 @@
         "func": "msg.payload=`F3`\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 850,
-        "y": 920,
+        "x": 910,
+        "y": 460,
         "wires": [
             [
-                "b3934d1.0fb78b"
-            ]
-        ]
-    },
-    {
-        "id": "4e306748.d2cf18",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 5)\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ok je les contacts.mp4\\\"\";\n    }\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ok c'est compris.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"execution.mp4\\\"\";\n    }\n        if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===4)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n  \n    return msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 880,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "1464e7dd.d8c318",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "ouvre le hangar",
-        "func": "if (msg.topic===true){\n    if ( msg.payload.includes(\"ouvre \") && msg.payload.includes(\"hangar\"))\n    {\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 1040,
-        "wires": [
-            [
-                "4e306748.d2cf18",
-                "c906628b.62438"
+                "ddce9d3a.83f45"
             ]
         ]
     },
@@ -564,135 +257,19 @@
         "id": "b3934d1.0fb78b",
         "type": "exec",
         "z": "b66acd7.74f2a3",
-        "command": "\"c:\\swan\\viseo-bot-project\\data\\grammar\\keyboard.ahk\"",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
         "addpay": true,
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "oldrc": false,
-        "name": "lancement autohotkey",
-        "x": 1340,
-        "y": 1860,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 940,
         "wires": [
             [],
             [],
             []
-        ]
-    },
-    {
-        "id": "69c982af.68a47c",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "Clavier $",
-        "func": "msg.payload=`$`\n\nreturn msg\n",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 840,
-        "y": 640,
-        "wires": [
-            [
-                "b3934d1.0fb78b"
-            ]
-        ]
-    },
-    {
-        "id": "ae8abcfe.9d7dc",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "Clavier *",
-        "func": "msg.payload=`*`\nreturn msg\n",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 840,
-        "y": 780,
-        "wires": [
-            [
-                "b3934d1.0fb78b"
-            ]
-        ]
-    },
-    {
-        "id": "7f496d94.5c37c4",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "Sortir train",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"train\") && msg.payload.includes(\"sort\")) || ( msg.payload.includes(\"trains\") && msg.payload.includes(\"sort\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 1100,
-        "wires": [
-            [
-                "34e55a19.6bc286",
-                "5f3eacef.0de624"
-            ]
-        ]
-    },
-    {
-        "id": "ac6771f9.1122e",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "rentrer train",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"train\") && msg.payload.includes(\"rentre\")) || ( msg.payload.includes(\"trains\") && msg.payload.includes(\"rentre\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 1180,
-        "wires": [
-            [
-                "5f3eacef.0de624",
-                "cfe2874b.a06678"
-            ]
-        ]
-    },
-    {
-        "id": "162deb8a.f10ec4",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "ouvrir train",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"train\") && msg.payload.includes(\"ouvre\")) || ( msg.payload.includes(\"trains\") && msg.payload.includes(\"ouvre\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 1140,
-        "wires": [
-            [
-                "34e55a19.6bc286",
-                "5f3eacef.0de624"
-            ]
-        ]
-    },
-    {
-        "id": "5802f5c5.38622c",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "rentrer train",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"train\") && msg.payload.includes(\"ferme\")) || ( msg.payload.includes(\"trains\") && msg.payload.includes(\"ferme\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 1220,
-        "wires": [
-            [
-                "5f3eacef.0de624",
-                "cfe2874b.a06678"
-            ]
-        ]
-    },
-    {
-        "id": "34e55a19.6bc286",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 5)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"on les a toujours.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"reposer les patins.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ouverture des trains.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===4)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n    return msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 1100,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
         ]
     },
     {
@@ -703,96 +280,11 @@
         "func": "msg.payload=`n`\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 840,
-        "y": 1180,
+        "x": 900,
+        "y": 580,
         "wires": [
             [
-                "b3934d1.0fb78b"
-            ]
-        ]
-    },
-    {
-        "id": "bb47bd8c.b7be2",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "on y vois rien",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"voit\") && msg.payload.includes(\"rien\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 1320,
-        "wires": [
-            [
-                "a3ea4a36.9df278",
-                "91ab0a42.fe6528"
-            ]
-        ]
-    },
-    {
-        "id": "7e29a9ea.0d2a58",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "un peu de lumiére",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"un peu de lumiére\") )\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 530,
-        "y": 1360,
-        "wires": [
-            [
-                "a3ea4a36.9df278",
-                "91ab0a42.fe6528"
-            ]
-        ]
-    },
-    {
-        "id": "edae9851.942e98",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "allume les phares",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"allume\") && msg.payload.includes(\"spots\")) ||(msg.payload.includes(\"allume\") && msg.payload.includes(\"feux\")) || ( msg.payload.includes(\"allume\") && msg.payload.includes(\"phares\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 530,
-        "y": 1400,
-        "wires": [
-            [
-                "a3ea4a36.9df278",
-                "91ab0a42.fe6528"
-            ]
-        ]
-    },
-    {
-        "id": "38fd8af0.87bbc6",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "étéint les phares",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"éteint\") && msg.payload.includes(\"spots\")) ||(msg.payload.includes(\"éteint\") && msg.payload.includes(\"feux\")) || ( msg.payload.includes(\"éteint\") && msg.payload.includes(\"phares\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 1440,
-        "wires": [
-            [
-                "a3ea4a36.9df278",
-                "6670c0ea.a92ba"
-            ]
-        ]
-    },
-    {
-        "id": "5fb24108.f0464",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "coupeles phares",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"coupe\") && msg.payload.includes(\"spots\")) ||(msg.payload.includes(\"coupe\") && msg.payload.includes(\"feux\")) || ( msg.payload.includes(\"coupe\") && msg.payload.includes(\"phares\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 1480,
-        "wires": [
-            [
-                "a3ea4a36.9df278",
-                "6670c0ea.a92ba"
+                "c8a06bff.2709c8"
             ]
         ]
     },
@@ -804,156 +296,11 @@
         "func": "msg.payload=`l`\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 840,
-        "y": 1340,
+        "x": 900,
+        "y": 720,
         "wires": [
             [
-                "b3934d1.0fb78b"
-            ]
-        ]
-    },
-    {
-        "id": "6670c0ea.a92ba",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 5)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"couple ébat.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ok j'éteint tou.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ne rien voir.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===4)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n    return msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 1420,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "91ab0a42.fe6528",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 5)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ok j'allume tout.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"voire la mort.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"voir montagne.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===4)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n    return msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 1380,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "d1b57116.37b5e",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "éclair la zone",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"éclair \") && msg.payload.includes(\"zone\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 1280,
-        "wires": [
-            [
-                "a3ea4a36.9df278",
-                "91ab0a42.fe6528"
-            ]
-        ]
-    },
-    {
-        "id": "cfe2874b.a06678",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 5)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"on les a ouvert.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"on est repartis.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"fermeture des trains.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===4)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n    return msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 1140,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "1134bd9c.33cf42",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"je n'attendais que vous.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"connecté et dispo.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"je suis la et prete.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"je suis là.mp4\\\"\";\n    }\n\n    return msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 840,
-        "y": 1600,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "4aa27d22.e53ce4",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "es tu là",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"es\") && msg.payload.includes(\"tu\") && msg.payload.includes(\"là\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 500,
-        "y": 1540,
-        "wires": [
-            [
-                "1134bd9c.33cf42"
-            ]
-        ]
-    },
-    {
-        "id": "b97c560e.075488",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "tu m'entends",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"tu m'entends\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 1580,
-        "wires": [
-            [
-                "1134bd9c.33cf42"
-            ]
-        ]
-    },
-    {
-        "id": "82da489a.f606f8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "tu es avec moi",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"tu es avec moi\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 1620,
-        "wires": [
-            [
-                "1134bd9c.33cf42"
-            ]
-        ]
-    },
-    {
-        "id": "1ba889b3.7c3646",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "tu m'entends",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"on se réveille\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 1660,
-        "wires": [
-            [
-                "1134bd9c.33cf42"
+                "d2163591.c4d328"
             ]
         ]
     },
@@ -965,197 +312,11 @@
         "func": "msg.payload=`r`\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 860,
-        "y": 1880,
+        "x": 900,
+        "y": 940,
         "wires": [
             [
                 "b3934d1.0fb78b"
-            ]
-        ]
-    },
-    {
-        "id": "363aea6b.7f5b46",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "démarre les systèmes",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"démarre les systèmes\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 540,
-        "y": 1720,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "26cddf9c.0566b",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "allume le vaisseaux",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"allume le vaisseaux\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 530,
-        "y": 1760,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "7f6c613d.4a811",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "allume le vaisseaux",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"allume l'appareil\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 530,
-        "y": 1800,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "c3fbb05f.0c6be",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "fait chauffer l'appareil",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"fait chauffer l'appareil\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 540,
-        "y": 1840,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "c03b9a8e.0dc088",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "fait chauffer les systèmes",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"fait chauffer les systèmes\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 1880,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "4a70e2f5.ff7dfc",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "fait chauffer le système",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"fait chauffer le système\")))\n    {\n       return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 1920,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "b72bbd67.d948f",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"nouvelle aventure.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ou allons nous.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"d'accord je met en chauffe.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"très bien chauffe system.mp4\\\"\";\n    }\n\n    return msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 880,
-        "y": 1920,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "8434daf1.b28ee8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "met en chauffe l'appareil",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"met en chauffe l'appareil\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 1960,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "6155449d.6b3bfc",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "met en chauffe le vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"met en chauffe le vaisseau\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 560,
-        "y": 2000,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "ec5f1d46.4834c",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "démarre le vaisseaux",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"démarre le vaisseaux\")))\n    {\n         return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 540,
-        "y": 2040,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
-            ]
-        ]
-    },
-    {
-        "id": "4f07cda4.fc0204",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "démarre l' appareil",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"démarre l'appareil\")))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 530,
-        "y": 2080,
-        "wires": [
-            [
-                "84779243.093dd",
-                "b72bbd67.d948f"
             ]
         ]
     },
@@ -1164,7 +325,7 @@
         "type": "function",
         "z": "b66acd7.74f2a3",
         "name": "intialisation variable",
-        "func": "global.set('path_sound',`C:\\\\swan\\\\mpg123\\\\`);\nglobal.set('confiance_gate',0.80);\nglobal.set('swan_active',true);\nglobal.set('spy_scan',false);\nconsole.log(`les sons sont configurés à l'adresse : ${ global.get(\"path_sound\")}`)\nconsole.log(`le seuil d'assurance de reconnaisse est à  : ${ global.get(\"confiance_gate\")}`)",
+        "func": "global.set('path_sound',`C:\\\\swan\\\\sounds\\\\`);\nglobal.set('confiance_gate',0.80);\nglobal.set('swan_active',true);\nglobal.set('spy_scan',false);\nglobal.set('discret',false);\nconsole.log(`les sons sont configurés à l'adresse : ${ global.get(\"path_sound\")}`)\nconsole.log(`le seuil d'assurance de reconnaisse est à  : ${ global.get(\"confiance_gate\")}`)",
         "outputs": 1,
         "noerr": 0,
         "x": 410,
@@ -1186,28 +347,6 @@
         ]
     },
     {
-        "id": "43ef17bf.a4ffa8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "confiance_gate",
-        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 280,
-        "y": 700,
-        "wires": [
-            [],
-            [
-                "cfce5b12.ffe9d8",
-                "95d6d1ed.45dba",
-                "63384ec6.8a1c4",
-                "b1b43d51.a9a12",
-                "152a7776.9ae899",
-                "fdf0ec6c.af087"
-            ]
-        ]
-    },
-    {
         "id": "5b000a8.2d68cf4",
         "type": "function",
         "z": "b66acd7.74f2a3",
@@ -1215,16 +354,12 @@
         "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 280,
-        "y": 980,
+        "x": 360,
+        "y": 460,
         "wires": [
             [],
             [
-                "b484025.8e711",
-                "5ecac7e5.2058c8",
-                "f9ee6cbf.2e5d7",
-                "784b72ab.0fbf9c",
-                "1464e7dd.d8c318"
+                "2138d111.3e568e"
             ]
         ]
     },
@@ -1236,15 +371,13 @@
         "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 280,
-        "y": 1160,
+        "x": 360,
+        "y": 580,
         "wires": [
             [],
             [
-                "7f496d94.5c37c4",
-                "162deb8a.f10ec4",
-                "ac6771f9.1122e",
-                "5802f5c5.38622c"
+                "22232de5.66b6f2",
+                "b843b6ff.dcf998"
             ]
         ]
     },
@@ -1256,8 +389,8 @@
         "active": false,
         "console": "false",
         "complete": "true",
-        "x": 490,
-        "y": 320,
+        "x": 530,
+        "y": 360,
         "wires": []
     },
     {
@@ -1268,8 +401,8 @@
         "active": false,
         "console": "false",
         "complete": "true",
-        "x": 500,
-        "y": 280,
+        "x": 540,
+        "y": 120,
         "wires": []
     },
     {
@@ -1280,17 +413,13 @@
         "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 280,
-        "y": 1380,
+        "x": 360,
+        "y": 720,
         "wires": [
             [],
             [
-                "d1b57116.37b5e",
-                "bb47bd8c.b7be2",
-                "7e29a9ea.0d2a58",
-                "edae9851.942e98",
-                "38fd8af0.87bbc6",
-                "5fb24108.f0464"
+                "94522874.573468",
+                "f81e2770.3a96d8"
             ]
         ]
     },
@@ -1302,15 +431,12 @@
         "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 280,
-        "y": 1600,
+        "x": 360,
+        "y": 860,
         "wires": [
             [],
             [
-                "4aa27d22.e53ce4",
-                "b97c560e.075488",
-                "82da489a.f606f8",
-                "1ba889b3.7c3646"
+                "50d5919.51a547"
             ]
         ]
     },
@@ -1322,21 +448,12 @@
         "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 280,
-        "y": 1880,
+        "x": 360,
+        "y": 960,
         "wires": [
             [],
             [
-                "363aea6b.7f5b46",
-                "26cddf9c.0566b",
-                "7f6c613d.4a811",
-                "c03b9a8e.0dc088",
-                "c3fbb05f.0c6be",
-                "4a70e2f5.ff7dfc",
-                "8434daf1.b28ee8",
-                "6155449d.6b3bfc",
-                "ec5f1d46.4834c",
-                "4f07cda4.fc0204"
+                "16e2c842.a51038"
             ]
         ]
     },
@@ -1348,17 +465,13 @@
         "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 280,
-        "y": 2180,
+        "x": 360,
+        "y": 1060,
         "wires": [
             [],
             [
-                "a458d4ed.d4b818",
-                "1d50dad4.06f0c5",
-                "a0813895.34f108",
-                "8168faa9.5e80b8",
-                "7aaa1d33.66c814",
-                "383f5e91.d3e6b2"
+                "97f99b07.24c188",
+                "39e4cf39.b3eb8"
             ]
         ]
     },
@@ -1370,144 +483,11 @@
         "func": "msg.payload=`F2`\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 870,
-        "y": 2200,
+        "x": 910,
+        "y": 1060,
         "wires": [
             [
-                "b3934d1.0fb78b"
-            ]
-        ]
-    },
-    {
-        "id": "a458d4ed.d4b818",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "affiche la carte / position / starmap",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"affiche moi la carte\") || msg.payload.includes(\"affiche la carte\") || msg.payload.includes(\"affiche moi notre position\") ||msg.payload.includes(\"affiche la position\") || msg.payload.includes(\"affiche la starmap\") || msg.payload.includes(\"affiche moi la starmap\"))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 580,
-        "y": 2140,
-        "wires": [
-            [
-                "bc4a3cb9.3f088",
-                "a3824fe.21c9db"
-            ]
-        ]
-    },
-    {
-        "id": "1d50dad4.06f0c5",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "montre la carte / position / starmap",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"montre moi la carte\") || msg.payload.includes(\"montre la carte\") || msg.payload.includes(\"montre moi notre position\") ||msg.payload.includes(\"montre la position\") || msg.payload.includes(\"montre la starmap\") || msg.payload.includes(\"montre moi la starmap\"))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 580,
-        "y": 2180,
-        "wires": [
-            [
-                "bc4a3cb9.3f088",
-                "a3824fe.21c9db"
-            ]
-        ]
-    },
-    {
-        "id": "a0813895.34f108",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "où on est",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"où on est\") )\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 500,
-        "y": 2300,
-        "wires": [
-            [
-                "bc4a3cb9.3f088",
-                "a3824fe.21c9db"
-            ]
-        ]
-    },
-    {
-        "id": "8168faa9.5e80b8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "prépare l'itinéraire",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"prépare l'itinéraire\") )\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 530,
-        "y": 2340,
-        "wires": [
-            [
-                "bc4a3cb9.3f088",
-                "a3824fe.21c9db"
-            ]
-        ]
-    },
-    {
-        "id": "7aaa1d33.66c814",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "prépare un itinéraire",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"prépare un itinéraire\") )\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 540,
-        "y": 2380,
-        "wires": [
-            [
-                "bc4a3cb9.3f088",
-                "a3824fe.21c9db"
-            ]
-        ]
-    },
-    {
-        "id": "a3824fe.21c9db",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 6)\n  \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ok c'est compris.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"affichage position.mp4\\\"\";\n    }\n        if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n  if(random===4)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"affichage positionouverture starmap.mp4\\\"\";\n    }\n    if(random===5)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"voici la carte.mp4\\\"\";\n    }\n\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 880,
-        "y": 2240,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "de2368c3.b82de8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "mise en someil",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"mise en someil code alpha un cinq neuf cinq\") || msg.payload.includes(\"mise en veille code alpha un cinq neuf cinq\") )\n    {\n        global.set('swan_active',false);\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 200,
-        "wires": [
-            [
-                "5bf70b60.d90b04"
-            ]
-        ]
-    },
-    {
-        "id": "98af96ea.981d38",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "mise en attente",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"mise en attente code delta un sept cinq un\") )\n    {\n        global.set('swan_active',true);\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 160,
-        "wires": [
-            [
-                "5bfc9e28.3b69b"
+                "460721f7.59cf5"
             ]
         ]
     },
@@ -1523,14 +503,15 @@
         "y": 420,
         "wires": [
             [
-                "43ef17bf.a4ffa8",
                 "5b000a8.2d68cf4",
                 "e523c834.a7eb18",
                 "8062ff8b.d5812",
                 "d71b31bb.c22fe",
                 "c6af786d.7d3558",
                 "7f0a503a.4025",
-                "23d00a44.378186"
+                "23d00a44.378186",
+                "9ec619a6.5401a8",
+                "629994d2.7ea81c"
             ]
         ]
     },
@@ -1545,833 +526,20 @@
         "timer": "",
         "oldrc": false,
         "name": "vlc",
-        "x": 930,
-        "y": 180,
+        "x": 1330,
+        "y": 240,
         "wires": [
             [],
             [],
             []
-        ]
-    },
-    {
-        "id": "5bfc9e28.3b69b",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ça marche.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ok c'est compris.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"execution.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 740,
-        "y": 160,
-        "wires": [
-            [
-                "c1948433.e6bbc8"
-            ]
-        ]
-    },
-    {
-        "id": "5bf70b60.d90b04",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"a plus tard.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"youtube ou tiktok.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"veille mal.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"mise en veille.mp4\\\"\";\n    }\n\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 740,
-        "y": 200,
-        "wires": [
-            [
-                "c1948433.e6bbc8"
-            ]
-        ]
-    },
-    {
-        "id": "1c001a30.52e506",
-        "type": "debug",
-        "z": "604b0c0f.642064",
-        "name": "Si faible",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 640,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "e7745a21.7ccab8",
-        "type": "win-sarah",
-        "z": "604b0c0f.642064",
-        "name": "TROOPER",
-        "active": true,
-        "options": "65f33c0b.3eaaa4",
-        "grammar": "",
-        "x": 120,
-        "y": 220,
-        "wires": [
-            [
-                "f72473a4.b623c",
-                "e2d6ed8.34ca21",
-                "e33705f8.2a8b68"
-            ]
-        ]
-    },
-    {
-        "id": "8f35bd84.7e3da",
-        "type": "debug",
-        "z": "604b0c0f.642064",
-        "name": "Si fort",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 630,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "f72473a4.b623c",
-        "type": "debug",
-        "z": "604b0c0f.642064",
-        "name": "scan complet",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 310,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "2ca8a4aa.4604cc",
-        "type": "exec",
-        "z": "604b0c0f.642064",
-        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "vlc",
-        "x": 1010,
-        "y": 360,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "b61b2cdb.7911",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "Filtre pour go + réponse",
-        "func": "if (msg.topic===true)\n{\n    let msg={}\n    msg.topic=true\n    msg.payload= \"\\\"C:\\\\sarah\\\\mpg123\\\\désolé circuit pas connecté.mp4\\\"\";\n    \n    return msg\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 670,
-        "y": 360,
-        "wires": [
-            [
-                "2ca8a4aa.4604cc",
-                "409661b5.0ab3"
-            ]
-        ]
-    },
-    {
-        "id": "409661b5.0ab3",
-        "type": "debug",
-        "z": "604b0c0f.642064",
-        "name": "debug",
-        "active": false,
-        "console": "false",
-        "complete": "payload",
-        "x": 850,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "9e8246d0.805f88",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "Filtre pour go + réponse random",
-        "func": "if (msg.topic===true)\n{\n    let msg={}\n    msg.topic=true\n    let random=Math.floor(Math.random() * 3)\n    if(random===1)\n    {\n         msg.payload= \"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris1.mp4\\\"\";\n    }\n    if(random===0)\n    {\n         msg.payload= \"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris2.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris3.mp4\\\"\";\n    }\n   \n   // let resp1=\"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris1.mp4\\\"\"\n   // let resp2=\"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris2.mp4\\\"\"\n   // let resp3=\"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris3.mp4\\\"\"\n   // let response={resp1,resp2,resp3}\n    \n   \n    //msg2.payload= \"\\\"C:\\\\sarah\\\\mpg123\\\\pas compris1.mp4\\\"\";\n    return msg\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 710,
-        "y": 220,
-        "wires": [
-            [
-                "120e4214.71914e"
-            ]
-        ]
-    },
-    {
-        "id": "8005c6bc.a31818",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "Clavier P",
-        "func": "msg.payload=`p`\n\nreturn msg\n",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 920,
-        "y": 520,
-        "wires": [
-            [
-                "cb91ef37.a73f5"
-            ]
-        ]
-    },
-    {
-        "id": "3c24a3b.87c815c",
-        "type": "comment",
-        "z": "604b0c0f.642064",
-        "name": "Step 1_Trieur de confiance",
-        "info": "Dans cette partie, on régle un niveau de confiance.\nPlus il est élevé, plus le risque de refus et grand\n",
-        "x": 130,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "c527968d.fb9038",
-        "type": "comment",
-        "z": "604b0c0f.642064",
-        "name": "Step 2_Gestionnaire de scénario",
-        "info": "Ici nous avons le réparteur de scénario\n\n",
-        "x": 150,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "a1742ecf.81ae4",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "ouvrir porte du vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"porte\") && msg.payload.includes(\"ouvre\")) || ( msg.payload.includes(\"portes\") && msg.payload.includes(\"ouvre\")))\n    {\n        msg.topic=\"porte\"\n        msg.payload=\"ouverture porte\"\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 670,
-        "y": 480,
-        "wires": [
-            [
-                "8005c6bc.a31818",
-                "74f0eae.a657514"
-            ]
-        ]
-    },
-    {
-        "id": "afab9598.409408",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "Clavier P",
-        "func": "msg.payload=`p`\n\nreturn msg",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 920,
-        "y": 660,
-        "wires": [
-            [
-                "cb91ef37.a73f5"
-            ]
-        ]
-    },
-    {
-        "id": "b2974778.df5f78",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "fermer porte du vaisseau",
-        "func": "if (msg.topic===true){\n    if((msg.payload.includes(\"porte\") && msg.payload.includes(\"ferme\")) || ( msg.payload.includes(\"portes\") && msg.payload.includes(\"ferme\")))\n    {\n        msg.topic=\"porte\"\n        msg.payload=\"fermeture porte\"\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 670,
-        "y": 620,
-        "wires": [
-            [
-                "afab9598.409408",
-                "9d8e60a3.04404"
-            ]
-        ]
-    },
-    {
-        "id": "a958c769.1edd98",
-        "type": "exec",
-        "z": "604b0c0f.642064",
-        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "vlc",
-        "x": 1530,
-        "y": 700,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "120e4214.71914e",
-        "type": "exec",
-        "z": "604b0c0f.642064",
-        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop ",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "vlc",
-        "x": 1010,
-        "y": 220,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "1922f145.cf302f",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "ouvrir sasse du vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"sasse\") && msg.payload.includes(\"ouvre\")) || ( msg.payload.includes(\"sasses\") && msg.payload.includes(\"ouvre\")))\n    {\n        msg.topic=\"porte\"\n        msg.payload=\"ouverture porte\"\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 670,
-        "y": 520,
-        "wires": [
-            [
-                "8005c6bc.a31818",
-                "74f0eae.a657514"
-            ]
-        ]
-    },
-    {
-        "id": "bcdf3f70.2a341",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "fermer sasse du vaisseau",
-        "func": "if (msg.topic===true){\n    if((msg.payload.includes(\"sasse\") && msg.payload.includes(\"ferme\")) || ( msg.payload.includes(\"sasses\") && msg.payload.includes(\"ferme\")))\n    {\n        msg.topic=\"porte\"\n        msg.payload=\"fermeture porte\"\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 670,
-        "y": 660,
-        "wires": [
-            [
-                "afab9598.409408",
-                "9d8e60a3.04404"
-            ]
-        ]
-    },
-    {
-        "id": "6ccf6592.f9236c",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "ouvrir soute du vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"soute\") && msg.payload.includes(\"ouvre\")) || ( msg.payload.includes(\"soutes\") && msg.payload.includes(\"ouvre\")))\n    {\n        msg.topic=\"porte\"\n        msg.payload=\"ouverture porte\"\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 670,
-        "y": 560,
-        "wires": [
-            [
-                "8005c6bc.a31818",
-                "74f0eae.a657514"
-            ]
-        ]
-    },
-    {
-        "id": "4b6d9537.afe21c",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "fermer soute du vaisseau",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"soute\") && msg.payload.includes(\"ferme\")) || ( msg.payload.includes(\"ferme\") && msg.payload.includes(\"ouvre\")))\n    {\n        msg.topic=\"porte\"\n        msg.payload=\"ouverture porte\"\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 670,
-        "y": 700,
-        "wires": [
-            [
-                "afab9598.409408",
-                "9d8e60a3.04404"
-            ]
-        ]
-    },
-    {
-        "id": "79ba16bc.b83198",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "Clavier F11",
-        "func": "msg.payload=`F11`\n\nreturn msg",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 930,
-        "y": 840,
-        "wires": [
-            [
-                "cb91ef37.a73f5"
-            ]
-        ]
-    },
-    {
-        "id": "ca20b5f2.243d58",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "appel le pad",
-        "func": "if (msg.topic===true){\n    if((msg.payload.includes(\"appel\") && msg.payload.includes(\"pad\")) || ( msg.payload.includes(\"appel\") && msg.payload.includes(\"hangar\")) || ( msg.payload.includes(\"appel\") && msg.payload.includes(\"base\")) || ( msg.payload.includes(\"appel\") && msg.payload.includes(\"station\")))\n    {\n        msg.topic=\"hangar\"\n        msg.payload=\"appel le hangar\"\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 630,
-        "y": 780,
-        "wires": [
-            [
-                "79ba16bc.b83198",
-                "9a081a53.8bb9a8"
-            ]
-        ]
-    },
-    {
-        "id": "9a081a53.8bb9a8",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "réponse random",
-        "func": "msg.topic=true\n    let random=Math.floor(Math.random() * 5)\n    \n    if(random===0)\n    {\n         msg.payload=\"\\\"\"+global.set('path_sound')+\"ok je les appels.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload=\"\\\"\"+global.set('path_sound')+\"d'accord.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload=\"\\\"\"+global.set('path_sound')+\"ça marche.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload=\"\\\"\"+global.set('path_sound')+\"c'est compris.mp4\\\"\";\n    }\n    if(random===4)\n    {\n         msg.payload=\"\\\"\"+global.set('path_sound')+\"pas de soucis.mp4\\\"\";\n    }\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 940,
-        "y": 760,
-        "wires": [
-            [
-                "a958c769.1edd98"
-            ]
-        ]
-    },
-    {
-        "id": "cb91ef37.a73f5",
-        "type": "exec",
-        "z": "604b0c0f.642064",
-        "command": "\"C:\\\\Users\\\\maxen\\\\Desktop\\\\sarah\\\\Raccourci clavier.ahk\"",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "lancement autohotkey",
-        "x": 1580,
-        "y": 760,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "74f0eae.a657514",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "réponse random",
-        "func": "    msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n    \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"d'accord.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"ça marche.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"c'est compris.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"pas de soucis.mp4\\\"\";\n    }\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 940,
-        "y": 480,
-        "wires": [
-            [
-                "a958c769.1edd98"
-            ]
-        ]
-    },
-    {
-        "id": "9d8e60a3.04404",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "réponse random",
-        "func": "    msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n    \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"d'accord.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"ça marche.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"c'est compris.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"pas de soucis.mp4\\\"\";\n    }\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 940,
-        "y": 620,
-        "wires": [
-            [
-                "a958c769.1edd98"
-            ]
-        ]
-    },
-    {
-        "id": "1bd1c903.0602c7",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "Sortir train",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"train\") && msg.payload.includes(\"sort\")) || ( msg.payload.includes(\"trains\") && msg.payload.includes(\"sort\")))\n    {\n        msg.topic=\"train\"\n        msg.payload=\"sort train\"\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 630,
-        "y": 900,
-        "wires": [
-            [
-                "17c44e5b.128082",
-                "9367d6e0.59d8b8"
-            ]
-        ]
-    },
-    {
-        "id": "ec807cd5.d2ac3",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "rentrer train",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"train\") && msg.payload.includes(\"rentre\")) || ( msg.payload.includes(\"trains\") && msg.payload.includes(\"rentre\")))\n    {\n        msg.topic=\"train\"\n        msg.payload=\"rentre train\"\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 630,
-        "y": 980,
-        "wires": [
-            [
-                "17c44e5b.128082",
-                "eb5546bc.71ca98"
-            ]
-        ]
-    },
-    {
-        "id": "986eacde.e6568",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "ouvrir train",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"train\") && msg.payload.includes(\"ouvre\")) || ( msg.payload.includes(\"trains\") && msg.payload.includes(\"ouvre\")))\n    {\n        msg.topic=\"train\"\n        msg.payload=\"ouvre train\"\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 630,
-        "y": 940,
-        "wires": [
-            [
-                "17c44e5b.128082",
-                "9367d6e0.59d8b8"
-            ]
-        ]
-    },
-    {
-        "id": "a2bfddac.ffb",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "rentrer train",
-        "func": "if (msg.topic===true){\n     if((msg.payload.includes(\"train\") && msg.payload.includes(\"ferme\")) || ( msg.payload.includes(\"trains\") && msg.payload.includes(\"ferme\")))\n    {\n        msg.topic=\"train\"\n        msg.payload=\"ferme train\"\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 630,
-        "y": 1020,
-        "wires": [
-            [
-                "17c44e5b.128082",
-                "eb5546bc.71ca98"
-            ]
-        ]
-    },
-    {
-        "id": "17c44e5b.128082",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "Clavier N",
-        "func": "msg.payload=`n`\n\nreturn msg",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 920,
-        "y": 980,
-        "wires": [
-            [
-                "cb91ef37.a73f5"
-            ]
-        ]
-    },
-    {
-        "id": "eb5546bc.71ca98",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "réponse random rentrer",
-        "func": "    msg.topic=true\n    let random=Math.floor(Math.random() * 5)\n    \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"d'accord.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"ça marche.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"c'est compris.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"pas de soucis.mp4\\\"\";\n    }\n    if(random===4)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"je rentre les roulettes.mp4\\\"\";\n    }\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 970,
-        "y": 940,
-        "wires": [
-            [
-                "a958c769.1edd98"
-            ]
-        ]
-    },
-    {
-        "id": "9367d6e0.59d8b8",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "réponse random sortir",
-        "func": "    msg.topic=true\n    let random=Math.floor(Math.random() * 5)\n    \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"d'accord.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"ça marche.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"c'est compris.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"pas de soucis.mp4\\\"\";\n    }\n    if(random===4)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"et on sors les roulettes.mp4\\\"\";\n    }\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 960,
-        "y": 900,
-        "wires": [
-            [
-                "a958c769.1edd98"
-            ]
-        ]
-    },
-    {
-        "id": "e1edb75e.f28258",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "autorisation décolage",
-        "func": "if (msg.topic===true){\n    if(( msg.payload.includes(\"autorisation\") && msg.payload.includes(\"décollage\")) || ( msg.payload.includes(\"autorisation\") && msg.payload.includes(\"décoller\")))\n    {\n        msg.topic=\"décolage\"\n        msg.payload=\"autorisation décolage\"\n        return msg;\n    }\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 660,
-        "y": 820,
-        "wires": [
-            [
-                "79ba16bc.b83198",
-                "2ac56898.a62678"
-            ]
-        ]
-    },
-    {
-        "id": "2ac56898.a62678",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "réponse random",
-        "func": "    msg.topic=true\n    let random=Math.floor(Math.random() * 1)\n    \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.set('path_sound')+\"ok je demande l'autorisation.mp4\\\"\";\n    }\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 940,
-        "y": 800,
-        "wires": [
-            [
-                "a958c769.1edd98"
-            ]
-        ]
-    },
-    {
-        "id": "68e74f48.3702d",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "intialisation variable",
-        "func": "global.set('path_sound',`C:\\\\swan\\\\mpg123\\\\`);\nglobal.set('confiance_gate',0.80);\nglobal.set('swan_active',true);\nconsole.log(`les sons sont configurés à l'adresse : ${ global.get(\"path_sound\")}`)\nconsole.log(`le seuil d'assurance de reconnaisse est à  : ${ global.get(\"confiance_gate\")}`)",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 430,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c474d90c.e94ac8",
-        "type": "start-up-trigger",
-        "z": "604b0c0f.642064",
-        "x": 120,
-        "y": 60,
-        "wires": [
-            [
-                "68e74f48.3702d"
-            ]
-        ]
-    },
-    {
-        "id": "27fd03b8.f7b7bc",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "confiance_gate",
-        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 320,
-        "y": 480,
-        "wires": [
-            [],
-            [
-                "a1742ecf.81ae4",
-                "1922f145.cf302f",
-                "6ccf6592.f9236c"
-            ]
-        ]
-    },
-    {
-        "id": "80609f30.b77a9",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "confiance_gate",
-        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 320,
-        "y": 640,
-        "wires": [
-            [],
-            [
-                "b2974778.df5f78",
-                "bcdf3f70.2a341",
-                "4b6d9537.afe21c"
-            ]
-        ]
-    },
-    {
-        "id": "589f3036.61da8",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "confiance_gate",
-        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 320,
-        "y": 780,
-        "wires": [
-            [],
-            [
-                "ca20b5f2.243d58",
-                "e1edb75e.f28258"
-            ]
-        ]
-    },
-    {
-        "id": "3b1cc544.06f91a",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "confiance_gate",
-        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 320,
-        "y": 960,
-        "wires": [
-            [],
-            [
-                "1bd1c903.0602c7",
-                "986eacde.e6568",
-                "ec807cd5.d2ac3",
-                "a2bfddac.ffb"
-            ]
-        ]
-    },
-    {
-        "id": "d1e987a8.d127b8",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "mise en someil",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"mise en someil code alpha un cinq neuf cinq\") || msg.payload.includes(\"mise en veille code alpha un cinq neuf cinq\") )\n    {\n        global.set('swan_active',false);\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 664,
-        "y": 107,
-        "wires": [
-            [
-                "dab1fb69.d26f58"
-            ]
-        ]
-    },
-    {
-        "id": "2f6b713d.d045ee",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "mise en attente",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"mise en attente code delta un sept cinq un\") )\n    {\n        global.set('swan_active',true);\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 664,
-        "y": 147,
-        "wires": [
-            [
-                "bf3ddc82.5967b"
-            ]
-        ]
-    },
-    {
-        "id": "d15a805f.deb88",
-        "type": "exec",
-        "z": "604b0c0f.642064",
-        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "vlc",
-        "x": 1114,
-        "y": 147,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "bf3ddc82.5967b",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ça marche.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"ok c'est compris.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"execution.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 904,
-        "y": 147,
-        "wires": [
-            [
-                "d15a805f.deb88"
-            ]
-        ]
-    },
-    {
-        "id": "dab1fb69.d26f58",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"a plus tard.mp4\\\"\";\n    }\n    if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"youtube ou tiktok.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"veille mal.mp4\\\"\";\n    }\n    if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"mise en veille.mp4\\\"\";\n    }\n\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 904,
-        "y": 107,
-        "wires": [
-            [
-                "d15a805f.deb88"
-            ]
-        ]
-    },
-    {
-        "id": "e2d6ed8.34ca21",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "confiance_gate",
-        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 360,
-        "y": 340,
-        "wires": [
-            [],
-            [
-                "d1e987a8.d127b8",
-                "2f6b713d.d045ee"
-            ]
-        ]
-    },
-    {
-        "id": "e33705f8.2a8b68",
-        "type": "function",
-        "z": "604b0c0f.642064",
-        "name": "sommeil / attente",
-        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 150,
-        "y": 540,
-        "wires": [
-            [
-                "27fd03b8.f7b7bc",
-                "80609f30.b77a9",
-                "589f3036.61da8",
-                "3b1cc544.06f91a"
-            ]
         ]
     },
     {
         "id": "a99da21f.41866",
         "type": "start-up-trigger",
         "z": "b66acd7.74f2a3",
-        "x": 280,
-        "y": 2620,
+        "x": 360,
+        "y": 1320,
         "wires": [
             [
                 "6827eb5c.49e3c4"
@@ -2391,8 +559,8 @@
         "units": "s",
         "reset": "",
         "name": "",
-        "x": 520,
-        "y": 2620,
+        "x": 600,
+        "y": 1320,
         "wires": [
             [
                 "11e523a1.ac2f1c"
@@ -2407,8 +575,8 @@
         "func": "if(global.get('spy_scan') === true)\n{\n    return msg\n}",
         "outputs": 1,
         "noerr": 0,
-        "x": 720,
-        "y": 2620,
+        "x": 800,
+        "y": 1320,
         "wires": [
             [
                 "71db5810.c17cb8",
@@ -2424,18 +592,8 @@
         "active": true,
         "console": "false",
         "complete": "payload",
-        "x": 890,
-        "y": 2620,
-        "wires": []
-    },
-    {
-        "id": "fa893bdc.abc608",
-        "type": "comment",
-        "z": "b66acd7.74f2a3",
-        "name": "Porte vaisseau",
-        "info": "\n\n",
-        "x": 80,
-        "y": 700,
+        "x": 970,
+        "y": 1320,
         "wires": []
     },
     {
@@ -2444,8 +602,8 @@
         "z": "b66acd7.74f2a3",
         "name": "appel station",
         "info": "\n\n",
-        "x": 70,
-        "y": 980,
+        "x": 350,
+        "y": 420,
         "wires": []
     },
     {
@@ -2454,8 +612,8 @@
         "z": "b66acd7.74f2a3",
         "name": "train",
         "info": "\n\n",
-        "x": 50,
-        "y": 1160,
+        "x": 330,
+        "y": 540,
         "wires": []
     },
     {
@@ -2464,8 +622,8 @@
         "z": "b66acd7.74f2a3",
         "name": "phare",
         "info": "\n\n",
-        "x": 50,
-        "y": 1380,
+        "x": 330,
+        "y": 680,
         "wires": []
     },
     {
@@ -2474,8 +632,8 @@
         "z": "b66acd7.74f2a3",
         "name": "en ligne",
         "info": "\n\n",
-        "x": 55,
-        "y": 1602.857177734375,
+        "x": 330,
+        "y": 820,
         "wires": []
     },
     {
@@ -2484,8 +642,8 @@
         "z": "b66acd7.74f2a3",
         "name": "démarrage vaisseau",
         "info": "\n\n",
-        "x": 90,
-        "y": 1880,
+        "x": 370,
+        "y": 920,
         "wires": []
     },
     {
@@ -2494,26 +652,9 @@
         "z": "b66acd7.74f2a3",
         "name": "starmap",
         "info": "\n\n",
-        "x": 60,
-        "y": 2220,
+        "x": 340,
+        "y": 1020,
         "wires": []
-    },
-    {
-        "id": "383f5e91.d3e6b2",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "ouvre la carte / position / starmap",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"ouvre moi la carte\") ||  msg.payload.includes(\"ouvre moi notre position\") ||msg.payload.includes(\"ouvre la position\") || msg.payload.includes(\"ouvre la starmap\") || msg.payload.includes(\"ouvre moi la starmap\"))\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 580,
-        "y": 2220,
-        "wires": [
-            [
-                "bc4a3cb9.3f088",
-                "a3824fe.21c9db"
-            ]
-        ]
     },
     {
         "id": "23d00a44.378186",
@@ -2523,65 +664,13 @@
         "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 280,
-        "y": 2480,
+        "x": 360,
+        "y": 1200,
         "wires": [
             [],
             [
-                "62b1987a.e4b4b8",
-                "406a03dd.d06e5c",
-                "ad29e320.37a9a",
-                "a4163b32.d55088"
-            ]
-        ]
-    },
-    {
-        "id": "62b1987a.e4b4b8",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "Balaye la zone",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"Balaye la zone\") )\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 2440,
-        "wires": [
-            [
-                "c80aea08.6d0d58",
-                "99c5ef5d.fdd3c"
-            ]
-        ]
-    },
-    {
-        "id": "406a03dd.d06e5c",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "passe en balayage actif",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"passe en balayage actif\") )\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 2480,
-        "wires": [
-            [
-                "c80aea08.6d0d58"
-            ]
-        ]
-    },
-    {
-        "id": "ad29e320.37a9a",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "coupe le balayage",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"coupe le balayage\") )\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 530,
-        "y": 2560,
-        "wires": [
-            [
-                "f26957c9.4d4b48",
-                "3badfb38.a14444"
+                "c42194a3.4db048",
+                "9aa7a9e2.3b9e38"
             ]
         ]
     },
@@ -2593,8 +682,8 @@
         "func": "global.set('spy_scan',false);",
         "outputs": 1,
         "noerr": 0,
-        "x": 890,
-        "y": 2520,
+        "x": 970,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -2607,8 +696,8 @@
         "func": "global.set('spy_scan',true);",
         "outputs": 1,
         "noerr": 0,
-        "x": 890,
-        "y": 2440,
+        "x": 970,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -2621,60 +710,11 @@
         "func": "msg.payload=`TAB`\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 910,
-        "y": 2660,
+        "x": 990,
+        "y": 1360,
         "wires": [
             [
-                "b3934d1.0fb78b"
-            ]
-        ]
-    },
-    {
-        "id": "99c5ef5d.fdd3c",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 4)\n  \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"activation balayage.mp4\\\"\";\n    }\n    if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"mise en route balayage.mp4\\\"\";\n    }\n        if(random===3)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n\n\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 880,
-        "y": 2480,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "3badfb38.a14444",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "réponse random",
-        "func": " msg.topic=true\n    let random=Math.floor(Math.random() * 3)\n  \n    if(random===0)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"coupure balyage\\\"\";\n    }\n  if(random===1)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"pas de soucis.mp4\\\"\";\n    }\n  if(random===2)\n    {\n         msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"daccord.mp4\\\"\";\n    }\n \n\n    return msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 880,
-        "y": 2560,
-        "wires": [
-            [
-                "c30e7c41.d78fb"
-            ]
-        ]
-    },
-    {
-        "id": "a4163b32.d55088",
-        "type": "function",
-        "z": "b66acd7.74f2a3",
-        "name": "scan la zone",
-        "func": "if (msg.topic===true){\n     if(msg.payload.includes(\"scan la zone\") )\n    {\n        return msg;\n    }   \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 2520,
-        "wires": [
-            [
-                "c80aea08.6d0d58",
-                "99c5ef5d.fdd3c"
+                "d336e636.ff7478"
             ]
         ]
     },
@@ -2684,39 +724,1113 @@
         "z": "b66acd7.74f2a3",
         "name": "scan",
         "info": "\n\n",
-        "x": 50,
-        "y": 2460,
+        "x": 330,
+        "y": 1160,
         "wires": []
     },
     {
-        "id": "767105c6.c95b1c",
-        "type": "inject",
+        "id": "501a9084.c7787",
+        "type": "file",
         "z": "b66acd7.74f2a3",
         "name": "",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 770,
-        "y": 2080,
+        "filename": "c:\\swan\\log_confiance.txt",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "x": 590,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7148a91d.ef9b48",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "pour les logs",
+        "func": "let date_ob = new Date();\n\n// current date\n// adjust 0 before single digit date\nlet date = (\"0\" + date_ob.getDate()).slice(-2);\n\n// current month\nlet month = (\"0\" + (date_ob.getMonth() + 1)).slice(-2);\n\n// current year\nlet year = date_ob.getFullYear();\n\n// current hours\nlet hours = date_ob.getHours();\n\n// current minutes\nlet minutes = date_ob.getMinutes();\n\n// current seconds\nlet seconds = date_ob.getSeconds();\n\nmsg.payload=year + \"-\" + month + \"-\" + date + \" \" + hours + \":\" + minutes + \":\" + seconds+\"    \"+msg.payload.confidence+\"    \"+msg.payload.text;\nreturn msg\n\n\n\n/*\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}*/\n\n\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 330,
+        "y": 160,
         "wires": [
             [
-                "b72bbd67.d948f"
+                "501a9084.c7787"
             ]
         ]
     },
     {
-        "id": "eff2dc49.1cfd",
+        "id": "6921498.5c791b8",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier $",
+        "func": "msg.payload=`$`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 1480,
+        "wires": [
+            [
+                "efcdfb6.20ccd08"
+            ]
+        ]
+    },
+    {
+        "id": "9ec619a6.5401a8",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 1440,
+        "wires": [
+            [],
+            [
+                "4f016f81.955fe",
+                "c4719d52.28f68"
+            ]
+        ]
+    },
+    {
+        "id": "efcdfb6.20ccd08",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 1440,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3666514d.83582e",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 1500,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "94640d5a.68dbb",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"ouverture des portes\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1440,
+        "wires": [
+            [
+                "3666514d.83582e"
+            ]
+        ]
+    },
+    {
+        "id": "79cb86f6.54f288",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "Porte vaisseau",
+        "info": "\n\n",
+        "x": 360,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "49944fd.0150ab",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"ok je les contacts\")\nsound_effect.push(\"ok c'est compris\")\nsound_effect.push(\"execution\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"pas de soucis\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 520,
+        "wires": [
+            [
+                "8912f0df.ebdb9"
+            ]
+        ]
+    },
+    {
+        "id": "8912f0df.ebdb9",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 520,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ddce9d3a.83f45",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 460,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c8a06bff.2709c8",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 580,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "49a64f07.1b5dd",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 640,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8f498681.181068",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"on les a ouvert\")\nsound_effect.push(\"on est repartis\")\nsound_effect.push(\"fermeture des trains\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"pas de soucis\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 660,
+        "wires": [
+            [
+                "49a64f07.1b5dd"
+            ]
+        ]
+    },
+    {
+        "id": "37c53eaf.fd07e2",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"on les a toujours\")\nsound_effect.push(\"reposer les patins\")\nsound_effect.push(\"ouverture des trains\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"pas de soucis\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 620,
+        "wires": [
+            [
+                "49a64f07.1b5dd"
+            ]
+        ]
+    },
+    {
+        "id": "5ca65c60.093064",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"ok j'allume tout\")\nsound_effect.push(\"voire la mort\")\nsound_effect.push(\"voir montagne\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"pas de soucis\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 760,
+        "wires": [
+            [
+                "ca430cbc.92834"
+            ]
+        ]
+    },
+    {
+        "id": "467b1001.aaf0e",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"couple ébat\")\nsound_effect.push(\"ok j'éteint tou\")\nsound_effect.push(\"ne rien voir\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"pas de soucis\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 800,
+        "wires": [
+            [
+                "ca430cbc.92834"
+            ]
+        ]
+    },
+    {
+        "id": "d2163591.c4d328",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 720,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ca430cbc.92834",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 780,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a9f45782.f6e668",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"je n'attendais que vous\")\nsound_effect.push(\"connecté et dispo\")\nsound_effect.push(\"je suis la et prete\")\nsound_effect.push(\"je suis là\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 860,
+        "wires": [
+            [
+                "b068d650.d6dbd8"
+            ]
+        ]
+    },
+    {
+        "id": "b068d650.d6dbd8",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 860,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7054d44f.818afc",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"nouvelle aventure\")\nsound_effect.push(\"ou allons nous\")\nsound_effect.push(\"d'accord je met en chauffe\")\nsound_effect.push(\"très bien chauffe system\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 980,
+        "wires": [
+            [
+                "c30e7c41.d78fb"
+            ]
+        ]
+    },
+    {
+        "id": "419d8165.8dc63",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"affichage position\")\nsound_effect.push(\"affichage positionouverture starmap\")\nsound_effect.push(\"voici la carte\")\nsound_effect.push(\"pas de soucis\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"ok c'est compris\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 1120,
+        "wires": [
+            [
+                "ca7a7cef.9b88b"
+            ]
+        ]
+    },
+    {
+        "id": "ca7a7cef.9b88b",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 1120,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "460721f7.59cf5",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 1060,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4b740626.5bd278",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"activation balayage\")\nsound_effect.push(\"mise en route balayage\")\nsound_effect.push(\"pas de soucis\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"ok c'est compris\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1240,
+        "wires": [
+            [
+                "c0815b16.49ce28"
+            ]
+        ]
+    },
+    {
+        "id": "c0815b16.49ce28",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 1240,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d336e636.ff7478",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 1360,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "278255bc.85659a",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect bip",
+        "func": "msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 940,
+        "y": 240,
+        "wires": [
+            [
+                "c1948433.e6bbc8"
+            ]
+        ]
+    },
+    {
+        "id": "2426945c.782b3c",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "activation mod discret (sf)",
+        "func": "let search=[]\nsearch.push('Passe en mod discret')\nsearch.push('active le mod discret')\nsearch.push('Met toi en mod discret')\nsearch.push('activation du mod discret')\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('discret',true);\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "278255bc.85659a"
+            ]
+        ]
+    },
+    {
+        "id": "4992daa8.ce4cd4",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "mise en someil/veille (sf)",
+        "func": "let search=[]\nsearch.push('met toi en sommeil')\nsearch.push('met toi en veille')\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('swan_active',false);\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 320,
+        "wires": [
+            [
+                "278255bc.85659a"
+            ]
+        ]
+    },
+    {
+        "id": "74020766.bb2d28",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "désactivation mod discret (sf)",
+        "func": "let search=[]\nsearch.push('repasse en mod normale')\nsearch.push('Sort du mod discret')\nsearch.push('désactivation du mod discret')\nsearch.push('coupe le mod discret')\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('discret',false);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 240,
+        "wires": [
+            [
+                "278255bc.85659a"
+            ]
+        ]
+    },
+    {
+        "id": "522ef241.663c2c",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "remise en attente (sf)",
+        "func": "let search=[]\nsearch.push('remet toi en écoute')\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('swan_active',true);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "278255bc.85659a",
+                "c4d0d9c4.f3e188"
+            ]
+        ]
+    },
+    {
+        "id": "2138d111.3e568e",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "appelle station/base/pad/hangar",
+        "func": "let search=[]\nsearch.push('appel la station')\nsearch.push('appel la base')\nsearch.push('ouvre le hangar')\nsearch.push('appel le hangar')\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650,
+        "y": 460,
+        "wires": [
+            [
+                "c906628b.62438",
+                "49944fd.0150ab"
+            ]
+        ]
+    },
+    {
+        "id": "22232de5.66b6f2",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Sortir le train",
+        "func": "let search=[]\nsearch.push(\"sort le train d'attérissage\")\nsearch.push(\"sort les trains d'attérissage\")\nsearch.push(\"sort les trains\")\nsearch.push(\"sort le train\")\nsearch.push(\"ouvre le train d'attérissage\")\nsearch.push(\"ouvre les trains d'attérissage\")\nsearch.push(\"ouvre les trains\")\nsearch.push(\"ouvre le train\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 580,
+        "wires": [
+            [
+                "5f3eacef.0de624",
+                "37c53eaf.fd07e2"
+            ]
+        ]
+    },
+    {
+        "id": "b843b6ff.dcf998",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "ferme le train",
+        "func": "let search=[]\nsearch.push(\"ferme le train d'attérissage\")\nsearch.push(\"ferme les trains d'attérissage\")\nsearch.push(\"ferme les trains\")\nsearch.push(\"ferme le train\")\nsearch.push(\"rentre le train d'attérissage\")\nsearch.push(\"rentre les trains d'attérissage\")\nsearch.push(\"rentre les trains\")\nsearch.push(\"rentre le train\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 620,
+        "wires": [
+            [
+                "8f498681.181068",
+                "5f3eacef.0de624"
+            ]
+        ]
+    },
+    {
+        "id": "94522874.573468",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "allumage feu",
+        "func": "let search=[]\nsearch.push(\"on y voit rien\")\nsearch.push(\"un peu de lumiére\")\nsearch.push(\"allume les phares\")\nsearch.push(\"allume les feux\")\nsearch.push(\"allumes les spots\")\nsearch.push(\"éclair la zone\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 760,
+        "wires": [
+            [
+                "a3ea4a36.9df278",
+                "5ca65c60.093064"
+            ]
+        ]
+    },
+    {
+        "id": "f81e2770.3a96d8",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "extinction feu",
+        "func": "let search=[]\nsearch.push(\"éteint les phares\")\nsearch.push(\"éteint les feux\")\nsearch.push(\"éteint les spots\")\nsearch.push(\"coupe les phares\")\nsearch.push(\"coupe les feux\")\nsearch.push(\"coupe les spots\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 720,
+        "wires": [
+            [
+                "467b1001.aaf0e",
+                "a3ea4a36.9df278"
+            ]
+        ]
+    },
+    {
+        "id": "50d5919.51a547",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "test de swan",
+        "func": "let search=[]\nsearch.push(\"es tu là\")\nsearch.push(\"tu es là\")\nsearch.push(\"tu m'entends\")\nsearch.push(\"tu es avec moi\")\nsearch.push(\"on se réveille\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 860,
+        "wires": [
+            [
+                "a9f45782.f6e668"
+            ]
+        ]
+    },
+    {
+        "id": "16e2c842.a51038",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "ready to fly",
+        "func": "let search=[]\nsearch.push(\"démarre les systèmes\")\nsearch.push(\"démarre le vaisseaux\")\nsearch.push(\"démarre l'appareil\")\nsearch.push(\"allume le vaisseaux\")\nsearch.push(\"allume l'appareil\")\nsearch.push(\"met en chauffe l'appareil\")\nsearch.push(\"met en chauffe le vaisseau\")\nsearch.push(\"fait chauffer l'appareil\")\nsearch.push(\"fait chauffer les systèmes\")\nsearch.push(\"fait chauffer le système\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 960,
+        "wires": [
+            [
+                "84779243.093dd",
+                "7054d44f.818afc"
+            ]
+        ]
+    },
+    {
+        "id": "97f99b07.24c188",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "ouverture starmap",
+        "func": "let search=[]\n\nsearch.push(\"affiche la carte\")\nsearch.push(\"affiche la position\")\nsearch.push(\"affiche la starmap\")\nsearch.push(\"affiche moi la carte\")\nsearch.push(\"affiche moi notre position\")\nsearch.push(\"affiche moi la starmap\")\nsearch.push(\"ouvre la carte\")\nsearch.push(\"ouvre la starmap\")\nsearch.push(\"ouvre moi la carte\")\nsearch.push(\"ouvre moi la starmap\")\nsearch.push(\"montre la carte\")\nsearch.push(\"montre la starmap\")\nsearch.push(\"montre moi la carte\")\nsearch.push(\"montre moi notre position\")\nsearch.push(\"montre moi la starmap\")\nsearch.push(\"prépare l'itinéraire\")\nsearch.push(\"prépare un itinéraire\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 1060,
+        "wires": [
+            [
+                "bc4a3cb9.3f088",
+                "419d8165.8dc63"
+            ]
+        ]
+    },
+    {
+        "id": "39e4cf39.b3eb8",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "fermeture starmap",
+        "func": "let search=[]\n\nsearch.push(\"ferme la carte\")\nsearch.push(\"ferme la starmap\")\nsearch.push(\"ferme moi la carte\")\nsearch.push(\"ferme moi la starmap\")\nsearch.push(\"coupe la starmap\")\nsearch.push(\"coupe la map\")\nsearch.push(\"coupe moi la starmap\")\nsearch.push(\"coupe moi la map\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 1120,
+        "wires": [
+            [
+                "bc4a3cb9.3f088",
+                "419d8165.8dc63"
+            ]
+        ]
+    },
+    {
+        "id": "c42194a3.4db048",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "lancement balayage zone",
+        "func": "let search=[]\n\nsearch.push(\"active balayage\")\nsearch.push(\"scan la zone\")\nsearch.push(\"Balaye la zone\")\nsearch.push(\"passe en balayage actif\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 1220,
+        "wires": [
+            [
+                "c80aea08.6d0d58",
+                "4b740626.5bd278"
+            ]
+        ]
+    },
+    {
+        "id": "9aa7a9e2.3b9e38",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Coupure balayage zone",
+        "func": "let search=[]\n\nsearch.push(\"coupe le balayage\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 1260,
+        "wires": [
+            [
+                "4b740626.5bd278",
+                "f26957c9.4d4b48"
+            ]
+        ]
+    },
+    {
+        "id": "4f016f81.955fe",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "ouverture des portes",
+        "func": "let search=[]\n\nsearch.push(\"ouvre la porte\")\nsearch.push(\"ouvre les portes\")\nsearch.push(\"ouvre le sasse\")\nsearch.push(\"ouvre les sasse\")\nsearch.push(\"ouvre la soute\")\nsearch.push(\"ouvre les soutes\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 620,
+        "y": 1440,
+        "wires": [
+            [
+                "94640d5a.68dbb",
+                "6921498.5c791b8"
+            ]
+        ]
+    },
+    {
+        "id": "c4719d52.28f68",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "fermetures des portes",
+        "func": "let search=[]\n\nsearch.push(\"ferme la porte\")\nsearch.push(\"ferme les portes\")\nsearch.push(\"ferme le sasse\")\nsearch.push(\"ferme les sasse\")\nsearch.push(\"ferme la soute\")\nsearch.push(\"ferme les soutes\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 620,
+        "y": 1480,
+        "wires": [
+            [
+                "6921498.5c791b8",
+                "ba131e1f.40594"
+            ]
+        ]
+    },
+    {
+        "id": "ba131e1f.40594",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"fermeture des portes\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1520,
+        "wires": [
+            [
+                "3666514d.83582e"
+            ]
+        ]
+    },
+    {
+        "id": "c4d0d9c4.f3e188",
         "type": "debug",
         "z": "b66acd7.74f2a3",
-        "name": "debug",
+        "name": "test",
         "active": true,
         "console": "false",
-        "complete": "payload",
-        "x": 1610,
-        "y": 1840,
+        "complete": "true",
+        "x": 930,
+        "y": 320,
         "wires": []
+    },
+    {
+        "id": "52a27ef.880aa8",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier i",
+        "func": "msg.payload=`i`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 1620,
+        "wires": [
+            [
+                "cef03752.b87f18"
+            ]
+        ]
+    },
+    {
+        "id": "629994d2.7ea81c",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 1580,
+        "wires": [
+            [],
+            [
+                "2e080c31.4188d4",
+                "cfaa111c.d101e"
+            ]
+        ]
+    },
+    {
+        "id": "cef03752.b87f18",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 1580,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "25984514.bdc8da",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 1640,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "59cdb765.f19378",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"dém mot 1\")\nsound_effect.push(\"dém mot 2\")\nsound_effect.push(\"dém mot 3\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1580,
+        "wires": [
+            [
+                "25984514.bdc8da"
+            ]
+        ]
+    },
+    {
+        "id": "6ff26827.df5668",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "moteur",
+        "info": "\n\n",
+        "x": 330,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "2e080c31.4188d4",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "déamare moteur",
+        "func": "let search=[]\n\nsearch.push(\"démarre le moteur\")\nsearch.push(\"démarre les moteurs\")\nsearch.push(\"lance le moteur\")\nsearch.push(\"lance les moteurs\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 1580,
+        "wires": [
+            [
+                "59cdb765.f19378",
+                "52a27ef.880aa8"
+            ]
+        ]
+    },
+    {
+        "id": "cfaa111c.d101e",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "coupe les moteurs",
+        "func": "let search=[]\n\nsearch.push(\"arrête le moteur\")\nsearch.push(\"arrête les moteurs\")\nsearch.push(\"coupe le moteur\")\nsearch.push(\"coupe les moteurs\")\nsearch.push(\"éteint le moteur\")\nsearch.push(\"éteint les moteurs\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 1620,
+        "wires": [
+            [
+                "52a27ef.880aa8",
+                "10a041e2.f3b80e"
+            ]
+        ]
+    },
+    {
+        "id": "10a041e2.f3b80e",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"coup mot 2\")\nsound_effect.push(\"coup mot 1\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1660,
+        "wires": [
+            [
+                "25984514.bdc8da"
+            ]
+        ]
+    },
+    {
+        "id": "c0451a6.6c325e8",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier u",
+        "func": "msg.payload=`u`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 1740,
+        "wires": [
+            [
+                "f966c3a6.cebd"
+            ]
+        ]
+    },
+    {
+        "id": "260696ed.8109ba",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 1700,
+        "wires": [
+            [],
+            [
+                "b523d103.6e585",
+                "5f56c57f.92e8fc"
+            ]
+        ]
+    },
+    {
+        "id": "f966c3a6.cebd",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 1700,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e4b94a77.ce2818",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 1760,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "61be0ef9.6155e",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"dem gen 1\")\nsound_effect.push(\"dem gen 2\")\nsound_effect.push(\"dem gen 3\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1700,
+        "wires": [
+            [
+                "e4b94a77.ce2818"
+            ]
+        ]
+    },
+    {
+        "id": "550c7ba0.c1eee4",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "générateur / energie",
+        "info": "\n\n",
+        "x": 370,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "b523d103.6e585",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "démare gen",
+        "func": "let search=[]\n\nsearch.push(\"démarre le générateur\")\nsearch.push(\"démarre les générateurs\")\nsearch.push(\"lance le générateur\")\nsearch.push(\"lance les générateurs\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 1700,
+        "wires": [
+            [
+                "61be0ef9.6155e",
+                "c0451a6.6c325e8"
+            ]
+        ]
+    },
+    {
+        "id": "5f56c57f.92e8fc",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "coupe les générateur",
+        "func": "let search=[]\n\nsearch.push(\"arrête le générateur\")\nsearch.push(\"arrête les générateurs\")\nsearch.push(\"coupe le générateur\")\nsearch.push(\"coupe les générateurs\")\nsearch.push(\"éteint le générateur\")\nsearch.push(\"éteint les générateurs\")\n\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 620,
+        "y": 1740,
+        "wires": [
+            [
+                "c0451a6.6c325e8",
+                "fb3b0c22.a19fd"
+            ]
+        ]
+    },
+    {
+        "id": "fb3b0c22.a19fd",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"coup gen 2\")\nsound_effect.push(\"coup gen 1\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1780,
+        "wires": [
+            [
+                "e4b94a77.ce2818"
+            ]
+        ]
     }
 ]
