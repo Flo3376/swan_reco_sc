@@ -48,6 +48,9 @@
 			<item>appel la base</item>
 			<item>ouvre le hangar</item>
 			<item>appel le hangar</item>
+			<!--**************************************************
+			*         	  train / vtol
+			****************************************************-->
 			<!--train -->
 			<item>sort le train d'attérissage</item>
 			<item>sort les trains d'attérissage</item>
@@ -65,7 +68,25 @@
 			<item>rentre les trains d'attérissage</item>
 			<item>rentre les trains</item>
 			<item>rentre le train</item>
-			<!--eclairage -->
+
+			<!--vtol -->
+			<item>active les stabilisateurs</item>
+			<item>ouvre les stabilisateurs</item>
+			<item>sort les stabilisateur</item>
+			<item>active le VTOL</item>
+			<item>passe en VTOL</item>
+			<item>met en route les stabilisateur</item>
+			<item>stabilise le vaisseau</item>
+			<item>stabilise l'appareil</item>
+			<item>désactive les stabilisateur</item>
+			<item>fermes les stabilisateurs</item>
+			<item>rentre les stabilisateurs</item>
+			<item>coupe les stabilisateurs</item>
+			<item>coupe le VTOL</item>
+			
+			<!--**************************************************
+			*         	  eclairage
+			****************************************************-->
 			<item>on y voit rien</item>
 			<item>un peu de lumiére</item>
 			<item>allume les phares</item>
@@ -78,7 +99,12 @@
 			<item>coupe les phares</item>
 			<item>coupe les feux</item>
 			<item>coupe les spots</item>
-			<!--mise en route générale-->
+			
+			<!--**************************************************
+			*         	  flight ready (r)
+			****************************************************-->
+			<item>on y va</item>
+			<item>on décolle</item>
 			<item>démarre les systèmes</item>
 			<item>démarre le vaisseaux</item>
 			<item>démarre l'appareil</item>
@@ -187,7 +213,14 @@
 			<item>On saute</item>
 			<item>go pour le saut</item>
 
-
+			<!--**************************************************
+			*         	  sortir du siége
+			****************************************************-->
+			<item>je te laisse les commandes</item>
+			<item>je quitte le poste de pilotage</item>
+			<item>je quitte le poste</item>
+			<item>je sort de l'appareil</item>
+			<item>je sort du vaisseeau</item>
 
 			<!--**************************************************
 			*         	 autre

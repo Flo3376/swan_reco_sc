@@ -48,8 +48,9 @@
 			appel le hangar
 			
 			<!--**************************************************
-			*         	  train
+			*         	  train / vtol
 			****************************************************-->
+			<!--train -->
 			sort le train d'attérissage
 			sort les trains d'attérissage
 			sort les trains
@@ -66,6 +67,22 @@
 			rentre les trains d'attérissage
 			rentre les trains
 			rentre le train
+			
+			<!--vtol -->
+			active les stabilisateurs
+			ouvre les stabilisateurs
+			sort les stabilisateur
+			active le VTOL
+			passe en VTOL
+			met en route les stabilisateur
+			stabilise le vaisseau
+			stabilise l'appareil
+			désactive les stabilisateur
+			fermes les stabilisateurs
+			rentre les stabilisateurs
+			coupe les stabilisateurs
+			coupe le VTOL
+
 			
 			<!--**************************************************
 			*         	  eclairage
@@ -87,6 +104,8 @@
 			*         	  flight ready (r)
 			****************************************************-->
 			démarre les systèmes
+			on y va
+			on décolle
 			démarre le vaisseaux
 			démarre l'appareil
 			allume le vaisseaux

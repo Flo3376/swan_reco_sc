@@ -517,7 +517,9 @@
                 "9a0d8f24.46673",
                 "f631733e.dfb91",
                 "dbcf2d5b.1f8f5",
-                "43d5cfc1.b9c26"
+                "43d5cfc1.b9c26",
+                "a0d375c6.77d168",
+                "325a276f.059f58"
             ]
         ]
     },
@@ -2368,7 +2370,7 @@
         "oldrc": false,
         "name": "right_click",
         "x": 1340,
-        "y": 2520,
+        "y": 2460,
         "wires": [
             [],
             [],
@@ -2432,7 +2434,7 @@
         "name": "sortir",
         "info": "\n\n",
         "x": 330,
-        "y": 2580,
+        "y": 2540,
         "wires": []
     },
     {
@@ -2444,7 +2446,7 @@
         "outputs": "2",
         "noerr": 0,
         "x": 360,
-        "y": 2640,
+        "y": 2580,
         "wires": [
             [],
             [
@@ -2456,12 +2458,12 @@
         "id": "9ed52adf.0e16d8",
         "type": "function",
         "z": "b66acd7.74f2a3",
-        "name": "ouvre /rentre le bras de minage",
+        "name": "sortir du siége",
         "func": "let search=[]\n\nsearch.push(\"change l'outils\")\nsearch.push(\"change d'outils\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 650,
-        "y": 2640,
+        "x": 600,
+        "y": 2580,
         "wires": [
             [
                 "966fba97.47f298",
@@ -2478,7 +2480,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 950,
-        "y": 2640,
+        "y": 2580,
         "wires": [
             [
                 "ee6d4cd8.d1911"
@@ -2497,7 +2499,7 @@
         "oldrc": false,
         "name": "keybord long",
         "x": 1350,
-        "y": 2700,
+        "y": 2640,
         "wires": [
             [],
             [],
@@ -2516,7 +2518,7 @@
         "oldrc": true,
         "name": "vlc",
         "x": 1330,
-        "y": 2640,
+        "y": 2580,
         "wires": [
             [],
             [],
@@ -2532,11 +2534,229 @@
         "outputs": "1",
         "noerr": 0,
         "x": 940,
-        "y": 2680,
+        "y": 2620,
         "wires": [
             [
                 "437379d8.26c828"
             ]
+        ]
+    },
+    {
+        "id": "109e9d11.fedfe3",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "VTOL",
+        "info": "\n\n",
+        "x": 330,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "a0d375c6.77d168",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 2720,
+        "wires": [
+            [],
+            [
+                "239040aa.d6246"
+            ]
+        ]
+    },
+    {
+        "id": "239040aa.d6246",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Activer VTOL",
+        "func": "let search=[]\n\nsearch.push(\"active les stabilisateurs\")\nsearch.push(\"ouvre les stabilisateurs\")\nsearch.push(\"sort les stabilisateur\")\nsearch.push(\"active le VTOL\")\nsearch.push(\"passe en VTOL\")\nsearch.push(\"met en route les stabilisateur\")\nsearch.push(\"stabilise le vaisseau\")\nsearch.push(\"stabilise l'appareil\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 2720,
+        "wires": [
+            [
+                "2d39c55d.c8296a",
+                "bd2de47b.a31628"
+            ]
+        ]
+    },
+    {
+        "id": "2d39c55d.c8296a",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\n\nsound_effect.push(\"activation vtol\")\nsound_effect.push(\"ouverture vtol\")\nsound_effect.push(\"passage vtol\")\nsound_effect.push(\"ouverture stabilisateur\")\nsound_effect.push(\"stabilisation\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"ok c'est compris\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 2720,
+        "wires": [
+            [
+                "386c7d5c.0fa6c2"
+            ]
+        ]
+    },
+    {
+        "id": "386c7d5c.0fa6c2",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 2720,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "bd2de47b.a31628",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier k",
+        "func": "msg.payload=`k`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 2760,
+        "wires": [
+            [
+                "99e78aa3.09e6d8"
+            ]
+        ]
+    },
+    {
+        "id": "325a276f.059f58",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 2840,
+        "wires": [
+            [],
+            [
+                "8e153603.375008"
+            ]
+        ]
+    },
+    {
+        "id": "8e153603.375008",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Désactiver VTOL",
+        "func": "let search=[]\n\nsearch.push(\"désactive les stabilisateur\")\nsearch.push(\"fermes les stabilisateurs\")\nsearch.push(\"rentre les stabilisateurs\")\nsearch.push(\"coupe les stabilisateurs\")\nsearch.push(\"coupe le VTOL\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 2840,
+        "wires": [
+            [
+                "42b83dfe.ac2ce4",
+                "3066474e.71e568"
+            ]
+        ]
+    },
+    {
+        "id": "42b83dfe.ac2ce4",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"fermeture stabilisateur\")\nsound_effect.push(\"coupure vtol\")\nsound_effect.push(\"fermeture vtol\")\nsound_effect.push(\"désactivation vtol\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"ok c'est compris\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 2840,
+        "wires": [
+            [
+                "65cb2da8.b8ceb4"
+            ]
+        ]
+    },
+    {
+        "id": "65cb2da8.b8ceb4",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 2840,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3066474e.71e568",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier k",
+        "func": "msg.payload=`k`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 2880,
+        "wires": [
+            [
+                "5245ad95.631704"
+            ]
+        ]
+    },
+    {
+        "id": "5245ad95.631704",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 2900,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "99e78aa3.09e6d8",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 2780,
+        "wires": [
+            [],
+            [],
+            []
         ]
     }
 ]

@@ -206,3 +206,23 @@
 2022-09-23 18:2:7    0.9508334    SWAN tu es là
 2022-09-23 18:2:17    0.881816    SWAN ouvre le train
 2022-09-23 18:2:21    0.8250012    SWAN ferme les trains
+2022-09-23 18:11:13    0.817513    Lance le saut
+2022-09-23 18:20:24    0.7328641    On saute
+2022-09-23 20:19:28    0.7771693    coupe les feux
+2022-09-23 20:33:19    0.8262636    on y va
+2022-09-23 20:48:37    0.7671366    SWAN active le VTOL
+2022-09-23 20:49:1    0.9582795    SWAN stabilise l'appareil
+2022-09-23 20:49:7    0.8213412    SWAN stabilise l'appareil
+2022-09-23 20:49:13    0.7435709    SWAN active le VTOL
+2022-09-23 20:49:17    0.8650203    SWAN active le VTOL
+2022-09-23 20:49:24    0.9569062    SWAN stabilise le vaisseau
+2022-09-23 20:49:28    0.9400022    SWAN stabilise l'appareil
+2022-09-23 20:49:42    0.8509041    SWAN coupe le VTOL
+2022-09-23 20:49:56    0.8935305    SWAN fermes les stabilisateurs
+2022-09-23 20:50:2    0.8986503    SWAN rentre les stabilisateurs
+2022-09-23 20:50:6    0.8602189    SWAN coupe les stabilisateurs
+2022-09-23 20:50:11    0.9258552    SWAN active les stabilisateurs
+2022-09-23 20:50:14    0.9449612    SWAN ouvre les stabilisateurs
+2022-09-23 20:50:19    0.9350306    SWAN sort les stabilisateur
+2022-09-23 20:50:23    0.8871015    SWAN active le VTOL
+2022-09-23 20:50:26    0.832427    SWAN passe en VTOL
