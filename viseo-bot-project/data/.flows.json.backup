@@ -512,7 +512,12 @@
                 "23d00a44.378186",
                 "9ec619a6.5401a8",
                 "629994d2.7ea81c",
-                "260696ed.8109ba"
+                "260696ed.8109ba",
+                "805f8180.b23b1",
+                "9a0d8f24.46673",
+                "f631733e.dfb91",
+                "dbcf2d5b.1f8f5",
+                "43d5cfc1.b9c26"
             ]
         ]
     },
@@ -736,7 +741,7 @@
         "name": "",
         "filename": "c:\\swan\\log_confiance.txt",
         "appendNewline": true,
-        "createDir": false,
+        "createDir": true,
         "overwriteFile": "false",
         "x": 590,
         "y": 160,
@@ -1481,7 +1486,7 @@
         "type": "function",
         "z": "b66acd7.74f2a3",
         "name": "ouverture des portes",
-        "func": "let search=[]\n\nsearch.push(\"ouvre la porte\")\nsearch.push(\"ouvre les portes\")\nsearch.push(\"ouvre le sasse\")\nsearch.push(\"ouvre les sasse\")\nsearch.push(\"ouvre la soute\")\nsearch.push(\"ouvre les soutes\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload===ask)\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "func": "let search=[]\n\nsearch.push(\"ouvre la porte\")\nsearch.push(\"ouvre les portes\")\nsearch.push(\"ouvre le sasse\")\nsearch.push(\"ouvre les sasse\")\nsearch.push(\"ouvre la soute\")\nsearch.push(\"ouvre les soutes\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "x": 620,
@@ -1641,7 +1646,7 @@
         "type": "function",
         "z": "b66acd7.74f2a3",
         "name": "déamare moteur",
-        "func": "let search=[]\n\nsearch.push(\"démarre le moteur\")\nsearch.push(\"démarre les moteurs\")\nsearch.push(\"lance le moteur\")\nsearch.push(\"lance les moteurs\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            console.log(msg.payload.toString()+\"??\"+ask.toString())\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===(\"SWAN \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "func": "let search=[]\n\nsearch.push(\"démarre le moteur\")\nsearch.push(\"démarre les moteurs\")\nsearch.push(\"lance le moteur\")\nsearch.push(\"lance les moteurs\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===(\"SWAN \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "x": 600,
@@ -1658,7 +1663,7 @@
         "type": "function",
         "z": "b66acd7.74f2a3",
         "name": "coupe les moteurs",
-        "func": "let search=[]\n\nsearch.push(\"arrête le moteur\")\nsearch.push(\"arrête les moteurs\")\nsearch.push(\"coupe le moteur\")\nsearch.push(\"coupe les moteurs\")\nsearch.push(\"éteint le moteur\")\nsearch.push(\"éteint les moteurs\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "func": "let search=[]\n\nsearch.push(\"arrête le moteur\")\nsearch.push(\"arrête les moteurs\")\nsearch.push(\"coupe le moteur\")\nsearch.push(\"coupe les moteurs\")\nsearch.push(\"éteint le moteur\")\nsearch.push(\"éteint les moteurs\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===(\"SWAN \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "x": 610,
@@ -1831,6 +1836,706 @@
         "wires": [
             [
                 "e4b94a77.ce2818"
+            ]
+        ]
+    },
+    {
+        "id": "d39bb304.fa746",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier b",
+        "func": "msg.payload=`b`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 1880,
+        "wires": [
+            [
+                "9597ff8d.12319"
+            ]
+        ]
+    },
+    {
+        "id": "805f8180.b23b1",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 1840,
+        "wires": [
+            [],
+            [
+                "60a3e274.ecb8cc",
+                "1b0c88bc.a4d547",
+                "c05e2447.b49358"
+            ]
+        ]
+    },
+    {
+        "id": "9597ff8d.12319",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 1840,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f25b11cf.346ef",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 1900,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7cf5d836.f51578",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"ou allons nous\")\nsound_effect.push(\"d'accord je met en chauffe\")\nsound_effect.push(\"très bien chauffe system\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1840,
+        "wires": [
+            [
+                "f25b11cf.346ef"
+            ]
+        ]
+    },
+    {
+        "id": "2670b952.95ff06",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "Saut quantique",
+        "info": "\n\n",
+        "x": 360,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "60a3e274.ecb8cc",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "démare moteur quantiqe",
+        "func": "let search=[]\n\nsearch.push(\"active le moteur quantique\")\nsearch.push(\"démarre le moteur quantique\")\nsearch.push(\"met en route le moteur quantique\")\nsearch.push(\"calcul un saut quantique\")\nsearch.push(\"calcul un saut\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===(\"SWAN \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 1840,
+        "wires": [
+            [
+                "7cf5d836.f51578",
+                "d39bb304.fa746"
+            ]
+        ]
+    },
+    {
+        "id": "1b0c88bc.a4d547",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "coupe moteur quantique",
+        "func": "let search=[]\n\nsearch.push(\"coupe le moteur quantique\")\nsearch.push(\"désactive le moteur quantique\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===(\"SWAN \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 1880,
+        "wires": [
+            [
+                "d39bb304.fa746",
+                "f7aa1f18.12e5e"
+            ]
+        ]
+    },
+    {
+        "id": "f7aa1f18.12e5e",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"ok c'est compris\")\nsound_effect.push(\"execution\")\nsound_effect.push(\"daccord\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1920,
+        "wires": [
+            [
+                "f25b11cf.346ef"
+            ]
+        ]
+    },
+    {
+        "id": "c05e2447.b49358",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "lancement saut quantiqe",
+        "func": "let search=[]\n\nsearch.push(\"Lance le saut\")\nsearch.push(\"On saute\")\nsearch.push(\"go pour le saut\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 1980,
+        "wires": [
+            [
+                "1c53a6df.21ed39",
+                "7ec66e6a.bac9"
+            ]
+        ]
+    },
+    {
+        "id": "7ec66e6a.bac9",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"saut 1\")\nsound_effect.push(\"saut 2\")\nsound_effect.push(\"saut 3\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1980,
+        "wires": [
+            [
+                "72bb6d92.7400a4"
+            ]
+        ]
+    },
+    {
+        "id": "de04b737.cef928",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard_long.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord long",
+        "x": 1350,
+        "y": 2040,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1c53a6df.21ed39",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier b",
+        "func": "msg.payload=`b`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 2020,
+        "wires": [
+            [
+                "de04b737.cef928"
+            ]
+        ]
+    },
+    {
+        "id": "72bb6d92.7400a4",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 1980,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "125c242a.b9b3ec",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "Discord",
+        "info": "\n\n",
+        "x": 330,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "9a0d8f24.46673",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 2120,
+        "wires": [
+            [],
+            [
+                "b173cb4e.d19d78",
+                "7ed00a4c.ff71f4"
+            ]
+        ]
+    },
+    {
+        "id": "6e95c088.b0f62",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\send_text.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 2180,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9e7c0e23.92183",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 2120,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b173cb4e.d19d78",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "envoie invite",
+        "func": "let search=[]\n\nsearch.push(\"envoie une invitation discord\")\nsearch.push(\"envoie notre discord\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 2120,
+        "wires": [
+            [
+                "97e3c5a3.809928",
+                "f71c139c.4be91"
+            ]
+        ]
+    },
+    {
+        "id": "f71c139c.4be91",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"pas de soucis\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"ok c'est compris\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 2120,
+        "wires": [
+            [
+                "9e7c0e23.92183"
+            ]
+        ]
+    },
+    {
+        "id": "97e3c5a3.809928",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Send text",
+        "func": "msg.payload=`https://discord.gg/ZY3Gwdav`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 2160,
+        "wires": [
+            [
+                "6e95c088.b0f62"
+            ]
+        ]
+    },
+    {
+        "id": "7ed00a4c.ff71f4",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "envoie mon discord",
+        "func": "let search=[]\n\nsearch.push(\"envoie mon discord\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 2240,
+        "wires": [
+            [
+                "18bc35fa.3bb2da",
+                "f71c139c.4be91"
+            ]
+        ]
+    },
+    {
+        "id": "4848419d.a1547",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\send_text.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord send",
+        "x": 1360,
+        "y": 2240,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "18bc35fa.3bb2da",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Send text",
+        "func": "msg.payload=`Flo3376#8040`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 2240,
+        "wires": [
+            [
+                "4848419d.a1547"
+            ]
+        ]
+    },
+    {
+        "id": "86298768.1b57f8",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "Minage",
+        "info": "\n\n",
+        "x": 330,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "f631733e.dfb91",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 2340,
+        "wires": [
+            [],
+            [
+                "4adb6b52.f234f4"
+            ]
+        ]
+    },
+    {
+        "id": "4adb6b52.f234f4",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "ouvre /rentre le bras de minage",
+        "func": "let search=[]\n\nsearch.push(\"sort la tête\")\nsearch.push(\"sort le bras\")\nsearch.push(\"rentre la tête\")\nsearch.push(\"rentre le bras\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650,
+        "y": 2340,
+        "wires": [
+            [
+                "c0d376a8.38c418",
+                "8093e84e.653c68"
+            ]
+        ]
+    },
+    {
+        "id": "c0d376a8.38c418",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"pas de soucis\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"ok c'est compris\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 2340,
+        "wires": [
+            [
+                "a9baf1b6.799"
+            ]
+        ]
+    },
+    {
+        "id": "8093e84e.653c68",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier ,",
+        "func": "msg.payload=`,`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 2380,
+        "wires": [
+            [
+                "20f25697.c7841a"
+            ]
+        ]
+    },
+    {
+        "id": "20f25697.c7841a",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord short",
+        "x": 1360,
+        "y": 2400,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a9baf1b6.799",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 2340,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dfd9c430.b68e88",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\right_click.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "right_click",
+        "x": 1340,
+        "y": 2520,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dbcf2d5b.1f8f5",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 2440,
+        "wires": [
+            [],
+            [
+                "9f17946f.cc7968"
+            ]
+        ]
+    },
+    {
+        "id": "9f17946f.cc7968",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "change d'outils",
+        "func": "let search=[]\n\nsearch.push(\"change l'outils\")\nsearch.push(\"change d'outils\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 2440,
+        "wires": [
+            [
+                "9ed651b4.7ebf4",
+                "dfd9c430.b68e88"
+            ]
+        ]
+    },
+    {
+        "id": "9ed651b4.7ebf4",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"pas de soucis\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"ok c'est compris\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 2440,
+        "wires": [
+            [
+                "a9baf1b6.799"
+            ]
+        ]
+    },
+    {
+        "id": "907815a7.a02f88",
+        "type": "comment",
+        "z": "b66acd7.74f2a3",
+        "name": "sortir",
+        "info": "\n\n",
+        "x": 330,
+        "y": 2580,
+        "wires": []
+    },
+    {
+        "id": "43d5cfc1.b9c26",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "confiance_gate",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n    to_false.confidance=msg.payload.confidence\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n}\n\nreturn [to_false,to_true]\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 360,
+        "y": 2640,
+        "wires": [
+            [],
+            [
+                "9ed52adf.0e16d8"
+            ]
+        ]
+    },
+    {
+        "id": "9ed52adf.0e16d8",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "ouvre /rentre le bras de minage",
+        "func": "let search=[]\n\nsearch.push(\"change l'outils\")\nsearch.push(\"change d'outils\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650,
+        "y": 2640,
+        "wires": [
+            [
+                "966fba97.47f298",
+                "efbcf781.3092c8"
+            ]
+        ]
+    },
+    {
+        "id": "966fba97.47f298",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "sound_effect",
+        "func": "let sound_effect=[]\nsound_effect.push(\"pas de soucis\")\nsound_effect.push(\"daccord\")\nsound_effect.push(\"ok c'est compris\")\n\nif(global.get('discret')===true)\n{\n   msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"bip_confirm.mp4\\\"\";\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n\n    msg.payload= \"\\\"\"+global.get(\"path_sound\")+\"\"+sound_effect[random]+\".mp4\\\"\";\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 2640,
+        "wires": [
+            [
+                "ee6d4cd8.d1911"
+            ]
+        ]
+    },
+    {
+        "id": "437379d8.26c828",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"c:\\swan\\autohotkey\\keyboard_long.ahk\"",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "keybord long",
+        "x": 1350,
+        "y": 2700,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ee6d4cd8.d1911",
+        "type": "exec",
+        "z": "b66acd7.74f2a3",
+        "command": "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\" --gain=0.5 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "5",
+        "oldrc": true,
+        "name": "vlc",
+        "x": 1330,
+        "y": 2640,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "efbcf781.3092c8",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Clavier ,",
+        "func": "msg.payload=`y`\n\nreturn msg\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 940,
+        "y": 2680,
+        "wires": [
+            [
+                "437379d8.26c828"
             ]
         ]
     }

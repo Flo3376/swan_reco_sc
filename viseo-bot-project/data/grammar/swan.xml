@@ -137,10 +137,13 @@
 			<!--**************************************************
 			*         	  Gestion du bras de minage
 			****************************************************-->
-			<item>sort la tête de minage</item>
-			<item>sort le bras de minage</item>
-			<item>rentre la tête de minage</item>
-			<item>rentre le bras de minage</item>
+			<item>sort la tête</item>
+			<item>sort le bras</item>
+			<item>rentre la tête</item>
+			<item>rentre le bras</item>
+			<item>change l'outils</item>
+			<item>change d'outils</item>
+
 
 			<!--**************************************************
 			*         	  Gestion des generateur
@@ -174,15 +177,24 @@
 			*         	  Saut quantique
 			****************************************************-->
 			<item>démarre le moteur quantique</item>
+			<item>active le moteur quantique</item>
 			<item>met en route le moteur quantique</item>
-			<item>coupe le moteur quantique</item>
 			<item>calcul un saut quantique</item>
 			<item>calcul un saut</item>
+			<item>coupe le moteur quantique</item>
+			<item>désactive le moteur quantique</item>
+			<item>Lance le saut</item>
+			<item>On saute</item>
+			<item>go pour le saut</item>
+
+
 
 			<!--**************************************************
 			*         	 autre
 			****************************************************-->
 			<item>envoie une invitation discord</item>
+			<item>envoie notre discord</item>
+			<item>envoie une invite</item>
 			<item>envoie mon discord</item>
 
 			<!--
