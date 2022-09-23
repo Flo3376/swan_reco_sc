@@ -109,3 +109,16 @@
 2022-09-23 15:37:52    0.9510754    SWAN coupe le générateur
 2022-09-23 15:39:12    0.9206786    SWAN coupe le générateur
 2022-09-23 15:39:16    0.9204509    SWAN coupe le générateur
+2022-09-23 15:47:55    0.9165491    SWAN démarre le moteur quantique
+2022-09-23 15:48:19    0.9474483    SWAN met en route le moteur quantique
+2022-09-23 15:50:19    0.9430452    SWAN démarre le moteur quantique
+2022-09-23 15:50:27    0.9249356    SWAN démarre le moteur quantique
+2022-09-23 15:50:29    0.9558558    SWAN démarre le moteur
+2022-09-23 15:50:39    0.9401938    SWAN démarre le moteur
+2022-09-23 15:52:20    0.9457057    SWAN démarre les moteurs
+2022-09-23 15:52:25    0.9303096    SWAN démarre le moteur quantique
+2022-09-23 15:53:35    0.9063268    SWAN démarre le moteur
+2022-09-23 15:53:42    0.9334382    SWAN démarre les moteurs
+2022-09-23 15:54:46    0.9471452    SWAN démarre le moteur
+2022-09-23 15:55:29    0.9420208    SWAN démarre le moteur
+2022-09-23 15:55:33    0.9207264    SWAN démarre le moteur quantique

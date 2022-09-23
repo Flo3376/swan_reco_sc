@@ -511,7 +511,8 @@
                 "7f0a503a.4025",
                 "23d00a44.378186",
                 "9ec619a6.5401a8",
-                "629994d2.7ea81c"
+                "629994d2.7ea81c",
+                "260696ed.8109ba"
             ]
         ]
     },
@@ -1480,7 +1481,7 @@
         "type": "function",
         "z": "b66acd7.74f2a3",
         "name": "ouverture des portes",
-        "func": "let search=[]\n\nsearch.push(\"ouvre la porte\")\nsearch.push(\"ouvre les portes\")\nsearch.push(\"ouvre le sasse\")\nsearch.push(\"ouvre les sasse\")\nsearch.push(\"ouvre la soute\")\nsearch.push(\"ouvre les soutes\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "func": "let search=[]\n\nsearch.push(\"ouvre la porte\")\nsearch.push(\"ouvre les portes\")\nsearch.push(\"ouvre le sasse\")\nsearch.push(\"ouvre les sasse\")\nsearch.push(\"ouvre la soute\")\nsearch.push(\"ouvre les soutes\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload===ask)\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "x": 620,
@@ -1640,7 +1641,7 @@
         "type": "function",
         "z": "b66acd7.74f2a3",
         "name": "déamare moteur",
-        "func": "let search=[]\n\nsearch.push(\"démarre le moteur\")\nsearch.push(\"démarre les moteurs\")\nsearch.push(\"lance le moteur\")\nsearch.push(\"lance les moteurs\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
+        "func": "let search=[]\n\nsearch.push(\"démarre le moteur\")\nsearch.push(\"démarre les moteurs\")\nsearch.push(\"lance le moteur\")\nsearch.push(\"lance les moteurs\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            console.log(msg.payload.toString()+\"??\"+ask.toString())\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===(\"SWAN \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "x": 600,

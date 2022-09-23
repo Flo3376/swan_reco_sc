@@ -150,7 +150,7 @@
 			<item>lance le générateur</item>
 			<item>lance les générateurs</item>
 			<item>arrête le générateur</item>
-			<item>arrête les générateurd</item>
+			<item>arrête les générateurs</item>
 			<item>coupe le générateur</item>
 			<item>coupe les générateurs</item>
 			<item>éteint le générateur</item>
@@ -169,6 +169,15 @@
 			<item>coupe les moteurs</item>
 			<item>éteint le moteur</item>
 			<item>éteint les moteurs</item>
+
+			<!--**************************************************
+			*         	  Saut quantique
+			****************************************************-->
+			<item>démarre le moteur quantique</item>
+			<item>met en route le moteur quantique</item>
+			<item>coupe le moteur quantique</item>
+			<item>calcul un saut quantique</item>
+			<item>calcul un saut</item>
 
 			<!--**************************************************
 			*         	 autre
