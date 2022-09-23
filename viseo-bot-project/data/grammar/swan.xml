@@ -2,7 +2,7 @@
 	<rule id="Swan" scope="public">
 		<tag>out.action=new Object(); </tag>
 
-		<item>SWAN</item>
+		<item>JADE</item>
 		<one-of>
 			<!--**************************************************
 			*         		  Test primaire de swan
@@ -115,6 +115,7 @@
 			<item>fait chauffer l'appareil</item>
 			<item>fait chauffer les systèmes</item>
 			<item>fait chauffer le système</item>
+			
 			<!--**************************************************
 			*         	  Starmap
 			****************************************************-->
@@ -167,8 +168,11 @@
 			<item>sort le bras</item>
 			<item>rentre la tête</item>
 			<item>rentre le bras</item>
+			<item>range la tête</item>
+			<item>range le bras</item>
 			<item>change l'outils</item>
 			<item>change d'outils</item>
+			<item>lance le compte à rebours</item>
 
 
 			<!--**************************************************
