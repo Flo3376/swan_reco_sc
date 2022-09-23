@@ -4,16 +4,28 @@
 
 		<item>SWAN</item>
 		<one-of>
+			<!--**************************************************
+			*         		  Test primaire de swan
+			****************************************************-->
 			<item>es tu là</item>
 			<item>tu es là</item>
 			<item>tu m'entends</item>
 			<item>tu es avec moi</item>
 			<item>on se réveille</item>
-			<!--swan on - off -->
-			<item>mise en veille code alpha un cinq neuf cinq</item>
-			<item>mise en someil code alpha un cinq neuf cinq</item>
-			<item>mise en attente code delta un sept cinq un</item>
-			<!--porte -->
+			
+			<!--**************************************************
+			*         	  Coupure et activation de swan
+			****************************************************-->
+			<item>Passe en mod discret</item>
+			<item>Met toi en mod discret</item>
+			<!--<item>mise en someil code alpha un cinq neuf cinq</item>-->
+			<!--<item>mise en attente code delta un sept cinq un</item>-->
+			<!--<item>mise en attente code delta un sept cinq un</item>-->
+			<!--<item>mise en attente code delta un sept cinq un</item>-->
+			
+			<!--**************************************************
+			*         	  Gestion des portes et soutes
+			****************************************************-->
 			<item>ouvre la porte</item>
 			<item>ouvre les portes</item>
 			<item>ouvre le sasse</item>
@@ -72,38 +84,58 @@
 			<item>fait chauffer l'appareil</item>
 			<item>fait chauffer les systèmes</item>
 			<item>fait chauffer le système</item>
-			<!--Starmap-->
+			<!--**************************************************
+			*         	  Starmap
+			****************************************************-->
+			<!--affiche -->
 			<item>affiche la carte</item>
 			<item>affiche la position</item>
 			<item>affiche la starmap</item>
 			<item>affiche moi la carte</item>
 			<item>affiche moi notre position</item>
 			<item>affiche moi la starmap</item>
+			<!--ouvre -->
 			<item>ouvre la carte</item>
 			<item>ouvre la starmap</item>
 			<item>ouvre moi la carte</item>
-			<item>ouvre moi notre position</item>
 			<item>ouvre moi la starmap</item>
+			<!--ferme -->
 			<item>ferme la carte</item>
 			<item>ferme la starmap</item>
 			<item>ferme moi la carte</item>
-			<item>ferme moi notre position</item>
 			<item>ferme moi la starmap</item>
-
-			<item>où on est</item>
+			<!--coupe -->
+			<item>coupe la starmap</item>
+			<item>coupe la map</item>
+			<item>coupe moi la starmap</item>
+			<item>coupe moi la map</item>
+			<!--montre -->
 			<item>montre la carte</item>
-			<item>montre la position</item>
 			<item>montre la starmap</item>
 			<item>montre moi la carte</item>
 			<item>montre moi notre position</item>
 			<item>montre moi la starmap</item>
+			<!--autre -->
 			<item>prépare l'itinéraire</item>
 			<item>prépare un itinéraire</item>
-			<!--scan actif vol au radar-->
+			
+			<!--**************************************************
+			*         	 scan actif et vol au radar
+			****************************************************-->
+			<item>active balayage</item>
 			<item>scan la zone</item>
 			<item>Balaye la zone</item>
 			<item>passe en balayage actif</item>
 			<item>coupe le balayage</item>
+
+			<!--**************************************************
+			*         	  Gestion des portes et soutes
+			****************************************************-->
+			<item>sort la tête de minage</item>
+			<item>sort le bras de minage</item>
+			<item>rentre la tête de minage</item>
+			<item>rentre le bras de minage</item>
+
 
 			<!--
 			<item></item>
