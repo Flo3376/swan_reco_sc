@@ -2,7 +2,7 @@
 	<rule id="Swan" scope="public">
 		<tag>out.action=new Object(); </tag>
 
-		<item>JADE</item>
+		<item>SWAN</item>
 		<one-of>
 			<!--**************************************************
 			*         		  Test primaire de swan
