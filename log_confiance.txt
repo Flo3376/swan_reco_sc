@@ -417,3 +417,24 @@
 2022-09-24 1:8:10    0.7921934    tu es là
 2022-09-24 1:15:52    0.7106009    On saute
 2022-09-24 1:38:43    0.7371399    sort le bras
+2022-09-24 1:41:11    0.7674477    SWAN ouvre le sasse
+2022-09-24 1:42:3    0.7140192    ferme la soute
+2022-09-24 11:42:45    0.7001947    On saute
+2022-09-24 11:44:22    0.7163841    ouvre les soutes
+2022-09-24 12:0:50    0.9327039    SWAN top chrono
+2022-09-24 12:1:9    0.9113342    SWAN annulation du chrono
+2022-09-24 12:1:32    0.9054528    SWAN top chrono
+2022-09-24 12:1:47    0.7767781    SWAN annulation compte à rebours
+2022-09-24 12:1:53    0.8716032    SWAN annulation du chrono
+2022-09-24 12:4:37    0.9236725    SWAN top chrono
+2022-09-24 12:4:45    0.9443896    SWAN annulation du chrono
+2022-09-24 12:4:55    0.9105878    SWAN top chrono
+2022-09-24 12:22:9    0.9511234    Suzie tu es là
+2022-09-24 12:22:59    0.9568533    SUZIE tu es là
+2022-09-24 12:23:6    0.9281962    SUZIE tu es là
+2022-09-24 12:24:18    0.9545132    SUZIE tu es là
+2022-09-24 12:24:22    0.9613488    SUZIE tu es là
+2022-09-24 12:25:29    0.9279942    SUZIE tu es là
+2022-09-24 12:26:27    0.9383817    SUZIE tu es là
+2022-09-24 12:27:15    0.9716504    SUZIE tu es là
+2022-09-24 12:31:45    0.8464293    SUZIE démarre le moteur

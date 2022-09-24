@@ -162,14 +162,21 @@
 			coupe le balayage
 
 			<!--**************************************************
-			*         	  Gestion du bras de minage
+			*         	  Gestion du minage
 			****************************************************-->
+			<!--bras-->
 			sort la tête
 			sort le bras
 			rentre la tête
 			rentre le bras
+			<!--outils-->
 			change l'outils
 			change d'outils
+			<!--chrono quantainium-->
+			lance le compte à rebours
+			top chrono
+			annulation du chrono
+			annulation compte à rebours
 
 
 			<!--**************************************************
