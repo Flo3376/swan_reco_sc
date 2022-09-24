@@ -5950,11 +5950,11 @@
         "id": "e1c70285.acb48",
         "type": "function",
         "z": "b66acd7.74f2a3",
-        "name": "Clavier F3",
-        "func": "msg.payload=`F3`\n\nreturn msg\n",
+        "name": "Clavier +",
+        "func": "msg.payload=`+`\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 910,
+        "x": 900,
         "y": 460,
         "wires": [
             [

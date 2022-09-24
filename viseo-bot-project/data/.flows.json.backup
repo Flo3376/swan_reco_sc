@@ -21,13 +21,6 @@
         "info": ""
     },
     {
-        "id": "9975e215.c276b",
-        "type": "tab",
-        "label": "example",
-        "disabled": true,
-        "info": ""
-    },
-    {
         "id": "65f33c0b.3eaaa4",
         "type": "win-listen-config",
         "z": "",
@@ -60,105 +53,6 @@
         "birthTopic": "",
         "birthQos": "0",
         "birthPayload": ""
-    },
-    {
-        "id": "30bcb650.b20baa",
-        "type": "win-sarah",
-        "z": "9975e215.c276b",
-        "name": "",
-        "active": false,
-        "options": "65f33c0b.3eaaa4",
-        "grammar": "",
-        "x": 110,
-        "y": 40,
-        "wires": [
-            [
-                "29c01bcf.98bec4",
-                "c0ff189c.4b7e38"
-            ]
-        ]
-    },
-    {
-        "id": "fe1df59d.0ff718",
-        "type": "win-speak",
-        "z": "9975e215.c276b",
-        "name": "",
-        "input": "",
-        "x": 410,
-        "y": 80,
-        "wires": [
-            [
-                "f8bb95a5.cb2c28"
-            ]
-        ]
-    },
-    {
-        "id": "29c01bcf.98bec4",
-        "type": "debug",
-        "z": "9975e215.c276b",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 270,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "c0ff189c.4b7e38",
-        "type": "function",
-        "z": "9975e215.c276b",
-        "name": "Sentence",
-        "func": "msg.payload = \"je vous reçois\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 280,
-        "y": 80,
-        "wires": [
-            [
-                "fe1df59d.0ff718"
-            ]
-        ]
-    },
-    {
-        "id": "f8bb95a5.cb2c28",
-        "type": "debug",
-        "z": "9975e215.c276b",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "false",
-        "x": 670,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "e039a7b1.1a3378",
-        "type": "play-soundfile",
-        "z": "9975e215.c276b",
-        "name": "",
-        "directory": "9eda0c04.8c",
-        "file": "plantage_de_swan.mp4",
-        "allow_multiple": false,
-        "x": 492.5,
-        "y": 182.60000610351562,
-        "wires": [
-            [
-                "6964d4e4.64703c"
-            ]
-        ]
-    },
-    {
-        "id": "6964d4e4.64703c",
-        "type": "debug",
-        "z": "9975e215.c276b",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "false",
-        "x": 772,
-        "y": 186,
-        "wires": []
     },
     {
         "id": "2f71e3d8.f5d0ac",
