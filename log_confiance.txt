@@ -438,3 +438,4 @@
 2022-09-24 12:26:27    0.9383817    SUZIE tu es là
 2022-09-24 12:27:15    0.9716504    SUZIE tu es là
 2022-09-24 12:31:45    0.8464293    SUZIE démarre le moteur
+2022-09-24 12:36:52    0.8983372    SWAN je te laisse les commandes

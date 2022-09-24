@@ -3,7 +3,7 @@
         "id": "9a0bc4a.ed2e538",
         "type": "tab",
         "label": "Swan",
-        "disabled": true,
+        "disabled": false,
         "info": ""
     },
     {
@@ -17,7 +17,7 @@
         "id": "e85fdfe9.dcdd8",
         "type": "tab",
         "label": "Suzie (eviljey)",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
