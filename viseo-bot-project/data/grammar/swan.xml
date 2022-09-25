@@ -5,13 +5,14 @@
 		<item>SWAN</item>
 		<one-of>
 			<!--**************************************************
-			*         		  Test primaire de swan
+			*         		  Test primaire de swan et chargment
 			****************************************************-->
 			<item>es tu là</item>
 			<item>tu es là</item>
 			<item>tu m'entends</item>
 			<item>tu es avec moi</item>
 			<item>on se réveille</item>
+			<item>recharge ta base de donnée</item>
 			
 			<!--**************************************************
 			*         	  Coupure et activation de swan
@@ -27,6 +28,8 @@
 			<item>met toi en sommeil</item>
 			<item>met toi en veille</item>
 			<item>remet toi en écoute</item>
+			<item>coupure d'urgence</item>
+			<item>stop tout</item>
 
 			<!--**************************************************
 			*         	  Gestion des portes et soutes
@@ -48,6 +51,8 @@
 			<item>appel la base</item>
 			<item>ouvre le hangar</item>
 			<item>appel le hangar</item>
+			<item>appel le pad</item>
+			
 			<!--**************************************************
 			*         	  train / vtol
 			****************************************************-->
@@ -115,6 +120,12 @@
 			<item>fait chauffer l'appareil</item>
 			<item>fait chauffer les systèmes</item>
 			<item>fait chauffer le système</item>
+
+			<!--**************************************************
+			*         	  coupure d'urgence
+			****************************************************-->
+			<item>coupure d'urgence</item>
+			<item>stop tout</item>
 			
 			<!--**************************************************
 			*         	  Starmap
@@ -137,6 +148,7 @@
 			<item>montre moi la carte</item>
 			<item>montre moi notre position</item>
 			<item>montre moi la starmap</item>
+			<item>cacule moi un itinéraire</item>
 			<!--autre -->
 			<item>prépare l'itinéraire</item>
 			<item>prépare un itinéraire</item>
@@ -160,6 +172,9 @@
 			<item>Balaye la zone</item>
 			<item>passe en balayage actif</item>
 			<item>coupe le balayage</item>
+			<item>stop le balayage</item>
+			<item>arrête le scanne</item>
+			<item>coupe le scanne</item>
 
 			<!--**************************************************
 			*         	  Gestion du minage
@@ -176,6 +191,7 @@
 			<item>change d'outils</item>
 			<!--chrono quantainium-->
 			<item>lance le compte à rebours</item>
+			<item>compte à rebours</item>
 			<item>top chrono</item>
 			<item>annulation du chrono</item>
 			<item>annulation compte à rebours</item>
@@ -186,6 +202,8 @@
 			*         	  Gestion des generateur
 			****************************************************-->
 			<item>démarre le générateur</item>
+			<item>allume les générateurs</item>
+			<item>allume le générateur</item>
 			<item>démarre les générateurs</item>
 			<item>lance le générateur</item>
 			<item>lance les générateurs</item>
@@ -201,37 +219,50 @@
 			****************************************************-->
 			<item>démarre le moteur</item>
 			<item>démarre les moteurs</item>
+			<item>allume les moteurs</item>
 			<item>lance le moteur</item>
 			<item>lance les moteurs</item>
+			<item>fait chauffer les moteurs</item>
+			<item>fait chauffer le moteur</item>
 			<item>arrête le moteur</item>
 			<item>arrête les moteurs</item>
 			<item>coupe le moteur</item>
 			<item>coupe les moteurs</item>
 			<item>éteint le moteur</item>
 			<item>éteint les moteurs</item>
+			<item>coupure propulsions</item>
 
 			<!--**************************************************
 			*         	  Saut quantique
 			****************************************************-->
 			<item>démarre le moteur quantique</item>
+			<item>allume le moteur quantique</item>
+			<item>démarre le quantum</item>
+			<item>allume le quantum</item>
+			<item>lance le moteur quantique</item>
 			<item>active le moteur quantique</item>
 			<item>met en route le moteur quantique</item>
 			<item>calcul un saut quantique</item>
 			<item>calcul un saut</item>
+			<item>coupe le quantum</item>
+			<item>éteint le quantum</item>
+			<item>désactive le quantum</item>
 			<item>coupe le moteur quantique</item>
 			<item>désactive le moteur quantique</item>
 			<item>Lance le saut</item>
 			<item>On saute</item>
 			<item>go pour le saut</item>
+			<item>hyperespace</item>
 
 			<!--**************************************************
 			*         	  sortir du siége
 			****************************************************-->
 			<item>je te laisse les commandes</item>
+			<item>je quite la passerelle</item>
 			<item>je quitte le poste de pilotage</item>
 			<item>je quitte le poste</item>
 			<item>je sort de l'appareil</item>
-			<item>je sort du vaisseeau</item>
+			<item>je sort du vaisseau</item>
 
 			<!--**************************************************
 			*         	 autre
@@ -252,7 +283,7 @@
 
 
 	
-	<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/time";</tag>
+	<tag>out.action._attributes.info ="test";</tag>
 
 
 </rule> 

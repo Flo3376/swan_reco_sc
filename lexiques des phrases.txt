@@ -220,6 +220,7 @@
 			Lance le saut
 			On saute
 			go pour le saut
+			hyperespace
 
 			<!--**************************************************
 			*         	  sortir du siége
