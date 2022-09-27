@@ -59,3 +59,962 @@
 2022-09-25 18:28:7    0.7163129    go pour le saut
 2022-09-25 20:44:5    0.9201596    SWAN tu es là
 2022-09-25 20:57:57    0.7235569    stop tout
+2022-09-25 21:5:24    0.7421372    on y va
+2022-09-25 21:8:10    0.8245027    ferme le sasse
+2022-09-25 21:59:42    0.9312288    SWAN tu es là
+2022-09-25 22:8:11    0.7266666    On saute
+2022-09-25 22:9:37    0.9528335    SWAN appel le hangar
+2022-09-25 22:9:44    0.9533408    SWAN démarre l'appareil
+2022-09-25 22:9:58    0.9522477    SWAN affiche la carte
+2022-09-25 22:10:25    0.9232684    SWAN met en route le moteur quantique
+2022-09-25 22:10:38    0.8570322    SWAN Lance le saut
+2022-09-25 22:14:30    0.7941352    SWAN Lance le saut
+2022-09-25 22:14:41    0.9294931    SWAN Lance le saut
+2022-09-25 22:16:25    0.9270698    SWAN coupe le moteur quantique
+2022-09-25 22:16:36    0.8766014    SWAN éteint le moteur
+2022-09-25 22:17:8    0.9407747    SWAN appel la base
+2022-09-25 22:17:20    0.7390552    SWAN ouvre les trains
+2022-09-25 22:17:47    0.9240396    SWAN ouvre les trains
+2022-09-25 22:32:1    0.9517489    SWAN ouvre les trains
+2022-09-25 22:34:34    0.7916341    éteint les feux
+2022-09-25 22:39:1    0.7512776    allume le moteur quantique
+2022-09-25 22:39:18    0.7113177    SWAN es tu là
+2022-09-25 22:39:40    0.703118    es tu là
+2022-09-25 22:40:10    0.918373    SWAN tu es là
+2022-09-25 22:40:19    0.9194372    SWAN appel la station
+2022-09-25 22:40:27    0.9473971    SWAN démarre le vaisseaux
+2022-09-25 22:41:16    0.9105547    SWAN ouvre la carte
+2022-09-25 22:42:3    0.7538806    allume l'appareil
+2022-09-25 22:42:29    0.7340668    on y va
+2022-09-25 22:44:5    0.8738396    SWAN démarre le moteur quantique
+2022-09-25 22:44:24    0.9150948    SWAN Lance le saut
+2022-09-25 22:48:31    0.8012536    SWAN Lance le saut
+2022-09-25 22:48:48    0.8775775    SWAN Lance le saut
+2022-09-25 22:48:58    0.9305136    SWAN Lance le saut
+2022-09-25 22:49:15    0.9438449    SWAN Lance le saut
+2022-09-25 22:49:34    0.8396244    SWAN éteint le moteur
+2022-09-25 22:50:16    0.7596315    SWAN appel la station
+2022-09-25 22:50:22    0.9546583    SWAN appel la station
+2022-09-25 22:50:39    0.8082898    SWAN appel la station
+2022-09-25 22:51:41    0.8844173    SWAN ouvre les trains
+2022-09-25 22:52:37    0.9143745    SWAN appel la station
+2022-09-25 22:53:17    0.933007    SWAN appel la base
+2022-09-25 22:54:7    0.9119172    SWAN coupe le moteur
+2022-09-25 22:54:15    0.8679259    SWAN coupe le générateur
+2022-09-25 23:2:30    0.7853326    stop tout
+2022-09-25 23:4:8    0.7215546    rentre le bras
+2022-09-25 23:20:19    0.9509326    SWAN démarre le vaisseaux
+2022-09-25 23:20:25    0.7649932    SWAN appel la station
+2022-09-25 23:20:30    0.8744494    SWAN appel la station
+2022-09-25 23:20:44    0.7243295    SWAN ouvre le train
+2022-09-25 23:20:49    0.7834429    SWAN rentre le train
+2022-09-25 23:20:55    0.9268184    SWAN rentre le train
+2022-09-25 23:23:4    0.9286319    SWAN démarre le moteur quantique
+2022-09-25 23:26:41    0.8668056    SWAN scan la zone
+2022-09-25 23:27:20    0.7051589    SWAN stop tout
+2022-09-25 23:27:24    0.9381648    SWAN coupe le scanne
+2022-09-25 23:27:33    0.8376955    SWAN sort le bras
+2022-09-25 23:27:45    0.7212422    go pour le saut
+2022-09-25 23:27:57    0.8598169    SWAN rentre le bras
+2022-09-25 23:28:1    0.7736546    SWAN scan la zone
+2022-09-25 23:28:6    0.7745306    SWAN scan la zone
+2022-09-25 23:28:11    0.7989123    SWAN Balaye la zone
+2022-09-25 23:28:31    0.9503033    SWAN Balaye la zone
+2022-09-25 23:29:23    0.9429328    SWAN coupe le balayage
+2022-09-25 23:29:30    0.894462    SWAN sort le bras
+2022-09-25 23:29:42    0.8908142    SWAN sort le bras
+2022-09-25 23:29:48    0.9213148    SWAN sort le bras
+2022-09-25 23:30:21    0.7384802    SWAN Balaye la zone
+2022-09-25 23:30:28    0.8053011    SWAN Balaye la zone
+2022-09-25 23:31:6    0.9319151    SWAN coupe le scanne
+2022-09-25 23:31:47    0.8689666    sort le bras
+2022-09-25 23:33:47    0.9322071    SWAN rentre le bras
+2022-09-25 23:33:53    0.9369957    SWAN sort le bras
+2022-09-25 23:48:40    0.9162935    SWAN appel la station
+2022-09-25 23:48:52    0.9422262    SWAN rentre le bras
+2022-09-25 23:52:23    0.7691987    Lance le saut
+2022-09-25 23:53:57    0.9331529    SWAN Lance le saut
+2022-09-25 23:56:40    0.9012329    SWAN sort le bras
+2022-09-26 0:4:58    0.8177859    SWAN Lance le saut
+2022-09-26 0:8:7    0.7217189    SWAN ouvre le train
+2022-09-26 0:8:12    0.7002447    SWAN ouvre le train
+2022-09-26 0:8:14    0.9088464    SWAN sort le bras
+2022-09-26 0:12:0    0.9144856    SWAN change d'outils
+2022-09-26 0:12:34    0.9554249    SWAN Balaye la zone
+2022-09-26 0:12:52    0.9408241    SWAN coupe le balayage
+2022-09-26 0:13:19    0.9442608    SWAN Balaye la zone
+2022-09-26 0:14:2    0.9556146    SWAN coupe le balayage
+2022-09-26 0:16:41    0.8700399    SWAN change d'outils
+2022-09-26 0:26:43    0.9317697    SWAN coupe le moteur
+2022-09-26 0:27:51    0.8367944    SWAN démarre le moteur
+2022-09-26 0:36:49    0.8366097    SWAN change d'outils
+2022-09-26 0:37:20    0.8341292    SWAN top chrono
+2022-09-26 0:38:51    0.7245857    SWAN je quite la passerelle
+2022-09-26 0:39:10    0.8959996    SWAN démarre le moteur quantique
+2022-09-26 0:39:22    0.8639185    SWAN Lance le saut
+2022-09-26 0:42:23    0.870057    SWAN Lance le saut
+2022-09-26 0:42:58    0.8496338    SWAN coupe le quantum
+2022-09-26 0:43:24    0.8991767    SWAN appel la station
+2022-09-26 0:43:37    0.9556285    SWAN appel la station
+2022-09-26 0:43:44    0.9133011    SWAN ouvre le train
+2022-09-26 0:46:54    0.9000196    SWAN annulation compte à rebours
+2022-09-26 0:47:1    0.7474387    SWAN coupe le quantum
+2022-09-26 0:47:7    0.7361174    SWAN stop tout
+2022-09-26 0:47:31    0.9555897    SWAN annulation du chrono
+2022-09-26 0:49:48    0.9425659    SWAN ouvre le hangar
+2022-09-26 0:53:5    0.7218988    montre moi la carte
+2022-09-26 1:2:52    0.8960208    SWAN top chrono
+2022-09-26 1:10:22    0.9166731    SWAN Lance le saut
+2022-09-26 1:10:49    0.9414434    coupe le quantum
+2022-09-26 1:10:52    0.9341099    SWAN coupe le quantum
+2022-09-26 1:11:5    0.9367475    SWAN ouvre les trains
+2022-09-26 1:11:23    0.914874    SWAN appel la station
+2022-09-26 1:15:28    0.9350903    SWAN annulation compte à rebours
+2022-09-26 1:16:49    0.9591568    SWAN appel le hangar
+2022-09-26 1:20:29    0.8437086    SWAN Balaye la zone
+2022-09-26 1:21:14    0.8446283    SWAN sort le bras
+2022-09-26 1:21:23    0.8194889    SWAN coupe le balayage
+2022-09-26 1:28:26    0.8027127    SWAN change d'outils
+2022-09-26 1:30:31    0.7890601    tu es là
+2022-09-26 1:31:31    0.8100293    SWAN change d'outils
+2022-09-26 1:33:7    0.7943215    SWAN change l'outils
+2022-09-26 1:33:10    0.8877428    SWAN change d'outils
+2022-09-26 1:33:52    0.8355228    SWAN change d'outils
+2022-09-26 1:36:37    0.781414    SWAN change d'outils
+2022-09-26 1:36:41    0.9332898    SWAN change l'outils
+2022-09-26 1:41:7    0.7145038    On saute
+2022-09-26 1:43:6    0.8772793    on se réveille
+2022-09-26 1:44:53    0.8729873    SWAN change d'outils
+2022-09-26 1:45:26    0.9059929    SWAN top chrono
+2022-09-26 1:50:8    0.8155379    SWAN ouvre le train
+2022-09-26 1:50:24    0.9602992    appel la station
+2022-09-26 1:50:33    0.7975405    on décolle
+2022-09-26 1:50:41    0.9588181    SWAN appel la station
+2022-09-26 1:56:44    0.9081037    SWAN appel la station
+2022-09-26 1:56:50    0.8947358    SWAN démarre le moteur
+2022-09-26 1:56:56    0.856066    SWAN démarre le générateur
+2022-09-26 1:57:9    0.9357716    SWAN rentre le train
+2022-09-26 1:57:23    0.8748591    SWAN démarre le moteur quantique
+2022-09-26 1:57:36    0.9251761    SWAN Lance le saut
+2022-09-26 1:59:39    0.9397681    SWAN annulation compte à rebours
+2022-09-26 2:1:39    0.7018179    rentre le train
+2022-09-26 2:1:55    0.7480394    SWAN ouvre le hangar
+2022-09-26 2:2:3    0.7955122    SWAN ouvre le train
+2022-09-26 2:2:5    0.8443709    SWAN sort le bras
+2022-09-26 2:6:2    0.8303152    SWAN coupe le moteur
+2022-09-26 2:7:27    0.8959752    tu m'entends
+2022-09-26 2:14:58    0.7679332    je quite la passerelle
+2022-09-26 2:15:25    0.915181    SWAN démarre les moteurs
+2022-09-26 2:16:3    0.7691281    SWAN top chrono
+2022-09-26 2:16:14    0.8970011    SWAN top chrono
+2022-09-26 2:17:27    0.9604751    SWAN stabilise l'appareil
+2022-09-26 2:18:20    0.847665    SWAN change d'outils
+2022-09-26 2:18:27    0.8945023    SWAN rentre le bras
+2022-09-26 2:18:34    0.9298965    SWAN sort le bras
+2022-09-26 2:18:44    0.8506445    SWAN change l'outils
+2022-09-26 2:20:33    0.754803    SWAN Lance le saut
+2022-09-26 2:20:38    0.9720036    SWAN go pour le saut
+2022-09-26 2:23:45    0.9106321    Lance le saut
+2022-09-26 2:24:55    0.9580277    SWAN appel la base
+2022-09-26 2:25:16    0.9418988    SWAN appel la base
+2022-09-26 2:25:36    0.8893646    SWAN ouvre le train
+2022-09-26 2:31:55    0.756319    go pour le saut
+2022-09-26 2:32:34    0.8654297    SWAN appel la station
+2022-09-26 2:33:0    0.9492789    SWAN ouvre les portes
+2022-09-26 2:42:37    0.7352488    tu es là
+2022-09-26 11:57:59    0.9448038    SWAN tu es là
+2022-09-26 11:58:10    0.9381137    SWAN démarre le moteur quantique
+2022-09-26 11:58:40    0.9566365    SWAN appel la station
+2022-09-26 12:1:21    0.9585412    SWAN tu es là
+2022-09-26 12:1:52    0.9134334    SWAN appel la station
+2022-09-26 12:3:9    0.9578934    SWAN appel la station
+2022-09-26 12:4:25    0.9464295    SWAN appel la station
+2022-09-26 12:7:15    0.9505242    SWAN tu es là
+2022-09-26 12:8:58    0.9378893    SWAN tu es là
+2022-09-26 12:9:34    0.9494591    SWAN tu es là
+2022-09-26 12:10:29    0.9560611    SWAN tu es là
+2022-09-26 12:10:42    0.9054961    SWAN recharge ta base de donnée
+2022-09-26 12:11:11    0.9470202    SWAN tu es là
+2022-09-26 12:29:14    0.8902307    SWAN tu es là
+2022-09-26 12:47:38    0.921889    SWAN tu es là
+2022-09-26 12:49:22    0.9621568    SWAN tu es là
+2022-09-26 12:50:6    0.9366706    SWAN tu es là
+2022-09-26 12:53:17    0.9213457    SWAN tu es là
+2022-09-26 12:53:46    0.7566936    éteint le moteur
+2022-09-26 12:56:51    0.9450401    SWAN tu es là
+2022-09-26 12:57:6    0.9544836    SWAN tu es là
+2022-09-26 12:58:5    0.9535233    SWAN tu es là
+2022-09-26 12:58:54    0.9389825    SWAN tu es là
+2022-09-26 12:59:9    0.7181187    on se réveille
+2022-09-26 12:59:37    0.9389447    SWAN tu es là
+2022-09-26 13:1:14    0.9643289    SWAN tu es là
+2022-09-26 13:2:2    0.9579573    SWAN tu es là
+2022-09-26 13:2:18    0.7271038    es tu là
+2022-09-26 13:3:15    0.8250328    SWAN recharge ta base de donnée
+2022-09-26 13:5:20    0.9481434    SWAN tu es là
+2022-09-26 13:5:26    0.8921396    SWAN recharge ta base de donnée
+2022-09-26 13:7:35    0.9486634    SWAN tu es là
+2022-09-26 13:7:47    0.8405002    SWAN recharge ta base de donnée
+2022-09-26 13:8:21    0.7937445    SWAN recharge ta base de donnée
+2022-09-26 13:8:53    0.8517339    SWAN recharge ta base de donnée
+2022-09-26 13:9:36    0.8274695    SWAN recharge ta base de donnée
+2022-09-26 13:10:15    0.9291832    SWAN recharge ta base de donnée
+2022-09-26 13:11:58    0.902014    SWAN recharge ta base de donnée
+2022-09-26 13:12:35    0.9272389    SWAN recharge ta base de donnée
+2022-09-26 13:13:42    0.9098201    SWAN recharge ta base de donnée
+2022-09-26 13:18:9    0.9328759    SWAN tu es là
+2022-09-26 13:18:18    0.947889    SWAN appel le hangar
+2022-09-26 13:18:27    0.7811361    SWAN ouvre les trains
+2022-09-26 13:18:34    0.9237984    SWAN ouvre les trains
+2022-09-26 13:18:44    0.9186993    SWAN allume les moteurs
+2022-09-26 13:19:30    0.9455066    SWAN démarre le moteur
+2022-09-26 14:8:43    0.9341702    SWAN tu es là
+2022-09-26 14:8:59    0.8223142    SWAN démarre le moteur
+2022-09-26 14:9:3    0.8118693    SWAN démarre le moteur quantique
+2022-09-26 14:9:6    0.9312682    SWAN coupe le moteur
+2022-09-26 14:9:10    0.8926282    SWAN coupe le moteur quantique
+2022-09-26 14:9:13    0.8700037    SWAN coupe le moteur quantique
+2022-09-26 14:43:19    0.7949609    SWAN tu es là
+2022-09-26 14:43:26    0.8722999    SWAN tu es là
+2022-09-26 14:48:28    0.7183799    on y voit rien
+2022-09-26 14:49:33    0.7441412    un peu de lumiére
+2022-09-26 14:52:46    0.9162922    SWAN tu es là
+2022-09-26 14:53:26    0.9449439    SWAN es tu là
+2022-09-26 14:53:29    0.9376351    SWAN tu es là
+2022-09-26 14:53:34    0.9534791    SWAN tu m'entends
+2022-09-26 14:53:38    0.9371114    SWAN on se réveille
+2022-09-26 14:53:44    0.921957    SWAN recharge ta base de donnée
+2022-09-26 14:53:51    0.963899    SWAN Passe en mod discret
+2022-09-26 14:53:57    0.9518541    SWAN Met toi en mod discret
+2022-09-26 14:54:2    0.9286441    SWAN active le mod discret
+2022-09-26 14:54:7    0.938893    SWAN activation du mod discret
+2022-09-26 14:54:10    0.9516122    SWAN coupe le mod discret
+2022-09-26 14:54:17    0.9507656    SWAN désactivation du mod discret
+2022-09-26 14:54:20    0.9516522    SWAN Sort du mod discret
+2022-09-26 14:54:24    0.9598199    SWAN repasse en mod normale
+2022-09-26 14:54:27    0.8978217    SWAN met toi en veille
+2022-09-26 14:54:31    0.9555994    SWAN ouvre la porte
+2022-09-26 14:54:40    0.9548894    SWAN remet toi en écoute
+2022-09-26 14:54:44    0.950388    SWAN ouvre la porte
+2022-09-26 14:54:58    0.93576    SWAN met toi en sommeil
+2022-09-26 14:55:1    0.7969888    SWAN tu es là
+2022-09-26 14:55:9    0.9213583    SWAN repasse en mod normale
+2022-09-26 14:55:12    0.9462284    SWAN tu es là
+2022-09-26 15:12:55    0.7463741    tu es là
+2022-09-26 15:14:7    0.9057716    SWAN appel la station
+2022-09-26 15:14:23    0.8566025    SWAN démarre le moteur
+2022-09-26 15:14:29    0.9352943    SWAN allume les générateurs
+2022-09-26 15:24:59    0.8013729    SWAN tu es là
+2022-09-26 15:25:41    0.9554826    SWAN tu es là
+2022-09-26 15:26:51    0.9511427    SWAN tu es là
+2022-09-26 15:26:56    0.9418932    SWAN tu es là
+2022-09-26 15:27:2    0.8458701    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:27:8    0.8516416    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:31:46    0.856955    SWAN Met toute la puissance sur les armes
+2022-09-26 15:31:54    0.8888623    SWAN Met toute la puissance sur les moteur
+2022-09-26 15:32:2    0.8217725    ouvre le sasse
+2022-09-26 15:32:27    0.8608899    SWAN Met toute la puissance sur les moteur
+2022-09-26 15:32:35    0.8475546    SWAN Met toute la puissance sur les armes
+2022-09-26 15:32:42    0.9268354    SWAN Met toute la puissance sur les armes
+2022-09-26 15:33:45    0.9158918    SWAN Envoie toute la puissance sur les armes
+2022-09-26 15:33:51    0.8970544    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:35:2    0.840009    SWAN Met toute la puissance sur les armes
+2022-09-26 15:35:7    0.8798082    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:35:12    0.9305946    SWAN Met toute la puissance sur les moteur
+2022-09-26 15:35:57    0.8273046    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:36:21    0.8956687    SWAN Met toute la puissance sur les armes
+2022-09-26 15:36:29    0.8572075    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:42:15    0.8122398    SWAN remet la puissance au neutre
+2022-09-26 15:42:17    0.9327257    SWAN tu es là
+2022-09-26 15:42:22    0.8963731    SWAN remet la puissance au neutre
+2022-09-26 15:43:21    0.8914    SWAN tu es là
+2022-09-26 15:43:21    0.9176064    SWAN tu es là
+2022-09-26 15:43:27    0.8337423    SWAN remet la puissance au neutre
+2022-09-26 15:43:32    0.736252    SWAN Met toute la puissance sur les moteur
+2022-09-26 15:43:42    0.8543731    SWAN Met toute la puissance sur les moteur
+2022-09-26 15:43:47    0.8897929    SWAN Met toute la puissance sur les armes
+2022-09-26 15:43:53    0.9426027    SWAN réinitialise la puissance
+2022-09-26 15:43:58    0.8199914    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:44:2    0.7105105    SWAN reset la puissance
+2022-09-26 15:44:33    0.8072888    SWAN remet la puissance au centre
+2022-09-26 15:44:53    0.938825    SWAN tu es là
+2022-09-26 15:55:25    0.9345585    SWAN démarre le moteur
+2022-09-26 15:55:34    0.8405393    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:55:39    0.8996798    SWAN coupe le VTOL
+2022-09-26 15:55:46    0.8980544    SWAN coupe le moteur
+2022-09-26 15:56:5    0.9401314    SWAN tu es là
+2022-09-26 15:56:12    0.8892777    SWAN coupe le générateur
+2022-09-26 15:56:35    0.9525864    SWAN démarre l'appareil
+2022-09-26 15:56:58    0.8992922    SWAN remet la puissance au centre
+2022-09-26 15:57:6    0.7825424    SWAN remet la puissance au neutre
+2022-09-26 15:57:10    0.8791806    SWAN Met toute la puissance sur les bouclier
+2022-09-26 15:57:22    0.7690918    ouvre le sasse
+2022-09-26 15:58:27    0.883751    on y va
+2022-09-26 16:2:32    0.9159197    SWAN tu es là
+2022-09-26 16:2:43    0.918241    SWAN remet la puissance au neutre
+2022-09-26 16:2:51    0.8372226    SWAN coupe le moteur
+2022-09-26 16:3:10    0.9572056    SWAN ferme les trains
+2022-09-26 16:3:26    0.9524077    SWAN ouvre les trains
+2022-09-26 16:27:28    0.9541714    SWAN tu es là
+2022-09-26 16:27:37    0.7344617    SWAN transfert toute la puissance sur les armes
+2022-09-26 16:27:42    0.8688474    SWAN transfert toute la puissance sur les armes
+2022-09-26 16:27:49    0.8642676    SWAN bascule toute la puissance sur les boucliers
+2022-09-26 16:27:54    0.9081824    SWAN remet la puissance au neutre
+2022-09-26 16:27:58    0.9156945    SWAN remet la puissance au neutre
+2022-09-26 16:28:3    0.9176778    SWAN remet la puissance au centre
+2022-09-26 16:28:16    0.9424219    SWAN remet la puissance au centre
+2022-09-26 16:28:26    0.9373644    SWAN remet la puissance au centre
+2022-09-26 16:29:11    0.9451047    SWAN tu es là
+2022-09-26 16:29:18    0.8258996    SWAN remet la puissance au neutre
+2022-09-26 16:29:26    0.8628977    SWAN Met toute la puissance sur les boucliers
+2022-09-26 16:29:30    0.8400391    SWAN Met toute la puissance sur les armes
+2022-09-26 16:29:36    0.9242817    SWAN Met toute la puissance sur les moteurs
+2022-09-26 16:29:45    0.8808296    SWAN remet la puissance au neutre
+2022-09-26 16:29:54    0.9142921    SWAN démarre le moteur
+2022-09-26 16:30:20    0.9134761    SWAN coupe le moteur
+2022-09-26 16:30:44    0.9241714    SWAN coupe le générateur
+2022-09-26 16:30:49    0.9337284    SWAN démarre les générateurs
+2022-09-26 16:31:0    0.941153    SWAN Met toute la puissance sur les boucliers
+2022-09-26 16:36:1    0.94249    SWAN tu es là
+2022-09-26 16:36:8    0.8077082    SWAN remet la puissance au neutre
+2022-09-26 16:36:14    0.9345495    SWAN Met plus de puissance sur les bouclier
+2022-09-26 16:36:20    0.828347    SWAN Met plus de puissance sur les bouclier
+2022-09-26 16:36:41    0.9094005    SWAN Met plus de puissance sur les bouclier
+2022-09-26 16:37:0    0.8741021    SWAN Met plus de puissance sur les bouclier
+2022-09-26 16:37:7    0.8655521    SWAN transfert plus de puissance sur les bouclier
+2022-09-26 16:37:13    0.9337332    SWAN Met plus de jue sur les bouclier
+2022-09-26 16:38:10    0.880045    SWAN Met plus de puissance sur les bouclier
+2022-09-26 16:38:17    0.9051816    SWAN Met plus de puissance sur les bouclier
+2022-09-26 16:39:11    0.9348887    SWAN tu es là
+2022-09-26 16:39:16    0.9335748    SWAN Met plus de puissance sur les boucliers
+2022-09-26 16:39:22    0.8988242    SWAN Met plus de puissance sur les moteurs
+2022-09-26 16:39:29    0.9193354    SWAN Met plus de puissance sur les boucliers
+2022-09-26 16:39:33    0.8698506    SWAN Met plus de puissance sur les moteurs
+2022-09-26 16:39:40    0.9029796    SWAN plus de puissance sur les armes
+2022-09-26 16:39:46    0.8142805    SWAN Met toute la puissance sur les armes
+2022-09-26 16:39:53    0.8552256    SWAN remet la puissance au neutre
+2022-09-26 16:42:42    0.8481829    SWAN appel la station
+2022-09-26 16:42:53    0.9169824    SWAN appel la station
+2022-09-26 16:43:10    0.9079361    SWAN ouvre le train
+2022-09-26 16:43:19    0.9213638    SWAN ouvre les trains
+2022-09-26 16:44:12    0.8998174    SWAN coupe le moteur
+2022-09-26 16:44:18    0.9370229    SWAN éteint les générateurs
+2022-09-26 16:44:23    0.9035243    SWAN je quite la passerelle
+2022-09-26 16:51:3    0.8886706    SWAN tu es là
+2022-09-26 16:53:19    0.728281    SWAN démarre le vaisseaux
+2022-09-26 16:53:24    0.9413382    SWAN rentre le bras
+2022-09-26 16:53:30    0.9461195    SWAN rentre le bras
+2022-09-26 16:54:8    0.939895    SWAN démarre le moteur
+2022-09-26 16:54:24    0.8912106    SWAN appel la base
+2022-09-26 16:55:7    0.8541127    SWAN démarre le moteur quantique
+2022-09-26 16:55:28    0.8899974    SWAN Lance le saut
+2022-09-26 16:59:41    0.9299484    SWAN démarre le générateur
+2022-09-26 16:59:46    0.8681253    SWAN coupe le moteur quantique
+2022-09-26 16:59:54    0.7327143    SWAN scan la zone
+2022-09-26 16:59:57    0.9489651    SWAN Balaye la zone
+2022-09-26 17:0:28    0.9249126    SWAN sort le bras
+2022-09-26 17:0:38    0.9270252    SWAN coupe le balayage
+2022-09-26 17:5:31    0.8850464    SWAN change l'outils
+2022-09-26 17:6:42    0.8277147    SWAN change l'outils
+2022-09-26 17:7:33    0.894384    SWAN change d'outils
+2022-09-26 17:8:54    0.8612837    SWAN Balaye la zone
+2022-09-26 17:9:18    0.8387074    SWAN change d'outils
+2022-09-26 17:9:32    0.9303271    SWAN stabilise l'appareil
+2022-09-26 17:10:0    0.9304966    SWAN coupe le scanne
+2022-09-26 17:11:20    0.8515318    SWAN Balaye la zone
+2022-09-26 17:12:15    0.8342042    SWAN coupe le balayage
+2022-09-26 17:18:28    0.8344545    SWAN change d'outils
+2022-09-26 17:18:32    0.939796    SWAN démarre le moteur
+2022-09-26 17:20:55    0.8680633    SWAN change l'outils
+2022-09-26 17:29:43    0.8736379    SWAN change d'outils
+2022-09-26 17:30:47    0.7612522    SWAN démarre le moteur quantique
+2022-09-26 17:30:54    0.8599344    SWAN démarre le moteur quantique
+2022-09-26 17:31:4    0.8067367    SWAN tu es là
+2022-09-26 17:31:7    0.9082786    SWAN Lance le saut
+2022-09-26 17:31:18    0.8196669    SWAN toute la puissance sur les boucliers
+2022-09-26 17:31:23    0.8816215    SWAN remet la puissance au neutre
+2022-09-26 17:31:45    0.9284574    SWAN sort le bras
+2022-09-26 17:33:33    0.9587998    SWAN tu es là
+2022-09-26 17:33:47    0.9352543    SWAN rentre le bras
+2022-09-26 17:34:9    0.9278826    SWAN Lance le saut
+2022-09-26 17:34:41    0.9103438    SWAN coupe le moteur quantique
+2022-09-26 17:35:15    0.9503155    SWAN appel la station
+2022-09-26 17:35:25    0.89597    SWAN sort les trains
+2022-09-26 17:36:25    0.8878744    SWAN je quitte le poste
+2022-09-26 17:36:37    0.9432126    SWAN tu es là
+2022-09-26 17:47:40    0.774405    ouvre le sasse
+2022-09-26 17:49:36    0.933165    SWAN tu es là
+2022-09-26 17:49:36    0.9601222    SWAN tu es là
+2022-09-26 17:50:49    0.8106228    SWAN tu es avec moi
+2022-09-26 17:52:8    0.9324855    SWAN ouvre les portes
+2022-09-26 17:52:13    0.9447922    SWAN appel la base
+2022-09-26 17:52:20    0.887205    SWAN ferme les portes
+2022-09-26 17:52:24    0.9449501    SWAN démarre le moteur
+2022-09-26 17:52:29    0.8937445    SWAN démarre le moteur
+2022-09-26 17:52:48    0.9599209    SWAN rentre le bras
+2022-09-26 17:52:54    0.9544027    SWAN ferme le bras
+2022-09-26 17:53:25    0.9596042    SWAN mod navigation
+2022-09-26 17:53:30    0.9537939    SWAN mod navigation
+2022-09-26 17:54:11    0.9503409    SWAN mod navigation
+2022-09-26 17:55:4    0.923664    SWAN appel la station
+2022-09-26 17:55:17    0.9267278    SWAN rentre le bras
+2022-09-26 17:55:42    0.7397398    SWAN éteint les moteurs
+2022-09-26 17:55:46    0.941301    SWAN éteint les moteurs
+2022-09-26 17:55:50    0.9316151    SWAN éteint le générateur
+2022-09-26 17:55:53    0.894756    SWAN je quite la passerelle
+2022-09-26 17:58:9    0.8622023    SWAN ouvre les portes
+2022-09-26 17:58:20    0.8632323    SWAN ferme les portes
+2022-09-26 17:58:24    0.8995377    SWAN appel le hangar
+2022-09-26 17:58:33    0.9317856    SWAN démarre les moteurs
+2022-09-26 17:58:39    0.9369351    SWAN démarre le générateur
+2022-09-26 17:59:7    0.8773489    SWAN Met toute la puissance sur les boucliers
+2022-09-26 17:59:19    0.8961694    SWAN mod navigation
+2022-09-26 18:0:2    0.9383097    SWAN mod navigation
+2022-09-26 18:1:31    0.9032465    SWAN tu es là
+2022-09-26 18:1:31    0.8581963    SWAN tu es là
+2022-09-26 18:1:37    0.9306002    SWAN mod navigation
+2022-09-26 18:2:28    0.9242324    SWAN tu es là
+2022-09-26 18:2:35    0.9094391    SWAN mod navigation
+2022-09-26 18:2:43    0.9649703    SWAN mod navigation
+2022-09-26 18:3:42    0.9499521    SWAN tu es là
+2022-09-26 18:3:48    0.9356198    SWAN mod navigation
+2022-09-26 18:3:54    0.9518876    SWAN mod navigation
+2022-09-26 18:4:28    0.9270084    SWAN tu es là
+2022-09-26 18:4:32    0.937512    SWAN mod navigation
+2022-09-26 18:4:39    0.9088572    SWAN mod navigation
+2022-09-26 18:5:40    0.7331775    ferme moi la starmap
+2022-09-26 18:6:31    0.9575831    SWAN mod navigation
+2022-09-26 18:7:46    0.9253831    SWAN tu es là
+2022-09-26 18:7:46    0.874693    SWAN tu es là
+2022-09-26 18:7:52    0.9239804    SWAN tu es là
+2022-09-26 18:8:1    0.9515571    SWAN mod navigation
+2022-09-26 18:8:20    0.9489397    SWAN mod navigation
+2022-09-26 18:8:20    0.9320729    SWAN mod navigation
+2022-09-26 18:9:36    0.9444004    SWAN tu es là
+2022-09-26 18:9:40    0.9443653    SWAN mod navigation
+2022-09-26 18:9:50    0.8097854    SWAN toute la puissance sur les boucliers
+2022-09-26 18:12:6    0.8097863    on y va
+2022-09-26 18:25:27    0.7937437    SWAN mod minage
+2022-09-26 18:25:28    0.9358197    SWAN mod navigation
+2022-09-26 18:25:34    0.8983393    SWAN mod minage
+2022-09-26 18:26:4    0.9197339    SWAN mod minage
+2022-09-26 18:28:31    0.9294185    SWAN mod minage
+2022-09-26 18:28:36    0.9212322    SWAN mod navigation
+2022-09-26 18:28:46    0.9503508    SWAN mod navigation
+2022-09-26 18:28:52    0.964173    SWAN tu es là
+2022-09-26 18:28:58    0.8812084    SWAN mod minage
+2022-09-26 18:29:3    0.8717101    SWAN mod navigation
+2022-09-26 18:29:59    0.8410043    SWAN tu es là
+2022-09-26 18:30:3    0.8860087    SWAN mod navigation
+2022-09-26 18:30:17    0.9092703    SWAN mod navigation
+2022-09-26 18:30:27    0.7682683    SWAN mod minage
+2022-09-26 18:30:31    0.8792108    SWAN mod minage
+2022-09-26 18:31:18    0.9089284    SWAN tu es là
+2022-09-26 18:31:24    0.7950498    SWAN mod minage
+2022-09-26 18:31:30    0.9212369    SWAN mod minage
+2022-09-26 18:31:35    0.9618767    SWAN mod navigation
+2022-09-26 18:32:30    0.930572    SWAN tu es là
+2022-09-26 18:33:30    0.9376615    SWAN mod minage
+2022-09-26 18:33:44    0.9004135    SWAN mod navigation
+2022-09-26 18:33:51    0.9412416    SWAN Met toute la puissance sur les boucliers
+2022-09-26 18:35:26    0.7116159    je quite la passerelle
+2022-09-26 18:41:51    0.7407201    tu es là
+2022-09-26 18:47:51    0.7656301    mod navigation
+2022-09-26 18:47:52    0.7136712    tu es là
+2022-09-26 18:53:36    0.9585815    SWAN tu es là
+2022-09-26 18:54:19    0.9229835    SWAN tu es là
+2022-09-26 18:54:27    0.9140369    SWAN mod navigation
+2022-09-26 18:54:32    0.9524631    SWAN mod minage
+2022-09-26 18:54:39    0.9148225    SWAN mod défensif
+2022-09-26 18:57:34    0.9203194    SWAN tu es là
+2022-09-26 18:57:38    0.8189425    SWAN mod défensif
+2022-09-26 18:57:49    0.8880306    SWAN mod minage
+2022-09-26 18:58:57    0.9239261    SWAN tu es là
+2022-09-26 18:59:4    0.9361073    SWAN mod navigation
+2022-09-26 18:59:10    0.9677059    SWAN mod défensif
+2022-09-26 18:59:18    0.9460812    SWAN mod navigation
+2022-09-26 19:5:47    0.9483631    mod offensif
+2022-09-26 19:5:53    0.7738768    Met plus de jue sur les armes
+2022-09-26 19:7:3    0.7321106    mod défensif
+2022-09-26 19:8:41    0.9307526    SWAN tu es là
+2022-09-26 19:8:48    0.9494211    SWAN mod attaque
+2022-09-26 19:11:52    0.9438417    SWAN mod navigation
+2022-09-26 19:12:2    0.9122356    SWAN mod défensif
+2022-09-26 19:12:16    0.9405866    SWAN mod attaque
+2022-09-26 19:16:54    0.7188043    SWAN mod navigation
+2022-09-26 19:16:57    0.9481902    SWAN mod navigation
+2022-09-26 19:17:4    0.9401515    SWAN mod défensif
+2022-09-26 19:17:10    0.929427    SWAN mod défensif
+2022-09-26 19:17:16    0.9450105    SWAN mod attaque
+2022-09-26 19:17:22    0.7064893    SWAN mod défensif
+2022-09-26 19:17:26    0.9575721    SWAN mod défensif
+2022-09-26 19:17:31    0.9567656    SWAN mod offensif
+2022-09-26 19:27:6    0.9629931    SWAN tu es là
+2022-09-26 19:27:10    0.8966897    SWAN mod minage
+2022-09-26 19:27:36    0.9177979    SWAN mod défensif
+2022-09-26 19:27:44    0.9285381    SWAN mod attaque
+2022-09-26 19:28:22    0.8781223    mod minage
+2022-09-26 19:29:47    0.9267903    SWAN tu es là
+2022-09-26 19:30:53    0.8950233    SWAN tu es là
+2022-09-26 19:31:2    0.960967    SWAN mod offensif
+2022-09-26 19:31:13    0.9217467    SWAN mod minage
+2022-09-26 19:31:54    0.7093473    ouvre la soute
+2022-09-26 19:33:58    0.9519685    SWAN tu es là
+2022-09-26 19:34:3    0.9627736    SWAN mod navigation
+2022-09-26 19:34:9    0.9646756    SWAN mod attaque
+2022-09-26 19:34:16    0.9678182    SWAN mod défensif
+2022-09-26 19:34:25    0.955801    SWAN mod minage
+2022-09-26 19:35:34    0.8471366    SWAN mod minage
+2022-09-26 19:35:44    0.8133266    mod minage
+2022-09-26 19:36:12    0.9341608    SWAN mod minage
+2022-09-26 19:37:52    0.9532563    SWAN tu es là
+2022-09-26 19:38:42    0.9469537    SWAN mod minage
+2022-09-26 19:40:53    0.9403678    SWAN mod minage
+2022-09-26 19:41:3    0.8956069    SWAN mod navigation
+2022-09-26 19:41:12    0.8398411    SWAN mod minage
+2022-09-26 19:41:19    0.8468124    SWAN mod défensif
+2022-09-26 19:41:30    0.8614901    SWAN mod offensif
+2022-09-26 19:43:4    0.8844377    SWAN mod navigation
+2022-09-26 19:43:12    0.9451732    SWAN mod attaque
+2022-09-26 19:43:22    0.9397185    SWAN mod défensif
+2022-09-26 19:43:28    0.9526051    SWAN mod attaque
+2022-09-26 19:45:2    0.9408566    SWAN mod attaque
+2022-09-26 19:45:14    0.7292598    un peu de lumiére
+2022-09-26 19:55:49    0.7187894    SWAN on décolle
+2022-09-26 19:59:15    0.7040514    Met toute la puissance sur les boucliers
+2022-09-26 19:59:17    0.7592709    go pour le saut
+2022-09-26 20:0:18    0.771738    SWAN transfert plus de puissance sur le bouclier avant
+2022-09-26 20:2:50    0.946908    SWAN tu es là
+2022-09-26 20:2:57    0.957764    SWAN puissance bouclier avant
+2022-09-26 20:3:19    0.9376024    SWAN Envoie plus de jue sur le bouclier avant
+2022-09-26 20:13:28    0.7203768    go pour le saut
+2022-09-26 20:14:25    0.7089502    Lance le saut
+2022-09-26 20:17:54    0.92615    SWAN tu es là
+2022-09-26 20:18:0    0.9279606    SWAN mod navigation
+2022-09-26 20:18:25    0.9513142    SWAN puissance bouclier avant
+2022-09-26 20:18:31    0.9549288    SWAN puissance bouclier gauche
+2022-09-26 20:59:18    0.7549119    ouvre le sasse
+2022-09-26 21:3:25    0.8740266    SWAN tu es là
+2022-09-26 21:3:46    0.831855    SWAN remet les boucliers au centre
+2022-09-26 21:3:51    0.9526416    SWAN remet les boucliers au centre
+2022-09-26 21:4:31    0.8714492    mod attaque
+2022-09-26 21:8:22    0.8005565    SWAN remet les boucliers au centre
+2022-09-26 21:11:6    0.8946977    SWAN remet les boucliers au centre
+2022-09-26 21:11:20    0.8389273    SWAN appel la station
+2022-09-26 21:12:11    0.8492387    SWAN coupe le moteur
+2022-09-26 21:12:18    0.9160278    SWAN coupe le générateur
+2022-09-26 21:12:23    0.8346889    SWAN je quite la passerelle
+2022-09-26 21:13:58    0.7867958    ouvre le sasse
+2022-09-26 21:16:50    0.9429364    SWAN appel la station
+2022-09-26 21:21:10    0.8257363    SWAN on y voit rien
+2022-09-26 21:21:19    0.8215616    SWAN démarre le moteur
+2022-09-26 21:21:26    0.948395    SWAN démarre le générateur
+2022-09-26 21:21:34    0.9559257    SWAN allumes les spots
+2022-09-26 21:21:54    0.7982709    SWAN démarre le moteur quantique
+2022-09-26 21:22:11    0.9283013    SWAN démarre le moteur quantique
+2022-09-26 21:22:44    0.9436824    SWAN ferme la carte
+2022-09-26 21:23:10    0.8977137    SWAN Lance le saut
+2022-09-26 21:25:9    0.9099772    SWAN démarre le générateur
+2022-09-26 21:25:44    0.9191596    SWAN mod minage
+2022-09-26 21:25:55    0.7066726    SWAN Balaye la zone
+2022-09-26 21:26:0    0.9059392    SWAN Balaye la zone
+2022-09-26 21:31:4    0.9119789    SWAN coupe le balayage
+2022-09-26 21:31:31    0.7531103    SWAN on se réveille
+2022-09-26 21:31:46    0.9303694    SWAN Balaye la zone
+2022-09-26 21:31:58    0.9207264    SWAN range le bras
+2022-09-26 21:32:3    0.9478715    SWAN rentre le bras
+2022-09-26 21:32:17    0.9369367    SWAN stop le balayage
+2022-09-26 21:32:24    0.8972175    SWAN coupe le balayage
+2022-09-26 21:33:22    0.926935    SWAN rentre le bras
+2022-09-26 21:33:34    0.8983703    SWAN Balaye la zone
+2022-09-26 21:33:59    0.8971665    SWAN sort le bras
+2022-09-26 21:34:4    0.9120216    SWAN coupe le balayage
+2022-09-26 21:35:30    0.9016718    SWAN Balaye la zone
+2022-09-26 21:36:37    0.9332892    SWAN coupe le balayage
+2022-09-26 21:37:5    0.8911527    SWAN Balaye la zone
+2022-09-26 21:37:33    0.7460609    Balaye la zone
+2022-09-26 21:38:29    0.8514333    SWAN coupe le balayage
+2022-09-26 21:42:48    0.8350275    SWAN Met plus de puissance sur les boucliers
+2022-09-26 21:46:20    0.8747179    SWAN change d'outils
+2022-09-26 21:47:9    0.7304316    SWAN Lance le saut
+2022-09-26 21:47:12    0.9499789    SWAN top chrono
+2022-09-26 21:48:4    0.7381288    SWAN démarre le moteur quantique
+2022-09-26 21:48:8    0.9016628    SWAN mod navigation
+2022-09-26 21:48:16    0.9268975    SWAN démarre le moteur quantique
+2022-09-26 21:48:30    0.900382    SWAN Lance le saut
+2022-09-26 21:51:34    0.8433267    SWAN Lance le saut
+2022-09-26 21:51:51    0.9285203    SWAN Lance le saut
+2022-09-26 21:52:43    0.9225327    SWAN Lance le saut
+2022-09-26 21:53:0    0.9025354    SWAN coupe le moteur quantique
+2022-09-26 21:53:40    0.9609002    SWAN appel la station
+2022-09-26 21:53:55    0.9419875    SWAN ouvre les portes
+2022-09-26 21:53:59    0.9334817    SWAN ouvre les trains
+2022-09-26 21:54:42    0.8983903    SWAN je quite la passerelle
+2022-09-26 21:55:15    0.8010399    on y va
+2022-09-26 21:57:25    0.9244803    SWAN annulation compte à rebours
+2022-09-26 22:1:43    0.8424607    SWAN appel la station
+2022-09-26 22:5:22    0.9095508    SWAN tu es là
+2022-09-26 22:5:27    0.949905    SWAN mod minage
+2022-09-26 22:5:35    0.9219767    SWAN Balaye la zone
+2022-09-26 22:6:35    0.8951004    SWAN coupe le balayage
+2022-09-26 22:8:22    0.8494169    SWAN coupe le moteur quantique
+2022-09-26 22:8:26    0.9410609    SWAN allume le moteur quantique
+2022-09-26 22:8:30    0.8321828    SWAN ouvre le bras
+2022-09-26 22:12:12    0.9468483    SWAN allumes les spots
+2022-09-26 22:12:42    0.853492    SWAN coupe les spots
+2022-09-26 22:16:51    0.8057448    SWAN change l'outils
+2022-09-26 22:17:11    0.944635    SWAN top chrono
+2022-09-26 22:19:49    0.8927345    SWAN affiche la carte
+2022-09-26 22:20:22    0.8767    SWAN Lance le saut
+2022-09-26 22:23:23    0.9475848    SWAN Lance le saut
+2022-09-26 22:23:37    0.859397    SWAN Lance le saut
+2022-09-26 22:24:20    0.7238503    SWAN éteint le moteur
+2022-09-26 22:24:24    0.8942136    SWAN coupe le moteur quantique
+2022-09-26 22:24:29    0.9304882    SWAN appel la station
+2022-09-26 22:24:58    0.9324508    SWAN ouvre les trains
+2022-09-26 22:25:48    0.814022    SWAN je quite la passerelle
+2022-09-26 22:37:0    0.8847752    SWAN tu es là
+2022-09-26 22:37:18    0.9516521    SWAN tu es là
+2022-09-26 22:37:22    0.9180605    SWAN envoie une invite
+2022-09-26 22:37:35    0.9355636    SWAN envoie une invite
+2022-09-26 22:46:30    0.8841848    SWAN envoie mon discord
+2022-09-26 22:46:47    0.925067    SWAN envoie mon discord
+2022-09-26 22:51:26    0.929371    SWAN ouvre le hangar
+2022-09-26 22:51:30    0.9181765    SWAN démarre le vaisseaux
+2022-09-26 22:52:1    0.9213594    SWAN démarre le moteur quantique
+2022-09-26 22:52:16    0.8229826    SWAN Lance le saut
+2022-09-26 22:56:16    0.9340746    SWAN Lance le saut
+2022-09-26 22:58:16    0.7454054    On saute
+2022-09-26 22:59:9    0.9460098    SWAN coupe le moteur quantique
+2022-09-26 22:59:30    0.9517725    SWAN appel la station
+2022-09-26 22:59:35    0.9625412    SWAN ouvre les trains
+2022-09-26 23:14:38    0.7873077    on y va
+2022-09-26 23:21:19    0.7757131    allume les feux
+2022-09-26 23:25:40    0.8720183    SWAN Lance le saut
+2022-09-26 23:37:15    0.9439465    SWAN appel la station
+2022-09-26 23:37:27    0.8752429    SWAN rentre le train
+2022-09-26 23:44:11    0.8346533    SWAN Lance le saut
+2022-09-26 23:44:50    0.8598961    SWAN Lance le saut
+2022-09-26 23:46:21    0.8664892    SWAN coupe le moteur quantique
+2022-09-26 23:46:35    0.7334113    SWAN ouvre les trains
+2022-09-26 23:47:41    0.9137327    SWAN on y voit rien
+2022-09-26 23:51:6    0.9398924    SWAN ouvre les trains
+2022-09-26 23:51:56    0.9068474    SWAN affiche la carte
+2022-09-26 23:53:4    0.8973001    SWAN ferme la carte
+2022-09-26 23:53:13    0.7388259    SWAN active le moteur quantique
+2022-09-26 23:53:19    0.9320719    SWAN démarre le moteur quantique
+2022-09-26 23:54:2    0.76141    SWAN Lance le saut
+2022-09-26 23:54:6    0.9114773    SWAN Lance le saut
+2022-09-26 23:55:42    0.8700071    SWAN coupe le moteur
+2022-09-26 23:55:47    0.8141915    SWAN allume les moteurs
+2022-09-26 23:55:55    0.9369717    SWAN coupe le moteur quantique
+2022-09-26 23:56:22    0.8800161    SWAN ouvre le train
+2022-09-26 23:57:57    0.7038261    SWAN affiche la carte
+2022-09-26 23:58:3    0.9024851    SWAN démarre le moteur quantique
+2022-09-26 23:58:16    0.885017    SWAN affiche la carte
+2022-09-26 23:58:56    0.8885976    SWAN ferme la carte
+2022-09-26 23:59:23    0.9268268    SWAN Lance le saut
+2022-09-26 23:59:43    0.8515081    SWAN Lance le saut
+2022-09-26 23:59:56    0.916446    SWAN mod minage
+2022-09-27 0:0:3    0.9608569    SWAN mod navigation
+2022-09-27 0:0:50    0.8694324    SWAN Met toute la puissance sur les moteurs
+2022-09-27 0:1:2    0.880245    SWAN réinitialise la puissance
+2022-09-27 0:4:16    0.856674    SWAN Lance le saut
+2022-09-27 0:5:25    0.9158925    SWAN coupe le moteur quantique
+2022-09-27 0:5:33    0.9555773    SWAN appel la station
+2022-09-27 0:6:3    0.8096515    SWAN ouvre le train
+2022-09-27 0:6:10    0.8593684    SWAN on y voit rien
+2022-09-27 0:6:35    0.9224681    SWAN coupe le moteur
+2022-09-27 0:6:39    0.9101757    SWAN coupe les générateurs
+2022-09-27 0:6:51    0.8495067    SWAN je quitte le poste
+2022-09-27 8:25:26    0.910444    SWAN tu es là
+2022-09-27 8:25:52    0.9256682    SWAN tu es là
+2022-09-27 8:26:20    0.9435755    SWAN tu es là
+2022-09-27 8:27:12    0.9586207    SWAN tu es là
+2022-09-27 8:27:43    0.9384645    SWAN tu es là
+2022-09-27 8:28:45    0.9473244    SWAN tu es là
+2022-09-27 8:28:47    0.9338811    SWAN allume les moteurs
+2022-09-27 8:30:8    0.9267445    SWAN tu es là
+2022-09-27 8:30:20    0.9267544    SWAN tu es là
+2022-09-27 8:31:8    0.9404626    SWAN tu es là
+2022-09-27 8:31:12    0.9309922    SWAN allume les moteurs
+2022-09-27 8:32:9    0.8735744    SWAN tu es là
+2022-09-27 8:34:3    0.9454672    SWAN tu es là
+2022-09-27 8:34:5    0.95463    SWAN démarre les moteurs
+2022-09-27 8:34:8    0.9460863    SWAN affiche la carte
+2022-09-27 8:36:54    0.7163301    allume les phares
+2022-09-27 8:38:23    0.9396314    SWAN tu es là
+2022-09-27 8:38:55    0.9594814    SWAN tu es là
+2022-09-27 8:41:22    0.9560159    SWAN tu es là
+2022-09-27 8:42:38    0.9335711    SWAN tu es là
+2022-09-27 8:42:45    0.9538318    SWAN tu es là
+2022-09-27 8:42:57    0.9576297    SWAN tu es là
+2022-09-27 8:44:24    0.9626696    SWAN tu es là
+2022-09-27 8:44:34    0.7974819    SWAN recharge ta base de donnée
+2022-09-27 8:44:37    0.95253    SWAN tu es là
+2022-09-27 8:45:10    0.9665246    SWAN tu es là
+2022-09-27 8:45:12    0.9660485    SWAN tu es là
+2022-09-27 8:45:27    0.9592689    SWAN tu es là
+2022-09-27 8:46:13    0.9375796    SWAN tu es là
+2022-09-27 8:46:32    0.9600889    SWAN tu es là
+2022-09-27 8:46:34    0.9204712    SWAN tu es là
+2022-09-27 8:46:36    0.9440712    SWAN tu es là
+2022-09-27 8:47:0    0.9347373    SWAN tu es là
+2022-09-27 8:47:10    0.9515411    SWAN tu es là
+2022-09-27 8:47:12    0.8537151    SWAN recharge ta base de donnée
+2022-09-27 8:47:30    0.9584523    SWAN tu es là
+2022-09-27 8:47:32    0.866886    SWAN recharge ta base de donnée
+2022-09-27 8:47:33    0.9588652    SWAN tu es là
+2022-09-27 8:47:35    0.883992    SWAN recharge ta base de donnée
+2022-09-27 8:47:59    0.9315454    SWAN tu es avec moi
+2022-09-27 8:48:0    0.9667653    SWAN tu es là
+2022-09-27 8:48:2    0.9494107    SWAN tu es là
+2022-09-27 8:48:3    0.9009988    SWAN tu es avec moi
+2022-09-27 8:48:4    0.9538439    SWAN tu m'entends
+2022-09-27 8:52:32    0.9416564    SWAN tu es là
+2022-09-27 8:52:43    0.909007    SWAN Passe en mod discret
+2022-09-27 8:53:19    0.9159916    SWAN tu es là
+2022-09-27 8:53:24    0.8392169    SWAN tu m'entends
+2022-09-27 8:53:28    0.943252    SWAN Passe en mod discret
+2022-09-27 9:0:32    0.9162461    SWAN appel la station
+2022-09-27 9:3:55    0.9469726    SWAN tu es là
+2022-09-27 9:4:16    0.9588662    SWAN appel la station
+2022-09-27 9:4:46    0.9217796    SWAN envoie une invitation discord
+2022-09-27 9:4:56    0.910557    SWAN envoie notre discord
+2022-09-27 9:5:0    0.9403539    SWAN envoie une invite
+2022-09-27 9:11:10    0.9298993    SWAN sort les trains
+2022-09-27 9:11:16    0.9203236    SWAN rentre les trains
+2022-09-27 9:11:20    0.861074    SWAN rentre les trains
+2022-09-27 9:11:25    0.9104735    SWAN rentre les trains
+2022-09-27 9:19:14    0.8613802    SWAN stabilise l'appareil
+2022-09-27 9:25:55    0.9560728    SWAN démarre le moteur quantique
+2022-09-27 9:27:36    0.756569    SWAN démarre le moteur quantique
+2022-09-27 9:27:41    0.9610502    SWAN démarre le moteur quantique
+2022-09-27 9:33:3    0.9396644    SWAN allume le moteur quantique
+2022-09-27 9:33:24    0.9076145    SWAN démarre le moteur quantique
+2022-09-27 9:40:51    0.9155815    SWAN démarre le moteur quantique
+2022-09-27 9:40:53    0.9342838    SWAN démarre le moteur quantique
+2022-09-27 9:41:24    0.952656    SWAN démarre le moteur quantique
+2022-09-27 9:41:25    0.9623398    SWAN démarre le moteur quantique
+2022-09-27 9:41:48    0.9313808    SWAN tu es là
+2022-09-27 9:42:16    0.7990531    SWAN démarre le moteur quantique
+2022-09-27 9:42:20    0.9337891    SWAN tu es là
+2022-09-27 9:42:44    0.9645942    SWAN tu es là
+2022-09-27 9:42:48    0.9171851    SWAN démarre le moteur quantique
+2022-09-27 9:42:50    0.8357332    SWAN démarre le moteur quantique
+2022-09-27 9:42:50    0.9454922    tu es là
+2022-09-27 9:44:53    0.9448348    SWAN démarre le moteur quantique
+2022-09-27 9:44:55    0.8814822    SWAN démarre le moteur quantique
+2022-09-27 9:44:56    0.9708892    tu es là
+2022-09-27 9:45:24    0.9180518    SWAN tu es là
+2022-09-27 9:46:30    0.9323194    SWAN tu es là
+2022-09-27 9:46:36    0.7167584    SWAN démarre le moteur quantique
+2022-09-27 9:46:38    0.9397266    SWAN démarre le moteur quantique
+2022-09-27 9:46:38    0.8948268    SWAN tu es là
+2022-09-27 9:47:20    0.9305719    SWAN tu es là
+2022-09-27 9:52:15    0.9271703    SWAN démarre le moteur quantique
+2022-09-27 9:52:53    0.9212519    SWAN démarre le moteur quantique
+2022-09-27 9:56:35    0.9282224    SWAN démarre le moteur quantique
+2022-09-27 10:0:59    0.9544385    SWAN tu es là
+2022-09-27 10:1:2    0.9573718    SWAN démarre le moteur quantique
+2022-09-27 10:1:3    0.9107985    SWAN tu es là
+2022-09-27 10:1:5    0.7404291    démarre le moteur quantique
+2022-09-27 10:1:6    0.7316982    tu es là
+2022-09-27 10:1:37    0.9435053    SWAN démarre le moteur quantique
+2022-09-27 10:12:18    0.8224878    SWAN tu es là
+2022-09-27 10:12:21    0.8843691    SWAN ouvre le bras
+2022-09-27 10:12:25    0.7654668    SWAN sort le bras
+2022-09-27 10:12:29    0.9446896    SWAN sort le bras
+2022-09-27 10:12:48    0.9298778    SWAN ouvre le bras
+2022-09-27 10:13:56    0.9342452    SWAN top chrono
+2022-09-27 10:14:31    0.8773929    SWAN stop le chrono
+2022-09-27 10:14:40    0.9490651    SWAN tu es là
+2022-09-27 10:14:55    0.8913752    SWAN top chrono
+2022-09-27 12:23:57    0.91975    SWAN tu es là
+2022-09-27 12:24:10    0.9299833    SWAN envoie une invitation discord
+2022-09-27 12:24:23    0.8646428    SWAN ouvre les trains
+2022-09-27 12:24:27    0.9176754    SWAN ferme les trains
+2022-09-27 12:24:36    0.946499    SWAN démarre le générateur
+2022-09-27 12:24:40    0.8365247    SWAN coupe le générateur
+2022-09-27 12:24:44    0.9626577    SWAN démarre les moteurs
+2022-09-27 12:24:49    0.8416121    SWAN coupe le moteur
+2022-09-27 12:24:52    0.9650251    SWAN démarre l'appareil
+2022-09-27 12:29:33    0.8820851    SWAN je te laisse les commandes
+2022-09-27 12:32:55    0.8445789    SWAN tu es là
+2022-09-27 12:34:1    0.9648335    SWAN envoie une invite
+2022-09-27 12:34:11    0.9431854    SWAN envoie mon discord
+2022-09-27 12:41:52    0.906311    SWAN tu es là
+2022-09-27 12:44:24    0.9507331    SWAN tu es avec moi
+2022-09-27 12:46:55    0.7512326    on y va
+2022-09-27 12:46:58    0.9348834    SWAN tu es là
+2022-09-27 12:47:23    0.8895434    SWAN envoie mon discord
+2022-09-27 12:47:29    0.7955997    SWAN envoie mon discord
+2022-09-27 12:47:34    0.9369824    SWAN envoie mon discord
+2022-09-27 12:47:38    0.8064765    SWAN envoie mon discord
+2022-09-27 12:47:54    0.8177089    SWAN envoie mon discord
+2022-09-27 12:48:8    0.8705673    SWAN envoie mon discord
+2022-09-27 12:48:14    0.9256731    SWAN envoie une invitation discord
+2022-09-27 12:48:21    0.9110608    SWAN envoie une invitation discord
+2022-09-27 12:48:28    0.9258146    SWAN envoie mon discord
+2022-09-27 12:49:2    0.8887225    SWAN passe en mod navigation
+2022-09-27 12:49:56    0.9470982    SWAN passe en mod navigation
+2022-09-27 12:50:57    0.9538835    SWAN passe en mode navigation
+2022-09-27 12:51:14    0.9389565    SWAN mode minage
+2022-09-27 13:41:9    0.9487215    SWAN tu es là
+2022-09-27 13:41:15    0.8494583    SWAN recharge ta base de donnée
+2022-09-27 15:35:41    0.7973061    tu es là
+2022-09-27 15:35:54    0.9211504    SWAN tu es là
+2022-09-27 15:36:12    0.8629258    SWAN tu es là
+2022-09-27 15:36:23    0.9507409    SWAN mode navigation
+2022-09-27 15:36:38    0.9515144    SWAN passe en mode navigation
+2022-09-27 15:37:44    0.9302913    SWAN passe en mode navigation
+2022-09-27 15:38:1    0.9154499    SWAN envoie mon discord
+2022-09-27 15:39:39    0.9270359    SWAN passe en mode attaque
+2022-09-27 15:43:36    0.9379281    SWAN tu es là
+2022-09-27 15:43:45    0.8959839    SWAN passe en mode attaque
+2022-09-27 15:43:50    0.704309    on y va
+2022-09-27 15:43:57    0.9511625    SWAN passe en mode navigation
+2022-09-27 15:45:46    0.945306    SWAN passe en mode minage
+2022-09-27 15:45:55    0.9212301    SWAN mode minage
+2022-09-27 15:50:26    0.9107364    SWAN passe en mode minage
+2022-09-27 15:52:13    0.9330952    SWAN passe en mode minage
+2022-09-27 15:52:27    0.9444026    SWAN passe en mode minage
+2022-09-27 15:52:36    0.9453177    SWAN passe en mode minage
+2022-09-27 15:52:42    0.9350519    SWAN passe en mode minage
+2022-09-27 15:54:13    0.9267114    SWAN tu es là
+2022-09-27 15:54:53    0.86363    SWAN passe en mode défensif
+2022-09-27 15:54:58    0.8627952    SWAN recharge ta base de donnée
+2022-09-27 15:55:13    0.9121837    SWAN passe en mode défensif
+2022-09-27 15:56:19    0.9536391    SWAN passe en mode offensif
+2022-09-27 15:56:40    0.8697828    SWAN passe en mode attaque
+2022-09-27 15:57:12    0.9350922    SWAN tu es là
+2022-09-27 15:59:26    0.9277918    SWAN tu es là
+2022-09-27 15:59:32    0.8986444    SWAN passe en mode attaque
+2022-09-27 16:0:35    0.9483262    SWAN passe en mode offensif
+2022-09-27 16:0:42    0.9286867    SWAN mode offensif
+2022-09-27 16:0:58    0.9562632    SWAN mode offensif
+2022-09-27 16:1:23    0.9264488    SWAN mode navigation
+2022-09-27 16:1:33    0.9546951    SWAN mode navigation
+2022-09-27 16:1:43    0.9517555    SWAN mode défensif
+2022-09-27 16:1:49    0.9504295    SWAN passe en mode défensif
+2022-09-27 16:1:55    0.9465075    SWAN passe en mode défensif
+2022-09-27 16:2:0    0.9519624    SWAN passe en mode défensif
+2022-09-27 16:2:3    0.9464778    SWAN passe en mode défensif
+2022-09-27 16:2:12    0.9023894    SWAN passe en mode attaque
+2022-09-27 16:2:22    0.9599968    SWAN mode attaque
+2022-09-27 16:2:30    0.9278023    SWAN passe en mode attaque
+2022-09-27 16:2:40    0.95282    SWAN mode offensif
+2022-09-27 16:2:45    0.9434174    SWAN passe en mode offensif
+2022-09-27 16:2:57    0.9332482    SWAN mode minage
+2022-09-27 16:3:8    0.9118136    SWAN passe en mode minage
+2022-09-27 16:5:6    0.9151907    SWAN met toi en veille
+2022-09-27 16:5:6    0.932386    SWAN met toi en veille
+2022-09-27 16:5:34    0.8784107    SWAN démarre le moteur
+2022-09-27 16:12:40    0.921617    SWAN met toi en veille
+2022-09-27 16:12:45    0.9281399    SWAN appel la station
+2022-09-27 16:12:49    0.9387556    SWAN appel la station
+2022-09-27 16:12:52    0.9339921    SWAN appel la station
+2022-09-27 16:16:26    0.9351419    SWAN met toi en veille
+2022-09-27 16:16:31    0.8973615    SWAN tu es là
+2022-09-27 16:16:37    0.9214746    SWAN ouvre le train
+2022-09-27 16:16:40    0.934678    SWAN réveille toi
+2022-09-27 16:16:45    0.9497767    SWAN tu es là
+2022-09-27 16:17:21    0.8502582    SWAN réveille toi
+2022-09-27 16:22:58    0.9485553    SWAN tu es là
+2022-09-27 16:23:8    0.8670121    SWAN met toi en veille
+2022-09-27 16:23:13    0.9211178    SWAN appel la station
+2022-09-27 16:23:27    0.9221294    SWAN appel la station
+2022-09-27 16:23:37    0.9427679    SWAN tu es là
+2022-09-27 16:23:42    0.7380109    SWAN remet toi en écoute
+2022-09-27 16:23:46    0.941541    SWAN remet toi en écoute
+2022-09-27 16:23:50    0.9113678    SWAN démarre le moteur
+2022-09-27 16:23:55    0.893274    SWAN met toi en veille
+2022-09-27 16:23:59    0.9415434    SWAN démarre le moteur
+2022-09-27 16:24:3    0.9072052    SWAN remet toi en écoute
+2022-09-27 16:24:9    0.9532914    SWAN active le mod discret
+2022-09-27 16:24:12    0.9599432    SWAN démarre les moteurs
+2022-09-27 16:24:17    0.9384529    SWAN démarre le moteur
+2022-09-27 16:24:23    0.9279349    SWAN démarre les générateurs
+2022-09-27 16:24:30    0.9561551    SWAN démarre le générateur
+2022-09-27 16:25:12    0.9519423    SWAN démarre le générateur
+2022-09-27 16:25:19    0.9489882    SWAN démarre le générateur
+2022-09-27 16:25:58    0.9449704    SWAN démarre le générateur
+2022-09-27 16:26:4    0.7276345    SWAN démarre le générateur
+2022-09-27 16:26:9    0.9616324    SWAN démarre le générateur
+2022-09-27 16:26:13    0.9588643    SWAN démarre les générateurs
+2022-09-27 16:26:44    0.9375801    SWAN démarre le générateur
+2022-09-27 16:26:49    0.9609843    SWAN démarre les générateurs
+2022-09-27 16:26:55    0.9615578    SWAN allume les générateurs
+2022-09-27 16:27:0    0.9236323    SWAN allume le générateur
+2022-09-27 16:27:3    0.9456811    SWAN lance le générateur
+2022-09-27 16:28:40    0.7019511    vide les sacs
+2022-09-27 16:29:5    0.8718818    SWAN démarre le moteur
+2022-09-27 16:29:55    0.9408353    SWAN envoie mon discord
+2022-09-27 16:30:1    0.9230195    SWAN envoie une invite
+2022-09-27 16:30:8    0.8310651    SWAN envoie notre discord
+2022-09-27 16:30:16    0.8697143    SWAN envoie une invitation discord
+2022-09-27 16:38:18    0.8864233    SWAN tu es là
+2022-09-27 16:40:55    0.7875673    ferme le sasse
+2022-09-27 16:47:28    0.9148597    SWAN tu es là
+2022-09-27 16:47:34    0.9159974    SWAN démarre le moteur
+2022-09-27 16:47:39    0.9331982    SWAN démarre le générateur
+2022-09-27 16:47:43    0.895101    SWAN appel la station
+2022-09-27 16:47:54    0.9402587    SWAN mode navigation
+2022-09-27 16:48:21    0.8602827    SWAN on y voit rien
+2022-09-27 16:48:41    0.9001944    SWAN démarre le moteur quantique
+2022-09-27 16:49:58    0.7556527    SWAN Lance le saut
+2022-09-27 16:50:1    0.9442395    SWAN Lance le saut
+2022-09-27 16:50:8    0.9168916    SWAN affiche la carte
+2022-09-27 16:50:31    0.9003557    SWAN appel la station
+2022-09-27 16:50:54    0.937948    SWAN appel la station
+2022-09-27 16:51:13    0.9497518    SWAN appel la station
+2022-09-27 16:51:31    0.927387    SWAN coupe le moteur quantique
+2022-09-27 16:53:9    0.9272262    SWAN éteint les phares
+2022-09-27 16:53:19    0.890114    SWAN sort le train
+2022-09-27 16:53:36    0.8604254    SWAN coupe le moteur
+2022-09-27 16:54:17    0.9449868    SWAN appel la base
+2022-09-27 16:54:22    0.914575    SWAN démarre le moteur
+2022-09-27 16:55:3    0.8243294    SWAN démarre le moteur quantique
+2022-09-27 16:55:30    0.8627682    SWAN Lance le saut
+2022-09-27 16:55:49    0.9272827    SWAN Lance le saut
+2022-09-27 17:0:6    0.8638152    SWAN Lance le saut
+2022-09-27 17:0:36    0.9426337    SWAN coupe le moteur quantique
+2022-09-27 17:0:59    0.9265381    SWAN appel la station
+2022-09-27 17:1:19    0.8859996    SWAN appel la station
+2022-09-27 17:1:34    0.9453266    SWAN appel la station
+2022-09-27 17:1:56    0.9139975    SWAN ouvre le train
+2022-09-27 17:3:11    0.8747161    SWAN coupe le moteur
+2022-09-27 17:3:16    0.9010711    SWAN coupe les générateurs
+2022-09-27 17:3:21    0.788271    SWAN je te laisse les commandes
+2022-09-27 17:3:25    0.9287661    SWAN je te laisse les commandes
+2022-09-27 17:6:10    0.9436857    SWAN appel la station
+2022-09-27 17:6:15    0.9481196    SWAN ouvre la carte
+2022-09-27 17:6:25    0.8874246    SWAN ferme la carte
+2022-09-27 17:6:31    0.9402108    SWAN démarre le moteur quantique
+2022-09-27 17:7:1    0.8556151    SWAN Lance le saut
+2022-09-27 17:9:57    0.8856505    SWAN sort le bras
+2022-09-27 17:10:2    0.8655449    SWAN rentre le bras
+2022-09-27 17:10:10    0.895214    SWAN mode minage
+2022-09-27 17:14:4    0.7198566    SWAN change d'outils
+2022-09-27 17:14:13    0.9162339    SWAN change l'outils
+2022-09-27 17:21:59    0.9571978    SWAN éject le mineraie
+2022-09-27 17:22:3    0.9560252    SWAN éject le mineraie
+2022-09-27 17:22:36    0.7449105    Lance le saut
+2022-09-27 17:22:42    0.9300908    SWAN vide le mineraie
+2022-09-27 17:22:47    0.960272    SWAN vide le mineraie
+2022-09-27 17:23:47    0.9323919    SWAN éject le mineraie
+2022-09-27 17:25:7    0.9365755    SWAN éject le mineraie
+2022-09-27 17:26:27    0.8851899    SWAN éject le mineraie
+2022-09-27 17:27:58    0.9334735    SWAN éject le mineraie
+2022-09-27 17:33:0    0.9218895    SWAN éject le mineraie
+2022-09-27 17:37:23    0.9247488    SWAN éject le mineraie
+2022-09-27 17:42:20    0.9616571    SWAN éject le mineraie
+2022-09-27 17:43:53    0.8788291    SWAN éject le mineraie
+2022-09-27 17:45:14    0.9434734    SWAN éject le mineraie
+2022-09-27 17:47:4    0.7534156    SWAN éject le chargement
+2022-09-27 17:47:6    0.954855    SWAN éject le mineraie
+2022-09-27 17:47:15    0.9330679    SWAN éject le mineraie
+2022-09-27 17:47:28    0.9318726    SWAN éject le chargement
+2022-09-27 17:48:34    0.9338403    SWAN éject le mineraie
+2022-09-27 17:49:40    0.9287179    SWAN éject le chargement
+2022-09-27 17:55:20    0.9617162    SWAN éject le mineraie

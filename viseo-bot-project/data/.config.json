@@ -1264,6 +1264,23 @@
      "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-fs-ops\\fs-ops.js"
     }
    }
+  },
+  "node-red-contrib-loop": {
+   "name": "node-red-contrib-loop",
+   "version": "1.0.1",
+   "local": true,
+   "nodes": {
+    "loop": {
+     "name": "loop",
+     "types": [
+      "loop"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-loop",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-loop\\loop.js"
+    }
+   }
   }
  }
 }

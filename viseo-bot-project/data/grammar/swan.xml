@@ -1,7 +1,6 @@
 <grammar version="1.0" xml:lang="fr-FR" mode="voice" root="Swan" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
 	<rule id="Swan" scope="public">
 		<tag>out.action=new Object(); </tag>
-
 		<item>SWAN</item>
 		<one-of>
 			<!--**************************************************
@@ -28,9 +27,8 @@
 			<item>met toi en sommeil</item>
 			<item>met toi en veille</item>
 			<item>remet toi en écoute</item>
-			<item>coupure d'urgence</item>
-			<item>stop tout</item>
-
+			<item>réveille toi</item>
+			
 			<!--**************************************************
 			*         	  Gestion des portes et soutes
 			****************************************************-->
@@ -46,6 +44,7 @@
 			<item>ferme les sasse</item>
 			<item>ferme la soute</item>
 			<item>ferme les soutes</item>
+			
 			<!--appel station -->
 			<item>appel la station</item>
 			<item>appel la base</item>
@@ -182,6 +181,8 @@
 			<!--bras-->
 			<item>sort la tête</item>
 			<item>sort le bras</item>
+			<item>ouvre le bras</item>
+			<item>ferme le bras</item>
 			<item>rentre la tête</item>
 			<item>rentre le bras</item>
 			<item>range la tête</item>
@@ -195,8 +196,26 @@
 			<item>top chrono</item>
 			<item>annulation du chrono</item>
 			<item>annulation compte à rebours</item>
-
-
+			<item>stop le  compte à rebours</item>
+			<item>annule le chrono</item>
+			<item>stop le  chrono</item>
+			
+			<!--ejection minerai instable-->
+			<item>vide les container</item>
+			<item>vide les sacoches</item>
+			<item>vide les sacs</item>
+			<item>vide la soute</item>
+			<item>vide le mineraie</item>
+			<item>vide le chargement</item>
+			<item>vide le cargo</item>
+			<item>éject les container</item>
+			<item>éject les sacoches</item>
+			<item>éject les sacs</item>
+			<item>éject la soute</item>
+			<item>éject le mineraie</item>
+			<item>éject le chargement</item>
+			<item>éject le cargo</item>
+			
 
 			<!--**************************************************
 			*         	  Gestion des generateur
@@ -272,6 +291,228 @@
 			<item>envoie une invite</item>
 			<item>envoie mon discord</item>
 
+			<!--**************************************************
+			*         	 Triangle de puissance
+			****************************************************-->
+			<!--bouclier totalité-->
+			<item>Met toute la puissance sur les boucliers</item>
+			<item>toute la puissance sur les boucliers</item>
+			<item>Envoie toute la puissance sur les boucliers</item>
+			<item>bascule toute la puissance sur les boucliers</item>
+			<item>Met tous le jue sur les boucliers</item>
+			<item>Met tous le jue sur les boucliers</item>
+			<item>tous le jue sur les boucliers</item>
+			<item>Envoie tous le jue sur les boucliers</item>
+			<item>transfert toute la puissance sur les boucliers</item>
+			<item>transfert tous le jue sur les boucliers</item>
+
+			<!--bouclier partiel-->
+			<item>Met plus de puissance sur les boucliers</item>
+			<item>Met plus de jue sur les boucliers</item>
+			<item>Envoie plus de jue sur les boucliers</item>
+			<item>bascule plus de jue sur les boucliers</item>
+			<item>plus de puissance sur les boucliers</item>
+			<item>Envoie plus de puissance sur les boucliers</item>
+			<item>bascule plus de puissance sur les boucliers</item>
+			<item>bascule tous le jue sur les boucliers</item>
+			<item>plus de jue sur les boucliers</item>
+			<item>transfert plus de puissance sur les boucliers</item>
+			<item>transfert plus de jue sur les boucliers</item>
+
+			<!--armes totalité-->
+			<item>Met toute la puissance sur les armes</item>
+			<item>toute la puissance sur les armes</item>
+			<item>Envoie toute la puissance sur les armes</item>
+			<item>bascule toute la puissance sur les armes</item>
+			<item>Met tous le jue sur les armes</item>
+			<item>Met tous le jue sur les armes</item>
+			<item>tous le jue sur les armes</item>
+			<item>Envoie tous le jue sur les armes</item>
+			<item>transfert toute la puissance sur les armes</item>
+			<item>transfert tous le jue sur les armes</item>
+
+			<!--armes partiel-->
+			<item>Met plus de puissance sur les armes</item>
+			<item>Met plus de jue sur les armes</item>
+			<item>Envoie plus de jue sur les armes</item>
+			<item>bascule plus de jue sur les armes</item>
+			<item>plus de puissance sur les armes</item>
+			<item>Envoie plus de puissance sur les armes</item>
+			<item>bascule plus de puissance sur les armes</item>
+			<item>bascule tous le jue sur les armes</item>
+			<item>plus de jue sur les armes</item>
+			<item>transfert plus de puissance sur les armes</item>
+			<item>transfert plus de jue sur les armes</item>
+
+			<!--moteurs totalité-->
+			<item>Met toute la puissance sur les moteurs</item>
+			<item>toute la puissance sur les moteurs</item>
+			<item>Envoie toute la puissance sur les moteurs</item>
+			<item>bascule toute la puissance sur les moteurs</item>
+			<item>Met tous le jue sur les moteurs</item>
+			<item>Met tous le jue sur les moteurs</item>
+			<item>tous le jue sur les moteurs</item>
+			<item>Envoie tous le jue sur les moteurs</item>
+			<item>transfert toute la puissance sur les moteurs</item>
+			<item>transfert tous le jue sur les moteurs</item>
+
+			<!--moteurs partiel-->
+			<item>Met plus de puissance sur les moteurs</item>
+			<item>Met plus de jue sur les moteurs</item>
+			<item>Envoie plus de jue sur les moteurs</item>
+			<item>bascule plus de jue sur les moteurs</item>
+			<item>plus de puissance sur les moteurs</item>
+			<item>Envoie plus de puissance sur les moteurs</item>
+			<item>bascule plus de puissance sur les moteurs</item>
+			<item>bascule tous le jue sur les moteurs</item>
+			<item>plus de jue sur les moteurs</item>
+			<item>transfert plus de puissance sur les moteurs</item>
+			<item>transfert plus de jue sur les moteurs</item>
+
+			
+			
+			<!--réinit puissance au centre -->
+			<item>remet la puissance au neutre</item>
+			<item>remet la puissance au centre</item>
+			<item>réinitialise la puissance</item>
+			<item>reset la puissance</item>
+			
+
+			<!--**************************************************
+			*         	 Répartiteur de puissance des bouclier
+			****************************************************-->
+			<!--bouclier avant partielle-->
+			<item>Met plus de puissance sur le bouclier avant</item>
+			<item>Met plus de jue sur le bouclier avant</item>
+			<item>Envoie plus de jue sur le bouclier avant</item>
+			<item>bascule plus de jue sur le bouclier avant</item>
+			<item>plus de puissance sur le bouclier avant</item>
+			<item>Envoie plus de puissance sur le bouclier avant</item>
+			<item>bascule plus de puissance sur le bouclier avant</item>
+			<item>plus de jue sur le bouclier avant</item>
+			<item>transfert plus de puissance sur le bouclier avant</item>
+			<item>transfert plus de jue sur le bouclier avant</item>
+			
+			<!--bouclier avant totalité-->
+			<item>Met tous de puissance sur le bouclier avant</item>
+			<item>Met tous de jue sur le bouclier avant</item>
+			<item>Envoie tous de jue sur le bouclier avant</item>
+			<item>bascule tous de jue sur le bouclier avant</item>
+			<item>tous de puissance sur le bouclier avant</item>
+			<item>Envoie tous de puissance sur le bouclier avant</item>
+			<item>bascule tous de puissance sur le bouclier avant</item>
+			<item>bascule tous le jue sur le bouclier avant</item>
+			<item>tous de jue sur le bouclier avant</item>
+			<item>transfert tous de puissance sur le bouclier avant</item>
+			<item>transfert tous de jue sur le bouclier avant</item>
+			<item>puissance bouclier avant</item>
+
+			<!--bouclier arrière partielle-->
+			<item>Met plus de puissance sur le bouclier arrière</item>
+			<item>Met plus de jue sur le bouclier arrière</item>
+			<item>Envoie plus de jue sur le bouclier arrière</item>
+			<item>bascule plus de jue sur le bouclier arrière</item>
+			<item>plus de puissance sur le bouclier arrière</item>
+			<item>Envoie plus de puissance sur le bouclier arrière</item>
+			<item>bascule plus de puissance sur le bouclier arrière</item>
+			<item>bascule tous le jue sur le bouclier arrière</item>
+			<item>plus de jue sur le bouclier arrière</item>
+			<item>transfert plus de puissance sur le bouclier arrière</item>
+			<item>transfert plus de jue sur le bouclier arrière</item>
+			<!--bouclier arrière totalité-->
+			<item>Met tous de puissance sur le bouclier arrière</item>
+			<item>Met tous de jue sur le bouclier arrière</item>
+			<item>Envoie tous de jue sur le bouclier arrière</item>
+			<item>bascule tous de jue sur le bouclier arrière</item>
+			<item>tous de puissance sur le bouclier arrière</item>
+			<item>Envoie tous de puissance sur le bouclier arrière</item>
+			<item>bascule tous de puissance sur le bouclier arrière</item>
+			<item>bascule tous le jue sur le bouclier arrière</item>
+			<item>tous de jue sur le bouclier arrière</item>
+			<item>transfert tous de puissance sur le bouclier arrière</item>
+			<item>transfert tous de jue sur le bouclier arrière</item>
+			<item>puissance bouclier arrière</item>
+
+			<!--bouclier gauche partielle-->
+			<item>Met plus de puissance sur le bouclier gauche</item>
+			<item>Met plus de jue sur le bouclier gauche</item>
+			<item>Envoie plus de jue sur le bouclier gauche</item>
+			<item>bascule plus de jue sur le bouclier gauche</item>
+			<item>plus de puissance sur le bouclier gauche</item>
+			<item>Envoie plus de puissance sur le bouclier gauche</item>
+			<item>bascule plus de puissance sur le bouclier gauche</item>
+			<item>bascule tous le jue sur le bouclier gauche</item>
+			<item>plus de jue sur le bouclier gauche</item>
+			<item>transfert plus de puissance sur le bouclier gauche</item>
+			<item>transfert plus de jue sur le bouclier gauche</item>
+			<!--bouclier gauche totalité-->
+			<item>Met tous de puissance sur le bouclier gauche</item>
+			<item>Met tous de jue sur le bouclier gauche</item>
+			<item>Envoie tous de jue sur le bouclier gauche</item>
+			<item>bascule tous de jue sur le bouclier gauche</item>
+			<item>tous de puissance sur le bouclier gauche</item>
+			<item>Envoie tous de puissance sur le bouclier gauche</item>
+			<item>bascule tous de puissance sur le bouclier gauche</item>
+			<item>bascule tous le jue sur le bouclier gauche</item>
+			<item>tous de jue sur le bouclier gauche</item>
+			<item>transfert tous de puissance sur le bouclier gauche</item>
+			<item>transfert tous de jue sur le bouclier gauche</item>
+			<item>puissance bouclier gauche</item>
+
+			<!--bouclier droit partielle-->
+			<item>Met plus de puissance sur le bouclier droit</item>
+			<item>Met plus de jue sur le bouclier droit</item>
+			<item>Envoie plus de jue sur le bouclier droit</item>
+			<item>bascule plus de jue sur le bouclier droit</item>
+			<item>plus de puissance sur le bouclier droit</item>
+			<item>Envoie plus de puissance sur le bouclier droit</item>
+			<item>bascule plus de puissance sur le bouclier droit</item>
+			<item>bascule tous le jue sur le bouclier droit</item>
+			<item>plus de jue sur le bouclier droit</item>
+			<item>transfert plus de puissance sur le bouclier droit</item>
+			<item>transfert plus de jue sur le bouclier droit</item>
+			<!--bouclier droit totalité-->
+			<item>Met tous de puissance sur le bouclier droit</item>
+			<item>Met tous de jue sur le bouclier droit</item>
+			<item>Envoie tous de jue sur le bouclier droit</item>
+			<item>bascule tous de jue sur le bouclier droit</item>
+			<item>tous de puissance sur le bouclier droit</item>
+			<item>Envoie tous de puissance sur le bouclier droit</item>
+			<item>bascule tous de puissance sur le bouclier droit</item>
+			<item>bascule tous le jue sur le bouclier droit</item>
+			<item>tous de jue sur le bouclier droit</item>
+			<item>transfert tous de puissance sur le bouclier droit</item>
+			<item>transfert tous de jue sur le bouclier droit</item>
+			<item>puissance bouclier droit</item>
+
+			<!--réinit puissance au centre -->
+			<item>remet les boucliers au centre</item>
+			<item>réinitialise les boucliers</item>
+			<item>reset les boucliers</item>
+
+
+			<!--**************************************************
+			*         	 Scénario et action composé
+			****************************************************-->
+			<!--pour coupé en urgence un saut quantique par exemple-->
+			<item>coupure d'urgence</item>
+			<item>coupure d'urgence</item>
+			<item>stop tout</item>
+
+			
+
+			<!--mod fonctionnement, minage, défensif, offensif, navigation-->
+			<item>mode navigation</item> <!--triange de puissance au centre, bouclier équilibré -->
+			<item>mode défensif</item>  <!--triange de puissance vers réacteur er bouclier -->
+			<item>mode offensif</item>	<!--triange de puissance vers arme et bouclier -->
+			<item>mode attaque</item>  <!--triange de puissance vers arme et bouclier -->
+			<item>mode minage</item>  <!--puissance du bouclier avec l'avant + ouverture du bras -->
+			<item>passe en mode navigation</item> <!--triange de puissance au centre, bouclier équilibré -->
+			<item>passe en mode défensif</item>  <!--triange de puissance vers réacteur er bouclier -->
+			<item>passe en mode offensif</item>	<!--triange de puissance vers arme et bouclier -->
+			<item>passe en mode attaque</item>  <!--triange de puissance vers arme et bouclier -->
+			<item>passe en mode minage</item>  <!--puissance du bouclier avec l'avant + ouverture du bras -->
+
 			<!--
 			<item></item>
 			<item></item>
@@ -279,7 +520,7 @@
 			<item></item>
 		-->
 
-		</one-of>
+	</one-of>
 
 
 	
