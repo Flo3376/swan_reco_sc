@@ -1018,3 +1018,6 @@
 2022-09-27 17:48:34    0.9338403    SWAN éject le mineraie
 2022-09-27 17:49:40    0.9287179    SWAN éject le chargement
 2022-09-27 17:55:20    0.9617162    SWAN éject le mineraie
+2022-09-27 18:2:35    0.9424556    SWAN éject le cargo
+2022-09-27 18:2:54    0.9264524    SWAN éject le cargo
+2022-09-27 18:3:3    0.9500708    SWAN éject le cargo
