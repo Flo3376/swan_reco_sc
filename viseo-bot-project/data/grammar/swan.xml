@@ -12,6 +12,8 @@
 			<item>tu es avec moi</item>
 			<item>on se réveille</item>
 			<item>recharge ta base de donnée</item>
+			<item>recharge la configuration</item>
+			<item>lance le test</item>
 			
 			<!--**************************************************
 			*         	  Coupure et activation de swan
@@ -76,7 +78,7 @@
 			<!--vtol -->
 			<item>active les stabilisateurs</item>
 			<item>ouvre les stabilisateurs</item>
-			<item>sort les stabilisateur</item>
+			<item>sort les stabilisateurs</item>
 			<item>active le VTOL</item>
 			<item>passe en VTOL</item>
 			<item>met en route les stabilisateur</item>
@@ -125,6 +127,7 @@
 			****************************************************-->
 			<item>coupure d'urgence</item>
 			<item>stop tout</item>
+			<item>écrase les freins</item>
 			
 			<!--**************************************************
 			*         	  Starmap
@@ -215,6 +218,24 @@
 			<item>éject le mineraie</item>
 			<item>éject le chargement</item>
 			<item>éject le cargo</item>
+
+			<!--**************************************************
+			*         	  Combat et ciblage
+			****************************************************-->
+			<!--vérrouillage et dévérouillage-->
+			<item>verrouille la cible</item>
+			<item>verrouillage la cible</item>
+			<item>déverrouille la cible</item>
+			<item>déverrouillage la cible</item>
+			<item>change d'arme</item>
+			<item>quantité missile</item>
+			<item>change la quantité missile</item>
+			<item>change la quantité de missile</item>
+			<item>feu à volonté</item>
+			<item>mise à feu</item>
+			<item>feu</item>
+			<item>lance le missile</item>
+			<item>lance les missile</item>
 			
 
 			<!--**************************************************
@@ -271,7 +292,7 @@
 			<item>Lance le saut</item>
 			<item>On saute</item>
 			<item>go pour le saut</item>
-			<item>hyperespace</item>
+			<item>Hyperespace</item>
 
 			<!--**************************************************
 			*         	  sortir du siége
