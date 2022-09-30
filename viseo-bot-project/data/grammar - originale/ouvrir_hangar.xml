@@ -1,0 +1,14 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ouvrir_hangar" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="ouvrir_hangar" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>appel la station</item>
+			<item>appel la base</item>
+			<item>ouvre le hangar</item>
+			<item>appel le hangar</item>
+			<item>appel le pad</item>
+		</one-of>
+		<tag>out.action.action="open_hangar";</tag>
+	</rule> 
+</grammar>

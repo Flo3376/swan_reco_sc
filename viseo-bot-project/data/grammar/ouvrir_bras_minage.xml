@@ -1,0 +1,13 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="open_mining_tools" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="open_mining_tools" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>sort la tête</item>
+			<item>sort le bras</item>
+			<item>ouvre le bras</item>
+			<item>ferme le bras</item>
+		</one-of>
+		<tag>out.action.action="open_mining_tools";</tag>
+	</rule> 
+</grammar>

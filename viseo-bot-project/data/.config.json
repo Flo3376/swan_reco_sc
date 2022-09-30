@@ -13,7 +13,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\analysis\\72-sentiment.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\analysis\\72-sentiment.js"
     },
     "inject": {
      "name": "inject",
@@ -23,7 +23,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\20-inject.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\20-inject.js"
     },
     "catch": {
      "name": "catch",
@@ -33,7 +33,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\25-catch.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\25-catch.js"
     },
     "status": {
      "name": "status",
@@ -43,7 +43,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\25-status.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\25-status.js"
     },
     "debug": {
      "name": "debug",
@@ -53,7 +53,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\58-debug.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\58-debug.js"
     },
     "link": {
      "name": "link",
@@ -64,7 +64,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\60-link.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\60-link.js"
     },
     "exec": {
      "name": "exec",
@@ -74,7 +74,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\75-exec.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\75-exec.js"
     },
     "function": {
      "name": "function",
@@ -84,7 +84,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\80-function.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\80-function.js"
     },
     "template": {
      "name": "template",
@@ -94,7 +94,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\80-template.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\80-template.js"
     },
     "delay": {
      "name": "delay",
@@ -104,7 +104,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\89-delay.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\89-delay.js"
     },
     "trigger": {
      "name": "trigger",
@@ -114,7 +114,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\89-trigger.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\89-trigger.js"
     },
     "comment": {
      "name": "comment",
@@ -124,7 +124,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\90-comment.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\90-comment.js"
     },
     "unknown": {
      "name": "unknown",
@@ -134,7 +134,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\98-unknown.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\core\\98-unknown.js"
     },
     "rpi-gpio": {
      "name": "rpi-gpio",
@@ -147,7 +147,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\hardware\\36-rpi-gpio.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\hardware\\36-rpi-gpio.js"
     },
     "tls": {
      "name": "tls",
@@ -157,7 +157,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\05-tls.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\05-tls.js"
     },
     "mqtt": {
      "name": "mqtt",
@@ -169,7 +169,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\10-mqtt.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\10-mqtt.js"
     },
     "httpin": {
      "name": "httpin",
@@ -180,7 +180,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\21-httpin.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\21-httpin.js"
     },
     "httprequest": {
      "name": "httprequest",
@@ -190,7 +190,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\21-httprequest.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\21-httprequest.js"
     },
     "websocket": {
      "name": "websocket",
@@ -203,7 +203,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\22-websocket.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\22-websocket.js"
     },
     "watch": {
      "name": "watch",
@@ -213,7 +213,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\23-watch.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\23-watch.js"
     },
     "tcpin": {
      "name": "tcpin",
@@ -225,7 +225,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\31-tcpin.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\31-tcpin.js"
     },
     "udp": {
      "name": "udp",
@@ -236,7 +236,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\32-udp.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\io\\32-udp.js"
     },
     "switch": {
      "name": "switch",
@@ -246,7 +246,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\logic\\10-switch.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\logic\\10-switch.js"
     },
     "change": {
      "name": "change",
@@ -256,7 +256,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\logic\\15-change.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\logic\\15-change.js"
     },
     "range": {
      "name": "range",
@@ -266,7 +266,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\logic\\16-range.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\logic\\16-range.js"
     },
     "split": {
      "name": "split",
@@ -277,7 +277,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\logic\\17-split.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\logic\\17-split.js"
     },
     "CSV": {
      "name": "CSV",
@@ -287,7 +287,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-CSV.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-CSV.js"
     },
     "HTML": {
      "name": "HTML",
@@ -297,7 +297,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-HTML.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-HTML.js"
     },
     "JSON": {
      "name": "JSON",
@@ -307,7 +307,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-JSON.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-JSON.js"
     },
     "XML": {
      "name": "XML",
@@ -317,7 +317,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-XML.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-XML.js"
     },
     "YAML": {
      "name": "YAML",
@@ -327,7 +327,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-YAML.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\parsers\\70-YAML.js"
     },
     "tail": {
      "name": "tail",
@@ -337,7 +337,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\storage\\28-tail.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\storage\\28-tail.js"
     },
     "file": {
      "name": "file",
@@ -348,7 +348,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\storage\\50-file.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red\\nodes\\core\\storage\\50-file.js"
     }
    }
   },
@@ -362,10 +362,10 @@
      "types": [
       "api-ai"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-api-ai",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-api-ai\\node-api-ai.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-api-ai\\node-api-ai.js"
     }
    }
   },
@@ -379,10 +379,10 @@
      "types": [
       "bear-query"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-bear",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-bear\\node-bear-query.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-bear\\node-bear-query.js"
     }
    }
   },
@@ -396,30 +396,30 @@
      "types": [
       "blink-login"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-blink",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-login.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-login.js"
     },
     "home": {
      "name": "home",
      "types": [
       "blink-home"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-blink",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-home.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-home.js"
     },
     "event": {
      "name": "event",
      "types": [
       "blink-event"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-blink",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-event.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-event.js"
     }
    }
   },
@@ -433,110 +433,110 @@
      "types": [
       "send-card"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\send\\msbot-send-card.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\send\\msbot-send-card.js"
     },
     "msbot-connect": {
      "name": "msbot-connect",
      "types": [
       "bot"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-connect.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-connect.js"
     },
     "msbot-wechat": {
      "name": "msbot-wechat",
      "types": [
       "wechat"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-wechat.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-wechat.js"
     },
     "msbot-profile": {
      "name": "msbot-profile",
      "types": [
       "profile"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-profile.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-profile.js"
     },
     "msbot-event": {
      "name": "msbot-event",
      "types": [
       "bot-event"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-event.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-event.js"
     },
     "msbot-continue": {
      "name": "msbot-continue",
      "types": [
       "bot-continue"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-continue.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-continue.js"
     },
     "msbot-attachment": {
      "name": "msbot-attachment",
      "types": [
       "attachment"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\attachment\\msbot-attachment.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\attachment\\msbot-attachment.js"
     },
     "msbot-fb-profile": {
      "name": "msbot-fb-profile",
      "types": [
       "fb-profile"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-profile.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-profile.js"
     },
     "msbot-fb-greeting": {
      "name": "msbot-fb-greeting",
      "types": [
       "fb-greeting"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-greeting.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-greeting.js"
     },
     "msbot-fb-log": {
      "name": "msbot-fb-log",
      "types": [
       "fb-log"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-log.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-log.js"
     },
     "msbot-fb-config": {
      "name": "msbot-fb-config",
      "types": [
       "facebook-config"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-config.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-config.js"
     }
    }
   },
@@ -550,20 +550,20 @@
      "types": [
       "gif"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ffmpeg",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ffmpeg\\node-gif.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ffmpeg\\node-gif.js"
     },
     "thumbnail": {
      "name": "thumbnail",
      "types": [
       "thumbnail"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ffmpeg",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ffmpeg\\node-thumbnail.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ffmpeg\\node-thumbnail.js"
     }
    }
   },
@@ -577,10 +577,10 @@
      "types": [
       "file-out"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-file",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-file\\node-file-out.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-file\\node-file-out.js"
     }
    }
   },
@@ -594,10 +594,10 @@
      "types": [
       "filter"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-filter",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-filter\\node-filter.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-filter\\node-filter.js"
     }
    }
   },
@@ -614,7 +614,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-google-speech",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-google-speech\\google-credentials.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-google-speech\\google-credentials.js"
     },
     "google-speech-text": {
      "name": "google-speech-text",
@@ -624,7 +624,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-google-speech",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-google-speech\\google-speech-text.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-google-speech\\google-speech-text.js"
     }
    }
   },
@@ -638,10 +638,10 @@
      "types": [
       "help-html"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-help",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-help\\node-html.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-help\\node-html.js"
     }
    }
   },
@@ -655,10 +655,10 @@
      "types": [
       "jimp"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-jimp",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-jimp\\node-jimp.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-jimp\\node-jimp.js"
     }
    }
   },
@@ -672,50 +672,50 @@
      "types": [
       "log-file"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-log",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-file.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-file.js"
     },
     "log-azure-appinsight": {
      "name": "log-azure-appinsight",
      "types": [
       "log-azure-appinsight"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-log",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-azure-appinsight.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-azure-appinsight.js"
     },
     "log-xiti": {
      "name": "log-xiti",
      "types": [
       "log-xiti"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-log",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-xiti.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-xiti.js"
     },
     "log-logstach": {
      "name": "log-logstach",
      "types": [
       "logstach"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-log",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-logstach.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-logstach.js"
     },
     "log-sqlite": {
      "name": "log-sqlite",
      "types": [
       "log-sqlite"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-log",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-sqlite.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-sqlite.js"
     }
    }
   },
@@ -729,10 +729,10 @@
      "types": [
       "loop-management"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-loop",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-loop\\node-loop-management.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-loop\\node-loop-management.js"
     }
    }
   },
@@ -746,10 +746,10 @@
      "types": [
       "mongodb"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-mongodb",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-mongodb\\node-mongodb.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-mongodb\\node-mongodb.js"
     }
    }
   },
@@ -763,10 +763,10 @@
      "types": [
       "ms-graph-oauth"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-graph",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-graph\\node-ms-graph-oauth.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-graph\\node-ms-graph-oauth.js"
     }
    }
   },
@@ -780,90 +780,90 @@
      "types": [
       "ms-video-face-track"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-video-face-track.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-video-face-track.js"
     },
     "ms-vision-face-detect": {
      "name": "ms-vision-face-detect",
      "types": [
       "ms-vision-face-detect"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-face-detect.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-face-detect.js"
     },
     "ms-speech-text": {
      "name": "ms-speech-text",
      "types": [
       "ms-speech-text"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-speech-text.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-speech-text.js"
     },
     "ms-luis": {
      "name": "ms-luis",
      "types": [
       "ms-luis"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-luis.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-luis.js"
     },
     "ms-qna": {
      "name": "ms-qna",
      "types": [
       "ms-qna"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-qna.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-qna.js"
     },
     "ms-luis-config": {
      "name": "ms-luis-config",
      "types": [
       "ms-luis-config"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-luis-config.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-luis-config.js"
     },
     "ms-config": {
      "name": "ms-config",
      "types": [
       "ms-config"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-ms-config.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-ms-config.js"
     },
     "vision-get-description": {
      "name": "vision-get-description",
      "types": [
       "vision-get-description"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-get-description.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-get-description.js"
     },
     "vision-get-persons": {
      "name": "vision-get-persons",
      "types": [
       "vision-get-persons"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-get-persons.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-get-persons.js"
     }
    }
   },
@@ -877,20 +877,20 @@
      "types": [
       "nedb"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-nedb",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nedb\\node-nedb.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nedb\\node-nedb.js"
     },
     "xlsx": {
      "name": "xlsx",
      "types": [
       "xlsx"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-nedb",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nedb\\node-xlsx.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nedb\\node-xlsx.js"
     }
    }
   },
@@ -904,10 +904,10 @@
      "types": [
       "nosql"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-nosql",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nosql\\node-nosql.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nosql\\node-nosql.js"
     }
    }
   },
@@ -921,10 +921,10 @@
      "types": [
       "phantomjs-snapshot"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-phantomjs",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-phantomjs\\node-phantomjs-snapshot.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-phantomjs\\node-phantomjs-snapshot.js"
     }
    }
   },
@@ -938,10 +938,10 @@
      "types": [
       "qrDecode"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-qrcode",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-qrcode\\node-qrcode.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-qrcode\\node-qrcode.js"
     }
    }
   },
@@ -955,10 +955,10 @@
      "types": [
       "random"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-random",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-random\\node-random.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-random\\node-random.js"
     }
    }
   },
@@ -972,10 +972,10 @@
      "types": [
       "repeat"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-repeat",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-repeat\\node-repeat.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-repeat\\node-repeat.js"
     }
    }
   },
@@ -992,7 +992,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-sarah",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sarah\\win-speak\\node-speak.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sarah\\win-speak\\node-speak.js"
     },
     "win-listen-config": {
      "name": "win-listen-config",
@@ -1002,7 +1002,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-sarah",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sarah\\win-listen\\node-listen-config.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sarah\\win-listen\\node-listen-config.js"
     },
     "win-sarah": {
      "name": "win-sarah",
@@ -1012,7 +1012,7 @@
      "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-sarah",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sarah\\win-listen\\node-sarah.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sarah\\win-listen\\node-sarah.js"
     }
    }
   },
@@ -1026,10 +1026,10 @@
      "types": [
       "sensit"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-sensit",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sensit\\node-sensit.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sensit\\node-sensit.js"
     }
    }
   },
@@ -1043,20 +1043,20 @@
      "types": [
       "socketio-in"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-socketio",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-socketio\\node-socketio-in.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-socketio\\node-socketio-in.js"
     },
     "socketio-out": {
      "name": "socketio-out",
      "types": [
       "socketio-out"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-socketio",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-socketio\\node-socketio-out.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-socketio\\node-socketio-out.js"
     }
    }
   },
@@ -1070,10 +1070,10 @@
      "types": [
       "soundex"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-soundex",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-soundex\\soundex.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-soundex\\soundex.js"
     }
    }
   },
@@ -1087,10 +1087,10 @@
      "types": [
       "tokenizer"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-tokenizer",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-tokenizer\\node-tokenizer.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-tokenizer\\node-tokenizer.js"
     }
    }
   },
@@ -1105,30 +1105,30 @@
       "trello-config",
       "trello-list-id"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-trello",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-config.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-config.js"
     },
     "trello-in": {
      "name": "trello-in",
      "types": [
       "trello-in"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-trello",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-in.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-in.js"
     },
     "trello-card": {
      "name": "trello-card",
      "types": [
       "trello-card"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-viseo-trello",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-card.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-card.js"
     }
    }
   },
@@ -1143,10 +1143,10 @@
       "e-mail",
       "e-mail in"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-node-email",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-node-email\\61-email.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-node-email\\61-email.js"
     }
    }
   },
@@ -1160,10 +1160,10 @@
      "types": [
       "feedparse"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-node-feedparser",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-node-feedparser\\32-feedparse.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-node-feedparser\\32-feedparse.js"
     }
    }
   },
@@ -1177,10 +1177,10 @@
      "types": [
       "rbe"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-node-rbe",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-node-rbe\\rbe.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-node-rbe\\rbe.js"
     }
    }
   },
@@ -1196,10 +1196,89 @@
       "twitter in",
       "twitter out"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-node-twitter",
-     "file": "F:\\Dropbox\\Projects\\GitHub\\RELEASE\\bot-sarah-5.0.4\\viseo-bot-framework\\node_modules\\node-red-node-twitter\\27-twitter.js"
+     "file": "C:\\swan -sav\\viseo-bot-framework\\node_modules\\node-red-node-twitter\\27-twitter.js"
+    }
+   }
+  },
+  "node-red-contrib-play-soundfile": {
+   "name": "node-red-contrib-play-soundfile",
+   "version": "0.0.4",
+   "local": true,
+   "nodes": {
+    "play-soundfile": {
+     "name": "play-soundfile",
+     "types": [
+      "play-soundfile",
+      "soundfile-directory"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-play-soundfile",
+     "file": "C:\\swan -sav\\viseo-bot-project\\data\\node_modules\\node-red-contrib-play-soundfile\\play-soundfile.js"
+    }
+   }
+  },
+  "node-red-contrib-startup-trigger": {
+   "name": "node-red-contrib-startup-trigger",
+   "version": "0.1.0",
+   "local": true,
+   "nodes": {
+    "trigger": {
+     "name": "trigger",
+     "types": [
+      "start-up-trigger"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-startup-trigger",
+     "file": "C:\\swan -sav\\viseo-bot-project\\data\\node_modules\\node-red-contrib-startup-trigger\\trigger\\trigger.js"
+    }
+   }
+  },
+  "node-red-contrib-fs-ops": {
+   "name": "node-red-contrib-fs-ops",
+   "version": "1.6.0",
+   "local": true,
+   "nodes": {
+    "fs-ops": {
+     "name": "fs-ops",
+     "types": [
+      "fs-ops-move",
+      "fs-ops-copy",
+      "fs-ops-delete",
+      "fs-ops-access",
+      "fs-ops-size",
+      "fs-ops-stats",
+      "fs-ops-link",
+      "fs-ops-type",
+      "fs-ops-dir",
+      "fs-ops-mkdir",
+      "fs-ops-mktmpdir"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-fs-ops",
+     "file": "C:\\swan -sav\\viseo-bot-project\\data\\node_modules\\node-red-contrib-fs-ops\\fs-ops.js"
+    }
+   }
+  },
+  "node-red-contrib-loop": {
+   "name": "node-red-contrib-loop",
+   "version": "1.0.1",
+   "local": true,
+   "nodes": {
+    "loop": {
+     "name": "loop",
+     "types": [
+      "loop"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-loop",
+     "file": "C:\\swan -sav\\viseo-bot-project\\data\\node_modules\\node-red-contrib-loop\\loop.js"
     }
    }
   }

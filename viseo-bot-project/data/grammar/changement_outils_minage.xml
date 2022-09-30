@@ -1,0 +1,11 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="change_mining_tools" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="change_mining_tools" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>change l'outils</item>
+			<item>change d'outils</item>
+		</one-of>
+		<tag>out.action.action="change_mining_tools";</tag>
+	</rule> 
+</grammar>

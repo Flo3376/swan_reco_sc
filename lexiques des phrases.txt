@@ -1,0 +1,240 @@
+
+			<!--**************************************************
+			*         		  Test primaire de swan
+			****************************************************-->
+			es tu là
+			tu es là
+			tu m'entends
+			tu es avec moi
+			on se réveille
+			
+			<!--**************************************************
+			*         	  Coupure et activation de swan
+			****************************************************-->
+			Passe en mod discret
+			Met toi en mod discret
+			active le mod discret
+			activation du mod discret
+			coupe le mod discret
+			désactivation du mod discret
+			Sort du mod discret
+			repasse en mod normale
+			met toi en sommeil
+			met toi en veille
+			remet toi en écoute
+
+			<!--**************************************************
+			*         	  Gestion des portes et soutes
+			****************************************************-->
+			ouvre la porte
+			ouvre les portes
+			ouvre le sasse
+			ouvre les sasse
+			ouvre la soute
+			ouvre les soutes
+			ferme la porte
+			ferme les portes
+			ferme le sasse
+			ferme les sasse
+			ferme la soute
+			ferme les soutes
+
+			<!--**************************************************
+			*         	  appel station
+			****************************************************-->
+			appel la station
+			appel la base
+			ouvre le hangar
+			appel le hangar
+			
+			<!--**************************************************
+			*         	  train / vtol
+			****************************************************-->
+			<!--train -->
+			sort le train d'attérissage
+			sort les trains d'attérissage
+			sort les trains
+			sort le train
+			ouvre le train d'attérissage
+			ouvre les trains d'attérissage
+			ouvre les trains
+			ouvre le train
+			ferme le train d'attérissage
+			ferme les trains d'attérissage
+			ferme les trains
+			ferme le train
+			rentre le train d'attérissage
+			rentre les trains d'attérissage
+			rentre les trains
+			rentre le train
+			
+			<!--vtol -->
+			active les stabilisateurs
+			ouvre les stabilisateurs
+			sort les stabilisateur
+			active le VTOL
+			passe en VTOL
+			met en route les stabilisateur
+			stabilise le vaisseau
+			stabilise l'appareil
+			désactive les stabilisateur
+			fermes les stabilisateurs
+			rentre les stabilisateurs
+			coupe les stabilisateurs
+			coupe le VTOL
+
+			
+			<!--**************************************************
+			*         	  eclairage
+			****************************************************-->
+			on y voit rien
+			un peu de lumiére
+			allume les phares
+			allume les feux
+			allumes les spots
+			éclair la zone
+			éteint les phares
+			éteint les feux
+			éteint les spots
+			coupe les phares
+			coupe les feux
+			coupe les spots
+			
+			<<!--**************************************************
+			*         	  flight ready (r)
+			****************************************************-->
+			démarre les systèmes
+			on y va
+			on décolle
+			démarre le vaisseaux
+			démarre l'appareil
+			allume le vaisseaux
+			allume l'appareil
+			met en chauffe l'appareil
+			met en chauffe le vaisseau
+			fait chauffer l'appareil
+			fait chauffer les systèmes
+			fait chauffer le système
+			
+			<!--**************************************************
+			*         	  Starmap
+			****************************************************-->
+			<!--affiche -->
+			affiche la carte
+			affiche la position
+			affiche la starmap
+			affiche moi la carte
+			affiche moi notre position
+			affiche moi la starmap
+			<!--ouvre -->
+			ouvre la carte
+			ouvre la starmap
+			ouvre moi la carte
+			ouvre moi la starmap
+			<!--montre -->
+			montre la carte
+			montre la starmap
+			montre moi la carte
+			montre moi notre position
+			montre moi la starmap
+			<!--autre -->
+			prépare l'itinéraire
+			prépare un itinéraire
+			<!--ferme -->
+			ferme la carte
+			ferme la starmap
+			ferme moi la carte
+			ferme moi la starmap
+			<!--coupe -->
+			coupe la starmap
+			coupe la map
+			coupe moi la starmap
+			coupe moi la map
+			
+			
+			<!--**************************************************
+			*         	 scan actif et vol au radar
+			****************************************************-->
+			active balayage
+			scan la zone
+			Balaye la zone
+			passe en balayage actif
+			coupe le balayage
+
+			<!--**************************************************
+			*         	  Gestion du minage
+			****************************************************-->
+			<!--bras-->
+			sort la tête
+			sort le bras
+			rentre la tête
+			rentre le bras
+			<!--outils-->
+			change l'outils
+			change d'outils
+			<!--chrono quantainium-->
+			lance le compte à rebours
+			top chrono
+			annulation du chrono
+			annulation compte à rebours
+
+
+			<!--**************************************************
+			*         	  Gestion des generateur
+			****************************************************-->
+			démarre le générateur
+			démarre les générateurs
+			lance le générateur
+			lance les générateurs
+			arrête le générateur
+			arrête les générateurs
+			coupe le générateur
+			coupe les générateurs
+			éteint le générateur
+			éteint les générateurs
+
+			<!--**************************************************
+			*         	  Gestion des moteur
+			****************************************************-->
+			démarre le moteur
+			démarre les moteurs
+			lance le moteur
+			lance les moteurs
+			arrête le moteur
+			arrête les moteurs
+			coupe le moteur
+			coupe les moteurs
+			éteint le moteur
+			éteint les moteurs
+
+			<!--**************************************************
+			*         	  Saut quantique
+			****************************************************-->
+			démarre le moteur quantique
+			active le moteur quantique
+			met en route le moteur quantique
+			calcul un saut quantique
+			calcul un saut
+			coupe le moteur quantique
+			désactive le moteur quantique
+			Lance le saut
+			On saute
+			go pour le saut
+			hyperespace
+
+			<!--**************************************************
+			*         	  sortir du siége
+			****************************************************-->
+			je te laisse les commandes
+			je quitte le poste de pilotage
+			je quitte le poste
+			je sort de l'appareil
+			je sort du vaisseeau
+
+			<!--**************************************************
+			*         	 autre
+			****************************************************-->
+			envoie une invitation discord
+			envoie notre discord
+			envoie une invite
+			envoie mon discord
