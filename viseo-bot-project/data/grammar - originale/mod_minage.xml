@@ -1,0 +1,11 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="switch_to_minage" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="switch_to_minage" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>mode minage</item>  <!--puissance du bouclier avec l'avant + ouverture du bras -->
+			<item>passe en mode minage</item>  <!--puissance du bouclier avec l'avant + ouverture du bras -->
+		</one-of>
+		<tag>out.action.action="switch_to_minage";</tag>
+	</rule> 
+</grammar>

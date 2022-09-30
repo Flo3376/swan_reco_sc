@@ -1,0 +1,13 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="switch_to_offensif" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="switch_to_offensif" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>mode offensif</item>	<!--triange de puissance vers arme et bouclier -->
+			<item>mode attaque</item>  <!--triange de puissance vers arme et bouclier -->
+			<item>passe en mode offensif</item>	<!--triange de puissance vers arme et bouclier -->
+			<item>passe en mode attaque</item>  <!--triange de puissance vers arme et bouclier -->
+		</one-of>
+		<tag>out.action.action="switch_to_offensif";</tag>
+	</rule> 
+</grammar>

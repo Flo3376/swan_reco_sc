@@ -136,7 +136,7 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "Config initiale systéme",
-        "func": "//instruction en attente\nglobal.set(\"SWAN_M\",[])\n//où se trouve swan\nglobal.set('swan_path','C:\\\\swan')\n\n//où se trouve le répertoire son deswan\nglobal.set('path_sound',global.get('swan_path')+`\\\\sounds\\\\`);\n\n//quelle est le nom de swan\nglobal.set('swan_name',\"SWAN\");\n\n//a quelle niveau de confiance doit elle réagir\nglobal.set('confiance_gate',0.80);\n\n//volume de swan\nglobal.set('volume',0.7);\n\n//swan sera t'elle à l'acoute au démarrage\nglobal.set('swan_active',true);\n\n//balayage actif\nglobal.set('spy_scan',false);\n\n//swan utilise t'elle les sons (true) ou juste un bip (false)\nglobal.set('discret',false);\n\n//paramétre et localisation de vlc\nglobal.set('vlc_path',`\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\" `)\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=100 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n//global.set('a_k_short_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard.ahk\")\n//global.set('a_k_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_long.ahk\")\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\n//global.set('a_k_alt_left_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_left_alt.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\n\n\nconsole.log(`Le nom de votre IA est   : ${ global.get(\"swan_name\")}`)\nconsole.log(`les sons sont configurés à l'adresse : ${ global.get(\"path_sound\")}`)\nconsole.log(`le seuil d'assurance de reconnaisse est à  : ${ global.get(\"confiance_gate\")}`)",
+        "func": "//instruction en attente\nglobal.set(\"SWAN_M\",[])\n//où se trouve swan\nglobal.set('swan_path','C:\\\\swan')\n\n//où se trouve le répertoire son deswan\nglobal.set('path_sound',global.get('swan_path')+`\\\\sounds\\\\`);\n\n//quelle est le nom de swan\nglobal.set('swan_name',\"SWAN\");\n//quelle est le ancien nom de swan\nglobal.set('last_swan_name',\"SWAN\");\n\n//a quelle niveau de confiance doit elle réagir\nglobal.set('confiance_gate',0.80);\n\n//volume de swan\nglobal.set('volume',0.7);\n\n//swan sera t'elle à l'acoute au démarrage\nglobal.set('swan_active',true);\n\n//balayage actif\nglobal.set('spy_scan',false);\n\n//swan utilise t'elle les sons (true) ou juste un bip (false)\nglobal.set('discret',false);\n\n//paramétre et localisation de vlc\nglobal.set('vlc_path',`\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\" `)\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=100 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n//global.set('a_k_short_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard.ahk\")\n//global.set('a_k_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_long.ahk\")\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\n//global.set('a_k_alt_left_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_left_alt.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\n\n\nconsole.log(`Le nom de votre IA est   : ${ global.get(\"swan_name\")}`)\nconsole.log(`les sons sont configurés à l'adresse : ${ global.get(\"path_sound\")}`)\nconsole.log(`le seuil d'assurance de reconnaisse est à  : ${ global.get(\"confiance_gate\")}`)",
         "outputs": 1,
         "noerr": 0,
         "x": 580,
@@ -184,7 +184,8 @@
                 "6a4e40c3.8c794",
                 "161d4c80.e6f4a4",
                 "9ff0e7ca.9baf38",
-                "b23f48.fa8420b8"
+                "b23f48.fa8420b8",
+                "f62dbf2.cfe9b4"
             ]
         ]
     },
@@ -266,7 +267,8 @@
                 "732c06ff.d5c268",
                 "6a4e40c3.8c794",
                 "9ff0e7ca.9baf38",
-                "b23f48.fa8420b8"
+                "b23f48.fa8420b8",
+                "f62dbf2.cfe9b4"
             ]
         ]
     },
@@ -593,7 +595,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 590,
-        "y": 620,
+        "y": 680,
         "wires": [
             [
                 "e59e9055.2f94"
@@ -609,7 +611,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 620,
+        "y": 680,
         "wires": [
             []
         ]
@@ -626,7 +628,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 590,
-        "y": 660,
+        "y": 720,
         "wires": [
             [
                 "de56059f.696328"
@@ -642,7 +644,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 660,
+        "y": 720,
         "wires": [
             []
         ]
@@ -659,7 +661,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 590,
-        "y": 700,
+        "y": 760,
         "wires": [
             [
                 "16d6360b.76d10a"
@@ -675,7 +677,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 700,
+        "y": 760,
         "wires": [
             []
         ]
@@ -692,7 +694,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 590,
-        "y": 740,
+        "y": 800,
         "wires": [
             [
                 "1dfde841.579c98"
@@ -708,7 +710,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 740,
+        "y": 800,
         "wires": [
             []
         ]
@@ -725,7 +727,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 780,
+        "y": 840,
         "wires": [
             [
                 "ece236c5.bf0ce8"
@@ -741,7 +743,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 780,
+        "y": 840,
         "wires": [
             []
         ]
@@ -758,7 +760,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 820,
+        "y": 880,
         "wires": [
             [
                 "79a92174.eb32b"
@@ -774,7 +776,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 820,
+        "y": 880,
         "wires": [
             []
         ]
@@ -791,7 +793,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "32b40d1e.947292"
@@ -807,7 +809,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 860,
+        "y": 920,
         "wires": [
             []
         ]
@@ -824,7 +826,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 900,
+        "y": 960,
         "wires": [
             [
                 "646f5606.2802d8"
@@ -840,7 +842,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 900,
+        "y": 960,
         "wires": [
             []
         ]
@@ -857,7 +859,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 610,
-        "y": 940,
+        "y": 1000,
         "wires": [
             [
                 "52bbf2a9.57aecc"
@@ -873,7 +875,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 940,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -890,7 +892,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 580,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "6d1ef9d9.584978"
@@ -906,7 +908,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 980,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -923,7 +925,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 590,
-        "y": 1020,
+        "y": 1080,
         "wires": [
             [
                 "231c067a.2323ea"
@@ -939,7 +941,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 1020,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -956,7 +958,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 570,
-        "y": 1060,
+        "y": 1120,
         "wires": [
             [
                 "62f53d36.eecfc4"
@@ -972,7 +974,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 1060,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -989,7 +991,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 1100,
+        "y": 1160,
         "wires": [
             [
                 "daed27b9.cefb38"
@@ -1005,7 +1007,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 1100,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -1022,7 +1024,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 550,
-        "y": 1140,
+        "y": 1200,
         "wires": [
             [
                 "e60e1ef6.ee161"
@@ -1038,7 +1040,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 1140,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -1055,7 +1057,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 1180,
+        "y": 1240,
         "wires": [
             [
                 "dd736188.29883"
@@ -1074,7 +1076,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 570,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             [
                 "72c89b22.1c1424"
@@ -1090,7 +1092,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 1180,
+        "y": 1240,
         "wires": [
             []
         ]
@@ -1104,7 +1106,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -4421,7 +4423,9 @@
         "x": 1210,
         "y": 740,
         "wires": [
-            []
+            [
+                "4adfc12a.f25ec"
+            ]
         ]
     },
     {
@@ -4526,7 +4530,7 @@
         "oldrc": false,
         "name": "exec_cmd",
         "x": 1710,
-        "y": 800,
+        "y": 780,
         "wires": [
             [],
             [],
@@ -4564,7 +4568,8 @@
         "y": 740,
         "wires": [
             [
-                "1a7daef6.d0f321"
+                "1a7daef6.d0f321",
+                "afbe19a7.17fe88"
             ]
         ]
     },
@@ -4580,7 +4585,6 @@
         "y": 780,
         "wires": [
             [
-                "afbe19a7.17fe88",
                 "707f2804.813448",
                 "8a8612dd.23419"
             ]
@@ -6605,7 +6609,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 580,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "35517497.b6d6cc"
@@ -6621,7 +6625,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             []
         ]
@@ -6638,7 +6642,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 1300,
+        "y": 1360,
         "wires": [
             [
                 "7819207d.50c94"
@@ -6654,7 +6658,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 1300,
+        "y": 1360,
         "wires": [
             []
         ]
@@ -6671,7 +6675,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 590,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "43ad90a4.b244c"
@@ -6687,7 +6691,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             []
         ]
@@ -6704,7 +6708,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
                 "fcf06b5e.8a5128"
@@ -6720,7 +6724,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             []
         ]
@@ -7047,7 +7051,8 @@
                 "6a4e40c3.8c794",
                 "b23f48.fa8420b8",
                 "161d4c80.e6f4a4",
-                "9ff0e7ca.9baf38"
+                "9ff0e7ca.9baf38",
+                "f62dbf2.cfe9b4"
             ],
             []
         ]
@@ -7276,8 +7281,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 150,
-        "y": 740,
+        "x": 170,
+        "y": 1080,
         "wires": [
             [
                 "47197738.1027c8"
@@ -7292,8 +7297,8 @@
         "func": "console.log(global.keys())\n\nlet purge=[\n\"tzModule\",\n\"xpathModule\",\n\"domModule\",\n\"uuidv1\",\n\"uuidv4\",\n\"uuidv5\",\n\"CONFIG\",\n\"get\",\n\"set\",\n\"close_gear_q\",\n\"close_gear_sound\",\n\"open_gear_q\",\n\"open_gear_sound\",\n\"base_q\",\n\"base_sound\",\n\"lum_on_q\",\n\"lum_on_sound\",\n\"lum_off_q\",\n\"lum_off_sound\",\n\"online_q\",\n\"online_sound\",\"starmap_on_q\",\n\"starmap_on_sound\",\n\"starmap_off_q\",\n\"starmap_off_sound\",\n\"active_scan_on_q\",\n\"active_scan_on_sound\",\n\"door_close_q\",\n\"door_close_sound\",\n\"door_open_q\",\"door_open_sound\",\n\"engine_on_q\",\"engine_on_sound\",\n\"engine_off_q\",\n\"engine_off_sound\",\n\"gen_on_q\",\n\"gen_on_sound\",\n\"gen_off_q\",\n\"gen_off_sound\",\n\"quantum_on_q\",\n\"quantum_on_sound\",\n\"quantum_off_q\",\n\"quantum_off_sound\",\n\"quantum_jump_sound\",\n\"commun_swan_q\",\n\"commun_swan_sound\",\n\"mining_in_q\",\"mining_in_sound\",\n\"mining_out_q\",\"mining_out_sound\",\n\"mining_switch_q\",\n\"mining_switch_sound\",\n\"exit_q\",\"exit_sound\",\n\"VTOL_close_q\",\n\"VTOL_close_sound\",\n\"VTOL_open_q\",\n\"VTOL_open_sound\",\n\"mod_minage_q\",\n\"mod_minage_sound\",\n\"mod_defensif_q\",\n\"mod_defensif_sound\",\n\"mod_navigation_q\",\n\"mod_navigation_sound\",\n\"mod_offensif_q\",\n\"mod_offensif_sound\",\n\"ready_to_fly_q\",\n\"ready_to_fly_sound\",\n\"quantum_jump_q\",\n\"path_sound\",\"spy_scan\",\n]\n\nfor (i=0; i<global.keys().length;i++)\n{\n    \n    if(purge.includes(global.keys()[i]))\n    {\n        \n    }\n    else{\n        console.log(global.keys()[i]+\"=\"+global.get(global.keys()[i]))\n    }\n}",
         "outputs": "2",
         "noerr": 0,
-        "x": 480,
-        "y": 740,
+        "x": 500,
+        "y": 1080,
         "wires": [
             [],
             []
@@ -7310,8 +7315,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 150,
-        "y": 700,
+        "x": 170,
+        "y": 1040,
         "wires": [
             [
                 "a3db370c.ff25d8"
@@ -7326,8 +7331,8 @@
         "func": "console.log(global.keys())\n\nlet purge=[\n\"tzModule\",\n\"xpathModule\",\n\"domModule\",\n\"uuidv1\",\n\"uuidv4\",\n\"uuidv5\",\n\"CONFIG\",\n\"get\",\n\"set\",\n\"close_gear_q\",\n\"close_gear_sound\",\n\"open_gear_q\",\n\"open_gear_sound\",\n\"base_q\",\n\"base_sound\",\n\"lum_on_q\",\n\"lum_on_sound\",\n\"lum_off_q\",\n\"lum_off_sound\",\n\"online_q\",\n\"online_sound\",\"starmap_on_q\",\n\"starmap_on_sound\",\n\"starmap_off_q\",\n\"starmap_off_sound\",\n\"active_scan_on_q\",\n\"active_scan_on_sound\",\n\"door_close_q\",\n\"door_close_sound\",\n\"door_open_q\",\"door_open_sound\",\n\"engine_on_q\",\"engine_on_sound\",\n\"engine_off_q\",\n\"engine_off_sound\",\n\"gen_on_q\",\n\"gen_on_sound\",\n\"gen_off_q\",\n\"gen_off_sound\",\n\"quantum_on_q\",\n\"quantum_on_sound\",\n\"quantum_off_q\",\n\"quantum_off_sound\",\n\"quantum_jump_sound\",\n\"commun_swan_q\",\n\"commun_swan_sound\",\n\"mining_in_q\",\"mining_in_sound\",\n\"mining_out_q\",\"mining_out_sound\",\n\"mining_switch_q\",\n\"mining_switch_sound\",\n\"exit_q\",\"exit_sound\",\n\"VTOL_close_q\",\n\"VTOL_close_sound\",\n\"VTOL_open_q\",\n\"VTOL_open_sound\",\n\"mod_minage_q\",\n\"mod_minage_sound\",\n\"mod_defensif_q\",\n\"mod_defensif_sound\",\n\"mod_navigation_q\",\n\"mod_navigation_sound\",\n\"mod_offensif_q\",\n\"mod_offensif_sound\",\n\"ready_to_fly_q\",\n\"ready_to_fly_sound\",\n\"quantum_jump_q\",\n\"path_sound\",\"spy_scan\"\n]\n\nfor (i=0; i<global.keys().length;i++)\n{\n    \n    if(purge.includes(global.keys()[i]))\n    {\n        \n    }\n    else{\n        console.log(global.keys()[i]+\"=\"+global.get(global.keys()[i]))\n    }\n}",
         "outputs": "2",
         "noerr": 0,
-        "x": 470,
-        "y": 700,
+        "x": 490,
+        "y": 1040,
         "wires": [
             [],
             []
@@ -7344,8 +7349,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 180,
-        "y": 580,
+        "x": 160,
+        "y": 660,
         "wires": [
             [
                 "6a37694c.3df1e8"
@@ -7363,11 +7368,11 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 180,
-        "y": 620,
+        "x": 160,
+        "y": 700,
         "wires": [
             [
-                "ac7b61db.e22"
+                "35b1c9f2.74d626"
             ]
         ]
     },
@@ -7432,11 +7437,12 @@
         "units": "s",
         "reset": "",
         "name": "",
-        "x": 460,
-        "y": 540,
+        "x": 580,
+        "y": 620,
         "wires": [
             [
-                "6a37694c.3df1e8"
+                "6a37694c.3df1e8",
+                "a59ed113.45096"
             ]
         ]
     },
@@ -7445,11 +7451,11 @@
         "type": "function",
         "z": "e23f34c2.ea7468",
         "name": "Config creator",
-        "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"# Pensez à modifier le fichier swan.xml qui se trouve dans le répertoire /viseo-bot-project/data/grammar\\n\";\nmsg.payload+=\"# \\\"<item>SWAN</item>\\\" devient <item>Le nouveau non choisie</item>\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre dientifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"request_landing=\"+global.get(\"request_landing\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"open_gear=\"+global.get(\"open_gear\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"close_gear=\"+global.get(\"close_gear\")+\"\\n\\n\";\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"light_on=\"+global.get(\"light_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"light_off=\"+global.get(\"light_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"Ready_to_fly=\"+global.get(\"Ready_to_fly\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"starmap=\"+global.get(\"starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"ping=\"+global.get(\"ping\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"open_door=\"+global.get(\"open_door\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"close_door=\"+global.get(\"close_door\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"start_engine=\"+global.get(\"start_engine\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"cut_engine=\"+global.get(\"cut_engine\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"start_power=\"+global.get(\"start_power\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"cut_power=\"+global.get(\"cut_power\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"start_q_engine=\"+global.get(\"start_q_engine\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"cut_q_engine=\"+global.get(\"cut_q_engine\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"lauch_q_jump=\"+global.get(\"lauch_q_jump\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"switch_min_tools=\"+global.get(\"switch_min_tools\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"jetison=\"+global.get(\"jetison\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"open_VTOL=\"+global.get(\"open_VTOL\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"close_VTOL=\"+global.get(\"close_VTOL\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"tri_weapons=\"+global.get(\"tri_weapons\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"tri_engine=\"+global.get(\"tri_engine\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"tri_shield=\"+global.get(\"tri_shield\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"tri_center=\"+global.get(\"tri_center\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"front_shield=\"+global.get(\"front_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"back_shield=\"+global.get(\"back_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"left_shield=\"+global.get(\"left_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"right_shield=\"+global.get(\"right_shield\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"center_shield=\"+global.get(\"center_shield\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"target_lock=\"+global.get('target_lock')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"target_unlock=\"+global.get('target_unlock')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"toggle_missile_gun=\"+global.get('toggle_missile_gun')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"fire_missile=\"+global.get('fire_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"change_q_m=\"+global.get('change_q_m')+\"\\n\\n\";\n\nreturn msg;\n//config de base\n\n\n",
+        "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\";\nmsg.payload+=\"# Si vous avez déjà modifier le nom et que vous voulez en changer de nouveau, il faut mettre le dernier nom utilisé\\n\";\nmsg.payload+=\"last_swan_name=\"+global.get(\"last_swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre dientifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"request_landing=\"+global.get(\"request_landing\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"open_gear=\"+global.get(\"open_gear\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"close_gear=\"+global.get(\"close_gear\")+\"\\n\\n\";\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"light_on=\"+global.get(\"light_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"light_off=\"+global.get(\"light_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"Ready_to_fly=\"+global.get(\"Ready_to_fly\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"starmap=\"+global.get(\"starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"ping=\"+global.get(\"ping\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"open_door=\"+global.get(\"open_door\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"close_door=\"+global.get(\"close_door\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"start_engine=\"+global.get(\"start_engine\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"cut_engine=\"+global.get(\"cut_engine\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"start_power=\"+global.get(\"start_power\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"cut_power=\"+global.get(\"cut_power\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"start_q_engine=\"+global.get(\"start_q_engine\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"cut_q_engine=\"+global.get(\"cut_q_engine\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"lauch_q_jump=\"+global.get(\"lauch_q_jump\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"switch_min_tools=\"+global.get(\"switch_min_tools\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"jetison=\"+global.get(\"jetison\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"open_VTOL=\"+global.get(\"open_VTOL\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"close_VTOL=\"+global.get(\"close_VTOL\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"tri_weapons=\"+global.get(\"tri_weapons\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"tri_engine=\"+global.get(\"tri_engine\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"tri_shield=\"+global.get(\"tri_shield\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"tri_center=\"+global.get(\"tri_center\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"front_shield=\"+global.get(\"front_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"back_shield=\"+global.get(\"back_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"left_shield=\"+global.get(\"left_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"right_shield=\"+global.get(\"right_shield\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"center_shield=\"+global.get(\"center_shield\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"target_lock=\"+global.get('target_lock')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"target_unlock=\"+global.get('target_unlock')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"toggle_missile_gun=\"+global.get('toggle_missile_gun')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"fire_missile=\"+global.get('fire_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"change_q_m=\"+global.get('change_q_m')+\"\\n\\n\";\n\nreturn msg;\n//config de base\n\n\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 660,
-        "y": 540,
+        "x": 980,
+        "y": 660,
         "wires": [
             [
                 "b96929ef.83bfe8"
@@ -7465,8 +7471,8 @@
         "appendNewline": false,
         "createDir": true,
         "overwriteFile": "true",
-        "x": 830,
-        "y": 540,
+        "x": 1150,
+        "y": 660,
         "wires": []
     },
     {
@@ -7478,8 +7484,8 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 480,
-        "y": 580,
+        "x": 780,
+        "y": 700,
         "wires": [
             [
                 "ac7b61db.e22"
@@ -7494,8 +7500,8 @@
         "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    //console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=200  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\nglobal.set(\"SWAN_M\",[])\n\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 650,
-        "y": 580,
+        "x": 970,
+        "y": 700,
         "wires": [
             []
         ]
@@ -7504,8 +7510,8 @@
         "id": "c519c5a.da61738",
         "type": "start-up-trigger",
         "z": "e23f34c2.ea7468",
-        "x": 180,
-        "y": 540,
+        "x": 140,
+        "y": 620,
         "wires": [
             [
                 "eb23e956.a1e9f8",
@@ -7517,15 +7523,15 @@
         "id": "aae54cb0.492b8",
         "type": "inject",
         "z": "e23f34c2.ea7468",
-        "name": "manuel go",
+        "name": "Chargement et mise à jours manuel",
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 160,
-        "y": 500,
+        "x": 220,
+        "y": 580,
         "wires": [
             [
                 "eb23e956.a1e9f8",
@@ -8521,8 +8527,8 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 1040,
-        "y": 400,
+        "x": 400,
+        "y": 500,
         "wires": [
             [
                 "35b1c9f2.74d626",
@@ -9359,7 +9365,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 580,
-        "y": 1420,
+        "y": 1480,
         "wires": [
             [
                 "3cbf1215.2b2a7e"
@@ -9375,7 +9381,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1100,
-        "y": 1420,
+        "y": 1480,
         "wires": [
             []
         ]
@@ -9392,7 +9398,7 @@
         "dir": "files",
         "dirType": "msg",
         "x": 600,
-        "y": 1460,
+        "y": 1520,
         "wires": [
             [
                 "3b044e0e.d7f662"
@@ -9408,9 +9414,219 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1200,
-        "y": 1460,
+        "y": 1520,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "f62dbf2.cfe9b4",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search active_scan_off sounds",
+        "path": "./../sounds/active_scan_off/",
+        "pathType": "str",
+        "filter": "*.mp4",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 610,
+        "y": 620,
+        "wires": [
+            [
+                "617b55ef.28c9ec"
+            ]
+        ]
+    },
+    {
+        "id": "617b55ef.28c9ec",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"active_scan_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1100,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9724dcee.94e88",
+        "type": "fs-ops-dir",
+        "z": "e23f34c2.ea7468",
+        "name": "search xml phraseo",
+        "path": "./../viseo-bot-project/data/grammar/",
+        "pathType": "str",
+        "filter": "*.xml",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 950,
+        "y": 780,
+        "wires": [
+            [
+                "e0c7493.19b32b8"
+            ]
+        ]
+    },
+    {
+        "id": "86571025.b87ac",
+        "type": "inject",
+        "z": "e23f34c2.ea7468",
+        "name": "Mise à jour manuel XML",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 190,
+        "y": 780,
+        "wires": [
+            [
+                "9724dcee.94e88"
+            ]
+        ]
+    },
+    {
+        "id": "f4593fd8.6d693",
+        "type": "loop",
+        "z": "e23f34c2.ea7468",
+        "name": "parcour liste fichiers xml",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload",
+        "enumerationType": "msg",
+        "limit": "500",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-last",
+        "x": 1370,
+        "y": 780,
+        "wires": [
+            [],
+            [
+                "4d412334.a753dc"
+            ]
+        ]
+    },
+    {
+        "id": "4d412334.a753dc",
+        "type": "function",
+        "z": "e23f34c2.ea7468",
+        "name": "fichier en cours",
+        "func": "msg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\grammar\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1340,
+        "y": 840,
+        "wires": [
+            [
+                "f4593fd8.6d693",
+                "702b5514.be4e9c"
+            ]
+        ]
+    },
+    {
+        "id": "e0c7493.19b32b8",
+        "type": "function",
+        "z": "e23f34c2.ea7468",
+        "name": "conv tableau",
+        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1110,
+        "y": 780,
+        "wires": [
+            [
+                "f4593fd8.6d693"
+            ]
+        ]
+    },
+    {
+        "id": "702b5514.be4e9c",
+        "type": "file in",
+        "z": "e23f34c2.ea7468",
+        "name": "auto",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 1530,
+        "y": 840,
+        "wires": [
+            [
+                "b9202565.c1faf8"
+            ]
+        ]
+    },
+    {
+        "id": "8b0759f3.e92108",
+        "type": "debug",
+        "z": "e23f34c2.ea7468",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1830,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "b9202565.c1faf8",
+        "type": "function",
+        "z": "e23f34c2.ea7468",
+        "name": "change name",
+        "func": "if(!msg.payload.includes(\"<item>\"+global.get('swan_name')+\"</item>\"))\n{\n    msg.payload=msg.payload.replace(\"<item>SWAN</item>\",\"<item>\"+global.get('swan_name')+\"</item>\")\n    msg.payload=msg.payload.replace(\"<item>\"+global.get('last_swan_name')+\"</item>\",\"<item>\"+global.get('swan_name')+\"</item>\")\n    return msg\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1680,
+        "y": 840,
+        "wires": [
+            [
+                "8b0759f3.e92108",
+                "1a0eb50e.9b894b"
+            ]
+        ]
+    },
+    {
+        "id": "1a0eb50e.9b894b",
+        "type": "file",
+        "z": "e23f34c2.ea7468",
+        "name": "file .xml",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1820,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "a59ed113.45096",
+        "type": "trigger",
+        "z": "e23f34c2.ea7468",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 760,
+        "y": 740,
+        "wires": [
+            [
+                "9724dcee.94e88"
+            ]
         ]
     }
 ]

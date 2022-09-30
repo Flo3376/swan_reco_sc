@@ -1281,6 +1281,43 @@
      "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-loop\\loop.js"
     }
    }
+  },
+  "node-red-contrib-loop-processing": {
+   "name": "node-red-contrib-loop-processing",
+   "version": "0.5.1",
+   "local": true,
+   "nodes": {
+    "index-loop": {
+     "name": "index-loop",
+     "types": [
+      "counter-loop"
+     ],
+     "enabled": false,
+     "local": true,
+     "module": "node-red-contrib-loop-processing",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-loop-processing\\counter-loop.js"
+    },
+    "array-loop": {
+     "name": "array-loop",
+     "types": [
+      "array-loop"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-loop-processing",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-loop-processing\\array-loop.js"
+    },
+    "while-loop": {
+     "name": "while-loop",
+     "types": [
+      "while-loop"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-loop-processing",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-loop-processing\\while-loop.js"
+    }
+   }
   }
  }
 }

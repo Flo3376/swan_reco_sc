@@ -1,0 +1,19 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="tri_full_weapons" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="tri_full_weapons" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>Met toute la puissance sur les armes</item>
+			<item>toute la puissance sur les armes</item>
+			<item>Envoie toute la puissance sur les armes</item>
+			<item>bascule toute la puissance sur les armes</item>
+			<item>Met tous le jue sur les armes</item>
+			<item>Met tous le jue sur les armes</item>
+			<item>tous le jue sur les armes</item>
+			<item>Envoie tous le jue sur les armes</item>
+			<item>transfert toute la puissance sur les armes</item>
+			<item>transfert tous le jue sur les armes</item>
+		</one-of>
+		<tag>out.action.action="tri_full_weapons";</tag>
+	</rule> 
+</grammar>

@@ -1,0 +1,21 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="full_shield_left" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="full_shield_left" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>Met tous de puissance sur le bouclier gauche</item>
+			<item>Met tous de jue sur le bouclier gauche</item>
+			<item>Envoie tous de jue sur le bouclier gauche</item>
+			<item>bascule tous de jue sur le bouclier gauche</item>
+			<item>tous de puissance sur le bouclier gauche</item>
+			<item>Envoie tous de puissance sur le bouclier gauche</item>
+			<item>bascule tous de puissance sur le bouclier gauche</item>
+			<item>bascule tous le jue sur le bouclier gauche</item>
+			<item>tous de jue sur le bouclier gauche</item>
+			<item>transfert tous de puissance sur le bouclier gauche</item>
+			<item>transfert tous de jue sur le bouclier gauche</item>
+			<item>puissance bouclier gauche</item>
+		</one-of>
+		<tag>out.action.action="full_shield_left";</tag>
+	</rule> 
+</grammar>
