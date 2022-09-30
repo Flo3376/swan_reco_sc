@@ -1,0 +1,13 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="auto_ping_off" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="auto_ping_off" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>coupe le balayage</item>
+			<item>stop le balayage</item>
+			<item>arrête le scanne</item>
+			<item>coupe le scanne</item>
+		</one-of>
+		<tag>out.action.action="auto_ping_off";</tag>
+	</rule> 
+</grammar>

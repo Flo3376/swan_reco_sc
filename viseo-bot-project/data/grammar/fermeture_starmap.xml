@@ -1,0 +1,19 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="fermeture_starmap" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="fermeture_starmap" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<!--ferme -->
+			<item>ferme la carte</item>
+			<item>ferme la starmap</item>
+			<item>ferme moi la carte</item>
+			<item>ferme moi la starmap</item>
+			<!--coupe -->
+			<item>coupe la starmap</item>
+			<item>coupe la map</item>
+			<item>coupe moi la starmap</item>
+			<item>coupe moi la map</item>
+		</one-of>
+		<tag>out.action.action="close_starmap";</tag>
+	</rule> 
+</grammar>

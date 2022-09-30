@@ -1,0 +1,31 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ouverture_starmap" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="ouverture_starmap" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<!--affiche -->
+			<item>affiche la carte</item>
+			<item>affiche la position</item>
+			<item>affiche la starmap</item>
+			<item>affiche moi la carte</item>
+			<item>affiche moi notre position</item>
+			<item>affiche moi la starmap</item>
+			<!--ouvre -->
+			<item>ouvre la carte</item>
+			<item>ouvre la starmap</item>
+			<item>ouvre moi la carte</item>
+			<item>ouvre moi la starmap</item>
+			<!--montre -->
+			<item>montre la carte</item>
+			<item>montre la starmap</item>
+			<item>montre moi la carte</item>
+			<item>montre moi notre position</item>
+			<item>montre moi la starmap</item>
+			<item>cacule moi un itinéraire</item>
+			<!--autre -->
+			<item>prépare l'itinéraire</item>
+			<item>prépare un itinéraire</item>
+		</one-of>
+		<tag>out.action.action="open_starmap";</tag>
+	</rule> 
+</grammar>

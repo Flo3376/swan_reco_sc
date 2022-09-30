@@ -1,0 +1,12 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="discord_corpo" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="discord_corpo" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>envoie une invitation discord</item>
+			<item>envoie notre discord</item>
+			<item>envoie une invite</item>
+		</one-of>
+		<tag>out.action.action="corpo_discord";</tag>
+	</rule> 
+</grammar>

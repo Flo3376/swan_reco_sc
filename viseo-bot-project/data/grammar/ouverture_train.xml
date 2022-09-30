@@ -1,0 +1,17 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ouverture_train" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="ouverture_train" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>sort le train d'attérissage</item>
+			<item>sort les trains d'attérissage</item>
+			<item>sort les trains</item>
+			<item>sort le train</item>
+			<item>ouvre le train d'attérissage</item>
+			<item>ouvre les trains d'attérissage</item>
+			<item>ouvre les trains</item>
+			<item>ouvre le train</item>
+		</one-of>
+		<tag>out.action.action="open_gear";</tag>
+	</rule> 
+</grammar>

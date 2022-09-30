@@ -35,6 +35,13 @@
         "info": ""
     },
     {
+        "id": "c3cf5343.7b594",
+        "type": "tab",
+        "label": "Combat",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "1652babe.60d185",
         "type": "tab",
         "label": "Starmap / quantique",
@@ -49,9 +56,9 @@
         "info": ""
     },
     {
-        "id": "c3cf5343.7b594",
+        "id": "3bfd628a.fc68ae",
         "type": "tab",
-        "label": "Combat",
+        "label": "minage / scan",
         "disabled": false,
         "info": ""
     },
@@ -63,9 +70,9 @@
         "info": ""
     },
     {
-        "id": "33baa4f7.ce6a9c",
+        "id": "312c81eb.6f5b7e",
         "type": "tab",
-        "label": "T_Puissance",
+        "label": "Scénario",
         "disabled": false,
         "info": ""
     },
@@ -77,16 +84,9 @@
         "info": ""
     },
     {
-        "id": "3bfd628a.fc68ae",
+        "id": "33baa4f7.ce6a9c",
         "type": "tab",
-        "label": "minage / scan",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "312c81eb.6f5b7e",
-        "type": "tab",
-        "label": "Scénario",
+        "label": "T_Puissance",
         "disabled": false,
         "info": ""
     },
@@ -123,6 +123,13 @@
         "birthTopic": "",
         "birthQos": "0",
         "birthPayload": ""
+    },
+    {
+        "id": "642b72aa.ec1a8c",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/sarah/meteo",
+        "wholemsg": "true"
     },
     {
         "id": "a9afffb3.daac9",
@@ -175,7 +182,9 @@
                 "39d90319.149fec",
                 "732c06ff.d5c268",
                 "6a4e40c3.8c794",
-                "161d4c80.e6f4a4"
+                "161d4c80.e6f4a4",
+                "9ff0e7ca.9baf38",
+                "b23f48.fa8420b8"
             ]
         ]
     },
@@ -255,7 +264,9 @@
                 "161d4c80.e6f4a4",
                 "39d90319.149fec",
                 "732c06ff.d5c268",
-                "6a4e40c3.8c794"
+                "6a4e40c3.8c794",
+                "9ff0e7ca.9baf38",
+                "b23f48.fa8420b8"
             ]
         ]
     },
@@ -1231,7 +1242,7 @@
         "type": "function",
         "z": "e23f34c2.ea7468",
         "name": "confiance_gate",
-        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n    to_true.confiance=msg.payload.confidence.toFixed(3);\n}\n\nreturn [to_false,to_true]\n",
+        "func": "let to_false={}\nlet to_true={}\n\nif(parseFloat(msg.payload.confidence)< global.get(\"confiance_gate\"))\n{\n    to_false.topic=true\n    to_false.payload=msg.payload.text;\n}\nelse{\n    to_true.topic=true\n    to_true.payload=msg.payload.text;\n    to_true.action=msg.payload.options.action;\n    to_true.confiance=msg.payload.confidence.toFixed(3);\n}\n\nreturn [to_false,to_true]\n",
         "outputs": "2",
         "noerr": 0,
         "x": 360,
@@ -1239,8 +1250,7 @@
         "wires": [
             [],
             [
-                "fbfd8614.138e78",
-                "f34174b4.d99d68"
+                "fbfd8614.138e78"
             ]
         ]
     },
@@ -1352,7 +1362,7 @@
         "type": "function",
         "z": "e3b59118.5cbf8",
         "name": "test de swan",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"es tu là\")\nsearch.push(\"tu es là\")\nsearch.push(\"tu m'entends\")\nsearch.push(\"tu es avec moi\")\nsearch.push(\"on se réveille\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            //console.log(( global.get('swan_name')+\" \"+ask.toString()))\n            //console.log(msg.payload.toString())\n            \n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"test_de_swan\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 530,
@@ -1503,7 +1513,7 @@
         "type": "function",
         "z": "e3b59118.5cbf8",
         "name": "activation mod discret (sf)",
-        "func": "let search=[]\nsearch.push('Passe en mod discret');\nsearch.push('active le mod discret');\nsearch.push('Met toi en mod discret');\nsearch.push('activation du mod discret');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('discret',true);\n    return msg;\n}\n\n",
+        "func": "let search=[]\nsearch.push('discret_mod_on');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('discret',true);\n    return msg;\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 570,
@@ -1519,7 +1529,7 @@
         "type": "function",
         "z": "e3b59118.5cbf8",
         "name": "mise en someil/veille (sf)",
-        "func": "let search=[];\nsearch.push('met toi en sommeil');\nsearch.push('met toi en veille');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('swan_active',false);\n    return msg;\n}\n",
+        "func": "let search=[];\nsearch.push('veille_on');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('swan_active',false);\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "x": 570,
@@ -1535,7 +1545,7 @@
         "type": "function",
         "z": "e3b59118.5cbf8",
         "name": "désactivation mod discret (sf)",
-        "func": "let search=[];\nsearch.push('repasse en mod normale');\nsearch.push('Sort du mod discret');\nsearch.push('désactivation du mod discret');\nsearch.push('coupe le mod discret');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('discret',false);\n    return msg;\n}",
+        "func": "let search=[];\nsearch.push('discret_mod_off');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('discret',false);\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "x": 580,
@@ -1551,7 +1561,7 @@
         "type": "function",
         "z": "e3b59118.5cbf8",
         "name": "remise en attente (sf)",
-        "func": "let search=[];\nsearch.push('remet toi en écoute');\nsearch.push('réveille toi');\n\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('swan_active',true);\n    return msg;\n}",
+        "func": "let search=[];\nsearch.push('veille_off');\n\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('swan_active',true);\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "x": 560,
@@ -1676,7 +1686,7 @@
         "type": "function",
         "z": "312c81eb.6f5b7e",
         "name": "Mod naviagation",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"mode navigation\")\nsearch.push(\"passe en mode navigation\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"switch_to_navigation\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 600,
@@ -1693,31 +1703,14 @@
         "type": "function",
         "z": "312c81eb.6f5b7e",
         "name": "Mod défensif",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"mode défensif\")\nsearch.push(\"passe en mode défensif\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"switch_to_defensif\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 590,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "8093d9cd.a16548"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "48b891e4.3e5d",
-        "type": "function",
-        "z": "312c81eb.6f5b7e",
-        "name": "Mod attaque",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"mode attaque\")\nsearch.push(\"passe en mode attaque\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 590,
-        "y": 600,
-        "wires": [
-            [
-                "ecee7.1ed3b11a"
             ],
             []
         ]
@@ -1727,11 +1720,11 @@
         "type": "function",
         "z": "312c81eb.6f5b7e",
         "name": "Mod minage",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"mode minage\")\nsearch.push(\"passe mode minage\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"switch_to_minage\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 590,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "84d01a09.15cab8"
@@ -1744,11 +1737,11 @@
         "type": "function",
         "z": "312c81eb.6f5b7e",
         "name": "Mod offensif",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"mode offensif\")\nsearch.push(\"passe en mode offensif\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"switch_to_offensif\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 590,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "ecee7.1ed3b11a"
@@ -1793,7 +1786,7 @@
         "loopPayload": "loop-orig",
         "finalPayload": "final-orig",
         "x": 1490,
-        "y": 800,
+        "y": 760,
         "wires": [
             [],
             [
@@ -1812,8 +1805,8 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
-        "y": 820,
+        "x": 1750,
+        "y": 780,
         "wires": [
             [],
             [],
@@ -1838,7 +1831,7 @@
         "loopPayload": "loop-orig",
         "finalPayload": "final-orig",
         "x": 1490,
-        "y": 360,
+        "y": 320,
         "wires": [
             [],
             [
@@ -1857,8 +1850,8 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
-        "y": 380,
+        "x": 1750,
+        "y": 340,
         "wires": [
             [],
             [],
@@ -1883,7 +1876,7 @@
         "loopPayload": "loop-orig",
         "finalPayload": "final-orig",
         "x": 1490,
-        "y": 320,
+        "y": 280,
         "wires": [
             [],
             [
@@ -1902,8 +1895,8 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
-        "y": 620,
+        "x": 1750,
+        "y": 580,
         "wires": [
             [],
             [],
@@ -1924,7 +1917,7 @@
         "reset": "reset",
         "name": "",
         "x": 1080,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "50d5a70d.5b9458",
@@ -1947,7 +1940,7 @@
         "reset": "reset",
         "name": "",
         "x": 1080,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "52bae7b2.7b5418",
@@ -1969,26 +1962,12 @@
         "reset": "reset",
         "name": "",
         "x": 1080,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "8b69976a.e0fb98",
                 "1b70770d.01ec69"
             ]
-        ]
-    },
-    {
-        "id": "2c6de57f.8b7e3a",
-        "type": "function",
-        "z": "ff26b391.7439",
-        "name": "keybinding_send_short",
-        "func": "msg.payload=global.get('a_k_short_path')+\" \"+global.get('request_landing')\n\nreturn msg\n",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 1230,
-        "y": 200,
-        "wires": [
-            []
         ]
     },
     {
@@ -1999,8 +1978,8 @@
         "func": "let sound_effect=[];\nlet track_id='base';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
-        "y": 240,
+        "x": 1210,
+        "y": 220,
         "wires": [
             [
                 "334cc213.2801ee"
@@ -2012,7 +1991,7 @@
         "type": "function",
         "z": "ff26b391.7439",
         "name": "appelle station/base/pad/hangar",
-        "func": "let accept={}\nlet reject={}\nlet search=[];\n\nsearch.push('appel la station');\nsearch.push('appel la base');\nsearch.push('ouvre le hangar');\nsearch.push('appel le hangar');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[];\n\nsearch.push('open_hangar');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 630,
@@ -2048,7 +2027,7 @@
         "type": "function",
         "z": "ff26b391.7439",
         "name": "autorisation décolage",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"demande l'autorisation de décollage\")\nsearch.push(\"demande l'autorisation de décoller\")\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"take_off\")\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n\n",
         "outputs": "2",
         "noerr": 0,
         "x": 600,
@@ -2068,8 +2047,8 @@
         "func": "let sound_effect=[];\nlet track_id='clear_take_off';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
-        "y": 280,
+        "x": 1210,
+        "y": 260,
         "wires": [
             [
                 "334cc213.2801ee"
@@ -2139,7 +2118,8 @@
         "wires": [
             [
                 "118f7da4.6794b2",
-                "4b6634d3.ffcddc"
+                "4b6634d3.ffcddc",
+                "33432ed2.fea8f2"
             ]
         ]
     },
@@ -2165,7 +2145,6 @@
         "y": 220,
         "wires": [
             [
-                "2c6de57f.8b7e3a",
                 "2bee05d9.90245a",
                 "d426e851.6ed878"
             ]
@@ -2183,8 +2162,8 @@
         "y": 260,
         "wires": [
             [
-                "2c6de57f.8b7e3a",
-                "2acb80a6.97c94"
+                "2acb80a6.97c94",
+                "d426e851.6ed878"
             ]
         ]
     },
@@ -2195,7 +2174,7 @@
         "name": "Discord",
         "info": "\n\n",
         "x": 90,
-        "y": 340,
+        "y": 380,
         "wires": []
     },
     {
@@ -2203,11 +2182,11 @@
         "type": "function",
         "z": "ff26b391.7439",
         "name": "envoie mon discord",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"envoie mon discord\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n           if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"my_discord\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n           if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 590,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "a0321f73.675f5"
@@ -2220,11 +2199,11 @@
         "type": "function",
         "z": "ff26b391.7439",
         "name": "envoie invite",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"envoie une invitation discord\")\nsearch.push(\"envoie notre discord\")\nsearch.push(\"envoie une invite\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n           if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"corpo_discord\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n           if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "f1d81939.8d61a8"
@@ -2241,7 +2220,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1210,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "f007e95c.e45598"
@@ -2260,7 +2239,7 @@
         "oldrc": false,
         "name": "exec_cmd",
         "x": 1590,
-        "y": 420,
+        "y": 460,
         "wires": [
             [],
             [],
@@ -2276,7 +2255,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1220,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "f007e95c.e45598"
@@ -2292,7 +2271,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1220,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "f007e95c.e45598"
@@ -2308,7 +2287,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 160,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "850e7148.195ff"
@@ -2324,7 +2303,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 370,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "7719e679.de48c8",
@@ -2341,7 +2320,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 920,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "120de197.eac73e",
@@ -2358,7 +2337,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 920,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "4725334b.176fcc",
@@ -2381,7 +2360,7 @@
         "type": "function",
         "z": "f07cdeb.340a32",
         "name": "Activer VTOL",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"active les stabilisateurs\")\nsearch.push(\"ouvre les stabilisateurs\")\nsearch.push(\"sort les stabilisateur\")\nsearch.push(\"active le VTOL\")\nsearch.push(\"passe en VTOL\")\nsearch.push(\"met en route les stabilisateur\")\nsearch.push(\"stabilise le vaisseau\")\nsearch.push(\"stabilise l'appareil\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"open_vtol\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -2398,7 +2377,7 @@
         "type": "function",
         "z": "f07cdeb.340a32",
         "name": "Désactiver VTOL",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"désactive les stabilisateur\")\nsearch.push(\"fermes les stabilisateurs\")\nsearch.push(\"rentre les stabilisateurs\")\nsearch.push(\"coupe les stabilisateurs\")\nsearch.push(\"coupe le VTOL\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"close_vtol\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 590,
@@ -2577,10 +2556,10 @@
         "type": "function",
         "z": "f07cdeb.340a32",
         "name": "Sortir le train",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"sort le train d'attérissage\")\nsearch.push(\"sort les trains d'attérissage\")\nsearch.push(\"sort les trains\")\nsearch.push(\"sort le train\")\nsearch.push(\"ouvre le train d'attérissage\")\nsearch.push(\"ouvre les trains d'attérissage\")\nsearch.push(\"ouvre les trains\")\nsearch.push(\"ouvre le train\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"open_gear\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 570,
+        "x": 590,
         "y": 380,
         "wires": [
             [
@@ -2594,10 +2573,10 @@
         "type": "function",
         "z": "f07cdeb.340a32",
         "name": "ferme le train",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"ferme le train d'attérissage\")\nsearch.push(\"ferme les trains d'attérissage\")\nsearch.push(\"ferme les trains\")\nsearch.push(\"ferme le train\")\nsearch.push(\"rentre le train d'attérissage\")\nsearch.push(\"rentre les trains d'attérissage\")\nsearch.push(\"rentre les trains\")\nsearch.push(\"rentre le train\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"close_gear\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 570,
+        "x": 590,
         "y": 420,
         "wires": [
             [
@@ -2806,7 +2785,7 @@
         "type": "function",
         "z": "1652babe.60d185",
         "name": "ouverture starmap",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"affiche la carte\")\nsearch.push(\"affiche la position\")\nsearch.push(\"affiche la starmap\")\nsearch.push(\"affiche moi la carte\")\nsearch.push(\"affiche moi notre position\")\nsearch.push(\"affiche moi la starmap\")\nsearch.push(\"ouvre la carte\")\nsearch.push(\"ouvre la starmap\")\nsearch.push(\"ouvre moi la carte\")\nsearch.push(\"ouvre moi la starmap\")\nsearch.push(\"montre la carte\")\nsearch.push(\"montre la starmap\")\nsearch.push(\"montre moi la carte\")\nsearch.push(\"montre moi notre position\")\nsearch.push(\"montre moi la starmap\")\nsearch.push(\"prépare l'itinéraire\")\nsearch.push(\"prépare un itinéraire\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"open_starmap\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 590,
@@ -2823,7 +2802,7 @@
         "type": "function",
         "z": "1652babe.60d185",
         "name": "fermeture starmap",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"ferme la carte\")\nsearch.push(\"ferme la starmap\")\nsearch.push(\"ferme moi la carte\")\nsearch.push(\"ferme moi la starmap\")\nsearch.push(\"coupe la starmap\")\nsearch.push(\"coupe la map\")\nsearch.push(\"coupe moi la starmap\")\nsearch.push(\"coupe moi la map\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"close_starmap\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 590,
@@ -2935,7 +2914,7 @@
         "type": "function",
         "z": "1652babe.60d185",
         "name": "lancement saut quantiqe",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Lance le saut\")\nsearch.push(\"On saute\")\nsearch.push(\"go pour le saut\")\nsearch.push(\"Hyperespace\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"launch_jump_q\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 610,
@@ -3003,7 +2982,7 @@
         "type": "function",
         "z": "1652babe.60d185",
         "name": "démare moteur quantiqe",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"démarre le moteur quantique\")\nsearch.push(\"active le moteur quantique\")\nsearch.push(\"allume le moteur quantique\")\nsearch.push(\"lance le moteur quantique\")\nsearch.push(\"met en route le moteur quantique\")\nsearch.push(\"calcul un saut quantique\")\nsearch.push(\"calcul un saut\")\nsearch.push(\"cacule moi un itinéraire\")\nsearch.push(\"démarre le quantum\")\nsearch.push(\"allume le quantum\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"quantum_on\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 610,
@@ -3020,7 +2999,7 @@
         "type": "function",
         "z": "1652babe.60d185",
         "name": "coupe moteur quantique",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"coupe le moteur quantique\")\nsearch.push(\"désactive le moteur quantique\")\nsearch.push(\"coupe le quantum\")\nsearch.push(\"désactive le quantum\")\nsearch.push(\"éteint le quantum\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"quantum_off\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 610,
@@ -3333,7 +3312,7 @@
         "type": "function",
         "z": "3bfd628a.fc68ae",
         "name": "sort le bras de minage",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"sort la tête\")\nsearch.push(\"sort le bras\")\nsearch.push(\"ouvre le bras\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"open_mining_tools\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 600,
@@ -3350,7 +3329,7 @@
         "type": "function",
         "z": "3bfd628a.fc68ae",
         "name": "change d'outils",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"change l'outils\")\nsearch.push(\"change d'outils\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"change_mining_tools\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -3377,7 +3356,7 @@
         "type": "function",
         "z": "3bfd628a.fc68ae",
         "name": "rentre le bras de minage",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"rentre la tête\")\nsearch.push(\"rentre le bras\")\nsearch.push(\"range la tête\")\nsearch.push(\"range le bras\")\nsearch.push(\"ferme le bras\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"close_mining_tools\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 610,
@@ -3483,7 +3462,7 @@
         "type": "function",
         "z": "3bfd628a.fc68ae",
         "name": "activation chrono quantique",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"lance le compte à rebours\")\nsearch.push(\"compte à rebours\")\nsearch.push(\"top chrono\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"chrono_on\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 620,
@@ -3668,7 +3647,7 @@
         "type": "function",
         "z": "3bfd628a.fc68ae",
         "name": "coupure chrono quantique",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"annulation du chrono\")\nsearch.push(\"annulation compte à rebours\")\nsearch.push(\"stop le  compte à rebours\")\nsearch.push(\"stop le  chrono\")\nsearch.push(\"annule le chrono\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"chrono_off\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 610,
@@ -3996,7 +3975,7 @@
         "type": "function",
         "z": "56fdf72f.48c0d8",
         "name": "ready to fly",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\nsearch.push(\"démarre les systèmes\")\nsearch.push(\"démarre le vaisseaux\")\nsearch.push(\"démarre l'appareil\")\nsearch.push(\"allume le vaisseaux\")\nsearch.push(\"allume l'appareil\")\nsearch.push(\"met en chauffe l'appareil\")\nsearch.push(\"met en chauffe le vaisseau\")\nsearch.push(\"fait chauffer l'appareil\")\nsearch.push(\"fait chauffer les systèmes\")\nsearch.push(\"fait chauffer le système\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\nsearch.push(\"ready_to_fly\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -4058,7 +4037,7 @@
         "type": "function",
         "z": "56fdf72f.48c0d8",
         "name": "démare moteur",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"démarre le moteur\")\nsearch.push(\"démarre les moteurs\")\nsearch.push(\"lance le moteur\")\nsearch.push(\"lance les moteurs\")\nsearch.push(\"allume les moteurs\")\nsearch.push(\"allume le moteur\")\nsearch.push(\"fait chauffer les moteurs\")\nsearch.push(\"fait chauffer le moteur\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n           if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"start_engine\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n           if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -4075,7 +4054,7 @@
         "type": "function",
         "z": "56fdf72f.48c0d8",
         "name": "coupe les moteurs",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"arrête le moteur\")\nsearch.push(\"arrête les moteurs\")\nsearch.push(\"coupe le moteur\")\nsearch.push(\"coupe les moteurs\")\nsearch.push(\"éteint le moteur\")\nsearch.push(\"éteint les moteurs\")\nsearch.push(\"coupure propulsions\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"cut_engine\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 590,
@@ -4153,7 +4132,7 @@
         "type": "function",
         "z": "56fdf72f.48c0d8",
         "name": "démare gen",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"démarre le générateur\")\nsearch.push(\"démarre les générateurs\")\nsearch.push(\"lance le générateur\")\nsearch.push(\"lance les générateurs\")\nsearch.push(\"allume le générateur\")\nsearch.push(\"allume les générateurs\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"start_gen\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -4170,7 +4149,7 @@
         "type": "function",
         "z": "56fdf72f.48c0d8",
         "name": "coupe les générateur",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"arrête le générateur\")\nsearch.push(\"arrête les générateurs\")\nsearch.push(\"coupe le générateur\")\nsearch.push(\"coupe les générateurs\")\nsearch.push(\"éteint le générateur\")\nsearch.push(\"éteint les générateurs\")\n\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"cut_gen\")\n\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 600,
@@ -4460,7 +4439,7 @@
         "type": "function",
         "z": "3bfd628a.fc68ae",
         "name": "lancement balayage zone",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"active balayage\")\nsearch.push(\"scan la zone\")\nsearch.push(\"Balaye la zone\")\nsearch.push(\"passe en balayage actif\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"auto_ping_on\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 610,
@@ -4477,7 +4456,7 @@
         "type": "function",
         "z": "3bfd628a.fc68ae",
         "name": "Coupure balayage zone",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"coupe le balayage\")\nsearch.push(\"arrête le scanne\")\nsearch.push(\"coupe le scanne\")\nsearch.push(\"stop le scanne\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"auto_ping_off\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 610,
@@ -4799,7 +4778,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "bouclier avant",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met tous de puissance sur le bouclier avant\")\nsearch.push(\"Met tous de jue sur le bouclier avant\")\nsearch.push(\"Envoie tous de jue sur le bouclier avant\")\nsearch.push(\"bascule tous de jue sur le bouclier avant\")\nsearch.push(\"tous de puissance sur le bouclier avant\")\nsearch.push(\"Envoie tous de puissance sur le bouclier avant\")\nsearch.push(\"bascule tous de puissance sur le bouclier avant\")\nsearch.push(\"bascule tous le jue sur le bouclier avant\")\nsearch.push(\"tous de jue sur le bouclier avant\")\nsearch.push(\"transfert tous de puissance sur le bouclier avant\")\nsearch.push(\"transfert tous de jue sur le bouclier avant\")\nsearch.push(\"puissance bouclier avant\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"full_shield_front\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -4861,7 +4840,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "bouclier avant",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met plus de puissance sur le bouclier avant\")\nsearch.push(\"Met plus de jue sur le bouclier avant\")\nsearch.push(\"Envoie plus de jue sur le bouclier avant\")\nsearch.push(\"bascule plus de jue sur le bouclier avant\")\nsearch.push(\"plus de puissance sur le bouclier avant\")\nsearch.push(\"Envoie plus de puissance sur le bouclier avant\")\nsearch.push(\"bascule plus de puissance sur le bouclier avant\")\nsearch.push(\"plus de jue sur le bouclier avant\")\nsearch.push(\"transfert plus de puissance sur le bouclier avant\")\nsearch.push(\"transfert plus de jue sur le bouclier avant\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"more_shield_front\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -4913,7 +4892,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "bouclier gauche",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met plus de puissance sur le bouclier gauche\")\nsearch.push(\"Met plus de jue sur le bouclier gauche\")\nsearch.push(\"Envoie plus de jue sur le bouclier gauche\")\nsearch.push(\"bascule plus de jue sur le bouclier gauche\")\nsearch.push(\"plus de puissance sur le bouclier gauche\")\nsearch.push(\"Envoie plus de puissance sur le bouclier gauche\")\nsearch.push(\"bascule plus de puissance sur le bouclier gauche\")\nsearch.push(\"plus de jue sur le bouclier gauche\")\nsearch.push(\"transfert plus de puissance sur le bouclier gauche\")\nsearch.push(\"transfert plus de jue sur le bouclier gauche\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"more_shield_left\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -4965,7 +4944,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "bouclier droit",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met plus de puissance sur le bouclier droit\")\nsearch.push(\"Met plus de jue sur le bouclier droit\")\nsearch.push(\"Envoie plus de jue sur le bouclier droit\")\nsearch.push(\"bascule plus de jue sur le bouclier droit\")\nsearch.push(\"plus de puissance sur le bouclier droit\")\nsearch.push(\"Envoie plus de puissance sur le bouclier droit\")\nsearch.push(\"bascule plus de puissance sur le bouclier droit\")\nsearch.push(\"plus de jue sur le bouclier droit\")\nsearch.push(\"transfert plus de puissance sur le bouclier droit\")\nsearch.push(\"transfert plus de jue sur le bouclier droit\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"more_shield_right\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -5017,7 +4996,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "bouclier arrière",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met plus de puissance sur le bouclier arrière\")\nsearch.push(\"Met plus de jue sur le bouclier arrière\")\nsearch.push(\"Envoie plus de jue sur le bouclier arrière\")\nsearch.push(\"bascule plus de jue sur le bouclier arrière\")\nsearch.push(\"plus de puissance sur le bouclier arrière\")\nsearch.push(\"Envoie plus de puissance sur le bouclier arrière\")\nsearch.push(\"bascule plus de puissance sur le bouclier arrière\")\nsearch.push(\"plus de jue sur le bouclier arrière\")\nsearch.push(\"transfert plus de puissance sur le bouclier arrière\")\nsearch.push(\"transfert plus de jue sur le bouclier arrière\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"more_shield_back\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -5069,7 +5048,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "bouclier gauche",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met tous de puissance sur le bouclier gauche\")\nsearch.push(\"Met tous de jue sur le bouclier gauche\")\nsearch.push(\"Envoie tous de jue sur le bouclier gauche\")\nsearch.push(\"bascule tous de jue sur le bouclier gauche\")\nsearch.push(\"tous de puissance sur le bouclier gauche\")\nsearch.push(\"Envoie tous de puissance sur le bouclier gauche\")\nsearch.push(\"bascule tous de puissance sur le bouclier gauche\")\nsearch.push(\"bascule tous le jue sur le bouclier gauche\")\nsearch.push(\"tous de jue sur le bouclier gauche\")\nsearch.push(\"transfert tous de puissance sur le bouclier gauche\")\nsearch.push(\"transfert tous de jue sur le bouclier gauche\")\nsearch.push(\"puissance bouclier gauche\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"full_shield_left\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -5147,7 +5126,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "bouclier droit",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met tous de puissance sur le bouclier droit\")\nsearch.push(\"Met tous de jue sur le bouclier droit\")\nsearch.push(\"Envoie tous de jue sur le bouclier droit\")\nsearch.push(\"bascule tous de jue sur le bouclier droit\")\nsearch.push(\"tous de puissance sur le bouclier droit\")\nsearch.push(\"Envoie tous de puissance sur le bouclier droit\")\nsearch.push(\"bascule tous de puissance sur le bouclier droit\")\nsearch.push(\"bascule tous le jue sur le bouclier droit\")\nsearch.push(\"tous de jue sur le bouclier droit\")\nsearch.push(\"transfert tous de puissance sur le bouclier droit\")\nsearch.push(\"transfert tous de jue sur le bouclier droit\")\nsearch.push(\"puissance bouclier droit\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"full_shield_right\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -5225,7 +5204,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "bouclier arrière",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met tous de puissance sur le bouclier arrière\")\nsearch.push(\"Met tous de jue sur le bouclier arrière\")\nsearch.push(\"Envoie tous de jue sur le bouclier arrière\")\nsearch.push(\"bascule tous de jue sur le bouclier arrière\")\nsearch.push(\"tous de puissance sur le bouclier arrière\")\nsearch.push(\"Envoie tous de puissance sur le bouclier arrière\")\nsearch.push(\"bascule tous de puissance sur le bouclier arrière\")\nsearch.push(\"bascule tous le jue sur le bouclier arrière\")\nsearch.push(\"tous de jue sur le bouclier arrière\")\nsearch.push(\"transfert tous de puissance sur le bouclier arrière\")\nsearch.push(\"transfert tous de jue sur le bouclier arrière\")\nsearch.push(\"puissance bouclier arrière\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"full_shield_back\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -5254,7 +5233,7 @@
         "limit": "250",
         "loopPayload": "loop-orig",
         "finalPayload": "final-orig",
-        "x": 1230,
+        "x": 1310,
         "y": 500,
         "wires": [
             [],
@@ -5303,7 +5282,7 @@
         "type": "function",
         "z": "31099d34.a85072",
         "name": "Bouclier centre",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"remet les boucliers au centre\")\nsearch.push(\"réinitialise les boucliers\")\nsearch.push(\"reset les boucliers\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"center_shield\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -5540,7 +5519,7 @@
         "type": "function",
         "z": "33baa4f7.ce6a9c",
         "name": "full bouclier",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met toute la puissance sur les boucliers\")\nsearch.push(\"toute la puissance sur les boucliers\")\nsearch.push(\"Envoie toute la puissance sur les boucliers\")\nsearch.push(\"bascule toute la puissance sur les boucliers\")\nsearch.push(\"Met tous le jue sur les boucliers\")\nsearch.push(\"Met tous le jue sur les boucliers\")\nsearch.push(\"tous le jue sur les boucliers\")\nsearch.push(\"Envoie tous le jue sur les boucliers\")\nsearch.push(\"transfert toute la puissance sur les boucliers\")\nsearch.push(\"transfert tous le jue sur les boucliers\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"tri_full_shields\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -5592,7 +5571,7 @@
         "type": "function",
         "z": "33baa4f7.ce6a9c",
         "name": "full engine",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met toute la puissance sur les moteurs\")\nsearch.push(\"toute la puissance sur les moteurs\")\nsearch.push(\"Envoie toute la puissance sur les moteurs\")\nsearch.push(\"bascule toute la puissance sur les moteurs\")\nsearch.push(\"Met tous le jue sur les moteurs\")\nsearch.push(\"Met tous le jue sur les moteurs\")\nsearch.push(\"tous le jue sur les moteurs\")\nsearch.push(\"Envoie tous le jue sur les moteurs\")\nsearch.push(\"transfert toute la puissance sur les moteurs\")\nsearch.push(\"transfert tous le jue sur les moteurs\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"tri_full_engine\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -5641,7 +5620,7 @@
         "type": "function",
         "z": "33baa4f7.ce6a9c",
         "name": "center",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"remet la puissance au neutre\")\nsearch.push(\"remet la puissance au centre\")\nsearch.push(\"réinitialise la puissance\")\nsearch.push(\"reset la puissance\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"tri_center\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 550,
@@ -5674,7 +5653,7 @@
         "type": "function",
         "z": "33baa4f7.ce6a9c",
         "name": "full armes",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met toute la puissance sur les armes\")\nsearch.push(\"toute la puissance sur les armes\")\nsearch.push(\"Envoie toute la puissance sur les armes\")\nsearch.push(\"bascule toute la puissance sur les armes\")\nsearch.push(\"Met tous le jue sur les armes\")\nsearch.push(\"Met tous le jue sur les armes\")\nsearch.push(\"tous le jue sur les armes\")\nsearch.push(\"Envoie tous le jue sur les armes\")\nsearch.push(\"transfert toute la puissance sur les armes\")\nsearch.push(\"transfert tous le jue sur les armes\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"tri_full_weapons\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 560,
@@ -5831,7 +5810,7 @@
         "type": "function",
         "z": "33baa4f7.ce6a9c",
         "name": "partiel bouclier",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met plus de puissance sur les boucliers\")\nsearch.push(\"plus de puissance sur les boucliers\")\nsearch.push(\"Envoie plus de puissance sur les boucliers\")\nsearch.push(\"bascule plus de puissance sur les boucliers\")\nsearch.push(\"Met plus de jue sur les boucliers\")\nsearch.push(\"Met plus de jue sur les boucliers\")\nsearch.push(\"plus de jue sur les boucliers\")\nsearch.push(\"Envoie plus de jue sur les boucliers\")\nsearch.push(\"transfert plus de puissance sur les boucliers\")\nsearch.push(\"transfert plus de jue sur les boucliers\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"tri_more_shield\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -5883,7 +5862,7 @@
         "type": "function",
         "z": "33baa4f7.ce6a9c",
         "name": "partiel engine",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met plus de puissance sur les moteurs\")\nsearch.push(\"plus de puissance sur les moteurs\")\nsearch.push(\"Envoie plus de puissance sur les moteurs\")\nsearch.push(\"bascule plus de puissance sur les moteurs\")\nsearch.push(\"Met plus de jue sur les moteurs\")\nsearch.push(\"Met plus de jue sur les moteurs\")\nsearch.push(\"plus de jue sur les moteurs\")\nsearch.push(\"Envoie plus de jue sur les moteurs\")\nsearch.push(\"transfert plus de puissance sur les moteurs\")\nsearch.push(\"transfert plus de jue sur les moteurs\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"tri_more_engine\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -5932,7 +5911,7 @@
         "type": "function",
         "z": "33baa4f7.ce6a9c",
         "name": "partiel armes",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"Met plus de puissance sur les armes\")\nsearch.push(\"plus de puissance sur les armes\")\nsearch.push(\"Envoie plus de puissance sur les armes\")\nsearch.push(\"bascule plus de puissance sur les armes\")\nsearch.push(\"Met plus de jue sur les armes\")\nsearch.push(\"Met plus de jue sur les armes\")\nsearch.push(\"plus de jue sur les armes\")\nsearch.push(\"Envoie plus de jue sur les armes\")\nsearch.push(\"transfert plus de puissance sur les armes\")\nsearch.push(\"transfert plus de jue sur les armes\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"tri_more_weapons\")\n\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -6064,7 +6043,7 @@
         "type": "function",
         "z": "67565b43.7eac14",
         "name": "allumage feu",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\nsearch.push(\"on y voit rien\")\nsearch.push(\"un peu de lumiére\")\nsearch.push(\"allume les phares\")\nsearch.push(\"allume les feux\")\nsearch.push(\"allume les phares\")\nsearch.push(\"allumes les spots\")\nsearch.push(\"éclair la zone\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\nsearch.push(\"light_on\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -6081,7 +6060,7 @@
         "type": "function",
         "z": "67565b43.7eac14",
         "name": "extinction feu",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"éteint les phares\")\nsearch.push(\"éteint les feux\")\nsearch.push(\"éteint les spots\")\nsearch.push(\"coupe les phares\")\nsearch.push(\"coupe les feux\")\nsearch.push(\"coupe les spots\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"light_off\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 570,
@@ -6094,28 +6073,11 @@
         ]
     },
     {
-        "id": "f2078300.aee51",
-        "type": "function",
-        "z": "67565b43.7eac14",
-        "name": "ouverture des portes",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"ouvre la porte\")\nsearch.push(\"ouvre les portes\")\nsearch.push(\"ouvre le sasse\")\nsearch.push(\"ouvre les sasse\")\nsearch.push(\"ouvre la soute\")\nsearch.push(\"ouvre les soutes\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 600,
-        "y": 500,
-        "wires": [
-            [
-                "39c1d805.0ffe78"
-            ],
-            []
-        ]
-    },
-    {
         "id": "31c0f0c0.e8d31",
         "type": "function",
         "z": "67565b43.7eac14",
         "name": "fermetures des portes",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"ferme la porte\")\nsearch.push(\"ferme les portes\")\nsearch.push(\"ferme le sasse\")\nsearch.push(\"ferme les sasse\")\nsearch.push(\"ferme la soute\")\nsearch.push(\"ferme les soutes\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"close_door\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 600,
@@ -6277,8 +6239,7 @@
         "wires": [
             [
                 "a3ca111a.442fc",
-                "d19ddd50.4b969",
-                "97bb12ab.60cc1"
+                "d19ddd50.4b969"
             ]
         ]
     },
@@ -6389,7 +6350,7 @@
         "type": "function",
         "z": "67565b43.7eac14",
         "name": "sortir du siége",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"je te laisse les commandes\")\nsearch.push(\"je quite la passerelle\")\nsearch.push(\"je quitte le poste de pilotage\")\nsearch.push(\"je quitte le poste\")\nsearch.push(\"je sort de l'appareil\")\nsearch.push(\"je sort du vaisseau\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"exit_seat\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -6471,8 +6432,9 @@
         "y": 500,
         "wires": [
             [
-                "f2078300.aee51",
-                "31c0f0c0.e8d31"
+                "31c0f0c0.e8d31",
+                "2ab01ad7.264616",
+                "6b178eaa.d97a1"
             ]
         ]
     },
@@ -6773,7 +6735,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 820,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "2f8a8783.cb61d8",
@@ -6791,7 +6753,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 820,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "1b0cce9e.a80d61",
@@ -6810,7 +6772,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 820,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "bf80b433.dc7c88",
@@ -6828,8 +6790,8 @@
         "func": "let sound_effect=[];\nlet track_id='mod_defensif';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1410,
-        "y": 480,
+        "x": 1390,
+        "y": 440,
         "wires": [
             [
                 "45cab13f.d48e8"
@@ -6844,8 +6806,8 @@
         "func": "let sound_effect=[];\nlet track_id='mod_offensif';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1410,
-        "y": 720,
+        "x": 1390,
+        "y": 680,
         "wires": [
             [
                 "f4db1034.0c13f"
@@ -6860,8 +6822,8 @@
         "func": "let sound_effect=[];\nlet track_id='mod_minage';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1410,
-        "y": 960,
+        "x": 1390,
+        "y": 920,
         "wires": [
             [
                 "e2d38e42.a1903"
@@ -6893,7 +6855,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 180,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "20e4aff1.a9904"
@@ -6909,7 +6871,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 390,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "e33ef19e.25bd9"
@@ -6925,7 +6887,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 180,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "a39399b0.aa6f58"
@@ -6941,11 +6903,10 @@
         "outputs": 1,
         "noerr": 0,
         "x": 390,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
-                "b9d74481.20cbf8",
-                "48b891e4.3e5d"
+                "b9d74481.20cbf8"
             ]
         ]
     },
@@ -6958,7 +6919,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 160,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "f0f5c63b.5ac2b8"
@@ -6974,7 +6935,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 370,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "b102f835.589838"
@@ -6995,7 +6956,7 @@
         "reset": "",
         "name": "",
         "x": 320,
-        "y": 1440,
+        "y": 1700,
         "wires": [
             [
                 "2f4d28c2.31a038"
@@ -7007,7 +6968,7 @@
         "type": "start-up-trigger",
         "z": "dc4e7734.5f3478",
         "x": 100,
-        "y": 1440,
+        "y": 1700,
         "wires": [
             [
                 "d6a227f.2af1dd8"
@@ -7021,7 +6982,7 @@
         "name": "en ligne",
         "info": "\n\n",
         "x": 70,
-        "y": 1480,
+        "y": 1740,
         "wires": []
     },
     {
@@ -7035,8 +6996,8 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1390,
-        "y": 1540,
+        "x": 1410,
+        "y": 1800,
         "wires": [
             [],
             [],
@@ -7048,11 +7009,11 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "recharge son",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"recharge ta base de donnée\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            //console.log(( global.get('swan_name')+\" \"+ask.toString()))\n            //console.log(msg.payload.toString())\n            \n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"reload_sounds\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 570,
-        "y": 1540,
+        "x": 590,
+        "y": 1800,
         "wires": [
             [
                 "d7fb57e6.54e738",
@@ -7084,11 +7045,12 @@
                 "3f7ce5ff.bd5f2a",
                 "39d90319.149fec",
                 "732c06ff.d5c268",
-                "6a4e40c3.8c794"
+                "6a4e40c3.8c794",
+                "b23f48.fa8420b8",
+                "161d4c80.e6f4a4",
+                "9ff0e7ca.9baf38"
             ],
-            [
-                "161d4c80.e6f4a4"
-            ]
+            []
         ]
     },
     {
@@ -7099,8 +7061,8 @@
         "func": "let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1120,
-        "y": 1540,
+        "x": 1140,
+        "y": 1800,
         "wires": [
             [
                 "cef2b1ca.48526"
@@ -7116,7 +7078,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 140,
-        "y": 1540,
+        "y": 1800,
         "wires": [
             [
                 "c80db1ea.dffbc"
@@ -7131,8 +7093,8 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 860,
-        "y": 1540,
+        "x": 880,
+        "y": 1800,
         "wires": [
             [
                 "ba01c11.02f3b4"
@@ -7148,7 +7110,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 350,
-        "y": 1540,
+        "y": 1800,
         "wires": [
             [
                 "445d659b.66e55c"
@@ -7168,8 +7130,8 @@
         "units": "s",
         "reset": "reset",
         "name": "",
-        "x": 1080,
-        "y": 860,
+        "x": 1160,
+        "y": 800,
         "wires": [
             [
                 "42dd5271.324a8c"
@@ -7240,7 +7202,7 @@
         "type": "function",
         "z": "3bfd628a.fc68ae",
         "name": "éject le minerai",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"vide les container\")\nsearch.push(\"vide les sacoches\")\nsearch.push(\"vide les sacs\")\nsearch.push(\"vide la soute\")\nsearch.push(\"vide le mineraie\")\nsearch.push(\"vide le chargement\")\nsearch.push(\"vide le cargo\")\nsearch.push(\"éject les container\")\nsearch.push(\"éject les sacoches\")\nsearch.push(\"éject les sacs\")\nsearch.push(\"éject la soute\")\nsearch.push(\"éject le mineraie\")\nsearch.push(\"éject le chargement\")\nsearch.push(\"éject le cargo\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"jetison\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -7315,8 +7277,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 130,
-        "y": 1360,
+        "x": 150,
+        "y": 740,
         "wires": [
             [
                 "47197738.1027c8"
@@ -7331,8 +7293,8 @@
         "func": "console.log(global.keys())\n\nlet purge=[\n\"tzModule\",\n\"xpathModule\",\n\"domModule\",\n\"uuidv1\",\n\"uuidv4\",\n\"uuidv5\",\n\"CONFIG\",\n\"get\",\n\"set\",\n\"close_gear_q\",\n\"close_gear_sound\",\n\"open_gear_q\",\n\"open_gear_sound\",\n\"base_q\",\n\"base_sound\",\n\"lum_on_q\",\n\"lum_on_sound\",\n\"lum_off_q\",\n\"lum_off_sound\",\n\"online_q\",\n\"online_sound\",\"starmap_on_q\",\n\"starmap_on_sound\",\n\"starmap_off_q\",\n\"starmap_off_sound\",\n\"active_scan_on_q\",\n\"active_scan_on_sound\",\n\"door_close_q\",\n\"door_close_sound\",\n\"door_open_q\",\"door_open_sound\",\n\"engine_on_q\",\"engine_on_sound\",\n\"engine_off_q\",\n\"engine_off_sound\",\n\"gen_on_q\",\n\"gen_on_sound\",\n\"gen_off_q\",\n\"gen_off_sound\",\n\"quantum_on_q\",\n\"quantum_on_sound\",\n\"quantum_off_q\",\n\"quantum_off_sound\",\n\"quantum_jump_sound\",\n\"commun_swan_q\",\n\"commun_swan_sound\",\n\"mining_in_q\",\"mining_in_sound\",\n\"mining_out_q\",\"mining_out_sound\",\n\"mining_switch_q\",\n\"mining_switch_sound\",\n\"exit_q\",\"exit_sound\",\n\"VTOL_close_q\",\n\"VTOL_close_sound\",\n\"VTOL_open_q\",\n\"VTOL_open_sound\",\n\"mod_minage_q\",\n\"mod_minage_sound\",\n\"mod_defensif_q\",\n\"mod_defensif_sound\",\n\"mod_navigation_q\",\n\"mod_navigation_sound\",\n\"mod_offensif_q\",\n\"mod_offensif_sound\",\n\"ready_to_fly_q\",\n\"ready_to_fly_sound\",\n\"quantum_jump_q\",\n\"path_sound\",\"spy_scan\",\n]\n\nfor (i=0; i<global.keys().length;i++)\n{\n    \n    if(purge.includes(global.keys()[i]))\n    {\n        \n    }\n    else{\n        console.log(global.keys()[i]+\"=\"+global.get(global.keys()[i]))\n    }\n}",
         "outputs": "2",
         "noerr": 0,
-        "x": 460,
-        "y": 1360,
+        "x": 480,
+        "y": 740,
         "wires": [
             [],
             []
@@ -7349,8 +7311,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 130,
-        "y": 1320,
+        "x": 150,
+        "y": 700,
         "wires": [
             [
                 "a3db370c.ff25d8"
@@ -7365,8 +7327,8 @@
         "func": "console.log(global.keys())\n\nlet purge=[\n\"tzModule\",\n\"xpathModule\",\n\"domModule\",\n\"uuidv1\",\n\"uuidv4\",\n\"uuidv5\",\n\"CONFIG\",\n\"get\",\n\"set\",\n\"close_gear_q\",\n\"close_gear_sound\",\n\"open_gear_q\",\n\"open_gear_sound\",\n\"base_q\",\n\"base_sound\",\n\"lum_on_q\",\n\"lum_on_sound\",\n\"lum_off_q\",\n\"lum_off_sound\",\n\"online_q\",\n\"online_sound\",\"starmap_on_q\",\n\"starmap_on_sound\",\n\"starmap_off_q\",\n\"starmap_off_sound\",\n\"active_scan_on_q\",\n\"active_scan_on_sound\",\n\"door_close_q\",\n\"door_close_sound\",\n\"door_open_q\",\"door_open_sound\",\n\"engine_on_q\",\"engine_on_sound\",\n\"engine_off_q\",\n\"engine_off_sound\",\n\"gen_on_q\",\n\"gen_on_sound\",\n\"gen_off_q\",\n\"gen_off_sound\",\n\"quantum_on_q\",\n\"quantum_on_sound\",\n\"quantum_off_q\",\n\"quantum_off_sound\",\n\"quantum_jump_sound\",\n\"commun_swan_q\",\n\"commun_swan_sound\",\n\"mining_in_q\",\"mining_in_sound\",\n\"mining_out_q\",\"mining_out_sound\",\n\"mining_switch_q\",\n\"mining_switch_sound\",\n\"exit_q\",\"exit_sound\",\n\"VTOL_close_q\",\n\"VTOL_close_sound\",\n\"VTOL_open_q\",\n\"VTOL_open_sound\",\n\"mod_minage_q\",\n\"mod_minage_sound\",\n\"mod_defensif_q\",\n\"mod_defensif_sound\",\n\"mod_navigation_q\",\n\"mod_navigation_sound\",\n\"mod_offensif_q\",\n\"mod_offensif_sound\",\n\"ready_to_fly_q\",\n\"ready_to_fly_sound\",\n\"quantum_jump_q\",\n\"path_sound\",\"spy_scan\"\n]\n\nfor (i=0; i<global.keys().length;i++)\n{\n    \n    if(purge.includes(global.keys()[i]))\n    {\n        \n    }\n    else{\n        console.log(global.keys()[i]+\"=\"+global.get(global.keys()[i]))\n    }\n}",
         "outputs": "2",
         "noerr": 0,
-        "x": 450,
-        "y": 1320,
+        "x": 470,
+        "y": 700,
         "wires": [
             [],
             []
@@ -7383,8 +7345,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 160,
-        "y": 1200,
+        "x": 180,
+        "y": 580,
         "wires": [
             [
                 "6a37694c.3df1e8"
@@ -7402,231 +7364,13 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 160,
-        "y": 1240,
+        "x": 180,
+        "y": 620,
         "wires": [
             [
                 "ac7b61db.e22"
             ]
         ]
-    },
-    {
-        "id": "a3fd141c.9eb7e8",
-        "type": "trigger",
-        "z": "e23f34c2.ea7468",
-        "op1": "true",
-        "op2": "0",
-        "op1type": "bool",
-        "op2type": "str",
-        "duration": "-250",
-        "extend": false,
-        "units": "ms",
-        "reset": "",
-        "name": "",
-        "x": 360,
-        "y": 640,
-        "wires": [
-            [
-                "9606b99a.ee7d98"
-            ]
-        ]
-    },
-    {
-        "id": "88845a8a.b88668",
-        "type": "start-up-trigger",
-        "z": "e23f34c2.ea7468",
-        "x": 140,
-        "y": 640,
-        "wires": [
-            [
-                "a3fd141c.9eb7e8"
-            ]
-        ]
-    },
-    {
-        "id": "e75acd98.5fd25",
-        "type": "comment",
-        "z": "e23f34c2.ea7468",
-        "name": "en ligne",
-        "info": "\n\n",
-        "x": 110,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "bc1e1ba7.c558a8",
-        "type": "function",
-        "z": "e23f34c2.ea7468",
-        "name": "test de swan",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"lance le test\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            //console.log(( global.get('swan_name')+\" \"+ask.toString()))\n            //console.log(msg.payload.toString())\n            \n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 350,
-        "y": 740,
-        "wires": [
-            [
-                "7b95c5c.3c1d33c"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "9606b99a.ee7d98",
-        "type": "function",
-        "z": "e23f34c2.ea7468",
-        "name": "SFM (for use)",
-        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 180,
-        "y": 740,
-        "wires": [
-            [
-                "bc1e1ba7.c558a8"
-            ]
-        ]
-    },
-    {
-        "id": "7b95c5c.3c1d33c",
-        "type": "function",
-        "z": "e23f34c2.ea7468",
-        "name": "FFOM (in use)",
-        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 520,
-        "y": 740,
-        "wires": [
-            [
-                "b7622e4e.6141e"
-            ]
-        ]
-    },
-    {
-        "id": "97d7680d.39b2b8",
-        "type": "exec",
-        "z": "e23f34c2.ea7468",
-        "command": "\"c:\\swan\\autohotkey\\keyboard_auto.ahk\"",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": true,
-        "name": "keybord short",
-        "x": 980,
-        "y": 800,
-        "wires": [
-            [
-                "e8bc272b.25a748"
-            ],
-            [
-                "702e62b7.2f4dfc"
-            ],
-            [
-                "144deb50.682e75"
-            ]
-        ]
-    },
-    {
-        "id": "b7622e4e.6141e",
-        "type": "function",
-        "z": "e23f34c2.ea7468",
-        "name": "keybinding_auto",
-        "func": "let keybinding=global.get('jetison');\nkeybinding=\"{right_click}\"\nconsole.log(keybinding);\nlet before=\"\";\nlet after=\"\";\nlet para_1=\"\";\nlet para_2=\"\";\nlet exec=global.get(\"a_k_auto_path\");\nlet exec_long=global.get(\"a_k_auto_long_path\");\nlet exec_mouse=global.get(\"a_k_mouse\");\n//let sound=`\\\"`+global.get(\"a_k_auto_path\")+`bip\\\\bip_0.mp4\\\"`;\nif (keybinding.includes(\"{right_click}\") || keybinding.includes(\"{molette_click}\") || keybinding.includes(\"{left_click}\"))\n{\n    keybinding=keybinding.replace(\"{right_click}\", \"right\")\n    keybinding=keybinding.replace(\"{molette_click}\", \"middle\")\n    keybinding=keybinding.replace(\"{left_click}\", \"left\")\n    \n    msg.payload=exec_mouse+\" \\\"\"+keybinding+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse if(keybinding.includes(\"{LONG}\"))\n{\n    keybinding=keybinding.replace('{LONG}','');\n    if(keybinding.includes('{LAlt}'))\n    {\n        para_1+=\"{LAlt down}\";\n        para_2+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        para_1+=\"{RAlt down}\";\n        para_2+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        para_1+=\"{LShift down}\";\n        para_2+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        para_1+=\"{RShift down}\";\n        para_2+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        para_1+=\"{RCtrl down}\";\n        para_2+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        para_1+=\"{LCtrl down}\";\n        para_2+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    let n=keybinding.lastIndexOf(\"}\");\n    \n    let down=keybinding.substring(0,n)+\" down \"+keybinding.substring(n);\n    let up=keybinding.substring(0,n)+\" up \"+keybinding.substring(n);\n   // var str2 = str.substring(0,n)+\" again \"+str.substring(n);\n    //console.log(str2); // Hello planet earth, you are a great  again planet. \n    \n    \n    msg.payload=exec_long+\"  \\\"\"+para_1+up+\"\\\" \\\"\"+para_2+down+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse //if(keybinding.includes('{LONG}') && !keybinding.includes(\"{right_click}\") && !keybinding.includes(\"{molette_click}\") && !keybinding.includes(\"{left_click}\"))\n{\n    if(keybinding.includes('{LAlt}'))\n    {\n        before+=\"{LAlt down}\";\n        after+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        before+=\"{RAlt down}\";\n        after+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        before+=\"{LShift down}\";\n        after+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        before+=\"{RShift down}\";\n        after+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        before+=\"{RCtrl down}\";\n        after+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        before+=\"{LCtrl down}\";\n        after+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    msg.payload=exec+\" \\\"\"+before+keybinding+after+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    \n    return msg;\n}\n\n",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 700,
-        "y": 740,
-        "wires": [
-            [
-                "e5e9c98a.d355a8",
-                "75a6d3b8.178b7c",
-                "4b89d432.b8ab3c"
-            ]
-        ]
-    },
-    {
-        "id": "e5e9c98a.d355a8",
-        "type": "debug",
-        "z": "e23f34c2.ea7468",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "false",
-        "x": 970,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "4b89d432.b8ab3c",
-        "type": "exec",
-        "z": "e23f34c2.ea7468",
-        "command": "",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "exec_cmd",
-        "x": 1170,
-        "y": 860,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "75a6d3b8.178b7c",
-        "type": "function",
-        "z": "e23f34c2.ea7468",
-        "name": "sound_effect bip",
-        "func": "let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 980,
-        "y": 860,
-        "wires": [
-            [
-                "4b89d432.b8ab3c"
-            ]
-        ]
-    },
-    {
-        "id": "e8bc272b.25a748",
-        "type": "debug",
-        "z": "e23f34c2.ea7468",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1170,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "702e62b7.2f4dfc",
-        "type": "debug",
-        "z": "e23f34c2.ea7468",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1170,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "144deb50.682e75",
-        "type": "debug",
-        "z": "e23f34c2.ea7468",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1170,
-        "y": 800,
-        "wires": []
     },
     {
         "id": "d426e851.6ed878",
@@ -7636,8 +7380,8 @@
         "func": "let keybinding=global.get('request_landing');\nconsole.log(keybinding);\nlet before=\"\";\nlet after=\"\";\nlet para_1=\"\";\nlet para_2=\"\";\nlet exec=global.get(\"a_k_auto_path\");\nlet exec_long=global.get(\"a_k_auto_long_path\");\nlet exec_mouse=global.get(\"a_k_mouse\");\n//let sound=`\\\"`+global.get(\"a_k_auto_path\")+`bip\\\\bip_0.mp4\\\"`;\nif (keybinding.includes(\"{right_click}\") || keybinding.includes(\"{molette_click}\") || keybinding.includes(\"{left_click}\"))\n{\n    keybinding=keybinding.replace(\"{right_click}\", \"right\")\n    keybinding=keybinding.replace(\"{molette_click}\", \"middle\")\n    keybinding=keybinding.replace(\"{left_click}\", \"left\")\n    \n    msg.payload=exec_mouse+\" \\\"\"+keybinding+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse if(keybinding.includes(\"{LONG}\"))\n{\n    keybinding=keybinding.replace('{LONG}','');\n    if(keybinding.includes('{LAlt}'))\n    {\n        para_1+=\"{LAlt down}\";\n        para_2+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        para_1+=\"{RAlt down}\";\n        para_2+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        para_1+=\"{LShift down}\";\n        para_2+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        para_1+=\"{RShift down}\";\n        para_2+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        para_1+=\"{RCtrl down}\";\n        para_2+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        para_1+=\"{LCtrl down}\";\n        para_2+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    let n=keybinding.lastIndexOf(\"}\");\n    \n    let down=keybinding.substring(0,n)+\" down \"+keybinding.substring(n);\n    let up=keybinding.substring(0,n)+\" up \"+keybinding.substring(n);\n   // var str2 = str.substring(0,n)+\" again \"+str.substring(n);\n    //console.log(str2); // Hello planet earth, you are a great  again planet. \n    \n    \n    msg.payload=exec_long+\"  \\\"\"+para_1+up+\"\\\" \\\"\"+para_2+down+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse //if(keybinding.includes('{LONG}') && !keybinding.includes(\"{right_click}\") && !keybinding.includes(\"{molette_click}\") && !keybinding.includes(\"{left_click}\"))\n{\n    if(keybinding.includes('{LAlt}'))\n    {\n        before+=\"{LAlt down}\";\n        after+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        before+=\"{RAlt down}\";\n        after+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        before+=\"{LShift down}\";\n        after+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        before+=\"{RShift down}\";\n        after+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        before+=\"{RCtrl down}\";\n        after+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        before+=\"{LCtrl down}\";\n        after+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    msg.payload=exec+\" \\\"\"+before+keybinding+after+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    \n    return msg;\n}\n\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 1220,
-        "y": 100,
+        "x": 1240,
+        "y": 340,
         "wires": [
             [
                 "334cc213.2801ee"
@@ -7689,12 +7433,11 @@
         "units": "s",
         "reset": "",
         "name": "",
-        "x": 440,
-        "y": 1160,
+        "x": 460,
+        "y": 540,
         "wires": [
             [
-                "6a37694c.3df1e8",
-                "f6d14b4d.3a7418"
+                "6a37694c.3df1e8"
             ]
         ]
     },
@@ -7706,8 +7449,8 @@
         "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"# Pensez à modifier le fichier swan.xml qui se trouve dans le répertoire /viseo-bot-project/data/grammar\\n\";\nmsg.payload+=\"# \\\"<item>SWAN</item>\\\" devient <item>Le nouveau non choisie</item>\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre dientifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"request_landing=\"+global.get(\"request_landing\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"open_gear=\"+global.get(\"open_gear\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"close_gear=\"+global.get(\"close_gear\")+\"\\n\\n\";\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"light_on=\"+global.get(\"light_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"light_off=\"+global.get(\"light_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"Ready_to_fly=\"+global.get(\"Ready_to_fly\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"starmap=\"+global.get(\"starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"ping=\"+global.get(\"ping\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"open_door=\"+global.get(\"open_door\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"close_door=\"+global.get(\"close_door\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"start_engine=\"+global.get(\"start_engine\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"cut_engine=\"+global.get(\"cut_engine\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"start_power=\"+global.get(\"start_power\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"cut_power=\"+global.get(\"cut_power\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"start_q_engine=\"+global.get(\"start_q_engine\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"cut_q_engine=\"+global.get(\"cut_q_engine\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"lauch_q_jump=\"+global.get(\"lauch_q_jump\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"switch_min_tools=\"+global.get(\"switch_min_tools\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"jetison=\"+global.get(\"jetison\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"open_VTOL=\"+global.get(\"open_VTOL\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"close_VTOL=\"+global.get(\"close_VTOL\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"tri_weapons=\"+global.get(\"tri_weapons\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"tri_engine=\"+global.get(\"tri_engine\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"tri_shield=\"+global.get(\"tri_shield\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"tri_center=\"+global.get(\"tri_center\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"front_shield=\"+global.get(\"front_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"back_shield=\"+global.get(\"back_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"left_shield=\"+global.get(\"left_shield\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"right_shield=\"+global.get(\"right_shield\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"center_shield=\"+global.get(\"center_shield\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"target_lock=\"+global.get('target_lock')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"target_unlock=\"+global.get('target_unlock')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"toggle_missile_gun=\"+global.get('toggle_missile_gun')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"fire_missile=\"+global.get('fire_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"change_q_m=\"+global.get('change_q_m')+\"\\n\\n\";\n\nreturn msg;\n//config de base\n\n\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 640,
-        "y": 1160,
+        "x": 660,
+        "y": 540,
         "wires": [
             [
                 "b96929ef.83bfe8"
@@ -7723,8 +7466,8 @@
         "appendNewline": false,
         "createDir": true,
         "overwriteFile": "true",
-        "x": 810,
-        "y": 1160,
+        "x": 830,
+        "y": 540,
         "wires": []
     },
     {
@@ -7736,8 +7479,8 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 460,
-        "y": 1200,
+        "x": 480,
+        "y": 580,
         "wires": [
             [
                 "ac7b61db.e22"
@@ -7749,11 +7492,11 @@
         "type": "function",
         "z": "e23f34c2.ea7468",
         "name": "config loader",
-        "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=200  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\nglobal.set(\"SWAN_M\",[])\n\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
+        "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    //console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=200  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\nglobal.set(\"SWAN_M\",[])\n\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 630,
-        "y": 1200,
+        "x": 650,
+        "y": 580,
         "wires": [
             []
         ]
@@ -7762,8 +7505,8 @@
         "id": "c519c5a.da61738",
         "type": "start-up-trigger",
         "z": "e23f34c2.ea7468",
-        "x": 160,
-        "y": 1160,
+        "x": 180,
+        "y": 540,
         "wires": [
             [
                 "eb23e956.a1e9f8",
@@ -7782,8 +7525,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 140,
-        "y": 1120,
+        "x": 160,
+        "y": 500,
         "wires": [
             [
                 "eb23e956.a1e9f8",
@@ -7797,20 +7540,8 @@
         "z": "e23f34c2.ea7468",
         "name": "gestion du config.ini",
         "info": "\n\n",
-        "x": 110,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "f6d14b4d.3a7418",
-        "type": "debug",
-        "z": "e23f34c2.ea7468",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "false",
-        "x": 660,
-        "y": 1120,
+        "x": 130,
+        "y": 360,
         "wires": []
     },
     {
@@ -8048,8 +7779,8 @@
         "func": "let keybinding=global.get('back_shield');\nconsole.log(keybinding);\nlet before=\"\";\nlet after=\"\";\nlet para_1=\"\";\nlet para_2=\"\";\nlet exec=global.get(\"a_k_auto_path\");\nlet exec_long=global.get(\"a_k_auto_long_path\");\nlet exec_mouse=global.get(\"a_k_mouse\");\n//let sound=`\\\"`+global.get(\"a_k_auto_path\")+`bip\\\\bip_0.mp4\\\"`;\nif (keybinding.includes(\"{right_click}\") || keybinding.includes(\"{molette_click}\") || keybinding.includes(\"{left_click}\"))\n{\n    keybinding=keybinding.replace(\"{right_click}\", \"right\")\n    keybinding=keybinding.replace(\"{molette_click}\", \"middle\")\n    keybinding=keybinding.replace(\"{left_click}\", \"left\")\n    \n    msg.payload=exec_mouse+\" \\\"\"+keybinding+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse if(keybinding.includes(\"{LONG}\"))\n{\n    keybinding=keybinding.replace('{LONG}','');\n    if(keybinding.includes('{LAlt}'))\n    {\n        para_1+=\"{LAlt down}\";\n        para_2+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        para_1+=\"{RAlt down}\";\n        para_2+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        para_1+=\"{LShift down}\";\n        para_2+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        para_1+=\"{RShift down}\";\n        para_2+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        para_1+=\"{RCtrl down}\";\n        para_2+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        para_1+=\"{LCtrl down}\";\n        para_2+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    let n=keybinding.lastIndexOf(\"}\");\n    \n    let down=keybinding.substring(0,n)+\" down \"+keybinding.substring(n);\n    let up=keybinding.substring(0,n)+\" up \"+keybinding.substring(n);\n   // var str2 = str.substring(0,n)+\" again \"+str.substring(n);\n    //console.log(str2); // Hello planet earth, you are a great  again planet. \n    \n    \n    msg.payload=exec_long+\"  \\\"\"+para_1+up+\"\\\" \\\"\"+para_2+down+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse //if(keybinding.includes('{LONG}') && !keybinding.includes(\"{right_click}\") && !keybinding.includes(\"{molette_click}\") && !keybinding.includes(\"{left_click}\"))\n{\n    if(keybinding.includes('{LAlt}'))\n    {\n        before+=\"{LAlt down}\";\n        after+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        before+=\"{RAlt down}\";\n        after+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        before+=\"{LShift down}\";\n        after+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        before+=\"{RShift down}\";\n        after+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        before+=\"{RCtrl down}\";\n        after+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        before+=\"{LCtrl down}\";\n        after+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    msg.payload=exec+\" \\\"\"+before+keybinding+after+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    \n    return msg;\n}\n\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 1220,
-        "y": 560,
+        "x": 1180,
+        "y": 500,
         "wires": [
             [
                 "8bfb32f4.d4978",
@@ -8531,7 +8262,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 400,
+        "y": 360,
         "wires": [
             [
                 "45cab13f.d48e8"
@@ -8547,7 +8278,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 440,
+        "y": 400,
         "wires": [
             [
                 "45cab13f.d48e8"
@@ -8563,7 +8294,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 320,
+        "y": 280,
         "wires": [
             [
                 "36053846.fe4498",
@@ -8580,7 +8311,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 360,
+        "y": 320,
         "wires": [
             [
                 "50d5a70d.5b9458",
@@ -8597,7 +8328,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 680,
+        "y": 640,
         "wires": [
             [
                 "f4db1034.0c13f"
@@ -8613,7 +8344,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 640,
+        "y": 600,
         "wires": [
             [
                 "f4db1034.0c13f"
@@ -8629,7 +8360,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "f4db1034.0c13f"
@@ -8645,7 +8376,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 600,
+        "y": 560,
         "wires": [
             [
                 "f4db1034.0c13f"
@@ -8661,7 +8392,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 880,
+        "y": 840,
         "wires": [
             [
                 "e2d38e42.a1903"
@@ -8677,7 +8408,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 920,
+        "y": 880,
         "wires": [
             [
                 "e2d38e42.a1903"
@@ -8693,7 +8424,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 840,
+        "y": 800,
         "wires": [
             [
                 "e2d38e42.a1903"
@@ -8709,7 +8440,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "8b69976a.e0fb98",
@@ -8730,8 +8461,8 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 320,
-        "y": 1020,
+        "x": 340,
+        "y": 400,
         "wires": [
             [
                 "94da8d5b.67456"
@@ -8742,8 +8473,8 @@
         "id": "f30cdcb.419942",
         "type": "start-up-trigger",
         "z": "e23f34c2.ea7468",
-        "x": 100,
-        "y": 1020,
+        "x": 120,
+        "y": 400,
         "wires": [
             [
                 "fcb4743f.0b0aa8"
@@ -8755,11 +8486,11 @@
         "type": "function",
         "z": "e23f34c2.ea7468",
         "name": "recharge la configuration",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"recharge la configuration\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            //console.log(( global.get('swan_name')+\" \"+ask.toString()))\n            //console.log(msg.payload.toString())\n            \n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"reload_keybinding\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
-        "x": 790,
-        "y": 1020,
+        "x": 810,
+        "y": 400,
         "wires": [
             [
                 "e18a4b52.159ba8"
@@ -8775,8 +8506,8 @@
         "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 540,
-        "y": 1020,
+        "x": 560,
+        "y": 400,
         "wires": [
             [
                 "ddab706d.4aa0e"
@@ -8791,8 +8522,8 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 1020,
-        "y": 1020,
+        "x": 1040,
+        "y": 400,
         "wires": [
             [
                 "35b1c9f2.74d626",
@@ -8807,7 +8538,7 @@
         "name": "Scénario mod défensif",
         "info": "\n\n",
         "x": 140,
-        "y": 280,
+        "y": 240,
         "wires": []
     },
     {
@@ -8817,7 +8548,7 @@
         "name": "Scénario mod attaque / offensif",
         "info": "\n\n",
         "x": 170,
-        "y": 520,
+        "y": 480,
         "wires": []
     },
     {
@@ -8827,7 +8558,7 @@
         "name": "Scénario mod minage",
         "info": "\n\n",
         "x": 140,
-        "y": 760,
+        "y": 720,
         "wires": []
     },
     {
@@ -8837,7 +8568,7 @@
         "name": "Scénario coupure d'urgence",
         "info": "\n\n",
         "x": 160,
-        "y": 980,
+        "y": 940,
         "wires": []
     },
     {
@@ -8845,11 +8576,11 @@
         "type": "function",
         "z": "312c81eb.6f5b7e",
         "name": "Coupure d'urgence",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"coupure d'urgence\")\nsearch.push(\"stop tout\")\nsearch.push(\"écrase les freins\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\n\nsearch.push(\"emergency_stop\")\n\t\t\t\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.payload.includes(ask))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 610,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "b5c04f58.ada86"
@@ -8866,7 +8597,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 160,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "366c3f1e.4dbff"
@@ -8882,7 +8613,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 370,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "d777f583.866298"
@@ -8898,7 +8629,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 820,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "21765aa9.8ff476",
@@ -8921,7 +8652,7 @@
         "reset": "reset",
         "name": "",
         "x": 1000,
-        "y": 1060,
+        "y": 1020,
         "wires": [
             [
                 "9a12917a.5b9db",
@@ -8938,7 +8669,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1340,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "5b826cb6.76c544"
@@ -8954,7 +8685,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1340,
-        "y": 1060,
+        "y": 1020,
         "wires": [
             [
                 "5b826cb6.76c544"
@@ -8970,7 +8701,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1340,
-        "y": 1100,
+        "y": 1060,
         "wires": [
             [
                 "5b826cb6.76c544"
@@ -8991,7 +8722,7 @@
         "reset": "reset",
         "name": "",
         "x": 1160,
-        "y": 1100,
+        "y": 1060,
         "wires": [
             [
                 "f2776993.1eea38"
@@ -9009,8 +8740,8 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
-        "y": 1060,
+        "x": 1750,
+        "y": 1020,
         "wires": [
             [],
             [],
@@ -9025,8 +8756,8 @@
         "func": "let sound_effect=[];\nlet track_id='commun_swan';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
-        "y": 1140,
+        "x": 1370,
+        "y": 1100,
         "wires": [
             [
                 "5b826cb6.76c544"
@@ -9116,7 +8847,7 @@
         "type": "function",
         "z": "c3cf5343.7b594",
         "name": "verrouillage",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"verrouille la cible\")\nsearch.push(\"verrouillage la cible\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"target_lock\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 550,
@@ -9150,7 +8881,7 @@
         "type": "function",
         "z": "c3cf5343.7b594",
         "name": "déverrouillage",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"déverrouille la cible\")\nsearch.push(\"déverrouillage la cible\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"target_unlock\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 560,
@@ -9277,7 +9008,7 @@
         "type": "function",
         "z": "c3cf5343.7b594",
         "name": "toggle missile / canon",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"change d'arme\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"switch_weapon\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 580,
@@ -9311,7 +9042,7 @@
         "type": "function",
         "z": "c3cf5343.7b594",
         "name": "quantité missile",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"quantité missile\")\nsearch.push(\"change la quantité missile\")\nsearch.push(\"change la quantité de missile\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"change_q_missile\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 560,
@@ -9432,7 +9163,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 140,
-        "y": 480,
+        "y": 420,
         "wires": [
             [
                 "8f9272c9.eab8d"
@@ -9448,7 +9179,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 350,
-        "y": 480,
+        "y": 420,
         "wires": [
             [
                 "5cfa180c.c51128"
@@ -9462,7 +9193,7 @@
         "name": "mise à feu",
         "info": "\n\n",
         "x": 80,
-        "y": 440,
+        "y": 380,
         "wires": []
     },
     {
@@ -9470,11 +9201,11 @@
         "type": "function",
         "z": "c3cf5343.7b594",
         "name": "mise à feu",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"feu à volonté\")\nsearch.push(\"mise à feu\")\nsearch.push(\"feu\")\nsearch.push(\"lance le missile\")\nsearch.push(\"lance les missile\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.payload.toString()===( global.get('swan_name')+\" \"+ask.toString()))\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"fire_missile\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 550,
-        "y": 480,
+        "y": 420,
         "wires": [
             [
                 "e2adc4d6.7b0688"
@@ -9491,7 +9222,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 820,
-        "y": 480,
+        "y": 420,
         "wires": [
             [
                 "b02727ee.df2018",
@@ -9508,7 +9239,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1060,
-        "y": 480,
+        "y": 420,
         "wires": [
             [
                 "a15fb95a.685bc8"
@@ -9527,7 +9258,7 @@
         "oldrc": false,
         "name": "exec_cmd",
         "x": 1270,
-        "y": 500,
+        "y": 440,
         "wires": [
             [],
             [],
@@ -9543,11 +9274,156 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1050,
-        "y": 520,
+        "y": 460,
         "wires": [
             [
                 "a15fb95a.685bc8"
             ]
+        ]
+    },
+    {
+        "id": "2ab01ad7.264616",
+        "type": "debug",
+        "z": "67565b43.7eac14",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 560,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "6b178eaa.d97a1",
+        "type": "function",
+        "z": "67565b43.7eac14",
+        "name": "ouverture des portes",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"open_door\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 600,
+        "y": 500,
+        "wires": [
+            [
+                "39c1d805.0ffe78"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "33432ed2.fea8f2",
+        "type": "function",
+        "z": "ff26b391.7439",
+        "name": "autorisation atterissage",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"landing\")\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "36f738b3.84ace8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "36f738b3.84ace8",
+        "type": "function",
+        "z": "ff26b391.7439",
+        "name": "FFOM (in use)",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 300,
+        "wires": [
+            [
+                "d426e851.6ed878",
+                "d71ce4c9.131178"
+            ]
+        ]
+    },
+    {
+        "id": "d71ce4c9.131178",
+        "type": "function",
+        "z": "ff26b391.7439",
+        "name": "ng_sfx",
+        "func": "let sound_effect=[];\nlet track_id='clear_landing';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1210,
+        "y": 300,
+        "wires": [
+            [
+                "334cc213.2801ee"
+            ]
+        ]
+    },
+    {
+        "id": "9ff0e7ca.9baf38",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search clear_take_off",
+        "path": "./../sounds/clear_take_off/",
+        "pathType": "str",
+        "filter": "*.mp4",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 580,
+        "y": 1420,
+        "wires": [
+            [
+                "3cbf1215.2b2a7e"
+            ]
+        ]
+    },
+    {
+        "id": "3cbf1215.2b2a7e",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"clear_take_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1100,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b23f48.fa8420b8",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search clear_landing sounds",
+        "path": "./../sounds/clear_landing/",
+        "pathType": "str",
+        "filter": "*.mp4",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 600,
+        "y": 1460,
+        "wires": [
+            [
+                "3b044e0e.d7f662"
+            ]
+        ]
+    },
+    {
+        "id": "3b044e0e.d7f662",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"clear_landing\";\nglobal.set(thematique+\"_q\",msg.files.length);\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1460,
+        "wires": [
+            []
         ]
     }
 ]
