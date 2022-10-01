@@ -1,9 +1,10 @@
-<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="auto_ping_on" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="auto_ping_on" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
 	<rule id="auto_ping_on" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
 		<!--activation du scan cyclique-->
 		<one-of>
+			<item>lance	balayage</item>	
 			<item>active balayage</item>
 			<item>scan la zone</item>
 			<item>Balaye la zone</item>
