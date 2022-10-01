@@ -4,7 +4,7 @@
 		<item>SWAN</item>
 		<!--activation du scan cyclique-->
 		<one-of>
-			<item>lance	balayage</item>	
+			<item>lance	le balayage</item>	
 			<item>active balayage</item>
 			<item>scan la zone</item>
 			<item>Balaye la zone</item>
