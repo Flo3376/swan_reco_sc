@@ -185,7 +185,11 @@
                 "161d4c80.e6f4a4",
                 "9ff0e7ca.9baf38",
                 "b23f48.fa8420b8",
-                "f62dbf2.cfe9b4"
+                "f62dbf2.cfe9b4",
+                "84270af8.8ea7c8",
+                "b225ade0.694fa",
+                "2555cff.87dba3",
+                "74df4caa.4ea7e4"
             ]
         ]
     },
@@ -268,7 +272,11 @@
                 "6a4e40c3.8c794",
                 "9ff0e7ca.9baf38",
                 "b23f48.fa8420b8",
-                "f62dbf2.cfe9b4"
+                "f62dbf2.cfe9b4",
+                "84270af8.8ea7c8",
+                "b225ade0.694fa",
+                "2555cff.87dba3",
+                "74df4caa.4ea7e4"
             ]
         ]
     },
@@ -6979,7 +6987,11 @@
                 "b23f48.fa8420b8",
                 "161d4c80.e6f4a4",
                 "9ff0e7ca.9baf38",
-                "f62dbf2.cfe9b4"
+                "f62dbf2.cfe9b4",
+                "84270af8.8ea7c8",
+                "b225ade0.694fa",
+                "2555cff.87dba3",
+                "74df4caa.4ea7e4"
             ],
             []
         ]
@@ -9753,5 +9765,137 @@
         "x": 230,
         "y": 2360,
         "wires": []
+    },
+    {
+        "id": "b225ade0.694fa",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search phase_chil sounds",
+        "path": "./../sounds/phase_chil/",
+        "pathType": "str",
+        "filter": "*.mp4",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 590,
+        "y": 1420,
+        "wires": [
+            [
+                "cf35d723.df57d8"
+            ]
+        ]
+    },
+    {
+        "id": "cf35d723.df57d8",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"phase_chil\";\nglobal.set(thematique+\"_q\",msg.files.length);\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2555cff.87dba3",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search phase_combatsounds",
+        "path": "./../sounds/phase_combat/",
+        "pathType": "str",
+        "filter": "*.mp4",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 600,
+        "y": 1460,
+        "wires": [
+            [
+                "226bc3de.f3f19c"
+            ]
+        ]
+    },
+    {
+        "id": "226bc3de.f3f19c",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"phase_combat\";\nglobal.set(thematique+\"_q\",msg.files.length);\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1100,
+        "y": 1460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "74df4caa.4ea7e4",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search phase_décollage sounds",
+        "path": "./../sounds/phase_décollage/",
+        "pathType": "str",
+        "filter": "*.mp4",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 610,
+        "y": 1500,
+        "wires": [
+            [
+                "4db6ca5.dab5b34"
+            ]
+        ]
+    },
+    {
+        "id": "4db6ca5.dab5b34",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"phase_décollage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "84270af8.8ea7c8",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search phase_aterrisage sounds",
+        "path": "./../sounds/phase_aterrisage/",
+        "pathType": "str",
+        "filter": "*.mp4",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 610,
+        "y": 1380,
+        "wires": [
+            [
+                "54f02fc.35439d"
+            ]
+        ]
+    },
+    {
+        "id": "54f02fc.35439d",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"phase_aterrisage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1100,
+        "y": 1380,
+        "wires": [
+            []
+        ]
     }
 ]
