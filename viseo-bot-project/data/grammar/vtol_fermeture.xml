@@ -2,6 +2,7 @@
 	<rule id="fermeture_vtol" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Fermeture ou  quitte le VTOL-->
 		<one-of>
 			<item>désactive les stabilisateur</item>
 			<item>fermes les stabilisateurs</item>

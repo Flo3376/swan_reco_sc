@@ -2,6 +2,7 @@
 	<rule id="auto_ping_off" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--coupure du scan cyclique-->
 		<one-of>
 			<item>coupe le balayage</item>
 			<item>stop le balayage</item>

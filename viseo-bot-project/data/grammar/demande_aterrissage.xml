@@ -2,6 +2,7 @@
 	<rule id="demande_aterrissage" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--appel la station-->
 		<one-of>
 			<item>Demande l'autorisation d'aterrire'</item>
 		</one-of>

@@ -2,6 +2,7 @@
 	<rule id="start_gen" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--allume les générateurs-->
 		<one-of>
 			<item>démarre le générateur</item>
 			<item>allume les générateurs</item>

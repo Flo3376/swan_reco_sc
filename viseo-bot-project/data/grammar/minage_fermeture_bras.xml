@@ -2,6 +2,7 @@
 	<rule id="close_mining_tools" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--rentrer le bras de minage-->
 		<one-of>
 			<item>rentre la tête</item>
 			<item>rentre le bras</item>

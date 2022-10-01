@@ -2,6 +2,7 @@
 	<rule id="center_shield" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--remettre les boucliers au centre-->
 		<one-of>
 			<item>remet les boucliers au centre</item>
 			<item>réinitialise les boucliers</item>

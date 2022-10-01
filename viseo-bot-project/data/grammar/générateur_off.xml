@@ -2,6 +2,7 @@
 	<rule id="cut_gen" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--coupe les générateurs-->
 		<one-of>
 			<item>arrête le générateur</item>
 			<item>arrête les générateurs</item>

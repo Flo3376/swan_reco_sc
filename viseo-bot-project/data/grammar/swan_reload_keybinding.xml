@@ -2,6 +2,7 @@
 	<rule id="reload_keybinding" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--recharge le keybinding, la configuration...Mais ça marche bof, un redémarrage est plus efficace -->
 		<one-of>
 			<item>recharge la configuration</item>
 		</one-of>

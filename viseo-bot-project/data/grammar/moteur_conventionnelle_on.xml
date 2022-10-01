@@ -2,6 +2,7 @@
 	<rule id="start_engine" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Démarre les moteur convetionels -->
 		<one-of>
 			<item>démarre le moteur</item>
 			<item>démarre les moteurs</item>

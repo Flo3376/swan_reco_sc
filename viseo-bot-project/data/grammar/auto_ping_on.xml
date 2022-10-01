@@ -2,6 +2,7 @@
 	<rule id="auto_ping_on" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--activation du scan cyclique-->
 		<one-of>
 			<item>active balayage</item>
 			<item>scan la zone</item>

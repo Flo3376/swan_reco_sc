@@ -2,6 +2,7 @@
 	<rule id="fermeture_train" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Fermer les train d'aterrissage-->
 		<one-of>
 			<item>ferme le train d'attérissage</item>
 			<item>ferme les trains d'attérissage</item>

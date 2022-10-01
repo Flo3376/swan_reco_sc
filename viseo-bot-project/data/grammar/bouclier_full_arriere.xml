@@ -2,6 +2,7 @@
 	<rule id="full_shield_back" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--mettre tous les boucliers  à l'arriére-->
 		<one-of>
 			<item>Met tous de puissance sur le bouclier avant</item>
 			<item>Met tous de jue sur le bouclier avant</item>

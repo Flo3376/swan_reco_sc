@@ -2,6 +2,7 @@
 	<rule id="more_shield_front" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--mettre plus les boucliers  à l'avant-->
 		<one-of>
 			<item>Met plus de puissance sur le bouclier avant</item>
 			<item>Met plus de jue sur le bouclier avant</item>

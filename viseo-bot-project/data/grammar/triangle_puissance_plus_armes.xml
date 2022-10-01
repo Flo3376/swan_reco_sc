@@ -2,6 +2,7 @@
 	<rule id="tri_more_weapons" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Met plus de puissance sur les armes (capacitor)-->
 		<one-of>
 			<item>Met plus de puissance sur les armes</item>
 			<item>Met plus de jue sur les armes</item>

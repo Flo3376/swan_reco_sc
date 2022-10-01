@@ -2,9 +2,10 @@
 	<rule id="switch_to_navigation" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--mode navigation,triange de puissance au centre, bouclier équilibré -->
 		<one-of>
-			<item>passe en mode navigation</item> <!--triange de puissance au centre, bouclier équilibré -->
-			<item>mode navigation</item> <!--triange de puissance au centre, bouclier équilibré -->
+			<item>passe en mode navigation</item>
+			<item>mode navigation</item>
 		</one-of>
 		<tag>out.action.action="switch_to_navigation";</tag>
 	</rule> 

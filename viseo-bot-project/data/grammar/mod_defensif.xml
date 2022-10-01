@@ -2,9 +2,10 @@
 	<rule id="switch_to_defensif" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--mode défensif triange de puissance vers réacteur et bouclier -->
 		<one-of>
-			<item>mode défensif</item>  <!--triange de puissance vers réacteur er bouclier -->
-			<item>passe en mode défensif</item>  <!--triange de puissance vers réacteur er bouclier -->
+			<item>mode défensif</item>  
+			<item>passe en mode défensif</item> 
 		</one-of>
 		<tag>out.action.action="switch_to_defensif";</tag>
 	</rule> 

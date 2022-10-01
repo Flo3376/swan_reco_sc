@@ -2,6 +2,7 @@
 	<rule id="ouverture_vtol" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--ouverture ou passage en VTOL-->
 		<one-of>
 			<item>active les stabilisateurs</item>
 			<item>ouvre les stabilisateurs</item>

@@ -2,6 +2,7 @@
 	<rule id="discord_corpo" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--envoie sur le chat, le discord de la corpo-->
 		<one-of>
 			<item>envoie une invitation discord</item>
 			<item>envoie notre discord</item>

@@ -2,6 +2,7 @@
 	<rule id="start_mot_quantique" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Démarre le moteur quantique-->
 		<one-of>
 			<item>démarre le moteur quantique</item>
 			<item>allume le moteur quantique</item>

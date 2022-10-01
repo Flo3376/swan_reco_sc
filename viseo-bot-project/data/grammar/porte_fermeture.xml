@@ -2,6 +2,7 @@
 	<rule id="fermer_porte" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Fermeture des issues-->
 		<one-of>
 			<item>ferme la porte</item>
 			<item>ferme les portes</item>

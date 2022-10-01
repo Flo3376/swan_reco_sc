@@ -1,6 +1,7 @@
 <grammar version="1.0" xml:lang="fr-FR" mode="voice" root="switch_weapon" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
 	<rule id="switch_weapon" scope="public">
 		<tag>out.action=new Object(); </tag>
+		<!--Armement switch gun/missile-->
 		<item>SWAN</item>
 		<one-of>
 			<item>change d'arme</item>

@@ -2,6 +2,7 @@
 	<rule id="light_on" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Allume les éclairages-->
 		<one-of>
 			<item>on y voit rien</item>
 			<item>un peu de lumiére</item>

@@ -2,6 +2,7 @@
 	<rule id="cut_mot_quantique" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Coupe le moteur quantique-->
 		<one-of>
 			<item>coupe le quantum</item>
 			<item>éteint le quantum</item>

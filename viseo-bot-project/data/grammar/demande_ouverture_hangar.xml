@@ -2,6 +2,7 @@
 	<rule id="ouvrir_hangar" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--appel la station-->
 		<one-of>
 			<item>appel la station</item>
 			<item>appel la base</item>

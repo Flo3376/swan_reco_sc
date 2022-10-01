@@ -2,6 +2,7 @@
 	<rule id="ready_to_fly" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Mise en route rapide ready to fly-->
 		<one-of>
 			<item>on y va</item>
 			<item>on décolle</item>

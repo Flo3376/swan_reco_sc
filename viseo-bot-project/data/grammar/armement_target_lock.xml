@@ -2,6 +2,7 @@
 	<rule id="target_lock" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--verrouiller une cible-->
 		<one-of>
 			<item>verrouille la cible</item>
 			<item>verrouillage la cible</item>

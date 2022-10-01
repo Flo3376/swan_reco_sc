@@ -2,6 +2,7 @@
 	<rule id="test_de_swan" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Test de fonctionnement du bot, le classique jarvis tu es là -->
 		<one-of>
 			<item>es tu là</item>
 			<item>tu es là</item>

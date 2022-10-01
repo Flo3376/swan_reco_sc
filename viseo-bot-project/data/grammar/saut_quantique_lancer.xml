@@ -2,6 +2,7 @@
 	<rule id="lancer_saut_quantique" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Lancer un saut quantique-->
 		<one-of>
 			<item>Lance le saut</item>
 			<item>On saute</item>

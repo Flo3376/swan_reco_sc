@@ -2,6 +2,7 @@
 	<rule id="sortir_siege" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Sortir du siége de pilote-->
 		<one-of>
 			<item>je te laisse les commandes</item>
 			<item>je quite la passerelle</item>

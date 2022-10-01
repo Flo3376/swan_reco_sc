@@ -2,6 +2,7 @@
 	<rule id="ouverture_train" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Ouvrir les train d'aterrissage-->
 		<one-of>
 			<item>sort le train d'attérissage</item>
 			<item>sort les trains d'attérissage</item>

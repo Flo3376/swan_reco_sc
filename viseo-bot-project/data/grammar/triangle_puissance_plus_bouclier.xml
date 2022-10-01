@@ -2,6 +2,7 @@
 	<rule id="tri_more_shield" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Met plus de puissance sur les boucliers (capacitor)-->
 		<one-of>
 			<item>Met plus de puissance sur les boucliers</item>
 			<item>Met plus de jue sur les boucliers</item>

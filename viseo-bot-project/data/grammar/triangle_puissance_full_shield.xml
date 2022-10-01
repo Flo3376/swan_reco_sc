@@ -2,6 +2,7 @@
 	<rule id="tri_full_shields" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Met toutes la puissance sur les boucliers (capacitor)-->
 		<one-of>
 			<item>Met toute la puissance sur les boucliers</item>
 			<item>toute la puissance sur les boucliers</item>

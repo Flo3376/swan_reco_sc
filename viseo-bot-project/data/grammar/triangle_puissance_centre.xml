@@ -2,6 +2,7 @@
 	<rule id="tri_center" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Ouvrir les train d'aterrissage (capacitor)-->
 		<one-of>
 			<item>remet la puissance au neutre</item>
 			<item>remet la puissance au centre</item>

@@ -2,6 +2,7 @@
 	<rule id="jetison" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--larguer la cargaison instable-->
 		<one-of>
 			<item>vide les container</item>
 			<item>vide les sacoches</item>

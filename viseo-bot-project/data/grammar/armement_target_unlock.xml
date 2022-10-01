@@ -2,6 +2,7 @@
 	<rule id="target_unlock" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--déverrouiller une cible-->
 		<one-of>
 			<item>déverrouille la cible</item>
 			<item>déverrouillage la cible</item>

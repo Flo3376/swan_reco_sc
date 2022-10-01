@@ -2,6 +2,7 @@
 	<rule id="emergency_stop" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Coupure urgence d'un saut quantique, coupure générateur puis rallumage-->
 		<one-of>
 			<item>coupure d'urgence</item>
 			<item>stop tout</item>

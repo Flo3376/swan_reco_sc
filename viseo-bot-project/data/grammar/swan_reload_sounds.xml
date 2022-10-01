@@ -2,6 +2,7 @@
 	<rule id="reload_sounds" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--Recharge les banque sonore -->
 		<one-of>
 			<item>recharge ta base de donnée sonore</item>
 		</one-of>

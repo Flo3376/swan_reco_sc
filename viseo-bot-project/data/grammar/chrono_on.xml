@@ -2,6 +2,7 @@
 	<rule id="chrono_on" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
+		<!--lancer le chrono 15 minutes pour les quantainium-->
 		<one-of>
 			<item>lance le compte à rebours</item>
 			<item>compte à rebours</item>
