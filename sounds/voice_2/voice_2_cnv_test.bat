@@ -8,7 +8,7 @@ for /r %%b in (.) do (
   for %%a in (*.*) do (
     echo %%a|findstr /i /L "voice_2_">nul
     if errorlevel 1 (
-    ren "%%a" "voice_2_%%a"
+    copy "%%a" "voice_2_%%a"
    ) else (
      echo skip %%b
    )

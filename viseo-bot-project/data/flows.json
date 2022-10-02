@@ -9883,14 +9883,14 @@
         "id": "b5570ca0.4455f",
         "type": "inject",
         "z": "3fe3ff74.5af25",
-        "name": "go test",
+        "name": "lancement",
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 90,
+        "x": 100,
         "y": 120,
         "wires": [
             [
@@ -9915,10 +9915,12 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 510,
-        "y": 400,
+        "x": 690,
+        "y": 600,
         "wires": [
-            [],
+            [
+                "51ab511b.84d18"
+            ],
             [
                 "451b9c1c.654874"
             ]
@@ -9932,8 +9934,8 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_aterrisage\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 640,
-        "y": 280,
+        "x": 760,
+        "y": 440,
         "wires": [
             [
                 "26d8ed4f.0d58a2",
@@ -9965,8 +9967,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 770,
-        "y": 420,
+        "x": 1090,
+        "y": 340,
         "wires": []
     },
     {
@@ -9980,8 +9982,8 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1030,
-        "y": 140,
+        "x": 1090,
+        "y": 480,
         "wires": [
             [
                 "11be0560.9d366b"
@@ -10003,8 +10005,8 @@
         "func": "msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 830,
-        "y": 280,
+        "x": 950,
+        "y": 440,
         "wires": [
             [
                 "45ee5407.25660c"
@@ -10058,11 +10060,12 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 390,
-        "y": 60,
+        "x": 70,
+        "y": 440,
         "wires": [
             [
-                "ccb25c03.cc381"
+                "f0c60d69.1b289",
+                "a5ba3e1d.44b23"
             ]
         ]
     },
@@ -10070,12 +10073,12 @@
         "id": "ccb25c03.cc381",
         "type": "function",
         "z": "3fe3ff74.5af25",
-        "name": "",
+        "name": "envoie le message de kill",
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 690,
-        "y": 60,
+        "y": 700,
         "wires": [
             [
                 "45ee5407.25660c"
@@ -10090,8 +10093,8 @@
         "func": "msg={}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1270,
-        "y": 220,
+        "x": 790,
+        "y": 80,
         "wires": [
             [
                 "aafb1575.998798",
@@ -10107,8 +10110,70 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 1390,
-        "y": 320,
+        "x": 1070,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f0c60d69.1b289",
+        "type": "function",
+        "z": "3fe3ff74.5af25",
+        "name": "envoie le message de break",
+        "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 280,
+        "y": 440,
+        "wires": [
+            [
+                "aafb1575.998798",
+                "27d21373.10148c"
+            ]
+        ]
+    },
+    {
+        "id": "a5ba3e1d.44b23",
+        "type": "trigger",
+        "z": "3fe3ff74.5af25",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 220,
+        "y": 700,
+        "wires": [
+            [
+                "ccb25c03.cc381"
+            ]
+        ]
+    },
+    {
+        "id": "27d21373.10148c",
+        "type": "debug",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 410,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "51ab511b.84d18",
+        "type": "debug",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 930,
+        "y": 580,
         "wires": []
     }
 ]
