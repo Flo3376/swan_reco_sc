@@ -1203,24 +1203,6 @@
     }
    }
   },
-  "node-red-contrib-play-soundfile": {
-   "name": "node-red-contrib-play-soundfile",
-   "version": "0.0.4",
-   "local": true,
-   "nodes": {
-    "play-soundfile": {
-     "name": "play-soundfile",
-     "types": [
-      "play-soundfile",
-      "soundfile-directory"
-     ],
-     "enabled": true,
-     "local": true,
-     "module": "node-red-contrib-play-soundfile",
-     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-play-soundfile\\play-soundfile.js"
-    }
-   }
-  },
   "node-red-contrib-startup-trigger": {
    "name": "node-red-contrib-startup-trigger",
    "version": "0.1.0",
