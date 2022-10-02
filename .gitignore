@@ -1,7 +1,5 @@
 viseo-bot-framework/
 node-v8.3.0-win-x86/
 README/botframework-emulator-Setup-3.5.31.exe
-/sounds/voice_1/*.mp3
-/sounds/voice_2/*.mp3
-/sounds/voice_1/*.mp4
-/sounds/voice_2/*.mp4
+sounds/voice_1/*
+sounds/voice_2/*
