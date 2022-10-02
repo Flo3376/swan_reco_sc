@@ -7,6 +7,18 @@
         "info": ""
     },
     {
+        "id": "f07cdeb.340a32",
+        "type": "tab",
+        "label": "Train / VTOL",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3fe3ff74.5af25",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
         "id": "e23f34c2.ea7468",
         "type": "tab",
         "label": "Routeur et diag",
@@ -24,13 +36,6 @@
         "id": "ff26b391.7439",
         "type": "tab",
         "label": "Communication",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "f07cdeb.340a32",
-        "type": "tab",
-        "label": "Train / VTOL",
         "disabled": false,
         "info": ""
     },
@@ -9226,7 +9231,7 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "config loader",
-        "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    //console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    //quella voix à utiliser\n\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=200  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n\n\n\nglobal.set(\"SWAN_M\",[])\n\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\nglobal.set('path_sound',global.get('swan_path')+`\\\\sounds\\\\`+global.get(\"voice\")+'\\\\');\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
+        "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    //console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    //quella voix à utiliser\n\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=200  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n\n\n\nglobal.set(\"SWAN_M\",[])\n\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\nglobal.set('path_sound',global.get('swan_path')+'\\\\sounds\\\\');\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 950,
@@ -9856,37 +9861,28 @@
         ]
     },
     {
-        "id": "f671c18b.c8778",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "set number directory",
-        "func": "let thematique=\"phase_décollage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1120,
-        "y": 1600,
+        "id": "8b6b2cc9.31eb3",
+        "type": "fs-ops-dir",
+        "z": "3fe3ff74.5af25",
+        "name": "search phase_décollage sounds",
+        "path": "./../sounds//phase_aterrisage/",
+        "pathType": "str",
+        "filter": "*",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 310,
+        "y": 120,
         "wires": [
             [
-                "ecb28999.9d1a78"
+                "39ce9dad.22f7a2"
             ]
         ]
     },
     {
-        "id": "ecb28999.9d1a78",
-        "type": "debug",
-        "z": "dc4e7734.5f3478",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "files",
-        "x": 1350,
-        "y": 1600,
-        "wires": []
-    },
-    {
-        "id": "d09b5aea.d0ea18",
+        "id": "b5570ca0.4455f",
         "type": "inject",
-        "z": "dc4e7734.5f3478",
+        "z": "3fe3ff74.5af25",
         "name": "go test",
         "topic": "",
         "payload": "true",
@@ -9894,31 +9890,225 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 230,
-        "y": 1600,
+        "x": 90,
+        "y": 120,
         "wires": [
             [
-                "34718fe5.cfddd"
+                "8b6b2cc9.31eb3"
             ]
         ]
     },
     {
-        "id": "34718fe5.cfddd",
-        "type": "fs-ops-dir",
-        "z": "dc4e7734.5f3478",
-        "name": "search open_gear sounds",
-        "path": "./../sounds/open_gear/",
-        "pathType": "str",
-        "filter": "*.mp4",
-        "filterType": "str",
-        "dir": "files",
-        "dirType": "msg",
+        "id": "aafb1575.998798",
+        "type": "loop",
+        "z": "3fe3ff74.5af25",
+        "name": "parcour liste fichiers xml",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload",
+        "enumerationType": "msg",
+        "limit": "",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-orig",
         "x": 510,
-        "y": 1640,
+        "y": 400,
         "wires": [
+            [],
             [
-                "f671c18b.c8778"
+                "451b9c1c.654874"
             ]
         ]
+    },
+    {
+        "id": "451b9c1c.654874",
+        "type": "function",
+        "z": "3fe3ff74.5af25",
+        "name": "fichier en cours",
+        "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_aterrisage\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [
+                "26d8ed4f.0d58a2",
+                "177c029b.2510dd"
+            ]
+        ]
+    },
+    {
+        "id": "39ce9dad.22f7a2",
+        "type": "function",
+        "z": "3fe3ff74.5af25",
+        "name": "conv tableau",
+        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "aafb1575.998798"
+            ]
+        ]
+    },
+    {
+        "id": "26d8ed4f.0d58a2",
+        "type": "debug",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 770,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "45ee5407.25660c",
+        "type": "exec",
+        "z": "3fe3ff74.5af25",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "oldrc": false,
+        "name": "exec_cmd",
+        "x": 1030,
+        "y": 140,
+        "wires": [
+            [
+                "11be0560.9d366b"
+            ],
+            [
+                "9888b96.de92148"
+            ],
+            [
+                "13cb9018.e659f",
+                "cc0a3678.5d8148"
+            ]
+        ]
+    },
+    {
+        "id": "177c029b.2510dd",
+        "type": "function",
+        "z": "3fe3ff74.5af25",
+        "name": "ng_sfx",
+        "func": "msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 280,
+        "wires": [
+            [
+                "45ee5407.25660c"
+            ]
+        ]
+    },
+    {
+        "id": "11be0560.9d366b",
+        "type": "debug",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1270,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9888b96.de92148",
+        "type": "debug",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1270,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "13cb9018.e659f",
+        "type": "debug",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1270,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "71377fb6.6f29b",
+        "type": "inject",
+        "z": "3fe3ff74.5af25",
+        "name": "go test",
+        "topic": "",
+        "payload": "kill",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "ccb25c03.cc381"
+            ]
+        ]
+    },
+    {
+        "id": "ccb25c03.cc381",
+        "type": "function",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690,
+        "y": 60,
+        "wires": [
+            [
+                "45ee5407.25660c"
+            ]
+        ]
+    },
+    {
+        "id": "cc0a3678.5d8148",
+        "type": "function",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "func": "msg={}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1270,
+        "y": 220,
+        "wires": [
+            [
+                "aafb1575.998798",
+                "3085ea7d.bec226"
+            ]
+        ]
+    },
+    {
+        "id": "3085ea7d.bec226",
+        "type": "debug",
+        "z": "3fe3ff74.5af25",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1390,
+        "y": 320,
+        "wires": []
     }
 ]
