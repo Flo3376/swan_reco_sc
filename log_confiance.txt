@@ -1,0 +1,19 @@
+2022-10-03 21:2:20    undefined    undefined    undefined
+2022-10-03 21:2:48    undefined    undefined    undefined
+2022-10-03 21:5:0    undefined    undefined    undefined
+2022-10-03 21:8:59    undefined    undefined    test_de_swan
+2022-10-03 21:9:57    undefined    undefined    test_de_swan
+2022-10-03 21:10:38    undefined    undefined    undefined
+2022-10-03 21:16:19    undefined    undefined    undefined
+2022-10-03 21:17:24    undefined    undefined    test_de_swan
+2022-10-03 21:17:44    undefined    undefined    undefined
+2022-10-03 21:19:12    undefined    undefined    undefined
+2022-10-03 21:23:3    undefined    undefined    undefined
+2022-10-03 21:24:23    undefined    undefined    undefined
+2022-10-03 21:25:51    undefined    undefined    undefined
+2022-10-03 21:27:28    undefined    undefined    undefined
+2022-10-03 21:28:53    0.943    undefined    undefined
+2022-10-03 21:29:11    0.963    SWAN tu ai la    undefined
+2022-10-03 21:30:2    0.927    SWAN tu es là    test_de_swan
+2022-10-03 21:30:56    0.909    SWAN met la poussé à quatre pourcent    undefined
+2022-10-03 21:31:32    0.951    SWAN met la poussé à quatre-vingt pourcent    undefined

@@ -10,13 +10,15 @@
         "id": "f07cdeb.340a32",
         "type": "tab",
         "label": "Train / VTOL",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "3fe3ff74.5af25",
         "type": "tab",
-        "label": "Flow 1"
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "e23f34c2.ea7468",
@@ -29,70 +31,70 @@
         "id": "e3b59118.5cbf8",
         "type": "tab",
         "label": "test primaire + reload + discret + veille",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "ff26b391.7439",
         "type": "tab",
         "label": "Communication",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "c3cf5343.7b594",
         "type": "tab",
         "label": "Combat",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "1652babe.60d185",
         "type": "tab",
         "label": "Starmap / quantique",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "56fdf72f.48c0d8",
         "type": "tab",
         "label": "Démarrage/coupure",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "3bfd628a.fc68ae",
         "type": "tab",
         "label": "minage / scan",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "31099d34.a85072",
         "type": "tab",
         "label": "Boucliers",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "312c81eb.6f5b7e",
         "type": "tab",
         "label": "Scénario",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "67565b43.7eac14",
         "type": "tab",
         "label": "Accessoire",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "33baa4f7.ce6a9c",
         "type": "tab",
         "label": "T_Puissance",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -1121,7 +1123,9 @@
         "y": 40,
         "wires": [
             [
-                "d60ca2bb.66005"
+                "d60ca2bb.66005",
+                "a21ef329.23026",
+                "ec188c63.4f29b"
             ]
         ]
     },
@@ -1172,7 +1176,9 @@
         "wires": [
             [],
             [
-                "fbfd8614.138e78"
+                "fbfd8614.138e78",
+                "5c5dbc9f.ec4f34",
+                "f34174b4.d99d68"
             ]
         ]
     },
@@ -1181,7 +1187,7 @@
         "type": "function",
         "z": "e23f34c2.ea7468",
         "name": "To memory",
-        "func": "let memory=[]\nmsg.time=Date.now();\nmsg.attemp=0;\nconsole.log(msg)\n\nlet last_memory=global.get(\"SWAN_M\")\n\nconsole.log(last_memory)\nconsole.log(\"nb déjà en mémoire: \"+last_memory.length)\n\nfor (i=0; i<last_memory.length;i++)\n{\n    console.log(last_memory[i])\n    memory.push(last_memory[i])\n}\nmemory.push(msg)\n\nglobal.set(\"SWAN_M\",memory)\n\nreturn msg;",
+        "func": "let memory=[]\nmsg.time=Date.now();\nmsg.attemp=0;\n\n\nlet last_memory=global.get(\"SWAN_M\")\n\nconsole.log(last_memory)\nconsole.log(\"nb déjà en mémoire: \"+last_memory.length)\n\nfor (i=0; i<last_memory.length;i++)\n{\n    console.log(last_memory[i])\n    memory.push(last_memory[i])\n}\nmemory.push(msg)\n\nglobal.set(\"SWAN_M\",memory)\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 570,
@@ -1211,7 +1217,7 @@
         "type": "function",
         "z": "e23f34c2.ea7468",
         "name": "pour les logs",
-        "func": "\nif (msg.payload.confidence)\n{\n    let date_ob = new Date();\n\n    // current date\n    // adjust 0 before single digit date\n    let date = (\"0\" + date_ob.getDate()).slice(-2);\n    \n    // current month\n    let month = (\"0\" + (date_ob.getMonth() + 1)).slice(-2);\n    \n    // current year\n    let year = date_ob.getFullYear();\n    \n    // current hours\n    let hours = date_ob.getHours();\n    \n    // current minutes\n    let minutes = date_ob.getMinutes();\n    \n    // current seconds\n    let seconds = date_ob.getSeconds();\n    \n    msg.payload=year + \"-\" + month + \"-\" + date + \" \" + hours + \":\" + minutes + \":\" + seconds+\"    \"+msg.payload.confidence+\"    \"+msg.payload.text;\n    return msg\n}\n\n\n",
+        "func": "\nif (msg.confiance!==\"\")\n{\n    let date_ob = new Date();\n    let data={};\n    \n    // current date\n    // adjust 0 before single digit date\n    let date = (\"0\" + date_ob.getDate()).slice(-2);\n    \n    // current month\n    let month = (\"0\" + (date_ob.getMonth() + 1)).slice(-2);\n    \n    // current year\n    let year = date_ob.getFullYear();\n    \n    // current hours\n    let hours = date_ob.getHours();\n    \n    // current minutes\n    let minutes = date_ob.getMinutes();\n    \n    // current seconds\n    let seconds = date_ob.getSeconds();\n    \n    console.log(data)\n    \n    msg.payload=year + \"-\" + month + \"-\" + date + \" \" + hours + \":\" + minutes + \":\" + seconds+\"    \"+msg.confiance+\"    \"+msg.payload+\"    \"+msg.action;\n    return msg\n}\n\n\n",
         "outputs": "1",
         "noerr": 0,
         "x": 570,
@@ -10175,5 +10181,58 @@
         "x": 930,
         "y": 580,
         "wires": []
+    },
+    {
+        "id": "5c5dbc9f.ec4f34",
+        "type": "debug",
+        "z": "e23f34c2.ea7468",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 480,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a21ef329.23026",
+        "type": "debug",
+        "z": "e23f34c2.ea7468",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 250,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f77e9c7d.06be1",
+        "type": "file",
+        "z": "e23f34c2.ea7468",
+        "name": "",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 750,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ec188c63.4f29b",
+        "type": "function",
+        "z": "e23f34c2.ea7468",
+        "name": "buffer",
+        "func": "let sound=msg.payload.buffer;\n/*\nfor (i=0;i<msg.payload.buffer;i++)\n{\n    sound+=msg.payload.buffer[i]\n}*/\nmsg.filename=\"./../diag_audio/\"+msg.payload.text+\"_\"+msg._msgid+\".mp3\"\nmsg.payload=sound;\nreturn msg;",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "f77e9c7d.06be1"
+            ]
+        ]
     }
 ]
