@@ -7,31 +7,6 @@
 		<tag>out._attributes = {}</tag>
 		<one-of>
 
-			<item>tu ai la<tag>out.action.val="la"</tag></item>
-			<item>lance FSX<tag>out.action.val="fsx"</tag></item>
-			<item>lance un vol sous FSX completé<tag>out.action.val="fsx_all"</tag></item>
-			<item>active la passerelle<tag>out.action.val="sim_connect_on"</tag></item>
-			<item>fin du vol<tag>out.action.val="fin_vol"</tag></item>
-			<item>relance FSX<tag>out.action.val="reboot_fsx"</tag></item>
-
-			<item>prend les commandes<tag>out.action.val="auto_on"</tag></item>
-			<item>passe en manuel<tag>out.action.val="auto_off"</tag></item>
-			
-			<item>active le cap<tag>out.action.val="hdg_on"</tag></item>
-			<item>désactive le cap<tag>out.action.val="hdg_off"</tag></item>
-			
-			<item>active l'altitude<tag>out.action.val="alt_on"</tag></item>
-			<item>désactive l'altitude<tag>out.action.val="alt_off"</tag></item>
-
-			<item>active la navigation<tag>out.action.val="nav_on"</tag></item>
-			<item>désactive la navigation<tag>out.action.val="nav_off"</tag></item>
-
-			<item>active la vitesse<tag>out.action.val="speed_on"</tag></item>
-			<item>désactive la vitesse<tag>out.action.val="speed_off"</tag></item>
-
-			<item>active l'approche<tag>out.action.val="app_on"</tag></item>
-			<item>désactive l'approche<tag>out.action.val="app_off"</tag></item>
-
 			<item>met la poussé à <tag>out.action.val="throttle"</tag><ruleref uri="#Cardinal_0_to_100" /><tag>out.action.parameters = rules.latest();</tag> pourcent</item>
 
 			<!-- Auto pilot -->
@@ -93,6 +68,49 @@
 		<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/autopilot";</tag>
 	</rule> 
 	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- out.Cardinal_1_to_999: float -->
 	<rule id="Cardinal_radio" scope="public">
 		<tag>out = 0 </tag>
@@ -106,6 +124,30 @@
 			</item>
 		</one-of>
 	</rule>
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	<rule id="ruleEmpty" scope="public">
