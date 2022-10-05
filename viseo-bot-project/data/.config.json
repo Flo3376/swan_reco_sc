@@ -1263,6 +1263,23 @@
      "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-loop\\loop.js"
     }
    }
+  },
+  "node-red-contrib-cheerio": {
+   "name": "node-red-contrib-cheerio",
+   "version": "1.1.0",
+   "local": true,
+   "nodes": {
+    "cheerio": {
+     "name": "cheerio",
+     "types": [
+      "cheerio"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-cheerio",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-cheerio\\cheerio.js"
+    }
+   }
   }
  }
 }
