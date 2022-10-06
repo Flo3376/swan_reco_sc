@@ -2,19 +2,19 @@
 
 <!--Allume les éclairages-->		-on y voit rien		-un peu de lumiére		-allume les phares		-allume les feux		-allumes les spots		-éclair la zone		-
 
+<!--Coupe les éclairages-->		-éteint les phares		-éteint les feux		-éteint les spots		-coupe les phares		-coupe les feux		-coupe les spots		-
+
 <!--ouverture ou passage en VTOL-->		-active les stabilisateurs		-ouvre les stabilisateurs		-sort les stabilisateurs		-active le VTOL		-passe en VTOL		-met en route les stabilisateur		-stabilise le vaisseau		-stabilise l'appareil		-
 
 <!--Fermeture ou  quitte le VTOL-->		-désactive les stabilisateur		-fermes les stabilisateurs		-rentre les stabilisateurs		-coupe les stabilisateurs		-coupe le VTOL		-
 
-<!--Coupe les éclairages-->		-éteint les phares		-éteint les feux		-éteint les spots		-coupe les phares		-coupe les feux		-coupe les spots		-
+<!--Met plus de puissance sur les moteurs (capacitor)-->		-Met plus de puissance sur les moteurs		-Met plus de jue sur les moteurs		-Envoie plus de jue sur les moteurs		-bascule plus de jue sur les moteurs		-plus de puissance sur les moteurs		-Envoie plus de puissance sur les moteurs		-bascule plus de puissance sur les moteurs		-bascule tous le jue sur les moteurs		-plus de jue sur les moteurs		-transfert plus de puissance sur les moteurs		-transfert plus de jue sur les moteurs		-
 
 <!--Met plus de puissance sur les boucliers (capacitor)-->		-Met plus de puissance sur les boucliers		-Met plus de jue sur les boucliers		-Envoie plus de jue sur les boucliers		-bascule plus de jue sur les boucliers		-plus de puissance sur les boucliers		-Envoie plus de puissance sur les boucliers		-bascule plus de puissance sur les boucliers		-bascule tous le jue sur les boucliers		-plus de jue sur les boucliers		-transfert plus de puissance sur les boucliers		-transfert plus de jue sur les boucliers		-
 
-<!--Met plus de puissance sur les moteurs (capacitor)-->		-Met plus de puissance sur les moteurs		-Met plus de jue sur les moteurs		-Envoie plus de jue sur les moteurs		-bascule plus de jue sur les moteurs		-plus de puissance sur les moteurs		-Envoie plus de puissance sur les moteurs		-bascule plus de puissance sur les moteurs		-bascule tous le jue sur les moteurs		-plus de jue sur les moteurs		-transfert plus de puissance sur les moteurs		-transfert plus de jue sur les moteurs		-
+<!--Met toutes la puissance sur les boucliers (capacitor)-->		-Met toute la puissance sur les boucliers		-toute la puissance sur les boucliers		-Envoie toute la puissance sur les boucliers		-bascule toute la puissance sur les boucliers		-Met tous le jue sur les boucliers		-Met tous le jue sur les boucliers		-tous le jue sur les boucliers		-Envoie tous le jue sur les boucliers		-transfert toute la puissance sur les boucliers		-transfert tous le jue sur les boucliers		-
 
 <!--Met plus de puissance sur les armes (capacitor)-->		-Met plus de puissance sur les armes		-Met plus de jue sur les armes		-Envoie plus de jue sur les armes		-bascule plus de jue sur les armes		-plus de puissance sur les armes		-Envoie plus de puissance sur les armes		-bascule plus de puissance sur les armes		-bascule tous le jue sur les armes		-plus de jue sur les armes		-transfert plus de puissance sur les armes		-transfert plus de jue sur les armes		-
-
-<!--Met toutes la puissance sur les boucliers (capacitor)-->		-Met toute la puissance sur les boucliers		-toute la puissance sur les boucliers		-Envoie toute la puissance sur les boucliers		-bascule toute la puissance sur les boucliers		-Met tous le jue sur les boucliers		-Met tous le jue sur les boucliers		-tous le jue sur les boucliers		-Envoie tous le jue sur les boucliers		-transfert toute la puissance sur les boucliers		-transfert tous le jue sur les boucliers		-
 
 <!--Met toutes la puissance sur les moteurs(capacitor)-->		-Met toute la puissance sur les moteurs		-toute la puissance sur les moteurs		-Envoie toute la puissance sur les moteurs		-bascule toute la puissance sur les moteurs		-Met tous le jue sur les moteurs		-Met tous le jue sur les moteurs		-tous le jue sur les moteurs		-Envoie tous le jue sur les moteurs		-transfert toute la puissance sur les moteurs		-transfert tous le jue sur les moteurs		-
 
@@ -52,9 +52,9 @@
 
 <!--Mise en route rapide ready to fly-->		-on y va		-on décolle		-démarre les systèmes		-démarre le vaisseaux		-démarre l'appareil		-allume le vaisseaux		-allume l'appareil		-met en chauffe l'appareil		-met en chauffe le vaisseau		-fait chauffer l'appareil		-fait chauffer les systèmes		-fait chauffer le système		-
 
-<!--Ouvertures des issues-->		-ouvre la porte		-ouvre les portes		-ouvre le sasse		-ouvre les sasse		-ouvre la soute		-ouvre les soutes		-
-
 <!--Fermeture des issues-->		-ferme la porte		-ferme les portes		-ferme le sasse		-ferme les sasse		-ferme la soute		-ferme les soutes		-
+
+<!--Ouvertures des issues-->		-ouvre la porte		-ouvre les portes		-ouvre le sasse		-ouvre les sasse		-ouvre la soute		-ouvre les soutes		-
 
 <!--Armement switch gun/missile-->		-lance ma playlist		-
 

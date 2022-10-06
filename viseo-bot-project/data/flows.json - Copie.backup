@@ -17,7 +17,7 @@
         "id": "3fe3ff74.5af25",
         "type": "tab",
         "label": "Flow 1",
-        "disabled": true,
+        "disabled": false,
         "info": ""
     },
     {
@@ -31,7 +31,7 @@
         "id": "e3b59118.5cbf8",
         "type": "tab",
         "label": "test primaire + reload + discret + veille",
-        "disabled": true,
+        "disabled": false,
         "info": ""
     },
     {
@@ -116,11 +116,57 @@
         "func": "//instruction en attente\nglobal.set(\"SWAN_M\",[])\n//où se trouve swan\nglobal.set('swan_path','C:\\\\swan')\n\n//où se trouve le répertoire son deswan\nglobal.set('path_sound',global.get('swan_path')+`\\\\sounds\\\\`);\n\n//quelle est le nom de swan\nglobal.set('swan_name',\"SWAN\");\n\n//quelle est le ancien nom de swan\nglobal.set('last_swan_name',\"SWAN\");\n\n//quella voix à utiliser\nglobal.set('voice',\"voice_1\");\n\n//a quelle niveau de confiance doit elle réagir\nglobal.set('confiance_gate',0.80);\n\n//volume de swan\nglobal.set('volume',0.7);\n\n//swan sera t'elle à l'acoute au démarrage\nglobal.set('swan_active',true);\n\n//balayage actif\nglobal.set('spy_scan',false);\n\n//swan utilise t'elle les sons (true) ou juste un bip (false)\nglobal.set('discret',false);\n\n//etat du lecteur audio\nglobal.set(\"player_status\",\"standy\")\n\n//paramétre et localisation de vlc\nglobal.set('vlc_path',`\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\" `)\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=100 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n//global.set('a_k_short_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard.ahk\")\n//global.set('a_k_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_long.ahk\")\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\n//global.set('a_k_alt_left_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_left_alt.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\n\n\nconsole.log(`Le nom de votre IA est   : ${ global.get(\"swan_name\")}`)\nconsole.log(`les sons sont configurés à l'adresse : ${ global.get(\"path_sound\")}`)\nconsole.log(`le seuil d'assurance de reconnaisse est à  : ${ global.get(\"confiance_gate\")}`)",
         "outputs": 1,
         "noerr": 0,
-        "x": 220,
-        "y": 1240,
+        "x": 580,
+        "y": 2580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "caa510ec.cbaaf",
+        "type": "start-up-trigger",
+        "z": "dc4e7734.5f3478",
+        "x": 120,
+        "y": 780,
         "wires": [
             [
-                "24ddc090.895f"
+                "b4303cb4.dd078",
+                "7fb3e2e8.0dd3ac",
+                "33a2ec12.bb1da4",
+                "c4721559.5910d8",
+                "6c2eea9.be4a314",
+                "19edbee8.d0d781",
+                "2e570bc2.974b04",
+                "e4c70691.d67408",
+                "510453c7.7267cc",
+                "853cbcbd.5c4f",
+                "db81a294.75b3f",
+                "f46b4194.f46d8",
+                "cdc6e9d0.29aae8",
+                "2b110de0.d86e42",
+                "f25c328.851aed",
+                "2f791b9a.4dc624",
+                "c5fee126.97e29",
+                "541d5147.5b705",
+                "628192a6.8499ec",
+                "d3c7ffc8.27478",
+                "72a1ef99.7ecbf",
+                "dac1a517.1e0698",
+                "64ccedba.8b8644",
+                "478965f4.0a583c",
+                "260cf50f.f1b0ea",
+                "3f7ce5ff.bd5f2a",
+                "39d90319.149fec",
+                "732c06ff.d5c268",
+                "6a4e40c3.8c794",
+                "161d4c80.e6f4a4",
+                "9ff0e7ca.9baf38",
+                "b23f48.fa8420b8",
+                "f62dbf2.cfe9b4",
+                "84270af8.8ea7c8",
+                "b225ade0.694fa",
+                "2555cff.87dba3",
+                "74df4caa.4ea7e4"
             ]
         ]
     },
@@ -132,12 +178,10 @@
         "func": "//train\nglobal.set('request_landing',`{F3}`);\n\nglobal.set('open_gear',`{n}`);\nglobal.set('close_gear',`{n}`);\n\nglobal.set('v_lights',`{l}`);\nglobal.set('v_lights',`{l}`);\n\nglobal.set('v_flightready',`{r}`);\n\nglobal.set('v_starmap',`{F2}`);\n\nglobal.set('v_scanning_trigger_scan',`{TAB}`);\n\nglobal.set('v_open_all_doors',`{$}`);\nglobal.set('v_close_all_doors',`{*}`);\n\nglobal.set('start_engine',`{i}`);\nglobal.set('cut_engine',`{i}`);\n\nglobal.set('start_power',`{u}`);\nglobal.set('cut_power',`{u}`);\n\nglobal.set('v_toggle_quantum_mode',`{b}`);\nglobal.set('v_toggle_quantum_mode',`{b}`);\nglobal.set('v_toggle_qdrive_engagement',`{LONG}{b}`);\n\nglobal.set('open_min_tools',`{,}`);\nglobal.set('close_min_tools',`{,}`);\nglobal.set('v_jettison_volatile_cargo',`{LAlt}{j}`);\n\nglobal.set('v_toggle_mining_mode',`{right_click}`);\n\nglobal.set('exit',`{LONG}{y}`);\n\nglobal.set('open_VTOL',`{k}`);\nglobal.set('close_VTOL',`{k}`);\n\nglobal.set('v_capacitor_assignment_weapon_increase',`{F5}`);\nglobal.set('v_capacitor_assignment_weapon_increase',`{F6}`);\nglobal.set('v_capacitor_assignment_shield_increase',`{F7}`);\nglobal.set('v_capacitor_assignment_reset',`{F8}`);\n\nglobal.set('v_shield_reset_level',`{Numpad5}`);\nglobal.set('v_shield_raise_level_forward',`{Numpad8}`);\nglobal.set('v_shield_raise_level_back',`{Numpad2}`);\nglobal.set('v_shield_raise_level_left',`{Numpad4}`);\nglobal.set('v_shield_raise_level_right',`{Numpad6}`);\n\nglobal.set('target_lock',`{t}`);\nglobal.set('target_unlock',`{LAlt}{t}`);\nglobal.set('v_toggle_missile_mode',`{molette_click}`);\nglobal.set('v_weapon_launch_missile',`{left_click}`);\nglobal.set('change_q_m',`{g}`);\n\nglobal.set('my_id_discord',`Flo3376#8040`);\nglobal.set('my_discord',`https://discord.gg/ZY3Gwdav`);",
         "outputs": 1,
         "noerr": 0,
-        "x": 460,
-        "y": 1240,
+        "x": 580,
+        "y": 2620,
         "wires": [
-            [
-                "cc2b4307.0a7ba"
-            ]
+            []
         ]
     },
     {
@@ -147,15 +191,69 @@
         "name": "search close_gear sounds",
         "path": "./../sounds/close_gear/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 390,
-        "y": 100,
+        "x": 590,
+        "y": 40,
         "wires": [
             [
                 "b8584970.d1df08"
+            ]
+        ]
+    },
+    {
+        "id": "b42d6e49.cd86e",
+        "type": "inject",
+        "z": "dc4e7734.5f3478",
+        "name": "scan sounds db",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 120,
+        "y": 940,
+        "wires": [
+            [
+                "b4303cb4.dd078",
+                "7fb3e2e8.0dd3ac",
+                "33a2ec12.bb1da4",
+                "19edbee8.d0d781",
+                "2e570bc2.974b04",
+                "e4c70691.d67408",
+                "510453c7.7267cc",
+                "853cbcbd.5c4f",
+                "db81a294.75b3f",
+                "f46b4194.f46d8",
+                "cdc6e9d0.29aae8",
+                "2b110de0.d86e42",
+                "c4721559.5910d8",
+                "f25c328.851aed",
+                "2f791b9a.4dc624",
+                "c5fee126.97e29",
+                "541d5147.5b705",
+                "628192a6.8499ec",
+                "d3c7ffc8.27478",
+                "72a1ef99.7ecbf",
+                "dac1a517.1e0698",
+                "64ccedba.8b8644",
+                "478965f4.0a583c",
+                "260cf50f.f1b0ea",
+                "3f7ce5ff.bd5f2a",
+                "161d4c80.e6f4a4",
+                "39d90319.149fec",
+                "732c06ff.d5c268",
+                "6a4e40c3.8c794",
+                "9ff0e7ca.9baf38",
+                "b23f48.fa8420b8",
+                "f62dbf2.cfe9b4",
+                "84270af8.8ea7c8",
+                "b225ade0.694fa",
+                "2555cff.87dba3",
+                "74df4caa.4ea7e4"
             ]
         ]
     },
@@ -164,15 +262,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"close_gear\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"close_gear\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 100,
+        "x": 1200,
+        "y": 40,
         "wires": [
-            [
-                "7fb3e2e8.0dd3ac"
-            ]
+            []
         ]
     },
     {
@@ -182,12 +278,12 @@
         "name": "search open_gear sounds",
         "path": "./../sounds/open_gear/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 670,
-        "y": 120,
+        "x": 590,
+        "y": 80,
         "wires": [
             [
                 "44e67306.d6907c"
@@ -199,15 +295,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"open_gear\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"open_gear\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 120,
+        "x": 1100,
+        "y": 80,
         "wires": [
-            [
-                "33a2ec12.bb1da4"
-            ]
+            []
         ]
     },
     {
@@ -217,12 +311,12 @@
         "name": "search base sounds",
         "path": "./../sounds/base/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 380,
-        "y": 140,
+        "x": 580,
+        "y": 120,
         "wires": [
             [
                 "5b5e0c58.d9f3b4"
@@ -234,15 +328,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"base\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg\n",
+        "func": "let thematique=\"base\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 140,
+        "x": 1200,
+        "y": 120,
         "wires": [
-            [
-                "c4721559.5910d8"
-            ]
+            []
         ]
     },
     {
@@ -252,11 +344,11 @@
         "name": "search lum_on sounds",
         "path": "./../sounds/lum_on/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 660,
+        "x": 580,
         "y": 160,
         "wires": [
             [
@@ -269,15 +361,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"lum_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"lum_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
+        "x": 1100,
         "y": 160,
         "wires": [
-            [
-                "6c2eea9.be4a314"
-            ]
+            []
         ]
     },
     {
@@ -287,12 +377,12 @@
         "name": "search lum_off sounds",
         "path": "./../sounds/lum_off/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 380,
-        "y": 180,
+        "x": 580,
+        "y": 200,
         "wires": [
             [
                 "6cda07fa.291088"
@@ -304,15 +394,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"lum_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"lum_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 180,
+        "x": 1200,
+        "y": 200,
         "wires": [
-            [
-                "19edbee8.d0d781"
-            ]
+            []
         ]
     },
     {
@@ -322,12 +410,12 @@
         "name": "search online sounds",
         "path": "./../sounds/online/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 660,
-        "y": 200,
+        "x": 580,
+        "y": 240,
         "wires": [
             [
                 "d7580345.07a98"
@@ -339,15 +427,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"online\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"online\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 200,
+        "x": 1100,
+        "y": 240,
         "wires": [
-            [
-                "2e570bc2.974b04"
-            ]
+            []
         ]
     },
     {
@@ -357,12 +443,12 @@
         "name": "search ready_to_fly sounds",
         "path": "./../sounds/ready_to_fly/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 400,
-        "y": 220,
+        "x": 600,
+        "y": 280,
         "wires": [
             [
                 "824dc6f7.031828"
@@ -374,15 +460,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"ready_to_fly\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"ready_to_fly\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 220,
+        "x": 1200,
+        "y": 280,
         "wires": [
-            [
-                "e4c70691.d67408"
-            ]
+            []
         ]
     },
     {
@@ -392,12 +476,12 @@
         "name": "search starmap_on sounds",
         "path": "./../sounds/starmap_on/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 680,
-        "y": 240,
+        "x": 600,
+        "y": 320,
         "wires": [
             [
                 "56a2ba60.f9f034"
@@ -409,15 +493,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"starmap_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"starmap_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 240,
+        "x": 1100,
+        "y": 320,
         "wires": [
-            [
-                "510453c7.7267cc"
-            ]
+            []
         ]
     },
     {
@@ -427,12 +509,12 @@
         "name": "search starmap_off sounds",
         "path": "./../sounds/starmap_off/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 400,
-        "y": 260,
+        "x": 600,
+        "y": 360,
         "wires": [
             [
                 "8a48471c.5312a8"
@@ -444,15 +526,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"starmap_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"starmap_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 260,
+        "x": 1200,
+        "y": 360,
         "wires": [
-            [
-                "853cbcbd.5c4f"
-            ]
+            []
         ]
     },
     {
@@ -462,12 +542,12 @@
         "name": "search active_scan_on sounds",
         "path": "./../sounds/active_scan_on/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 690,
-        "y": 280,
+        "x": 610,
+        "y": 400,
         "wires": [
             [
                 "1495cc38.adca44"
@@ -479,15 +559,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"active_scan_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"active_scan_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 280,
+        "x": 1100,
+        "y": 400,
         "wires": [
-            [
-                "f62dbf2.cfe9b4"
-            ]
+            []
         ]
     },
     {
@@ -497,12 +575,12 @@
         "name": "search door_close sounds",
         "path": "./../sounds/door_close/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 670,
-        "y": 320,
+        "x": 590,
+        "y": 500,
         "wires": [
             [
                 "e59e9055.2f94"
@@ -514,15 +592,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"door_close\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"door_close\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 320,
+        "x": 1200,
+        "y": 500,
         "wires": [
-            [
-                "f46b4194.f46d8"
-            ]
+            []
         ]
     },
     {
@@ -532,12 +608,12 @@
         "name": "search door_open sounds",
         "path": "./../sounds/door_open/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 390,
-        "y": 340,
+        "x": 590,
+        "y": 540,
         "wires": [
             [
                 "de56059f.696328"
@@ -549,15 +625,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"door_open\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"door_open\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 340,
+        "x": 1100,
+        "y": 540,
         "wires": [
-            [
-                "cdc6e9d0.29aae8"
-            ]
+            []
         ]
     },
     {
@@ -567,12 +641,12 @@
         "name": "search engine_on sounds",
         "path": "./../sounds/engine_on/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 670,
-        "y": 360,
+        "x": 590,
+        "y": 580,
         "wires": [
             [
                 "16d6360b.76d10a"
@@ -584,15 +658,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"engine_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"engine_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 360,
+        "x": 1200,
+        "y": 580,
         "wires": [
-            [
-                "2b110de0.d86e42"
-            ]
+            []
         ]
     },
     {
@@ -602,12 +674,12 @@
         "name": "search engine_off sounds",
         "path": "./../sounds/door_open/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 390,
-        "y": 380,
+        "x": 590,
+        "y": 620,
         "wires": [
             [
                 "1dfde841.579c98"
@@ -619,15 +691,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"engine_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"engine_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 380,
+        "x": 1100,
+        "y": 620,
         "wires": [
-            [
-                "f25c328.851aed"
-            ]
+            []
         ]
     },
     {
@@ -637,12 +707,12 @@
         "name": "search generator_on sounds",
         "path": "./../sounds/gen_on/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 680,
-        "y": 400,
+        "x": 600,
+        "y": 660,
         "wires": [
             [
                 "ece236c5.bf0ce8"
@@ -654,15 +724,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"gen_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"gen_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 400,
+        "x": 1200,
+        "y": 660,
         "wires": [
-            [
-                "2f791b9a.4dc624"
-            ]
+            []
         ]
     },
     {
@@ -672,12 +740,12 @@
         "name": "search generator_off sounds",
         "path": "./../sounds/gen_off/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 400,
-        "y": 420,
+        "x": 600,
+        "y": 700,
         "wires": [
             [
                 "79a92174.eb32b"
@@ -689,15 +757,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"gen_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"gen_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 420,
+        "x": 1100,
+        "y": 700,
         "wires": [
-            [
-                "c5fee126.97e29"
-            ]
+            []
         ]
     },
     {
@@ -707,12 +773,12 @@
         "name": "search quantum_on sounds",
         "path": "./../sounds/quantum_on/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 680,
-        "y": 440,
+        "x": 600,
+        "y": 740,
         "wires": [
             [
                 "32b40d1e.947292"
@@ -724,15 +790,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"quantum_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"quantum_on\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 440,
+        "x": 1200,
+        "y": 740,
         "wires": [
-            [
-                "541d5147.5b705"
-            ]
+            []
         ]
     },
     {
@@ -742,12 +806,12 @@
         "name": "search quantum_off sounds",
         "path": "./../sounds/quantum_off/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 400,
-        "y": 460,
+        "x": 600,
+        "y": 780,
         "wires": [
             [
                 "646f5606.2802d8"
@@ -759,15 +823,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"quantum_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"quantum_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 460,
+        "x": 1100,
+        "y": 780,
         "wires": [
-            [
-                "628192a6.8499ec"
-            ]
+            []
         ]
     },
     {
@@ -777,12 +839,12 @@
         "name": "search quantum_jump sounds",
         "path": "./../sounds/quantum_jump/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 690,
-        "y": 480,
+        "x": 610,
+        "y": 820,
         "wires": [
             [
                 "52bbf2a9.57aecc"
@@ -794,15 +856,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"quantum_jump\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"quantum_jump\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 480,
+        "x": 1200,
+        "y": 820,
         "wires": [
-            [
-                "d3c7ffc8.27478"
-            ]
+            []
         ]
     },
     {
@@ -812,12 +872,12 @@
         "name": "search commun_swan",
         "path": "./../sounds/commun_swan/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 380,
-        "y": 500,
+        "x": 580,
+        "y": 860,
         "wires": [
             [
                 "6d1ef9d9.584978"
@@ -829,15 +889,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"commun_swan\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"commun_swan\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 500,
+        "x": 1100,
+        "y": 860,
         "wires": [
-            [
-                "72a1ef99.7ecbf"
-            ]
+            []
         ]
     },
     {
@@ -847,12 +905,12 @@
         "name": "search mining_in sounds",
         "path": "./../sounds/mining_in/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 670,
-        "y": 520,
+        "x": 590,
+        "y": 900,
         "wires": [
             [
                 "231c067a.2323ea"
@@ -864,15 +922,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"mining_in\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"mining_in\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 520,
+        "x": 1200,
+        "y": 900,
         "wires": [
-            [
-                "dac1a517.1e0698"
-            ]
+            []
         ]
     },
     {
@@ -882,12 +938,12 @@
         "name": "search mining_in",
         "path": "./../sounds/mining_out/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 370,
-        "y": 540,
+        "x": 570,
+        "y": 940,
         "wires": [
             [
                 "62f53d36.eecfc4"
@@ -899,15 +955,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"mining_out\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"mining_out\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 540,
+        "x": 1100,
+        "y": 940,
         "wires": [
-            [
-                "64ccedba.8b8644"
-            ]
+            []
         ]
     },
     {
@@ -917,12 +971,12 @@
         "name": "search mining_switch sounds",
         "path": "./../sounds/mining_switch/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 680,
-        "y": 560,
+        "x": 600,
+        "y": 980,
         "wires": [
             [
                 "daed27b9.cefb38"
@@ -934,15 +988,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"mining_switch\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"mining_switch\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 560,
+        "x": 1200,
+        "y": 980,
         "wires": [
-            [
-                "478965f4.0a583c"
-            ]
+            []
         ]
     },
     {
@@ -952,12 +1004,12 @@
         "name": "search exit",
         "path": "./../sounds/exit/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 350,
-        "y": 580,
+        "x": 550,
+        "y": 1020,
         "wires": [
             [
                 "e60e1ef6.ee161"
@@ -969,15 +1021,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"exit\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"exit\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 580,
+        "x": 1100,
+        "y": 1020,
         "wires": [
-            [
-                "260cf50f.f1b0ea"
-            ]
+            []
         ]
     },
     {
@@ -987,12 +1037,12 @@
         "name": "search VTOL_close sounds",
         "path": "./../sounds/VTOL_close/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 680,
-        "y": 600,
+        "x": 600,
+        "y": 1060,
         "wires": [
             [
                 "dd736188.29883"
@@ -1006,12 +1056,12 @@
         "name": "search VTOL_open",
         "path": "./../sounds/VTOL_open/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 370,
-        "y": 620,
+        "x": 570,
+        "y": 1100,
         "wires": [
             [
                 "72c89b22.1c1424"
@@ -1023,15 +1073,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"VTOL_close\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"VTOL_close\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 600,
+        "x": 1200,
+        "y": 1060,
         "wires": [
-            [
-                "3f7ce5ff.bd5f2a"
-            ]
+            []
         ]
     },
     {
@@ -1039,14 +1087,27 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"VTOL_open\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"VTOL_open\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 620,
+        "x": 1100,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "77e41375.94173c",
+        "type": "start-up-trigger",
+        "z": "dc4e7734.5f3478",
+        "x": 120,
+        "y": 2580,
         "wires": [
             [
-                "39d90319.149fec"
+                "a9afffb3.daac9",
+                "24ddc090.895f",
+                "1859db78.bca815",
+                "a2ef2a29.d5a378"
             ]
         ]
     },
@@ -1063,8 +1124,7 @@
         "wires": [
             [
                 "a21ef329.23026",
-                "ec188c63.4f29b",
-                "d60ca2bb.66005"
+                "ec188c63.4f29b"
             ]
         ]
     },
@@ -6469,12 +6529,12 @@
         "name": "search mod_minage",
         "path": "./../sounds/mod_minage/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 660,
-        "y": 640,
+        "x": 580,
+        "y": 1140,
         "wires": [
             [
                 "35517497.b6d6cc"
@@ -6486,15 +6546,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"mod_minage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"mod_minage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 640,
+        "x": 1100,
+        "y": 1140,
         "wires": [
-            [
-                "732c06ff.d5c268"
-            ]
+            []
         ]
     },
     {
@@ -6504,12 +6562,12 @@
         "name": "search mod_defensif sounds",
         "path": "./../sounds/mod_defensif/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 400,
-        "y": 660,
+        "x": 600,
+        "y": 1180,
         "wires": [
             [
                 "7819207d.50c94"
@@ -6521,15 +6579,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"mod_defensif\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"mod_defensif\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 660,
+        "x": 1200,
+        "y": 1180,
         "wires": [
-            [
-                "6a4e40c3.8c794"
-            ]
+            []
         ]
     },
     {
@@ -6539,12 +6595,12 @@
         "name": "search mod_navigation",
         "path": "./../sounds/mod_navigation/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 670,
-        "y": 680,
+        "x": 590,
+        "y": 1220,
         "wires": [
             [
                 "43ad90a4.b244c"
@@ -6556,15 +6612,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"mod_navigation\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"mod_navigation\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 680,
+        "x": 1100,
+        "y": 1220,
         "wires": [
-            [
-                "161d4c80.e6f4a4"
-            ]
+            []
         ]
     },
     {
@@ -6574,12 +6628,12 @@
         "name": "search mod_offensif sounds",
         "path": "./../sounds/mod_offensif/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 400,
-        "y": 700,
+        "x": 600,
+        "y": 1260,
         "wires": [
             [
                 "fcf06b5e.8a5128"
@@ -6591,15 +6645,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"mod_offensif\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"mod_offensif\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 700,
+        "x": 1200,
+        "y": 1260,
         "wires": [
-            [
-                "9ff0e7ca.9baf38"
-            ]
+            []
         ]
     },
     {
@@ -6815,6 +6867,176 @@
         "wires": [
             [
                 "b102f835.589838"
+            ]
+        ]
+    },
+    {
+        "id": "d6a227f.2af1dd8",
+        "type": "trigger",
+        "z": "dc4e7734.5f3478",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 300,
+        "y": 1700,
+        "wires": [
+            [
+                "2f4d28c2.31a038"
+            ]
+        ]
+    },
+    {
+        "id": "e75c8751.43d8e8",
+        "type": "start-up-trigger",
+        "z": "dc4e7734.5f3478",
+        "x": 100,
+        "y": 1700,
+        "wires": [
+            [
+                "d6a227f.2af1dd8"
+            ]
+        ]
+    },
+    {
+        "id": "cef2b1ca.48526",
+        "type": "exec",
+        "z": "dc4e7734.5f3478",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "exec_cmd",
+        "x": 1410,
+        "y": 1700,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "445d659b.66e55c",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "recharge son",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"reload_sounds\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 870,
+        "y": 1700,
+        "wires": [
+            [
+                "d7fb57e6.54e738",
+                "b4303cb4.dd078",
+                "7fb3e2e8.0dd3ac",
+                "33a2ec12.bb1da4",
+                "c4721559.5910d8",
+                "6c2eea9.be4a314",
+                "19edbee8.d0d781",
+                "2e570bc2.974b04",
+                "e4c70691.d67408",
+                "510453c7.7267cc",
+                "853cbcbd.5c4f",
+                "db81a294.75b3f",
+                "f46b4194.f46d8",
+                "cdc6e9d0.29aae8",
+                "2b110de0.d86e42",
+                "f25c328.851aed",
+                "2f791b9a.4dc624",
+                "c5fee126.97e29",
+                "541d5147.5b705",
+                "628192a6.8499ec",
+                "d3c7ffc8.27478",
+                "72a1ef99.7ecbf",
+                "dac1a517.1e0698",
+                "64ccedba.8b8644",
+                "478965f4.0a583c",
+                "260cf50f.f1b0ea",
+                "39d90319.149fec",
+                "732c06ff.d5c268",
+                "6a4e40c3.8c794",
+                "b23f48.fa8420b8",
+                "161d4c80.e6f4a4",
+                "9ff0e7ca.9baf38",
+                "f62dbf2.cfe9b4",
+                "84270af8.8ea7c8",
+                "b225ade0.694fa",
+                "2555cff.87dba3",
+                "74df4caa.4ea7e4",
+                "3f7ce5ff.bd5f2a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ba01c11.02f3b4",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "sound_effect bip",
+        "func": "let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1240,
+        "y": 1700,
+        "wires": [
+            [
+                "cef2b1ca.48526"
+            ]
+        ]
+    },
+    {
+        "id": "2f4d28c2.31a038",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 500,
+        "y": 1700,
+        "wires": [
+            [
+                "c80db1ea.dffbc"
+            ]
+        ]
+    },
+    {
+        "id": "d7fb57e6.54e738",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1060,
+        "y": 1700,
+        "wires": [
+            [
+                "ba01c11.02f3b4"
+            ]
+        ]
+    },
+    {
+        "id": "c80db1ea.dffbc",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "sommeil / attente",
+        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690,
+        "y": 1700,
+        "wires": [
+            [
+                "445d659b.66e55c"
             ]
         ]
     },
@@ -8811,12 +9033,12 @@
         "name": "search clear_take_off",
         "path": "./../sounds/clear_take_off/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 660,
-        "y": 720,
+        "x": 580,
+        "y": 1300,
         "wires": [
             [
                 "3cbf1215.2b2a7e"
@@ -8828,15 +9050,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"clear_take_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"clear_take_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 720,
+        "x": 1100,
+        "y": 1300,
         "wires": [
-            [
-                "b23f48.fa8420b8"
-            ]
+            []
         ]
     },
     {
@@ -8846,12 +9066,12 @@
         "name": "search clear_landing sounds",
         "path": "./../sounds/clear_landing/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 400,
-        "y": 740,
+        "x": 600,
+        "y": 1340,
         "wires": [
             [
                 "3b044e0e.d7f662"
@@ -8863,15 +9083,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"clear_landing\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"clear_landing\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 740,
+        "x": 1200,
+        "y": 1340,
         "wires": [
-            [
-                "84270af8.8ea7c8"
-            ]
+            []
         ]
     },
     {
@@ -8881,12 +9099,12 @@
         "name": "search active_scan_off sounds",
         "path": "./../sounds/active_scan_off/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 410,
-        "y": 300,
+        "x": 610,
+        "y": 440,
         "wires": [
             [
                 "617b55ef.28c9ec"
@@ -8898,14 +9116,422 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"active_scan_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"active_scan_off\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 300,
+        "x": 1100,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bbd2cb6d.c8ed28",
+        "type": "inject",
+        "z": "dc4e7734.5f3478",
+        "name": "config.ini creator",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 2080,
         "wires": [
             [
-                "db81a294.75b3f"
+                "a9b65a5.d513ba8"
+            ]
+        ]
+    },
+    {
+        "id": "4080e2ad.92691c",
+        "type": "inject",
+        "z": "dc4e7734.5f3478",
+        "name": "config.ini reader",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 2120,
+        "wires": [
+            [
+                "d92fa6e3.15f298"
+            ]
+        ]
+    },
+    {
+        "id": "98743cc6.b45d3",
+        "type": "trigger",
+        "z": "dc4e7734.5f3478",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 560,
+        "y": 2040,
+        "wires": [
+            [
+                "a9b65a5.d513ba8",
+                "cde78ec6.218c2"
+            ]
+        ]
+    },
+    {
+        "id": "a9b65a5.d513ba8",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "Config creator",
+        "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\";\nmsg.payload+=\"# Quelle voix utilisez vous (voix_1, voix_2), voix_1 ->SWAN voix_2->TROPPER par défaut voix_1\\n\";\nmsg.payload+=\"voice=\"+global.get(\"voice\")+\"\\n\\n\";\n\nmsg.payload+=\"# Si vous avez déjà modifier le nom et que vous voulez en changer de nouveau, il faut mettre le dernier nom utilisé\\n\";\nmsg.payload+=\"last_swan_name=\"+global.get(\"last_swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# La définition de votre écran pour Higor le déménageur breton\\n\";\nmsg.payload+=\"# 1920x1080 ou  2560x1440 ou 7680x1440\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"display\")+\"\\n\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre identifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\n\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"request_landing=\"+global.get(\"request_landing\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"open_gear=\"+global.get(\"open_gear\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"close_gear=\"+global.get(\"close_gear\")+\"\\n\\n\";\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"v_lights=\"+global.get(\"v_lights\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"v_lights=\"+global.get(\"v_lights\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"v_flightready=\"+global.get(\"v_flightready\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"v_starmap=\"+global.get(\"v_starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"v_scanning_trigger_scan=\"+global.get(\"v_scanning_trigger_scan\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"v_open_all_doors=\"+global.get(\"v_open_all_doors\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"v_close_all_doors=\"+global.get(\"v_close_all_doors\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"start_engine=\"+global.get(\"start_engine\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"cut_engine=\"+global.get(\"cut_engine\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"start_power=\"+global.get(\"start_power\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"cut_power=\"+global.get(\"cut_power\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"v_toggle_qdrive_engagement=\"+global.get(\"v_toggle_qdrive_engagement\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"v_toggle_mining_mode=\"+global.get(\"v_toggle_mining_mode\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"v_jettison_volatile_cargo=\"+global.get(\"v_jettison_volatile_cargo\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"open_VTOL=\"+global.get(\"open_VTOL\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"close_VTOL=\"+global.get(\"close_VTOL\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"v_capacitor_assignment_shield_increase=\"+global.get(\"v_capacitor_assignment_shield_increase\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"v_capacitor_assignment_reset=\"+global.get(\"v_capacitor_assignment_reset\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"v_shield_raise_level_forward=\"+global.get(\"v_shield_raise_level_forward\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"v_shield_raise_level_back=\"+global.get(\"v_shield_raise_level_back\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"v_shield_raise_level_left=\"+global.get(\"v_shield_raise_level_left\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"v_shield_raise_level_right=\"+global.get(\"v_shield_raise_level_right\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"v_shield_reset_level=\"+global.get(\"v_shield_reset_level\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"target_lock=\"+global.get('target_lock')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"target_unlock=\"+global.get('target_unlock')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"v_toggle_missile_mode=\"+global.get('v_toggle_missile_mode')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"v_weapon_launch_missile=\"+global.get('v_weapon_launch_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"change_q_m=\"+global.get('change_q_m')+\"\\n\\n\";\n\nreturn msg;\n//config de base\n\n\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 960,
+        "y": 2080,
+        "wires": [
+            [
+                "a2c30660.b569d8"
+            ]
+        ]
+    },
+    {
+        "id": "a2c30660.b569d8",
+        "type": "file",
+        "z": "dc4e7734.5f3478",
+        "name": "",
+        "filename": "./../config.ini",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1130,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "d92fa6e3.15f298",
+        "type": "file in",
+        "z": "dc4e7734.5f3478",
+        "name": "open config.ini",
+        "filename": "./../config.ini",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 760,
+        "y": 2120,
+        "wires": [
+            [
+                "4840be68.10058"
+            ]
+        ]
+    },
+    {
+        "id": "4840be68.10058",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "config loader",
+        "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    //console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    //quella voix à utiliser\n\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=200  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n\n\n\nglobal.set(\"SWAN_M\",[])\n\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\nglobal.set('path_sound',global.get('swan_path')+'\\\\sounds\\\\');\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 2120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6562fde8.b5f894",
+        "type": "start-up-trigger",
+        "z": "dc4e7734.5f3478",
+        "x": 120,
+        "y": 2040,
+        "wires": [
+            [
+                "98743cc6.b45d3",
+                "d92fa6e3.15f298"
+            ]
+        ]
+    },
+    {
+        "id": "e0e0459b.a340e8",
+        "type": "inject",
+        "z": "dc4e7734.5f3478",
+        "name": "Chargement et mise à jours manuel",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 200,
+        "y": 2000,
+        "wires": [
+            [
+                "98743cc6.b45d3",
+                "d92fa6e3.15f298"
+            ]
+        ]
+    },
+    {
+        "id": "6842eddc.17ebb4",
+        "type": "comment",
+        "z": "dc4e7734.5f3478",
+        "name": "gestion du config.ini",
+        "info": "\n\n",
+        "x": 110,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "da0a34a5.77a718",
+        "type": "trigger",
+        "z": "dc4e7734.5f3478",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 320,
+        "y": 1820,
+        "wires": [
+            [
+                "2b18832.b17bc7c"
+            ]
+        ]
+    },
+    {
+        "id": "b3c41203.6560c",
+        "type": "start-up-trigger",
+        "z": "dc4e7734.5f3478",
+        "x": 100,
+        "y": 1820,
+        "wires": [
+            [
+                "da0a34a5.77a718"
+            ]
+        ]
+    },
+    {
+        "id": "a9af8181.19785",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "recharge la configuration",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"reload_keybinding\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 790,
+        "y": 1820,
+        "wires": [
+            [
+                "498de7c5.ddea08"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2b18832.b17bc7c",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 1820,
+        "wires": [
+            [
+                "a9af8181.19785"
+            ]
+        ]
+    },
+    {
+        "id": "498de7c5.ddea08",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 1920,
+        "wires": [
+            [
+                "d92fa6e3.15f298",
+                "98743cc6.b45d3"
+            ]
+        ]
+    },
+    {
+        "id": "baab05e3.73f428",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search xml phraseo",
+        "path": "./../viseo-bot-project/data/grammar/",
+        "pathType": "str",
+        "filter": "*.xml",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 930,
+        "y": 2200,
+        "wires": [
+            [
+                "f5df9203.e6cbd"
+            ]
+        ]
+    },
+    {
+        "id": "2d2b69bc.eeb8d6",
+        "type": "inject",
+        "z": "dc4e7734.5f3478",
+        "name": "Mise à jour manuel XML",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170,
+        "y": 2200,
+        "wires": [
+            [
+                "baab05e3.73f428"
+            ]
+        ]
+    },
+    {
+        "id": "95fd9205.656d9",
+        "type": "loop",
+        "z": "dc4e7734.5f3478",
+        "name": "parcour liste fichiers xml",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload",
+        "enumerationType": "msg",
+        "limit": "500",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-last",
+        "x": 1350,
+        "y": 2200,
+        "wires": [
+            [],
+            [
+                "61cc2fb2.d3445"
+            ]
+        ]
+    },
+    {
+        "id": "61cc2fb2.d3445",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "fichier en cours",
+        "func": "msg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\grammar\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1320,
+        "y": 2260,
+        "wires": [
+            [
+                "95fd9205.656d9",
+                "2292f96d.df8ad6"
+            ]
+        ]
+    },
+    {
+        "id": "f5df9203.e6cbd",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "conv tableau",
+        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1090,
+        "y": 2200,
+        "wires": [
+            [
+                "95fd9205.656d9"
+            ]
+        ]
+    },
+    {
+        "id": "2292f96d.df8ad6",
+        "type": "file in",
+        "z": "dc4e7734.5f3478",
+        "name": "auto",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 1510,
+        "y": 2260,
+        "wires": [
+            [
+                "caf538f0.a5e368"
+            ]
+        ]
+    },
+    {
+        "id": "caf538f0.a5e368",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "change name",
+        "func": "if(!msg.payload.includes(\"<item>\"+global.get('swan_name')+\"</item>\"))\n{\n    msg.payload=msg.payload.replace(\"<item>SWAN</item>\",\"<item>\"+global.get('swan_name')+\"</item>\")\n    msg.payload=msg.payload.replace(\"<item>\"+global.get('last_swan_name')+\"</item>\",\"<item>\"+global.get('swan_name')+\"</item>\")\n    return msg\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1660,
+        "y": 2260,
+        "wires": [
+            [
+                "65e5587f.398d68"
+            ]
+        ]
+    },
+    {
+        "id": "65e5587f.398d68",
+        "type": "file",
+        "z": "dc4e7734.5f3478",
+        "name": "file .xml",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1920,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "cde78ec6.218c2",
+        "type": "trigger",
+        "z": "dc4e7734.5f3478",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 740,
+        "y": 2160,
+        "wires": [
+            [
+                "baab05e3.73f428"
             ]
         ]
     },
@@ -8915,8 +9541,196 @@
         "z": "dc4e7734.5f3478",
         "name": "gestion banque sonore",
         "info": "\n\n",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d1b9e5df.b32228",
+        "type": "inject",
+        "z": "dc4e7734.5f3478",
+        "name": "léxique créator",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
         "x": 140,
-        "y": 100,
+        "y": 2460,
+        "wires": [
+            [
+                "1859db78.bca815",
+                "a2ef2a29.d5a378"
+            ]
+        ]
+    },
+    {
+        "id": "1859db78.bca815",
+        "type": "file",
+        "z": "dc4e7734.5f3478",
+        "name": "",
+        "filename": "./../lexique.txt",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "delete",
+        "x": 400,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "a2ef2a29.d5a378",
+        "type": "trigger",
+        "z": "dc4e7734.5f3478",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 360,
+        "y": 2460,
+        "wires": [
+            [
+                "c994f479.b1e958"
+            ]
+        ]
+    },
+    {
+        "id": "79a30c62.02cc04",
+        "type": "file in",
+        "z": "dc4e7734.5f3478",
+        "name": "open_file",
+        "filename": "",
+        "format": "lines",
+        "chunk": false,
+        "sendError": true,
+        "x": 1160,
+        "y": 2520,
+        "wires": [
+            [
+                "fc7afebf.705d8"
+            ]
+        ]
+    },
+    {
+        "id": "fc7afebf.705d8",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "nettoyage",
+        "func": "let line=msg.payload\nlet delete_0='<one-of>'\nlet delete_1='</one-of>'\nlet delete_2='rule id\">'\nlet delete_3='<grammar version=\"1.0\" xml:'\nlet delete_4='</grammar>'\nlet delete_5='<tag>out.action.'\nlet delete_6='</rule>'\nlet delete_7='<tag>out.action=new Object(); </tag>'\nlet delete_8=\"<item></item>\"\nlet delete_9='<rule id=';\nlet delete_10=global.get('swan_name');\n\nif(line.includes(delete_10) || line.includes(delete_9) ||line.includes(delete_8) ||line.includes(delete_7) || line.includes(delete_0) || line.includes(delete_1) || line.includes(delete_2) || line.includes(delete_3) || line.includes(delete_4) || line.includes(delete_5) || line.includes(delete_6))\n{\n}\nelse\n{\n    \n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('<!--', '\\n\\n<!--')\n    line=line.replace('<item>', '')\n    line=line.replace('</item>', '')\n    msg.payload=\"\\t\\t-\"+line\n    return msg \n}\n\n\n\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 1340,
+        "y": 2520,
+        "wires": [
+            [
+                "3706b766.870818"
+            ]
+        ]
+    },
+    {
+        "id": "3706b766.870818",
+        "type": "file",
+        "z": "dc4e7734.5f3478",
+        "name": "",
+        "filename": "./../lexique.txt",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "x": 1510,
+        "y": 2520,
+        "wires": []
+    },
+    {
+        "id": "c994f479.b1e958",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search xml phraseo",
+        "path": "./../viseo-bot-project/data/grammar/",
+        "pathType": "str",
+        "filter": "*.xml",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 530,
+        "y": 2460,
+        "wires": [
+            [
+                "de4bd0c1.67835"
+            ]
+        ]
+    },
+    {
+        "id": "49a01af1.4ae0b4",
+        "type": "loop",
+        "z": "dc4e7734.5f3478",
+        "name": "parcour liste fichiers xml",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload",
+        "enumerationType": "msg",
+        "limit": "500",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-last",
+        "x": 950,
+        "y": 2460,
+        "wires": [
+            [],
+            [
+                "f74972ef.046f6"
+            ]
+        ]
+    },
+    {
+        "id": "f74972ef.046f6",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "fichier en cours",
+        "func": "msg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\grammar\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 2520,
+        "wires": [
+            [
+                "49a01af1.4ae0b4",
+                "79a30c62.02cc04"
+            ]
+        ]
+    },
+    {
+        "id": "de4bd0c1.67835",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "conv tableau",
+        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690,
+        "y": 2460,
+        "wires": [
+            [
+                "49a01af1.4ae0b4"
+            ]
+        ]
+    },
+    {
+        "id": "96be58b7.0bb068",
+        "type": "comment",
+        "z": "dc4e7734.5f3478",
+        "name": "Création du lexique par rapport au différent fichier existant",
+        "info": "\n\n",
+        "x": 230,
+        "y": 2360,
         "wires": []
     },
     {
@@ -8926,12 +9740,12 @@
         "name": "search phase_chil sounds",
         "path": "./../sounds/phase_chil/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 390,
-        "y": 780,
+        "x": 590,
+        "y": 1420,
         "wires": [
             [
                 "cf35d723.df57d8"
@@ -8943,15 +9757,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"phase_chil\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"phase_chil\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 780,
+        "x": 1200,
+        "y": 1420,
         "wires": [
-            [
-                "2555cff.87dba3"
-            ]
+            []
         ]
     },
     {
@@ -8961,12 +9773,12 @@
         "name": "search phase_combatsounds",
         "path": "./../sounds/phase_combat/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 680,
-        "y": 800,
+        "x": 600,
+        "y": 1460,
         "wires": [
             [
                 "226bc3de.f3f19c"
@@ -8978,15 +9790,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"phase_combat\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"phase_combat\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 800,
+        "x": 1100,
+        "y": 1460,
         "wires": [
-            [
-                "74df4caa.4ea7e4"
-            ]
+            []
         ]
     },
     {
@@ -8996,12 +9806,12 @@
         "name": "search phase_décollage sounds",
         "path": "./../sounds/phase_décollage/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 410,
-        "y": 820,
+        "x": 610,
+        "y": 1500,
         "wires": [
             [
                 "4db6ca5.dab5b34"
@@ -9013,15 +9823,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"phase_décollage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"phase_décollage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 980,
-        "y": 820,
+        "x": 1200,
+        "y": 1500,
         "wires": [
-            [
-                "c3291222.55717"
-            ]
+            []
         ]
     },
     {
@@ -9031,12 +9839,12 @@
         "name": "search phase_aterrisage sounds",
         "path": "./../sounds/phase_aterrisage/",
         "pathType": "str",
-        "filter": "*",
+        "filter": "*.mp4",
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 690,
-        "y": 760,
+        "x": 610,
+        "y": 1380,
         "wires": [
             [
                 "54f02fc.35439d"
@@ -9048,15 +9856,13 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "set number directory",
-        "func": "let thematique=\"phase_aterrisage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",msg.files);\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "func": "let thematique=\"phase_aterrisage\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].includes(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nmsg.files=sounds_check\n\nglobal.set(thematique+\"_sound\",msg.files);\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
-        "y": 760,
+        "x": 1100,
+        "y": 1380,
         "wires": [
-            [
-                "b225ade0.694fa"
-            ]
+            []
         ]
     },
     {
@@ -9575,639 +10381,5 @@
                 "fc8ec33a.e9bf3"
             ]
         ]
-    },
-    {
-        "id": "42116dc8.6dd864",
-        "type": "inject",
-        "z": "dc4e7734.5f3478",
-        "name": "scan sounds db",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 120,
-        "y": 800,
-        "wires": [
-            [
-                "b4303cb4.dd078"
-            ]
-        ]
-    },
-    {
-        "id": "d92d1490.082518",
-        "type": "start-up-trigger",
-        "z": "dc4e7734.5f3478",
-        "x": 120,
-        "y": 760,
-        "wires": [
-            [
-                "b4303cb4.dd078"
-            ]
-        ]
-    },
-    {
-        "id": "d6a227f.2af1dd8",
-        "type": "trigger",
-        "z": "dc4e7734.5f3478",
-        "op1": "true",
-        "op2": "0",
-        "op1type": "bool",
-        "op2type": "str",
-        "duration": "-250",
-        "extend": false,
-        "units": "ms",
-        "reset": "",
-        "name": "",
-        "x": 160,
-        "y": 60,
-        "wires": [
-            [
-                "2f4d28c2.31a038"
-            ]
-        ]
-    },
-    {
-        "id": "cef2b1ca.48526",
-        "type": "exec",
-        "z": "dc4e7734.5f3478",
-        "command": "",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "exec_cmd",
-        "x": 1270,
-        "y": 60,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "ba01c11.02f3b4",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "sound_effect bip",
-        "func": "let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1100,
-        "y": 60,
-        "wires": [
-            [
-                "cef2b1ca.48526"
-            ]
-        ]
-    },
-    {
-        "id": "2f4d28c2.31a038",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "search in mem",
-        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 360,
-        "y": 60,
-        "wires": [
-            [
-                "c80db1ea.dffbc"
-            ]
-        ]
-    },
-    {
-        "id": "d7fb57e6.54e738",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "use memory",
-        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 920,
-        "y": 60,
-        "wires": [
-            [
-                "ba01c11.02f3b4"
-            ]
-        ]
-    },
-    {
-        "id": "c80db1ea.dffbc",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "sommeil / attente",
-        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 60,
-        "wires": [
-            [
-                "8c86f913.4259a8"
-            ]
-        ]
-    },
-    {
-        "id": "8c86f913.4259a8",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "recharge son",
-        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"reload_sounds\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 750,
-        "y": 60,
-        "wires": [
-            [
-                "d7fb57e6.54e738",
-                "b4303cb4.dd078"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "eaba295e.216928",
-        "type": "inject",
-        "z": "dc4e7734.5f3478",
-        "name": "léxique créator",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 180,
-        "y": 1080,
-        "wires": [
-            [
-                "fc06a603.93da68",
-                "61283eef.c84d6"
-            ]
-        ]
-    },
-    {
-        "id": "fc06a603.93da68",
-        "type": "file",
-        "z": "dc4e7734.5f3478",
-        "name": "",
-        "filename": "./../lexique.txt",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "delete",
-        "x": 500,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "61283eef.c84d6",
-        "type": "trigger",
-        "z": "dc4e7734.5f3478",
-        "op1": "",
-        "op2": "",
-        "op1type": "nul",
-        "op2type": "pay",
-        "duration": "3",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 440,
-        "y": 1080,
-        "wires": [
-            [
-                "fc52ec3b.d1972"
-            ]
-        ]
-    },
-    {
-        "id": "1e994308.50917d",
-        "type": "file in",
-        "z": "dc4e7734.5f3478",
-        "name": "open_file",
-        "filename": "",
-        "format": "lines",
-        "chunk": false,
-        "sendError": true,
-        "x": 1160,
-        "y": 1140,
-        "wires": [
-            [
-                "67c54831.804eb8"
-            ]
-        ]
-    },
-    {
-        "id": "67c54831.804eb8",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "nettoyage",
-        "func": "let line=msg.payload\nlet delete_0='<one-of>'\nlet delete_1='</one-of>'\nlet delete_2='rule id\">'\nlet delete_3='<grammar version=\"1.0\" xml:'\nlet delete_4='</grammar>'\nlet delete_5='<tag>out.action.'\nlet delete_6='</rule>'\nlet delete_7='<tag>out.action=new Object(); </tag>'\nlet delete_8=\"<item></item>\"\nlet delete_9='<rule id=';\nlet delete_10=global.get('swan_name');\n\nif(line.includes(delete_10) || line.includes(delete_9) ||line.includes(delete_8) ||line.includes(delete_7) || line.includes(delete_0) || line.includes(delete_1) || line.includes(delete_2) || line.includes(delete_3) || line.includes(delete_4) || line.includes(delete_5) || line.includes(delete_6))\n{\n}\nelse\n{\n    \n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('\\t', '')\n    line=line.replace('<!--', '\\n\\n<!--')\n    line=line.replace('<item>', '')\n    line=line.replace('</item>', '')\n    msg.payload=\"\\t\\t-\"+line\n    return msg \n}\n\n\n\n",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 1280,
-        "y": 1140,
-        "wires": [
-            [
-                "867121fe.d3bbd",
-                "55022bba.674eb4"
-            ]
-        ]
-    },
-    {
-        "id": "867121fe.d3bbd",
-        "type": "file",
-        "z": "dc4e7734.5f3478",
-        "name": "",
-        "filename": "./../lexique.txt",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "false",
-        "x": 1410,
-        "y": 1140,
-        "wires": []
-    },
-    {
-        "id": "fc52ec3b.d1972",
-        "type": "fs-ops-dir",
-        "z": "dc4e7734.5f3478",
-        "name": "search xml phraseo",
-        "path": "./../viseo-bot-project/data/grammar/",
-        "pathType": "str",
-        "filter": "*.xml",
-        "filterType": "str",
-        "dir": "files",
-        "dirType": "msg",
-        "x": 610,
-        "y": 1080,
-        "wires": [
-            [
-                "74504385.19e19c"
-            ]
-        ]
-    },
-    {
-        "id": "1b2ff4c2.fcd85b",
-        "type": "loop",
-        "z": "dc4e7734.5f3478",
-        "name": "parcour liste fichiers xml",
-        "kind": "enum",
-        "count": "",
-        "initial": "1",
-        "step": "1",
-        "condition": "",
-        "conditionType": "js",
-        "when": "before",
-        "enumeration": "payload",
-        "enumerationType": "msg",
-        "limit": "500",
-        "loopPayload": "loop-val",
-        "finalPayload": "final-last",
-        "x": 1030,
-        "y": 1080,
-        "wires": [
-            [],
-            [
-                "ad38f494.de06a8"
-            ]
-        ]
-    },
-    {
-        "id": "ad38f494.de06a8",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "fichier en cours",
-        "func": "msg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\grammar\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1040,
-        "y": 1120,
-        "wires": [
-            [
-                "1b2ff4c2.fcd85b",
-                "1e994308.50917d"
-            ]
-        ]
-    },
-    {
-        "id": "74504385.19e19c",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "conv tableau",
-        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 770,
-        "y": 1080,
-        "wires": [
-            [
-                "1b2ff4c2.fcd85b"
-            ]
-        ]
-    },
-    {
-        "id": "7b87255a.5906fc",
-        "type": "comment",
-        "z": "dc4e7734.5f3478",
-        "name": "Création du lexique par rapport au différent fichier existant",
-        "info": "\n\n",
-        "x": 230,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "83fa54b5.7266f8",
-        "type": "comment",
-        "z": "dc4e7734.5f3478",
-        "name": "gestion du config.ini",
-        "info": "\n\n",
-        "x": 110,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "c3291222.55717",
-        "type": "file in",
-        "z": "dc4e7734.5f3478",
-        "name": "open config.ini",
-        "filename": "./../config.ini",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "x": 200,
-        "y": 940,
-        "wires": [
-            [
-                "6b0bf1f4.9084a"
-            ]
-        ]
-    },
-    {
-        "id": "6b0bf1f4.9084a",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "config loader",
-        "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    //console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    //quella voix à utiliser\n\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=200  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n\n\n\nglobal.set(\"SWAN_M\",[])\n\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\nglobal.set('path_sound',global.get('swan_path')+'\\\\sounds\\\\');\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 390,
-        "y": 940,
-        "wires": [
-            [
-                "df632848.355988"
-            ]
-        ]
-    },
-    {
-        "id": "df632848.355988",
-        "type": "trigger",
-        "z": "dc4e7734.5f3478",
-        "op1": "",
-        "op2": "",
-        "op1type": "nul",
-        "op2type": "pay",
-        "duration": "1",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 600,
-        "y": 940,
-        "wires": [
-            [
-                "205a09b.06a47f6"
-            ]
-        ]
-    },
-    {
-        "id": "205a09b.06a47f6",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "Config creator",
-        "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\";\nmsg.payload+=\"# Quelle voix utilisez vous (voix_1, voix_2), voix_1 ->SWAN voix_2->TROPPER par défaut voix_1\\n\";\nmsg.payload+=\"voice=\"+global.get(\"voice\")+\"\\n\\n\";\n\nmsg.payload+=\"# Si vous avez déjà modifier le nom et que vous voulez en changer de nouveau, il faut mettre le dernier nom utilisé\\n\";\nmsg.payload+=\"last_swan_name=\"+global.get(\"last_swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# La définition de votre écran pour Higor le déménageur breton\\n\";\nmsg.payload+=\"# 1920x1080 ou  2560x1440 ou 7680x1440\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"display\")+\"\\n\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre identifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\n\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"request_landing=\"+global.get(\"request_landing\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"open_gear=\"+global.get(\"open_gear\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"close_gear=\"+global.get(\"close_gear\")+\"\\n\\n\";\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"v_lights=\"+global.get(\"v_lights\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"v_lights=\"+global.get(\"v_lights\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"v_flightready=\"+global.get(\"v_flightready\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"v_starmap=\"+global.get(\"v_starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"v_scanning_trigger_scan=\"+global.get(\"v_scanning_trigger_scan\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"v_open_all_doors=\"+global.get(\"v_open_all_doors\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"v_close_all_doors=\"+global.get(\"v_close_all_doors\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"start_engine=\"+global.get(\"start_engine\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"cut_engine=\"+global.get(\"cut_engine\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"start_power=\"+global.get(\"start_power\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"cut_power=\"+global.get(\"cut_power\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"v_toggle_qdrive_engagement=\"+global.get(\"v_toggle_qdrive_engagement\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"v_toggle_mining_mode=\"+global.get(\"v_toggle_mining_mode\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"v_jettison_volatile_cargo=\"+global.get(\"v_jettison_volatile_cargo\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"open_VTOL=\"+global.get(\"open_VTOL\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"close_VTOL=\"+global.get(\"close_VTOL\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"v_capacitor_assignment_shield_increase=\"+global.get(\"v_capacitor_assignment_shield_increase\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"v_capacitor_assignment_reset=\"+global.get(\"v_capacitor_assignment_reset\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"v_shield_raise_level_forward=\"+global.get(\"v_shield_raise_level_forward\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"v_shield_raise_level_back=\"+global.get(\"v_shield_raise_level_back\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"v_shield_raise_level_left=\"+global.get(\"v_shield_raise_level_left\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"v_shield_raise_level_right=\"+global.get(\"v_shield_raise_level_right\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"v_shield_reset_level=\"+global.get(\"v_shield_reset_level\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"target_lock=\"+global.get('target_lock')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"target_unlock=\"+global.get('target_unlock')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"v_toggle_missile_mode=\"+global.get('v_toggle_missile_mode')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"v_weapon_launch_missile=\"+global.get('v_weapon_launch_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"change_q_m=\"+global.get('change_q_m')+\"\\n\\n\";\n\nreturn msg;\n//config de base\n\n\n",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 780,
-        "y": 940,
-        "wires": [
-            [
-                "7ec1c147.cf8c8",
-                "916f2824.e0c8b8"
-            ]
-        ]
-    },
-    {
-        "id": "7ec1c147.cf8c8",
-        "type": "file",
-        "z": "dc4e7734.5f3478",
-        "name": "",
-        "filename": "./../config.ini",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "true",
-        "x": 990,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "cc2b4307.0a7ba",
-        "type": "trigger",
-        "z": "dc4e7734.5f3478",
-        "op1": "",
-        "op2": "",
-        "op1type": "nul",
-        "op2type": "pay",
-        "duration": "1",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 680,
-        "y": 1240,
-        "wires": [
-            [
-                "5b8f2c8d.1ca6e4"
-            ]
-        ]
-    },
-    {
-        "id": "55022bba.674eb4",
-        "type": "trigger",
-        "z": "dc4e7734.5f3478",
-        "op1": "",
-        "op2": "",
-        "op1type": "nul",
-        "op2type": "pay",
-        "duration": "1",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 1540,
-        "y": 1140,
-        "wires": [
-            [
-                "a9afffb3.daac9"
-            ]
-        ]
-    },
-    {
-        "id": "5b8f2c8d.1ca6e4",
-        "type": "fs-ops-dir",
-        "z": "dc4e7734.5f3478",
-        "name": "search xml phraseo",
-        "path": "./../viseo-bot-project/data/grammar/",
-        "pathType": "str",
-        "filter": "*.xml",
-        "filterType": "str",
-        "dir": "files",
-        "dirType": "msg",
-        "x": 170,
-        "y": 1360,
-        "wires": [
-            [
-                "c10285bf.500828"
-            ]
-        ]
-    },
-    {
-        "id": "effbd915.bd8268",
-        "type": "loop",
-        "z": "dc4e7734.5f3478",
-        "name": "parcour liste fichiers xml",
-        "kind": "enum",
-        "count": "",
-        "initial": "1",
-        "step": "1",
-        "condition": "",
-        "conditionType": "js",
-        "when": "before",
-        "enumeration": "payload",
-        "enumerationType": "msg",
-        "limit": "500",
-        "loopPayload": "loop-val",
-        "finalPayload": "final-last",
-        "x": 590,
-        "y": 1360,
-        "wires": [
-            [],
-            [
-                "f171d68a.198048"
-            ]
-        ]
-    },
-    {
-        "id": "f171d68a.198048",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "fichier en cours",
-        "func": "msg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\grammar\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 560,
-        "y": 1420,
-        "wires": [
-            [
-                "effbd915.bd8268",
-                "12af5f0c.6c2f61"
-            ]
-        ]
-    },
-    {
-        "id": "c10285bf.500828",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "conv tableau",
-        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 330,
-        "y": 1360,
-        "wires": [
-            [
-                "effbd915.bd8268"
-            ]
-        ]
-    },
-    {
-        "id": "12af5f0c.6c2f61",
-        "type": "file in",
-        "z": "dc4e7734.5f3478",
-        "name": "auto",
-        "filename": "",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "x": 750,
-        "y": 1420,
-        "wires": [
-            [
-                "931d30bf.c63ef"
-            ]
-        ]
-    },
-    {
-        "id": "931d30bf.c63ef",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "change name",
-        "func": "if(!msg.payload.includes(\"<item>\"+global.get('swan_name')+\"</item>\"))\n{\n    msg.payload=msg.payload.replace(\"<item>SWAN</item>\",\"<item>\"+global.get('swan_name')+\"</item>\")\n    msg.payload=msg.payload.replace(\"<item>\"+global.get('last_swan_name')+\"</item>\",\"<item>\"+global.get('swan_name')+\"</item>\")\n    return msg\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 900,
-        "y": 1420,
-        "wires": [
-            [
-                "a8e85a53.0c01d8"
-            ]
-        ]
-    },
-    {
-        "id": "a8e85a53.0c01d8",
-        "type": "file",
-        "z": "dc4e7734.5f3478",
-        "name": "file .xml",
-        "filename": "",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "true",
-        "x": 1160,
-        "y": 1420,
-        "wires": []
-    },
-    {
-        "id": "916f2824.e0c8b8",
-        "type": "trigger",
-        "z": "dc4e7734.5f3478",
-        "op1": "",
-        "op2": "",
-        "op1type": "nul",
-        "op2type": "pay",
-        "duration": "1",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 160,
-        "y": 1040,
-        "wires": [
-            [
-                "61283eef.c84d6",
-                "fc06a603.93da68"
-            ]
-        ]
-    },
-    {
-        "id": "c6d4b96e.d5aee8",
-        "type": "comment",
-        "z": "dc4e7734.5f3478",
-        "name": "Modification  des fichier dictionnaire.",
-        "info": "\n\n",
-        "x": 180,
-        "y": 1320,
-        "wires": []
     }
 ]
