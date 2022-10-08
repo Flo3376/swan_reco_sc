@@ -190,16 +190,6 @@
     <rebind input="kb1_scrolllock"/>
    </action>
   </actionmap>
-  <actionmap name="spaceship_targeting">
-   <action name="v_target_unlock_selected">
-    <rebind input="kb1_lalt+x"/>
-   </action>
-  </actionmap>
-  <actionmap name="spaceship_targeting_advanced">
-   <action name="v_target_cycle_in_view_reset">
-    <rebind input="kb1_e"/>
-   </action>
-  </actionmap>
   <actionmap name="spaceship_radar">
    <action name="v_invoke_ping">
     <rebind input="js2_button6"/>

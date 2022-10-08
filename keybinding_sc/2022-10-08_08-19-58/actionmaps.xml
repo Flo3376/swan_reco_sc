@@ -97,7 +97,7 @@
     <rebind input="js2_button16"/>
    </action>
    <action name="v_accel_range_rel">
-    <rebind input="kb1_maxis_y"/>
+    <rebind input="mo1_maxis_y"/>
    </action>
    <action name="v_accel_range_up">
     <rebind input="kb1_np_7"/>
@@ -188,16 +188,6 @@
    </action>
    <action name="v_yaw_right">
     <rebind input="kb1_scrolllock"/>
-   </action>
-  </actionmap>
-  <actionmap name="spaceship_targeting">
-   <action name="v_target_unlock_selected">
-    <rebind input="kb1_lalt+x"/>
-   </action>
-  </actionmap>
-  <actionmap name="spaceship_targeting_advanced">
-   <action name="v_target_cycle_in_view_reset">
-    <rebind input="kb1_e"/>
    </action>
   </actionmap>
   <actionmap name="spaceship_radar">

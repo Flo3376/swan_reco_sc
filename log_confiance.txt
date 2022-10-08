@@ -44,3 +44,13 @@
 2022-10-04 21:24:19    0.924    SWAN lance ma playlist    play_music
 2022-10-04 21:27:10    0.911    SWAN lance ma playlist    play_music
 2022-10-06 22:0:21    undefined    undefined    undefined
+2022-10-07 18:32:52    undefined    undefined    undefined
+2022-10-07 18:54:48    0.817    feu    fire_missile
+2022-10-08 8:28:19    undefined    undefined    undefined
+2022-10-08 8:31:37    0.899    feu    fire_missile
+2022-10-08 8:53:2    undefined    undefined    undefined
+2022-10-08 8:54:50    undefined    undefined    undefined
+2022-10-08 8:55:30    undefined    undefined    undefined
+2022-10-08 9:0:55    undefined    undefined    undefined
+2022-10-08 9:1:27    0.913    feu    fire_missile
+2022-10-08 9:8:19    undefined    undefined    undefined

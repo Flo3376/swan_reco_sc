@@ -20,87 +20,30 @@
   <modifiers />
   <actionmap name="seat_general">
    <action name="v_toggle_mining_mode">
-    <rebind input="kb1_equals"/>
     <rebind input="js3_button30"/>
-   </action>
-   <action name="v_toggle_missile_mode">
-    <rebind input="kb1_lbracket"/>
-   </action>
-   <action name="v_toggle_quantum_mode">
-    <rebind input="kb1_rbracket"/>
-   </action>
-   <action name="v_toggle_scan_mode">
-    <rebind input="kb1_minus"/>
-   </action>
-   <action name="v_view_look_behind">
-    <rebind input="kb1_1"/>
    </action>
   </actionmap>
   <actionmap name="spaceship_general">
    <action name="v_close_all_doors">
     <rebind input="kb1_backslash"/>
    </action>
-   <action name="v_cooler_throttle_down">
-    <rebind input="kb1_1"/>
-   </action>
-   <action name="v_cooler_throttle_up">
-    <rebind input="kb1_backslash"/>
-   </action>
-   <action name="v_lock_all_doors">
-    <rebind input="kb1_np_subtract"/>
-   </action>
    <action name="v_open_all_doors">
     <rebind input="kb1_rbracket"/>
    </action>
-   <action name="v_self_destruct">
-    <rebind input="kb1_apostrophe"/>
-   </action>
-   <action name="v_toggle_all_doorlocks">
-    <rebind input="kb1_np_multiply"/>
-   </action>
-   <action name="v_toggle_all_doors">
-    <rebind input="kb1_np_divide"/>
-   </action>
   </actionmap>
   <actionmap name="spaceship_view">
-   <action name="v_view_cycle_fwd">
-    <rebind input="kb1_ralt+k"/>
-   </action>
-   <action name="v_view_dynamic_zoom_abs_toggle">
-    <rebind input="kb1_end"/>
-   </action>
-   <action name="v_view_dynamic_zoom_rel_in">
-    <rebind input="kb1_insert"/>
-   </action>
-   <action name="v_view_dynamic_zoom_rel_out">
-    <rebind input="kb1_delete"/>
-   </action>
-   <action name="v_view_mode">
-    <rebind input="kb1_rctrl+l"/>
-   </action>
    <action name="v_view_pitch">
     <rebind input="js3_roty"/>
    </action>
    <action name="v_view_yaw">
     <rebind input="js3_rotx"/>
    </action>
-   <action name="v_view_yaw_left">
-    <rebind input="kb1_np_add"/>
-   </action>
-   <action name="v_view_yaw_right">
-    <rebind input="kb1_np_enter"/>
-   </action>
   </actionmap>
   <actionmap name="spaceship_movement">
    <action name="v_accel_range_down">
-    <rebind input="kb1_np_4"/>
     <rebind input="js2_button16"/>
    </action>
-   <action name="v_accel_range_rel">
-    <rebind input="kb1_maxis_y"/>
-   </action>
    <action name="v_accel_range_up">
-    <rebind input="kb1_np_7"/>
     <rebind input="js2_button14"/>
    </action>
    <action name="v_afterburner">
@@ -110,41 +53,27 @@
     <rebind input="kb1_f3"/>
    </action>
    <action name="v_autoland">
-    <rebind input="kb1_u"/>
     <rebind input="js3_ "/>
    </action>
    <action name="v_ifcs_toggle_cruise_control">
-    <rebind input="kb1_g"/>
     <rebind input="js3_button21"/>
    </action>
    <action name="v_ifcs_toggle_speed_limiter">
     <rebind input="js3_button9"/>
    </action>
-   <action name="v_ifcs_toggle_vector_decoupling">
-    <rebind input="kb1_space"/>
-   </action>
    <action name="v_pitch">
     <rebind input="js3_y"/>
-   </action>
-   <action name="v_pitch_down">
-    <rebind input="kb1_pgup"/>
-   </action>
-   <action name="v_pitch_up">
-    <rebind input="kb1_pgdn"/>
    </action>
    <action name="v_roll">
     <rebind input="js3_x"/>
    </action>
    <action name="v_space_brake">
-    <rebind input="kb1_r"/>
     <rebind input="js2_ "/>
    </action>
    <action name="v_speed_range_down">
-    <rebind input="kb1_pgdn"/>
     <rebind input="js3_button10"/>
    </action>
    <action name="v_speed_range_up">
-    <rebind input="kb1_pgup"/>
     <rebind input="js3_button8"/>
    </action>
    <action name="v_strafe_back">
@@ -177,27 +106,8 @@
    <action name="v_toggle_landing_system">
     <rebind input="js3_ "/>
    </action>
-   <action name="v_toggle_vtol">
-    <rebind input="kb1_h"/>
-   </action>
    <action name="v_yaw">
     <rebind input="js3_z"/>
-   </action>
-   <action name="v_yaw_left">
-    <rebind input="kb1_print"/>
-   </action>
-   <action name="v_yaw_right">
-    <rebind input="kb1_scrolllock"/>
-   </action>
-  </actionmap>
-  <actionmap name="spaceship_targeting">
-   <action name="v_target_unlock_selected">
-    <rebind input="kb1_lalt+x"/>
-   </action>
-  </actionmap>
-  <actionmap name="spaceship_targeting_advanced">
-   <action name="v_target_cycle_in_view_reset">
-    <rebind input="kb1_e"/>
    </action>
   </actionmap>
   <actionmap name="spaceship_radar">
@@ -260,17 +170,6 @@
     <rebind input="js1_ "/>
    </action>
   </actionmap>
-  <actionmap name="spaceship_missiles">
-   <action name="v_weapon_cycle_missile_fwd">
-    <rebind input="kb1_b"/>
-   </action>
-   <action name="v_weapon_decrease_max_missiles">
-    <rebind input="kb1_d"/>
-   </action>
-   <action name="v_weapon_increase_max_missiles">
-    <rebind input="kb1_f"/>
-   </action>
-  </actionmap>
   <actionmap name="spaceship_defensive">
    <action name="v_weapon_countermeasure_decoy_launch">
     <rebind input="js2_button2"/>
@@ -279,39 +178,7 @@
     <rebind input="js2_button3"/>
    </action>
   </actionmap>
-  <actionmap name="spaceship_power">
-   <action name="v_power_set_off">
-    <rebind input="kb1_e"/>
-   </action>
-   <action name="v_power_set_on">
-    <rebind input="kb1_w"/>
-   </action>
-   <action name="v_power_set_shields_off">
-    <rebind input="kb1_5"/>
-   </action>
-   <action name="v_power_set_shields_on">
-    <rebind input="kb1_4"/>
-   </action>
-   <action name="v_power_set_thrusters_off">
-    <rebind input="kb1_v"/>
-   </action>
-   <action name="v_power_set_thrusters_on">
-    <rebind input="kb1_c"/>
-   </action>
-   <action name="v_power_set_weapons_off">
-    <rebind input="kb1_8"/>
-   </action>
-   <action name="v_power_set_weapons_on">
-    <rebind input="kb1_7"/>
-   </action>
-  </actionmap>
   <actionmap name="vehicle_general">
-   <action name="v_flightready">
-    <rebind input="kb1_g"/>
-   </action>
-   <action name="v_starmap">
-    <rebind input="kb1_5"/>
-   </action>
    <action name="v_view_pitch">
     <rebind input="js3_ "/>
    </action>
