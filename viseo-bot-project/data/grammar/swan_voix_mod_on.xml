@@ -1,0 +1,14 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="discret_mod_on" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="discret_mod_on" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--Le bot ne parlera plus, il n'emmetra plus que des bips-->
+		<one-of>
+			<item>activation du mod discret</item>
+			<item>Passe en mod discret</item>
+			<item>Met toi en mod discret</item>
+			<item>active le mod discret</item>
+		</one-of>
+		<tag>out.action.action="discret_mod_on";</tag>
+	</rule> 
+</grammar>

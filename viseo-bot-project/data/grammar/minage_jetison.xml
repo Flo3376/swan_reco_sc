@@ -1,0 +1,24 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="jetison" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="jetison" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--larguer la cargaison instable-->
+		<one-of>
+			<item>vide les container</item>
+			<item>vide les sacoches</item>
+			<item>vide les sacs</item>
+			<item>vide la soute</item>
+			<item>vide le mineraie</item>
+			<item>vide le chargement</item>
+			<item>vide le cargo</item>
+			<item>éject les container</item>
+			<item>éject les sacoches</item>
+			<item>éject les sacs</item>
+			<item>éject la soute</item>
+			<item>éject le mineraie</item>
+			<item>éject le chargement</item>
+			<item>éject le cargo</item>
+		</one-of>
+		<tag>out.action.action="jetison";</tag>
+	</rule> 
+</grammar>

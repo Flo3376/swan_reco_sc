@@ -1,0 +1,11 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="reload_keybinding" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="reload_keybinding" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--recharge le keybinding, la configuration...Mais ça marche bof, un redémarrage est plus efficace -->
+		<one-of>
+			<item>recharge la configuration</item>
+		</one-of>
+		<tag>out.action.action="reload_keybinding";</tag>
+	</rule> 
+</grammar>

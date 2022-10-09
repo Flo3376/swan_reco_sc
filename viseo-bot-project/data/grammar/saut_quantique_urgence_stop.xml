@@ -1,0 +1,14 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="emergency_stop" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="emergency_stop" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--Coupure urgence d'un saut quantique, coupure générateur puis rallumage-->
+		<one-of>
+			<item>coupure d'urgence</item>
+			<item>stop tout</item>
+			<item>écrase les freins</item>
+			<item>arrêt complet</item>
+		</one-of>
+		<tag>out.action.action="emergency_stop";</tag>
+	</rule> 
+</grammar>
