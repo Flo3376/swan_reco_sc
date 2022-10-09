@@ -136,6 +136,17 @@
 		-ouvre le train
 		-
 
+<!--Fermer les train d'aterrissage-->
+		-ferme le train d'attérissage
+		-ferme les trains d'attérissage
+		-ferme les trains
+		-ferme le train
+		-rentre le train d'attérissage
+		-rentre les trains d'attérissage
+		-rentre les trains
+		-rentre le train
+		-
+
 <!--Le bot ne parlera plus, il n'emmetra plus que des bips-->
 		-activation du mod discret
 		-Passe en mod discret
@@ -155,15 +166,13 @@
 		-met toi en veille
 		-
 
-<!--Fermer les train d'aterrissage-->
-		-ferme le train d'attérissage
-		-ferme les trains d'attérissage
-		-ferme les trains
-		-ferme le train
-		-rentre le train d'attérissage
-		-rentre les trains d'attérissage
-		-rentre les trains
-		-rentre le train
+<!--Désactivation du bot-->
+		-remet toi en écoute
+		-réveille toi
+		-
+
+<!--Recharge les banque sonore -->
+		-recharge ta base de donnée sonore
 		-
 
 <!--Test de fonctionnement du bot, le classique jarvis tu es là -->
@@ -173,17 +182,19 @@
 		-tu es avec moi
 		-
 
-<!--Recharge les banque sonore -->
-		-recharge ta base de donnée sonore
-		-
-
-<!--Désactivation du bot-->
-		-remet toi en écoute
-		-réveille toi
-		-
-
 <!--recharge le keybinding, la configuration...Mais ça marche bof, un redémarrage est plus efficace -->
 		-recharge la configuration
+		-
+
+<!--fermer la starmap -->
+		-ferme la carte
+		-ferme la starmap
+		-ferme moi la carte
+		-ferme moi la starmap
+		-coupe la starmap
+		-coupe la map
+		-coupe moi la starmap
+		-coupe moi la map
 		-
 
 <!--ouvrir la starmap -->
@@ -205,17 +216,6 @@
 		-cacule moi un itinéraire
 		-prépare l'itinéraire
 		-prépare un itinéraire
-		-
-
-<!--fermer la starmap -->
-		-ferme la carte
-		-ferme la starmap
-		-ferme moi la carte
-		-ferme moi la starmap
-		-coupe la starmap
-		-coupe la map
-		-coupe moi la starmap
-		-coupe moi la map
 		-
 
 <!--Sortir du siége de pilote-->
@@ -284,8 +284,14 @@
 		-ferme les soutes
 		-
 
-<!--Armement switch gun/missile-->
-		-lance ma playlist
+<!--Démarre les moteur convetionels -->
+		-démarre le moteur
+		-démarre les moteurs
+		-allume les moteurs
+		-lance le moteur
+		-lance les moteurs
+		-fait chauffer les moteurs
+		-fait chauffer le moteur
 		-
 
 <!--Démarre le moteur quantique-->
@@ -308,16 +314,6 @@
 		-désactive le moteur quantique
 		-
 
-<!--Démarre les moteur convetionels -->
-		-démarre le moteur
-		-démarre les moteurs
-		-allume les moteurs
-		-lance le moteur
-		-lance les moteurs
-		-fait chauffer les moteurs
-		-fait chauffer le moteur
-		-
-
 <!--coupe les moteur convetionel -->
 		-arrête le moteur
 		-arrête les moteurs
@@ -326,6 +322,17 @@
 		-éteint le moteur
 		-éteint les moteurs
 		-coupure propulsions
+		-
+
+<!--Mode offensif, triange de puissance vers arme et bouclier -->
+		-mode offensif
+		-mode attaque 
+		-passe en mode offensif
+		-passe en mode attaque 
+		-
+
+<!--Armement switch gun/missile-->
+		-lance ma playlist
 		-
 
 <!--mode navigation,triange de puissance au centre, bouclier équilibré -->
@@ -338,11 +345,9 @@
 		-passe en mode minage
 		-
 
-<!--Mode offensif, triange de puissance vers arme et bouclier -->
-		-mode offensif
-		-mode attaque 
-		-passe en mode offensif
-		-passe en mode attaque 
+<!--mode défensif triange de puissance vers réacteur et bouclier -->
+		-mode défensif  
+		-passe en mode défensif 
 		-
 
 <!--sortir le bras de minage-->
@@ -350,11 +355,6 @@
 		-sort le bras
 		-ouvre le bras
 		-ferme le bras
-		-
-
-<!--mode défensif triange de puissance vers réacteur et bouclier -->
-		-mode défensif  
-		-passe en mode défensif 
 		-
 
 <!--larguer la cargaison instable-->
@@ -386,12 +386,6 @@
 		-change d'outils
 		-
 
-<!--sortir le bras de minage !!pas encore fonctionnel-->
-		-appel higor
-		-contact higor
-		-
-		-
-
 <!--allume les générateurs-->
 		-démarre le générateur
 		-allume les générateurs
@@ -399,6 +393,16 @@
 		-démarre les générateurs
 		-lance le générateur
 		-lance les générateurs
+		-
+
+<!--sortir le bras de minage !!pas encore fonctionnel-->
+		-appel higor
+		-contact higor
+		-
+		-
+
+<!--envoie sur le chat, mon id discord-->
+		-envoie mon discord
 		-
 
 <!--coupe les générateurs-->
@@ -410,28 +414,10 @@
 		-éteint les générateurs
 		-
 
-<!--envoie sur le chat, mon id discord-->
-		-envoie mon discord
-		-
-
 <!--envoie sur le chat, le discord de la corpo-->
 		-envoie une invitation discord
 		-envoie notre discord
 		-envoie une invite
-		-
-
-<!--appel la station-->
-		-appel la station
-		-appel la base
-		-ouvre le hangar
-		-appel le hangar
-		-appel le pad
-		-
-
-<!--lancer le chrono 15 minutes pour les quantainium-->
-		-lance le compte à rebours
-		-compte à rebours
-		-top chrono
 		-
 
 <!--appel la station-->
@@ -442,26 +428,18 @@
 		-Demande l'autorisation d'aterrire'
 		-
 
-<!--mettre tous les boucliers à gauche-->
-		-Met plus de puissance sur le bouclier gauche
-		-Met plus de jue sur le bouclier gauche
-		-Envoie plus de jue sur le bouclier gauche
-		-bascule plus de jue sur le bouclier gauche
-		-plus de puissance sur le bouclier gauche
-		-Envoie plus de puissance sur le bouclier gauche
-		-bascule plus de puissance sur le bouclier gauche
-		-bascule tous le jue sur le bouclier gauche
-		-plus de jue sur le bouclier gauche
-		-transfert plus de puissance sur le bouclier gauche
-		-transfert plus de jue sur le bouclier gauche
+<!--lancer le chrono 15 minutes pour les quantainium-->
+		-lance le compte à rebours
+		-compte à rebours
+		-top chrono
 		-
 
-<!--couper le chrono 15 minutes pour les quantainium-->
-		-annulation du chrono
-		-annulation compte à rebours
-		-stop le  compte à rebours
-		-annule le chrono
-		-stop le  chrono
+<!--appel la station-->
+		-appel la station
+		-appel la base
+		-ouvre le hangar
+		-appel le hangar
+		-appel le pad
 		-
 
 <!--mettre plus les boucliers  à droite-->
@@ -476,6 +454,28 @@
 		-plus de jue sur le bouclier droit
 		-transfert plus de puissance sur le bouclier droit
 		-transfert plus de jue sur le bouclier droit
+		-
+
+<!--couper le chrono 15 minutes pour les quantainium-->
+		-annulation du chrono
+		-annulation compte à rebours
+		-stop le  compte à rebours
+		-annule le chrono
+		-stop le  chrono
+		-
+
+<!--mettre tous les boucliers à gauche-->
+		-Met plus de puissance sur le bouclier gauche
+		-Met plus de jue sur le bouclier gauche
+		-Envoie plus de jue sur le bouclier gauche
+		-bascule plus de jue sur le bouclier gauche
+		-plus de puissance sur le bouclier gauche
+		-Envoie plus de puissance sur le bouclier gauche
+		-bascule plus de puissance sur le bouclier gauche
+		-bascule tous le jue sur le bouclier gauche
+		-plus de jue sur le bouclier gauche
+		-transfert plus de puissance sur le bouclier gauche
+		-transfert plus de jue sur le bouclier gauche
 		-
 
 <!--mettre plus les boucliers  à l'avant-->
@@ -503,21 +503,6 @@
 		-plus de jue sur le bouclier arrière
 		-transfert plus de puissance sur le bouclier arrière
 		-transfert plus de jue sur le bouclier arrière
-		-
-
-<!--mettre tous les boucliers  à l'avant-->
-		-Met tous de puissance sur le bouclier avant
-		-Met tous de jue sur le bouclier avant
-		-Envoie tous de jue sur le bouclier avant
-		-bascule tous de jue sur le bouclier avant
-		-tous de puissance sur le bouclier avant
-		-Envoie tous de puissance sur le bouclier avant
-		-bascule tous de puissance sur le bouclier avant
-		-bascule tous le jue sur le bouclier avant
-		-tous de jue sur le bouclier avant
-		-transfert tous de puissance sur le bouclier avant
-		-transfert tous de jue sur le bouclier avant
-		-puissance bouclier avant
 		-
 
 <!--mettre tous les boucliers  à droite-->
@@ -548,6 +533,21 @@
 		-transfert tous de puissance sur le bouclier gauche
 		-transfert tous de jue sur le bouclier gauche
 		-puissance bouclier gauche
+		-
+
+<!--mettre tous les boucliers  à l'avant-->
+		-Met tous de puissance sur le bouclier avant
+		-Met tous de jue sur le bouclier avant
+		-Envoie tous de jue sur le bouclier avant
+		-bascule tous de jue sur le bouclier avant
+		-tous de puissance sur le bouclier avant
+		-Envoie tous de puissance sur le bouclier avant
+		-bascule tous de puissance sur le bouclier avant
+		-bascule tous le jue sur le bouclier avant
+		-tous de jue sur le bouclier avant
+		-transfert tous de puissance sur le bouclier avant
+		-transfert tous de jue sur le bouclier avant
+		-puissance bouclier avant
 		-
 
 <!--mettre tous les boucliers  à l'arriére-->
@@ -589,6 +589,10 @@
 		-verrouillage la cible
 		-
 
+<!--Armement switch gun/missile-->
+		-change d'arme
+		-
+
 <!--coupure du scan cyclique-->
 		-coupe le balayage
 		-stop le balayage
@@ -597,7 +601,7 @@
 		-
 
 <!--Armement switch gun/missile-->
-		-change d'arme
+		-change la quantité missile
 		-
 
 <!--Armement lancer les missiles-->
@@ -606,7 +610,3 @@
 		-feu
 		-lance le missile
 		-lance les missile
-		-
-
-<!--Armement switch gun/missile-->
-		-change la quantité missile
