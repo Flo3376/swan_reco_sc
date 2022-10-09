@@ -4,8 +4,6 @@
 		<item>SWAN</item>
 		<!--Mise en route rapide ready to fly-->
 		<one-of>
-			<item>on y va</item>
-			<item>on décolle</item>
 			<item>démarre les systèmes</item>
 			<item>démarre le vaisseaux</item>
 			<item>démarre l'appareil</item>

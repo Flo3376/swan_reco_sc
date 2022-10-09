@@ -1,0 +1,12 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="landing_seq" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="landing_seq" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--mettre tous les boucliers  à l'arriére-->
+		<one-of>
+			<item>on arrive</item>
+			<item>prepare toi à l'aterrissage</item>
+		</one-of>
+		<tag>out.action.action="landing_seq";</tag>
+	</rule> 
+</grammar>
