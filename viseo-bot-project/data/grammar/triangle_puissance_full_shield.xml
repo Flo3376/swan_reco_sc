@@ -1,0 +1,20 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="tri_full_shields" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="tri_full_shields" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--Met toutes la puissance sur les boucliers (capacitor)-->
+		<one-of>
+			<item>Met toute la puissance sur les boucliers</item>
+			<item>toute la puissance sur les boucliers</item>
+			<item>Envoie toute la puissance sur les boucliers</item>
+			<item>bascule toute la puissance sur les boucliers</item>
+			<item>Met tous le jue sur les boucliers</item>
+			<item>Met tous le jue sur les boucliers</item>
+			<item>tous le jue sur les boucliers</item>
+			<item>Envoie tous le jue sur les boucliers</item>
+			<item>transfert toute la puissance sur les boucliers</item>
+			<item>transfert tous le jue sur les boucliers</item>
+		</one-of>
+		<tag>out.action.action="tri_full_shields";</tag>
+	</rule> 
+</grammar>

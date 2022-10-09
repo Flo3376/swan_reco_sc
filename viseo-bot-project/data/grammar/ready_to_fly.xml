@@ -1,0 +1,22 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ready_to_fly" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="ready_to_fly" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--Mise en route rapide ready to fly-->
+		<one-of>
+			<item>on y va</item>
+			<item>on décolle</item>
+			<item>démarre les systèmes</item>
+			<item>démarre le vaisseaux</item>
+			<item>démarre l'appareil</item>
+			<item>allume le vaisseaux</item>
+			<item>allume l'appareil</item>
+			<item>met en chauffe l'appareil</item>
+			<item>met en chauffe le vaisseau</item>
+			<item>fait chauffer l'appareil</item>
+			<item>fait chauffer les systèmes</item>
+			<item>fait chauffer le système</item>
+		</one-of>
+		<tag>out.action.action="ready_to_fly";</tag>
+	</rule> 
+</grammar>

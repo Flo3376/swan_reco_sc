@@ -1,0 +1,313 @@
+		-
+
+<!--Allume les éclairages-->		-on y voit rien		-un peu de lumiére		-allume les phares		-allume les feux		-allumes les spots		-éclair la zone		-
+
+<!--ouverture ou passage en VTOL-->		-active les stabilisateurs		-ouvre les stabilisateurs		-sort les stabilisateurs		-active le VTOL		-passe en VTOL		-met en route les stabilisateur		-stabilise le vaisseau		-stabilise l'appareil		-
+
+<!--Coupe les éclairages-->		-éteint les phares		-éteint les feux		-éteint les spots		-coupe les phares		-coupe les feux		-coupe les spots		-
+
+<!--Met plus de puissance sur les moteurs (capacitor)-->		-Met plus de puissance sur les moteurs		-Met plus de jue sur les moteurs		-Envoie plus de jue sur les moteurs		-bascule plus de jue sur les moteurs		-plus de puissance sur les moteurs		-Envoie plus de puissance sur les moteurs		-bascule plus de puissance sur les moteurs		-bascule tous le jue sur les moteurs		-plus de jue sur les moteurs		-transfert plus de puissance sur les moteurs		-transfert plus de jue sur les moteurs		-
+
+<!--Met plus de puissance sur les boucliers (capacitor)-->		-Met plus de puissance sur les boucliers		-Met plus de jue sur les boucliers		-Envoie plus de jue sur les boucliers		-bascule plus de jue sur les boucliers		-plus de puissance sur les boucliers		-Envoie plus de puissance sur les boucliers		-bascule plus de puissance sur les boucliers		-bascule tous le jue sur les boucliers		-plus de jue sur les boucliers		-transfert plus de puissance sur les boucliers		-transfert plus de jue sur les boucliers		-
+
+<!--Fermeture ou  quitte le VTOL-->		-désactive les stabilisateur		-fermes les stabilisateurs		-rentre les stabilisateurs		-coupe les stabilisateurs		-coupe le VTOL		-
+
+<!--Met plus de puissance sur les armes (capacitor)-->		-Met plus de puissance sur les armes		-Met plus de jue sur les armes		-Envoie plus de jue sur les armes		-bascule plus de jue sur les armes		-plus de puissance sur les armes		-Envoie plus de puissance sur les armes		-bascule plus de puissance sur les armes		-bascule tous le jue sur les armes		-plus de jue sur les armes		-transfert plus de puissance sur les armes		-transfert plus de jue sur les armes		-
+
+<!--Met toutes la puissance sur les boucliers (capacitor)-->		-Met toute la puissance sur les boucliers		-toute la puissance sur les boucliers		-Envoie toute la puissance sur les boucliers		-bascule toute la puissance sur les boucliers		-Met tous le jue sur les boucliers		-Met tous le jue sur les boucliers		-tous le jue sur les boucliers		-Envoie tous le jue sur les boucliers		-transfert toute la puissance sur les boucliers		-transfert tous le jue sur les boucliers		-
+
+<!--Met toutes la puissance sur les moteurs(capacitor)-->		-Met toute la puissance sur les moteurs		-toute la puissance sur les moteurs		-Envoie toute la puissance sur les moteurs		-bascule toute la puissance sur les moteurs		-Met tous le jue sur les moteurs		-Met tous le jue sur les moteurs		-tous le jue sur les moteurs		-Envoie tous le jue sur les moteurs		-transfert toute la puissance sur les moteurs		-transfert tous le jue sur les moteurs		-
+
+<!--Met toutes la puissance sur les armes (capacitor)-->		-Met toute la puissance sur les armes		-toute la puissance sur les armes		-Envoie toute la puissance sur les armes		-bascule toute la puissance sur les armes		-Met tous le jue sur les armes		-Met tous le jue sur les armes		-tous le jue sur les armes		-Envoie tous le jue sur les armes		-transfert toute la puissance sur les armes		-transfert tous le jue sur les armes		-
+
+<!--Ouvrir les train d'aterrissage (capacitor)-->		-remet la puissance au neutre		-remet la puissance au centre		-réinitialise la puissance		-reset la puissance		-
+
+<!--Ouvrir les train d'aterrissage-->		-sort le train d'attérissage		-sort les trains d'attérissage		-sort les trains		-sort le train		-ouvre le train d'attérissage		-ouvre les trains d'attérissage		-ouvre les trains		-ouvre le train		-
+
+<!--Fermer les train d'aterrissage-->		-ferme le train d'attérissage		-ferme les trains d'attérissage		-ferme les trains		-ferme le train		-rentre le train d'attérissage		-rentre les trains d'attérissage		-rentre les trains		-rentre le train		-
+
+<!--Le bot n'emmetra plus des bips, il parlera-->		-coupe le mod discret		-désactivation du mod discret		-Sort du mod discret		-repasse en mod normale		-
+
+<!--Le bot ne parlera plus, il n'emmetra plus que des bips-->		-activation du mod discret		-Passe en mod discret		-Met toi en mod discret		-active le mod discret		-
+
+<!--Activation ou réactivation du bot-->		-met toi en sommeil		-met toi en veille		-
+
+<!--Désactivation du bot-->		-remet toi en écoute		-réveille toi		-
+
+<!--Test de fonctionnement du bot, le classique jarvis tu es là -->		-es tu là		-tu es là		-tu m'entends		-tu es avec moi		-
+
+<!--Recharge les banque sonore -->		-recharge ta base de donnée sonore		-
+
+<!--ouvrir la starmap -->		-affiche la carte		-affiche la position		-affiche la starmap		-affiche moi la carte		-affiche moi notre position		-affiche moi la starmap		-ouvre la carte		-ouvre la starmap		-ouvre moi la carte		-ouvre moi la starmap		-montre la carte		-montre la starmap		-montre moi la carte		-montre moi notre position		-montre moi la starmap		-cacule moi un itinéraire		-prépare l'itinéraire		-prépare un itinéraire		-
+
+<!--recharge le keybinding, la configuration...Mais ça marche bof, un redémarrage est plus efficace -->		-recharge la configuration		-
+
+<!--fermer la starmap -->		-ferme la carte		-ferme la starmap		-ferme moi la carte		-ferme moi la starmap		-coupe la starmap		-coupe la map		-coupe moi la starmap		-coupe moi la map		-
+
+<!--Sortir du siége de pilote-->		-je te laisse les commandes		-je quite la passerelle		-je quitte le poste de pilotage		-je quitte le poste		-je sort de l'appareil		-je sort du vaisseau		-
+
+<!--Coupure urgence d'un saut quantique, coupure générateur puis rallumage-->		-coupure d'urgence		-stop tout		-écrase les freins		-arrêt complet		-
+
+<!--Lancer un saut quantique-->		-Lance le saut		-On saute		-go pour le saut		-Hyperespace		-
+
+<!--Mise en route rapide ready to fly-->		-on y va		-on décolle		-démarre les systèmes		-démarre le vaisseaux		-démarre l'appareil		-allume le vaisseaux		-allume l'appareil		-met en chauffe l'appareil		-met en chauffe le vaisseau		-fait chauffer l'appareil		-fait chauffer les systèmes		-fait chauffer le système		-
+
+<!--Ouvertures des issues-->		-ouvre la porte		-ouvre les portes		-ouvre le sasse		-ouvre les sasse		-ouvre la soute		-ouvre les soutes		-
+
+<!--Fermeture des issues-->		-ferme la porte		-ferme les portes		-ferme le sasse		-ferme les sasse		-ferme la soute		-ferme les soutes		-
+
+<!--Coupe le moteur quantique-->		-coupe le quantum		-éteint le quantum		-désactive le quantum		-coupe le moteur quantique		-désactive le moteur quantique		-
+
+<!--Armement switch gun/missile-->		-lance ma playlist		-
+
+<!--Démarre les moteur convetionels -->		-démarre le moteur		-démarre les moteurs		-allume les moteurs		-lance le moteur		-lance les moteurs		-fait chauffer les moteurs		-fait chauffer le moteur		-
+
+<!--Démarre le moteur quantique-->		-démarre le moteur quantique		-allume le moteur quantique		-démarre le quantum		-allume le quantum		-lance le moteur quantique		-active le moteur quantique		-met en route le moteur quantique		-calcul un saut quantique		-calcul un saut		-
+
+<!--mode navigation,triange de puissance au centre, bouclier équilibré -->		-passe en mode navigation		-mode navigation		-
+
+<!--Mode offensif, triange de puissance vers arme et bouclier -->		-mode offensif		-mode attaque 		-passe en mode offensif		-passe en mode attaque 		-
+
+<!--coupe les moteur convetionel -->		-arrête le moteur		-arrête les moteurs		-coupe le moteur		-coupe les moteurs		-éteint le moteur		-éteint les moteurs		-coupure propulsions		-
+
+<!--Mode minage,puissance du bouclier avec l'avant + ouverture du bras -->		-mode minage		-passe en mode minage		-
+
+<!--mode défensif triange de puissance vers réacteur et bouclier -->		-mode défensif  		-passe en mode défensif 		-
+
+<!--sortir le bras de minage-->		-sort la tête		-sort le bras		-ouvre le bras		-ferme le bras		-
+
+<!--larguer la cargaison instable-->		-vide les container		-vide les sacoches		-vide les sacs		-vide la soute		-vide le mineraie		-vide le chargement		-vide le cargo		-éject les container		-éject les sacoches		-éject les sacs		-éject la soute		-éject le mineraie		-éject le chargement		-éject le cargo		-
+
+<!--rentrer le bras de minage-->		-rentre la tête		-rentre le bras		-range la tête		-range le bras		-
+
+<!--passage de minage à rammasage et inversement-->		-change l'outils		-change d'outils		-
+
+<!--sortir le bras de minage !!pas encore fonctionnel-->		-appel higor		-contact higor		-		-
+
+<!--allume les générateurs-->		-démarre le générateur		-allume les générateurs		-allume le générateur		-démarre les générateurs		-lance le générateur		-lance les générateurs		-
+
+<!--envoie sur le chat, mon id discord-->		-envoie mon discord		-
+
+<!--envoie sur le chat, le discord de la corpo-->		-envoie une invitation discord		-envoie notre discord		-envoie une invite		-
+
+<!--coupe les générateurs-->		-arrête le générateur		-arrête les générateurs		-coupe le générateur		-coupe les générateurs		-éteint le générateur		-éteint les générateurs		-
+
+<!--appel la station-->		-appel la station		-appel la base		-ouvre le hangar		-appel le hangar		-appel le pad		-
+
+<!--appel la station-->		-Demande l'autorisation de décoller		-
+
+<!--appel la station-->		-Demande l'autorisation d'aterrire'		-
+
+<!--couper le chrono 15 minutes pour les quantainium-->		-annulation du chrono		-annulation compte à rebours		-stop le  compte à rebours		-annule le chrono		-stop le  chrono		-
+
+<!--mettre tous les boucliers à gauche-->		-Met plus de puissance sur le bouclier gauche		-Met plus de jue sur le bouclier gauche		-Envoie plus de jue sur le bouclier gauche		-bascule plus de jue sur le bouclier gauche		-plus de puissance sur le bouclier gauche		-Envoie plus de puissance sur le bouclier gauche		-bascule plus de puissance sur le bouclier gauche		-bascule tous le jue sur le bouclier gauche		-plus de jue sur le bouclier gauche		-transfert plus de puissance sur le bouclier gauche		-transfert plus de jue sur le bouclier gauche		-
+
+<!--lancer le chrono 15 minutes pour les quantainium-->		-lance le compte à rebours		-compte à rebours		-top chrono		-
+
+<!--mettre plus les boucliers  à droite-->		-Met plus de puissance sur le bouclier droit		-Met plus de jue sur le bouclier droit		-Envoie plus de jue sur le bouclier droit		-bascule plus de jue sur le bouclier droit		-plus de puissance sur le bouclier droit		-Envoie plus de puissance sur le bouclier droit		-bascule plus de puissance sur le bouclier droit		-bascule tous le jue sur le bouclier droit		-plus de jue sur le bouclier droit		-transfert plus de puissance sur le bouclier droit		-transfert plus de jue sur le bouclier droit		-
+
+<!--mettre plus les boucliers  à l'arriére-->		-Met plus de puissance sur le bouclier arrière		-Met plus de jue sur le bouclier arrière		-Envoie plus de jue sur le bouclier arrière		-bascule plus de jue sur le bouclier arrière		-plus de puissance sur le bouclier arrière		-Envoie plus de puissance sur le bouclier arrière		-bascule plus de puissance sur le bouclier arrière		-bascule tous le jue sur le bouclier arrière		-plus de jue sur le bouclier arrière		-transfert plus de puissance sur le bouclier arrière		-transfert plus de jue sur le bouclier arrière		-
+
+<!--mettre tous les boucliers  à droite-->		-Met tous de puissance sur le bouclier droit		-Met tous de jue sur le bouclier droit		-Envoie tous de jue sur le bouclier droit		-bascule tous de jue sur le bouclier droit		-tous de puissance sur le bouclier droit		-Envoie tous de puissance sur le bouclier droit		-bascule tous de puissance sur le bouclier droit		-bascule tous le jue sur le bouclier droit		-tous de jue sur le bouclier droit		-transfert tous de puissance sur le bouclier droit		-transfert tous de jue sur le bouclier droit		-puissance bouclier droit		-
+
+<!--mettre tous les boucliers  à l'avant-->		-Met tous de puissance sur le bouclier avant		-Met tous de jue sur le bouclier avant		-Envoie tous de jue sur le bouclier avant		-bascule tous de jue sur le bouclier avant		-tous de puissance sur le bouclier avant		-Envoie tous de puissance sur le bouclier avant		-bascule tous de puissance sur le bouclier avant		-bascule tous le jue sur le bouclier avant		-tous de jue sur le bouclier avant		-transfert tous de puissance sur le bouclier avant		-transfert tous de jue sur le bouclier avant		-puissance bouclier avant		-
+
+<!--mettre plus les boucliers  à l'avant-->		-Met plus de puissance sur le bouclier avant		-Met plus de jue sur le bouclier avant		-Envoie plus de jue sur le bouclier avant		-bascule plus de jue sur le bouclier avant		-plus de puissance sur le bouclier avant		-Envoie plus de puissance sur le bouclier avant		-bascule plus de puissance sur le bouclier avant		-plus de jue sur le bouclier avant		-transfert plus de puissance sur le bouclier avant		-transfert plus de jue sur le bouclier avant		-
+
+<!--mettre tous les boucliers  à l'arriére-->		-Met tous de puissance sur le bouclier gauche		-Met tous de jue sur le bouclier gauche		-Envoie tous de jue sur le bouclier gauche		-bascule tous de jue sur le bouclier gauche		-tous de puissance sur le bouclier gauche		-Envoie tous de puissance sur le bouclier gauche		-bascule tous de puissance sur le bouclier gauche		-bascule tous le jue sur le bouclier gauche		-tous de jue sur le bouclier gauche		-transfert tous de puissance sur le bouclier gauche		-transfert tous de jue sur le bouclier gauche		-puissance bouclier gauche		-
+
+<!--mettre tous les boucliers  à l'arriére-->		-Met tous de puissance sur le bouclier avant		-Met tous de jue sur le bouclier avant		-Envoie tous de jue sur le bouclier avant		-bascule tous de jue sur le bouclier avant		-tous de puissance sur le bouclier avant		-Envoie tous de puissance sur le bouclier avant		-bascule tous de puissance sur le bouclier avant		-bascule tous le jue sur le bouclier avant		-tous de jue sur le bouclier avant		-transfert tous de puissance sur le bouclier avant		-transfert tous de jue sur le bouclier avant		-puissance bouclier avant		-
+
+<!--remettre les boucliers au centre-->		-remet les boucliers au centre		-réinitialise les boucliers		-reset les boucliers		-<example>Sarah monte à 10000 pieds</example>		-		-<tag>out._attributes = {}</tag>		-		-		-
+
+<!-- Auto pilot -->		-		-
+
+<!-- Radio nav1 -->		-		-
+
+<!-- Radio com1 -->		-		-		-
+
+<!-- Train -->		-		-
+
+<!-- spoiler -->		-ferme les spoileur<tag>osst.action.val="spoil_off"</tag>		-		-
+
+<!-- volet -->		-		-
+
+<!-- moteur -->		-		-		-
+
+<!-- manettes des gaz -->		-		-
+
+<!-- manettes des gaz -->		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-
+
+<!-- out.Cardinal_1_to_999: float -->		-<tag>out = 0 </tag>		-		-<ruleref uri="#Cardinal_1_to_999" />		-décimale		-<tag>out = out+=rules.Cardinal_1_to_999 </tag>		-<ruleref uri="#Cardinal_1_to_999" />		-<tag>out += (rules.Cardinal_1_to_999)/1000 </tag>		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-<ruleref special="VOID"/>		-		-
+
+<!--    		-Category: Cardinal		-Description: Cardinal rules describe numeric values on the range of zero to 1 thousand. The numeric range is encoded in		-the rule name. For example, Cardinal_1_to_9 will contain numbers on the range of 1...9 (i.e. "un", "deux", ..., "trios").		-The <Cardinal> rule covers the full range.		-All return an integer _value semantic item.		--->		-
+
+<!-- out.Cardinal: integer [0...1,000] -->		-<example> zéro </example>		-		-<ruleref uri="#Cardinal_0_to_1000"/>		-		-		-		-
+
+<!-- out.Cardinal_0: integer -->		-<example> zéro </example>		- zéro 		-<tag> out = 0; </tag>		-		-
+
+<!-- out.Cardinal_0_to_1000: integer -->		-<example> zéro </example>		-<example> trois </example>		-		-		-<ruleref uri="#Cardinal_0" />		-		-		-<ruleref uri="#Cardinal_1_to_999" />		-		-		-		-mille <tag> out = 1000 ; </tag>		-		-		-		-
+
+<!--  out.Cardinal_0_to_100: integer -->		-<example> trois </example>		-<example> dix-sept </example>		-		-<ruleref uri="#Cardinal_0" />		-		-		-<ruleref uri="#Cardinal_1_to_99" />		-		-		-cent		-<tag> out = 100 ; </tag>		-		-		-
+
+<!-- out.Cardinal_1_to_99: integer -->		-<example> trois </example>		-<example> dix-sept </example>		-		-<ruleref uri="#Cardinal_1_to_9" />		-		-		-<ruleref uri="#Cardinal_10_to_99" />		-		-		-		-
+
+<!-- out.Cardinal_0_to_10: integer -->		-<example> zéro </example>		-<example> trois </example>		-		-<ruleref uri="#Cardinal_0_to_9" />		-		-		-dix <tag> out = 10; </tag>		-		-		-		-		-
+
+<!-- out.Cardinal_2_to_9: integer -->		-<example> trois </example>		-		-deux <tag> out = 2; </tag>		-		-		-trois <tag> out = 3; </tag>		-		-		-quatre <tag> out = 4; </tag>		-		-		-cinq <tag> out = 5; </tag>		-		-		-six <tag> out = 6; </tag>		-		-		-sept <tag> out = 7; </tag>		-		-		-huit <tag> out = 8; </tag>		-		-		-neuf <tag> out = 9; </tag>		-		-		-
+
+<!-- out.Cardinal_10_to_19: integer -->		-<example> dix-sept </example>		-		-dix <tag> out = 10; </tag>		-		-		-onze <tag> out = 11; </tag>		-		-		-<ruleref uri="#Cardinal_12_to_19" />		-		-		-
+
+<!-- out.Cardinal_12_to_19: integer -->		-<example> dix-sept </example>		-		-douze <tag> out = 12; </tag>		-		-		-treize <tag> out = 13; </tag>		-		-		-quatorze <tag> out = 14; </tag>		-		-		-quinze <tag> out = 15; </tag>		-		-		-seize <tag> out = 16; </tag>		-		-		-dix-sept <tag> out = 17; </tag>		-		-		-dix-huit <tag> out = 18; </tag>		-		-		-dix-neuf <tag> out = 19; </tag>		-		-		-		-
+
+<!-- out.Cardinal_60_to_69: integer -->		-<example> soixante </example>		-<example> soixante et un </example>		-		-soixante <tag>out = 60 </tag>		-		-		-soixante et un <tag>out = 61 </tag>		-		-		-soixante-deux <tag>out = 62 </tag>		-		-		-soixante-trois <tag>out = 63 </tag>		-		-		-soixante-quatre <tag>out = 64 </tag>		-		-		-soixante-cinq <tag>out = 65 </tag>		-		-		-soixante-six <tag>out = 66 </tag>		-		-		-soixante-sept <tag>out = 67 </tag>		-		-		-soixante-huit <tag>out = 68 </tag>		-		-		-soixante-neuf <tag>out = 69 </tag>		-		-
+
+<!-- out.Cardinal_70_to_79: integer -->		-<example> soixante-dix </example>		-<example> soixante-treize </example>		-		-soixante-dix <tag>out = 70 </tag>		-		-		-soixante et onze <tag>out = 71 </tag>		-		-		-soixante-douze <tag>out = 72 </tag>		-		-		-soixante-treize <tag>out = 73 </tag>		-		-		-soixante-quatorze <tag>out = 74 </tag>		-		-		-soixante-quinze <tag>out = 75 </tag>		-		-		-soixante-seize <tag>out = 76 </tag>		-		-		-soixante-dix-sept <tag>out = 77 </tag>		-		-		-soixante-dix-huit <tag>out = 78 </tag>		-		-		-soixante-dix-neuf <tag>out = 79 </tag>		-		-
+
+<!-- out.Cardinal_80_to_89: integer -->		-<example> quatre-vingt-deux  </example>		-<example> quatre-vingt-quatre  </example>		-		-quatre-vingt <tag>out = 80 </tag>		-		-		-quatre-vingt-un <tag>out = 81 </tag>		-		-		-quatre-vingt-deux <tag>out = 82 </tag>		-		-		-quatre-vingt-trois <tag>out = 83 </tag>		-		-		-quatre-vingt-quatre <tag>out = 84 </tag>		-		-		-quatre-vingt-cinq <tag>out = 85 </tag>		-		-		-quatre-vingt-six <tag>out = 86 </tag>		-		-		-quatre-vingt-sept <tag>out = 87 </tag>		-		-		-quatre-vingt-huit <tag>out = 88 </tag>		-		-		-quatre-vingt-neuf <tag>out = 89 </tag>		-		-
+
+<!-- out.Cardinal_90_to_99: integer -->		-<example> quatre-vingt-treize  </example>		-<example> quatre-vingt-quatorze  </example>		-		-quatre-vingt-dix <tag>out = 90 </tag>		-		-		-quatre-vingt-onze <tag>out = 91 </tag>		-		-		-quatre-vingt-douze <tag>out = 92 </tag>		-		-		-quatre-vingt-treize <tag>out = 93 </tag>		-		-		-quatre-vingt-quatorze <tag>out = 94 </tag>		-		-		-quatre-vingt-quinze <tag>out = 95 </tag>		-		-		-quatre-vingt-seize <tag>out = 96 </tag>		-		-		-quatre-vingt-dix-sept <tag>out = 97 </tag>		-		-		-quatre-vingt-dix-huit <tag>out = 98 </tag>		-		-		-quatre-vingt-dix-neuf <tag>out = 99 </tag>		-		-		-
+
+<!-- out.Cardinal_2_to_31 : integer -->		-<example> cinq </example>		-		-<ruleref uri="#Cardinal_2_to_9" />		-		-		-<ruleref uri="#Cardinal_10_to_19" />		-		-		-<ruleref uri="#Cardinal_20_to_29" />		-		-		-trente <tag> out = 30 ; </tag>		-		-		-trente et un <tag> out = 31 ; </tag>		-		-		-
+
+<!-- out.Cardinal_1_to_999: integer -->		-<example> trois </example>		-<example> dix-sept </example>		-<example> cent </example>		-<example> trois cent dix-sept </example>		-		-<ruleref uri="#Cardinal_1_to_99" />		-		-		-<ruleref uri="#Cardinal_100_to_999" />		-		-		-		-
+
+<!-- out.Cardinal_100_to_999: integer -->		-<example> trois cent soixante  </example>		-<example> quatre cent cinquante-six  </example>		-<tag>out = 100 </tag>		-		-cent		-		-		-cent		-<ruleref uri="#Cardinal_1_to_99" />		-<tag>out += rules.Cardinal_1_to_99 </tag>		-		-		-<ruleref uri="#Cardinal_2_to_9" />		-cents		-<tag>out = out * rules.Cardinal_2_to_9 </tag>		-		-		-<ruleref uri="#Cardinal_2_to_9" />		-cent		-<tag>out = out * rules.Cardinal_2_to_9 </tag>		-<ruleref uri="#Cardinal_1_to_99" />		-<tag>out += rules.Cardinal_1_to_99 </tag>		-		-		-
+
+<!-- ======== -->		-
+
+<!-- Ordinals -->		-
+
+<!-- ======== -->		-
+
+<!-- out.Ordinal: integer -->		-<example> cinquième  </example>		-<example> quatrième </example>		-		-<ruleref uri="#Ordinal_male" />		-		-		-<ruleref uri="#Ordinal_female" />		-		-		-
+
+<!-- out.Ordinal_male: integer -->		-<example> trente et unième  </example>		-<example> trentième  </example>		-		-<ruleref uri="#Ordinal_1_to_31_male" />		-		-		-
+
+<!-- out.Ordinal_female: integer -->		-<example> trentième  </example>		-<example> trente et unième  </example>		-		-<ruleref uri="#Ordinal_1_to_31_female" />		-		-		-
+
+<!-- out.Ordinal_1_to_9_male: integer -->		-<example> second  </example>		-<example> troisième  </example>		-<example> quatrième  </example>		-		-premier <tag> out = 1 </tag>		-		-		-deuxième <tag> out = 2 </tag>		-		-		-second <tag> out = 2 </tag>		-		-		-troisième <tag> out = 3 </tag>		-		-		-quatrième <tag> out = 4 </tag>		-		-		-cinquième <tag> out = 5 </tag>		-		-		-sixième <tag> out = 6 </tag>		-		-		-septième <tag> out = 7 </tag>		-		-		-huitième <tag> out = 8 </tag>		-		-		-neuvième <tag> out = 9 </tag>		-		-		-
+
+<!-- out.Ordinal_1_to_9_female: integer -->		-<example> huitième  </example>		-<example> neuvième  </example>		-<example> première  </example>		-		-première <tag> out = 1 </tag>		-		-		-deuxième <tag> out = 2 </tag>		-		-		-seconde <tag> out = 2 </tag>		-		-		-troisième <tag> out = 3 </tag>		-		-		-quatrième <tag> out = 4 </tag>		-		-		-cinquième <tag> out = 5 </tag>		-		-		-sixième <tag> out = 6 </tag>		-		-		-septième <tag> out = 7 </tag>		-		-		-huitième <tag> out = 8 </tag>		-		-		-neuvième <tag> out = 9 </tag>		-		-		-
+
+<!-- out.Ordinal_2_to_9_combined: integer -->		-<example> cinquième  </example>		-<example> sixième  </example>		-<example> septième  </example>		-		-deuxième <tag> out = 2 </tag>		-		-		-troisième <tag> out = 3 </tag>		-		-		-quatrième <tag> out = 4 </tag>		-		-		-cinquième <tag> out = 5 </tag>		-		-		-sixième <tag> out = 6 </tag>		-		-		-septième <tag> out = 7 </tag>		-		-		-huitième <tag> out = 8 </tag>		-		-		-neuvième <tag> out = 9 </tag>		-		-		-		-
+
+<!-- out.Ordinal_1_to_31_male: integer -->		-<example> trente et unième  </example>		-<example> trentième  </example>		-		-<ruleref uri="#Ordinal_1_to_9_male" />		-		-		-<ruleref uri="#Ordinal_10_to_19" />		-		-		-<ruleref uri="#Ordinal_20_to_29" />		-		-		-trentième <tag> out = 30 </tag>		-		-		-trente et unième <tag> out = 31 </tag>		-		-		-
+
+<!-- out.Ordinal_1_to_31_female: integer -->		-<example> trentième  </example>		-<example> trente et unième  </example>		-		-<ruleref uri="#Ordinal_1_to_9_female" />		-		-		-<ruleref uri="#Ordinal_10_to_19" />		-		-		-<ruleref uri="#Ordinal_20_to_29" />		-		-		-trentième <tag> out = 30 </tag>		-		-		-trente et unième <tag> out = 31 </tag>		-		-		-
+
+<!-- out.Ordinal_10_to_19: integer -->		-<example> douzième  </example>		-<example> treizième  </example>		-<example> quatorzième  </example>		-		-dixième <tag> out = 10 </tag>		-		-		-onzième <tag> out = 11 </tag>		-		-		-douzième <tag> out = 12 </tag>		-		-		-treizième <tag> out = 13 </tag>		-		-		-quatorzième <tag> out = 14 </tag>		-		-		-quinzième <tag> out = 15 </tag>		-		-		-seizième <tag> out = 16 </tag>		-		-		-dix-septième <tag> out = 17 </tag>		-		-		-dix-huitième <tag> out = 18 </tag>		-		-		-dix-neuvième <tag> out = 19 </tag>		-		-		-
+
+<!-- out.Ordinal_20_to_29: integer -->		-<example> vingt-deuxième  </example>		-<example> vingt-septième  </example>		-		-vingtième <tag> out = 20 </tag>		-		-		-vingt et unième <tag> out = 21 </tag>		-		-		-vingt-deuxième <tag> out = 22 </tag>		-		-		-vingt-troisième <tag> out = 23 </tag>		-		-		-vingt-quatrième <tag> out = 24 </tag>		-		-		-vingt-cinquième <tag> out = 25 </tag>		-		-		-vingt-sixième <tag> out = 26 </tag>		-		-		-vingt-septième <tag> out = 27 </tag>		-		-		-vingt-huitième <tag> out = 28 </tag>		-		-		-vingt-neuvième <tag> out = 29 </tag>		-		-		-
+
+<!--Digits-->		-		-<example> sept trois </example>		-<example> trente-six </example>		-<example> vingt-cinq neuf </example>		-<example> zéro zéro sept </example>		-<example> zéro cinq </example>		-<example> soixante-six soixante-dix-sept </example>		-<example> zéro un vingt-trois </example>		-<tag>out._value = ""; </tag>		-		-<ruleref uri="#DigitBlock_2Digits" />		-<tag>out._value += rules.DigitBlock_2Digits._value;</tag>		-		-		-<ruleref uri="#DigitBlock_3Digits" />		-<tag>out._value += rules.DigitBlock_3Digits._value;</tag>		-		-		-<ruleref uri="#DigitBlock_4Digits" />		-<tag>out._value += rules.DigitBlock_4Digits._value;</tag>		-		-		-  un 		-  une 		-		-  un 		-		-
+
+<!-- DO NOT EDIT (expanded from "expand_source_A.xml"): -->		-		-
+
+<!--		-This code will be forked to two files which then will be macro-expanded into the main library file.		--->		-		-		-<example> sept trois </example>		-<example> trente-six </example>		-<tag>out._value = ""; </tag>		-		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-		-		-<ruleref uri="#Cardinal_10_to_99" />		-<tag>out._value += rules.Cardinal_10_to_99 </tag>		-		-		-<example> dix-sept </example>		-		-<ruleref uri="#Cardinal_10_to_19" />		-		-		-<ruleref uri="#Cardinal_20_to_99" />		-		-		-
+
+<!-- out.Cardinal_0_to_9: integer -->		-<example> deux </example>		-<example> trois </example>		-		-<ruleref uri="#Cardinal_0" />		-		-		-<ruleref uri="#Cardinal_1_to_9" />		-		-		-		-
+
+<!-- out.Cardinal_1_to_9: integer -->		-<example> trois </example>		-		-<ruleref uri="#Cardinal_1_MF" />		-<tag> out = 1; </tag>		-		-		-<ruleref uri="#Cardinal_2_to_9" />		-		-		-
+
+<!-- out.Cardinal_20_to_99: integer -->		-<example> vingt </example>		-<example> quarante et un </example>		-		-<ruleref uri="#Cardinal_20_to_29" />		-		-		-<ruleref uri="#Cardinal_30_to_39" />		-		-		-<ruleref uri="#Cardinal_40_to_49" />		-		-		-<ruleref uri="#Cardinal_50_to_59" />		-		-		-<ruleref uri="#Cardinal_60_to_69" />		-		-		-<ruleref uri="#Cardinal_70_to_79" />		-		-		-<ruleref uri="#Cardinal_80_to_89" />		-		-		-<ruleref uri="#Cardinal_90_to_99" />		-		-		-		-
+
+<!-- out.Cardinal_20_to_29: integer -->		-<example> vingt </example>		-		-vingt <tag>out = 20 </tag>		-		-		-vingt et <ruleref uri="#Cardinal_1_MF" />  <tag>out = 21 </tag>		-		-		-vingt-deux <tag>out = 22 </tag>		-		-		-vingt-trois <tag>out = 23 </tag>		-		-		-vingt-quatre <tag>out = 24 </tag>		-		-		-vingt-cinq <tag>out = 25 </tag>		-		-		-vingt-six <tag>out = 26 </tag>		-		-		-vingt-sept <tag>out = 27 </tag>		-		-		-vingt-huit <tag>out = 28 </tag>		-		-		-vingt-neuf <tag>out = 29 </tag>		-		-		-
+
+<!-- out.Cardinal_30_to_39: integer -->		-<example> trente </example>		-<example> trente-huit </example>		-		-trente <tag>out = 30 </tag>		-		-		-trente et <ruleref uri="#Cardinal_1_MF" />  <tag>out = 31 </tag>		-		-		-trente-deux <tag>out = 32 </tag>		-		-		-trente-trois <tag>out = 33 </tag>		-		-		-trente-quatre <tag>out = 34 </tag>		-		-		-trente-cinq <tag>out = 35 </tag>		-		-		-trente-six <tag>out = 36 </tag>		-		-		-trente-sept <tag>out = 37 </tag>		-		-		-trente-huit <tag>out = 38 </tag>		-		-		-trente-neuf <tag>out = 39 </tag>		-		-
+
+<!-- out.Cardinal_40_to_49: integer -->		-<example> quarante </example>		-<example> quarante-quatre </example>		-		-quarante <tag>out = 40 </tag>		-		-		-quarante et <ruleref uri="#Cardinal_1_MF" />  <tag>out = 41 </tag>		-		-		-quarante-deux <tag>out = 42 </tag>		-		-		-quarante-trois <tag>out = 43 </tag>		-		-		-quarante-quatre <tag>out = 44 </tag>		-		-		-quarante-cinq <tag>out = 45 </tag>		-		-		-quarante-six <tag>out = 46 </tag>		-		-		-quarante-sept <tag>out = 47 </tag>		-		-		-quarante-huit <tag>out = 48 </tag>		-		-		-quarante-neuf <tag>out = 49 </tag>		-		-
+
+<!-- out.Cardinal_50_to_59: integer -->		-<example> cinquante </example>		-<example> cinquante-deux </example>		-		-cinquante <tag>out = 50 </tag>		-		-		-cinquante et <ruleref uri="#Cardinal_1_MF" /> <tag>out = 51 </tag>		-		-		-cinquante-deux <tag>out = 52 </tag>		-		-		-cinquante-trois <tag>out = 53 </tag>		-		-		-cinquante-quatre <tag>out = 54 </tag>		-		-		-cinquante-cinq <tag>out = 55 </tag>		-		-		-cinquante-six <tag>out = 56 </tag>		-		-		-cinquante-sept <tag>out = 57 </tag>		-		-		-cinquante-huit <tag>out = 58 </tag>		-		-		-cinquante-neuf <tag>out = 59 </tag>		-		-		-
+
+<!-- out.Cardinal_1_to_999_999: integer -->		-<tag>out = 1000 </tag>		-		-<ruleref uri="#Cardinal_1_to_999" />		-<tag>out =rules.Cardinal_1_to_999 </tag>		-		-		-mille		-		-		-mille		-<ruleref uri="#Cardinal_1_to_999" />		-<tag>out += rules.Cardinal_1_to_999 </tag>		-		-		-<ruleref uri="#Cardinal_1_to_999" />		-mille		-<tag>out = out * rules.Cardinal_1_to_999 </tag>		-		-		-<ruleref uri="#Cardinal_1_to_999" />		-mille		-<tag>out = out * rules.Cardinal_1_to_999 </tag>		-<ruleref uri="#Cardinal_1_to_999" />		-<tag>out += rules.Cardinal_1_to_999 </tag>		-		-
+
+<!-- END OF EXPANSION (expanded from "expand_source_A.xml"): -->		-
+
+<!-- DO NOT EDIT (expanded from "expand_source_Phone.xml"): -->		-		-
+
+<!--		-This code will be forked to two files which then will be macro-expanded into the main library file.		--->		-		-		-<example> sept trois </example>		-<example> trente-six </example>		-<tag>out._value = ""; </tag>		-		-<ruleref uri="#PHONE_TAG_Cardinal_0_to_9" />		-<tag>out._value += rules.PHONE_TAG_Cardinal_0_to_9 </tag>		-<ruleref uri="#PHONE_TAG_Cardinal_0_to_9" />		-<tag>out._value += rules.PHONE_TAG_Cardinal_0_to_9 </tag>		-		-		-<ruleref uri="#PHONE_TAG_Cardinal_10_to_99" />		-<tag>out._value += rules.PHONE_TAG_Cardinal_10_to_99 </tag>		-		-		-<example> dix-sept </example>		-		-<ruleref uri="#Cardinal_10_to_19" />		-		-		-<ruleref uri="#PHONE_TAG_Cardinal_20_to_99" />		-		-		-
+
+<!-- out.Cardinal_0_to_9: integer -->		-<example> deux </example>		-<example> trois </example>		-		-<ruleref uri="#Cardinal_0" />		-		-		-<ruleref uri="#PHONE_TAG_Cardinal_1_to_9" />		-		-		-		-
+
+<!-- out.Cardinal_1_to_9: integer -->		-<example> trois </example>		-		-<ruleref uri="#PHONE_TAG_Cardinal_1_MF" />		-<tag> out = 1; </tag>		-		-		-<ruleref uri="#Cardinal_2_to_9" />		-		-		-
+
+<!-- out.Cardinal_20_to_99: integer -->		-<example> vingt </example>		-<example> quarante et un </example>		-		-<ruleref uri="#PHONE_TAG_Cardinal_20_to_29" />		-		-		-<ruleref uri="#PHONE_TAG_Cardinal_30_to_39" />		-		-		-<ruleref uri="#PHONE_TAG_Cardinal_40_to_49" />		-		-		-<ruleref uri="#PHONE_TAG_Cardinal_50_to_59" />		-		-		-<ruleref uri="#Cardinal_60_to_69" />		-		-		-<ruleref uri="#Cardinal_70_to_79" />		-		-		-<ruleref uri="#Cardinal_80_to_89" />		-		-		-<ruleref uri="#Cardinal_90_to_99" />		-		-		-		-
+
+<!-- out.Cardinal_20_to_29: integer -->		-<example> vingt </example>		-		-vingt <tag>out = 20 </tag>		-		-		-vingt et <ruleref uri="#PHONE_TAG_Cardinal_1_MF" />  <tag>out = 21 </tag>		-		-		-vingt-deux <tag>out = 22 </tag>		-		-		-vingt-trois <tag>out = 23 </tag>		-		-		-vingt-quatre <tag>out = 24 </tag>		-		-		-vingt-cinq <tag>out = 25 </tag>		-		-		-vingt-six <tag>out = 26 </tag>		-		-		-vingt-sept <tag>out = 27 </tag>		-		-		-vingt-huit <tag>out = 28 </tag>		-		-		-vingt-neuf <tag>out = 29 </tag>		-		-		-
+
+<!-- out.Cardinal_30_to_39: integer -->		-<example> trente </example>		-<example> trente-huit </example>		-		-trente <tag>out = 30 </tag>		-		-		-trente et <ruleref uri="#PHONE_TAG_Cardinal_1_MF" />  <tag>out = 31 </tag>		-		-		-trente-deux <tag>out = 32 </tag>		-		-		-trente-trois <tag>out = 33 </tag>		-		-		-trente-quatre <tag>out = 34 </tag>		-		-		-trente-cinq <tag>out = 35 </tag>		-		-		-trente-six <tag>out = 36 </tag>		-		-		-trente-sept <tag>out = 37 </tag>		-		-		-trente-huit <tag>out = 38 </tag>		-		-		-trente-neuf <tag>out = 39 </tag>		-		-
+
+<!-- out.Cardinal_40_to_49: integer -->		-<example> quarante </example>		-<example> quarante-quatre </example>		-		-quarante <tag>out = 40 </tag>		-		-		-quarante et <ruleref uri="#PHONE_TAG_Cardinal_1_MF" />  <tag>out = 41 </tag>		-		-		-quarante-deux <tag>out = 42 </tag>		-		-		-quarante-trois <tag>out = 43 </tag>		-		-		-quarante-quatre <tag>out = 44 </tag>		-		-		-quarante-cinq <tag>out = 45 </tag>		-		-		-quarante-six <tag>out = 46 </tag>		-		-		-quarante-sept <tag>out = 47 </tag>		-		-		-quarante-huit <tag>out = 48 </tag>		-		-		-quarante-neuf <tag>out = 49 </tag>		-		-
+
+<!-- out.Cardinal_50_to_59: integer -->		-<example> cinquante </example>		-<example> cinquante-deux </example>		-		-cinquante <tag>out = 50 </tag>		-		-		-cinquante et <ruleref uri="#PHONE_TAG_Cardinal_1_MF" /> <tag>out = 51 </tag>		-		-		-cinquante-deux <tag>out = 52 </tag>		-		-		-cinquante-trois <tag>out = 53 </tag>		-		-		-cinquante-quatre <tag>out = 54 </tag>		-		-		-cinquante-cinq <tag>out = 55 </tag>		-		-		-cinquante-six <tag>out = 56 </tag>		-		-		-cinquante-sept <tag>out = 57 </tag>		-		-		-cinquante-huit <tag>out = 58 </tag>		-		-		-cinquante-neuf <tag>out = 59 </tag>		-		-
+
+<!-- END OF EXPANSION (expanded from "expand_source_Phone.xml"): -->		-		-<example> un deux trois </example>		-<example> cent </example>		-<example> deux trente-trois </example>		-<example> vingt-cinq neuf </example>		-<tag>out._value = ""; </tag>		-		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-		-		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-<ruleref uri="#Cardinal_10_to_99" />		-<tag>out._value += rules.Cardinal_10_to_99 </tag>		-		-		-<ruleref uri="#Cardinal_10_to_99" />		-<tag>out._value += rules.Cardinal_10_to_99 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-		-		-<ruleref uri="#Cardinal_100_to_999" />		-<tag>out._value += rules.Cardinal_100_to_999 </tag>		-		-		-
+
+<!-- out.DigitBlock_4Digits._value: string -->		-<example> six cinq un deux </example>		-<example> huit mille </example>		-<example> soixante-six soixante-dix-sept </example>		-<example> zéro un vingt-trois </example>		-<example> vingt zéro cinq </example>		-<tag>out._value = ""; </tag>		-		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-		-		-<ruleref uri="#Cardinal_10_to_99" />		-<tag>out._value += rules.Cardinal_10_to_99 </tag>		-<ruleref uri="#Cardinal_10_to_99" />		-<tag>out._value += rules.Cardinal_10_to_99 </tag>		-		-		-<ruleref uri="#Cardinal_10_to_99" />		-<tag>out._value += rules.Cardinal_10_to_99 </tag>		-<ruleref uri="#Cardinal_0" />		-<tag>out._value += rules.Cardinal_0 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-		-		-<ruleref uri="#Cardinal_0" />		-<tag>out._value += rules.Cardinal_0 </tag>		-<ruleref uri="#Cardinal_0_to_9" />		-<tag>out._value += rules.Cardinal_0_to_9 </tag>		-<ruleref uri="#Cardinal_10_to_99" />		-<tag>out._value += rules.Cardinal_10_to_99 </tag>		-		-		-<ruleref uri="#Cardinal_2_to_9" /> mille		-<tag>out._value += rules.Cardinal_2_to_9 + "000" </tag>		-		-		-mille		-<tag>out._value += "1000" </tag>		-		-		-<ruleref uri="#Cardinal_0" />		-<tag>out._value += rules.Cardinal_0 </tag>		-<ruleref uri="#Cardinal_100_to_999" />		-<tag>out._value += rules.Cardinal_100_to_999 </tag>		-		-		-
+
+<!--Date-->		-<example> trois septembre deux mille trois </example>		-<example> le treize  </example>		-<example> le neuf </example>		-<example> deux mai </example>		-<example> dix dix deux mille six </example>		-<example> dix dix zéro six </example>		-<example> mercredi prochain </example>		-<example> demain </example>		-<example> trente et un avril deux mille cinq </example>		-<example> lundi </example>		-		-<ruleref uri="#Date_Day" />		-		-		-<ruleref uri="#Date_Day_Month" />		-		-		-<ruleref uri="#Date_Day_Month_Year" />		-		-		-<ruleref uri="#Date_DayNum_MonthNum" />		-		-		-<ruleref uri="#Date_DayNum_MonthNum_Year" />		-		-		-<ruleref uri="#Date_Relative" />		-		-		-
+
+<!--Date_Day-->		-		-<example> lundi le vingt  </example>		-<tag>		-out.Day = new Object();		-out.Month = new Object();		-out.Year = new Object();		-out.AlternateMonth = new Object();		-out.AlternateYear = new Object();		-</tag>		-<item repeat="0-1">		-<ruleref uri="#Date_Weekday" />		-		-<item repeat="0-1">le		-		-premier <tag> out.Day._value = 1; </tag>		-		-		-<ruleref uri="#Cardinal_2_to_31" />		-<tag> out.Day._value = rules.Cardinal_2_to_31; </tag>		-		-<tag>		-out.Day._attributes.name = "Explicit";		-out.Month._value = FutureMonth(out.Day._value);		-out.Month._attributes.name = "Assumed";		-out.Year._value = FutureYear(out.Month._value, out.Day._value);		-out.Year._attributes.name = "Assumed";		-out.AlternateMonth._value = PastMonth(out.Day._value);		-out.AlternateYear._value = PastYear(out.AlternateMonth._value, out.Day._value);		-out.IsValidDate = IsValidDate(out.Month._value, out.Day._value, out.Year._value);		-</tag>		-		-
+
+<!--Date_Day_Month-->		-<example> six mai  </example>		-<example> vingt janvier  </example>		-<tag>		-out.Day = new Object();		-out.Month = new Object();		-out.Year = new Object();		-out.AlternateYear = new Object();		-</tag>		-		-<ruleref uri="#Date_Day" />		-<tag>		-out.Day = rules.Date_Day.Day;		-out.Year = rules.Date_Day.Year;		-</tag>		-<ruleref uri="#Date_Month" />		-<tag>		-out.Month._value = rules.Date_Month;		-out.Month._attributes.name = "Explicit";		-out.AlternateYear = PastYear(out.Month._value, out.Day._value);		-out.IsValidDate = IsValidDate(out.Month._value, out.Day._value, out.Year._value);		-</tag>		-		-		-
+
+<!--Date_Day_Month_Year-->		-<example> trois janvier zéro neuf  </example>		-<example> trois janvier dix-neuf cent dix-neuf  </example>		-<tag>		-out.Day = new Object();		-out.Month = new Object();		-out.Year = new Object();		-</tag>		-		-<ruleref uri="#Date_Day_Month" />		-<tag>		-out.Day = rules.Date_Day_Month.Day;		-out.Month = rules.Date_Day_Month.Month;		-</tag>		-<ruleref uri="#Date_Year" />		-<tag>		-out.Year = rules.Date_Year.Year;		-out.IsValidDate = IsValidDate(out.Month._value, out.Day._value, out.Year._value);		-</tag>		-		-		-
+
+<!--Date_DayNum_MonthNum-->		-<example> le deux trois  </example>		-<example> le six zéro neuf  </example>		-<tag>		-out.Day = new Object();		-out.Month = new Object();		-out.Year = new Object();		-out.AlternateYear = new Object();		-</tag>		-		-<item repeat="0-1">le		-<ruleref uri="#Date_DayNum" />		-<tag>		-var offset1 =  rules.Date_DayNum;		-</tag>		-<ruleref uri="#Date_MonthNum" />		-<tag>		-var offset2 = rules.Date_MonthNum;		-</tag>		-		-<tag>		-out.Day._value = offset1;		-out.Day._attributes.name = "Explicit";		-out.Month._value = offset2;		-out.Month._attributes.name = "Explicit";		-out.Year._value = FutureYear(out.Month._value,out.Day._value);		-out.Year._attributes.name = "Assumed";		-out.AlternateYear._value = PastYear(out.Month._value, out.Day._value);		-out.IsValidDate = IsValidDate(out.Month._value, out.Day._value, out.Year._value);		-</tag>		-		-
+
+<!--Date_DayNum_MonthNum_Year-->		-		-<example> le un un onze  </example>		-<tag>		-out.Day = new Object();		-out.Month = new Object();		-out.Year = new Object();		-</tag>		-		-<ruleref uri="#Date_DayNum_MonthNum" />		-<tag>		-out.Day = rules.Date_DayNum_MonthNum.Day;		-out.Month = rules.Date_DayNum_MonthNum.Month;		-</tag>		-<ruleref uri="#Date_Year" />		-<tag>		-out.Year = rules.Date_Year.Year;		-out.IsValidDate = IsValidDate(out.Month._value, out.Day._value, out.Year._value);		-</tag>		-		-		-
+
+<!--Date_Relative-->		-<example> aujourd'hui </example>		-<example> hier </example>		-		-<ruleref uri="#Date_Relative_Special" />		-		-		-<ruleref uri="#Date_Relative_Weekday" />		-		-		-
+
+<!--Date_Relative_Special-->		-<example> demain </example>		-<example> aujourd'hui </example>		-<example> hier </example>		-<tag>		-out.Day = new Object();		-out.Month = new Object();		-out.Year = new Object();		-var oDate;		-</tag>		-		-		-aujourd'hui <tag> oDate = GetDateFromOffset(0); </tag>		-		-		-demain <tag> oDate = GetDateFromOffset(1); </tag>		-		-		-hier <tag> oDate = GetDateFromOffset(-1); </tag>		-		-<tag>		-out.Day._value = oDate.getDate();		-out.Day._attributes.name = "Derived";		-out.Month._value = oDate.getMonth() + 1;		-out.Month._attributes.name = "Derived";		-out.Year._value = oDate.getFullYear();		-out.Year._attributes.name = "Derived";		-out.IsValidDate = IsValidDate(out.Month._value, out.Day._value, out.Year._value);		-</tag>		-		-		-
+
+<!--Date_Relative_Weekday-->		-<example>le lundi</example>		-<tag>		-out.Day = new Object();		-out.Month = new Object();		-out.Year = new Object();		-		-out.AlternateDay = new Object();		-out.AlternateMonth = new Object();		-out.AlternateYear = new Object();		-		-var weekdayOffset;		-var altDate;		-var altWeekdayOffset;		-		-		-out.IsValidDate=true;		-var curDate;		-var offset;		-var dayName = "Derived";		-var monthName = "Derived";		-var yearName = "Derived";		-</tag>		-		-<item repeat="0-1">le		-<ruleref uri="#Date_Weekday" />		-<tag>		-		-offset = rules.Date_Weekday;		-weekdayOffset = GetOffsetFromWeekday(offset, "next");		-altWeekdayOffset = GetOffsetFromWeekday(offset, "previous");		-		-dayName = "Assumed";		-monthName = "Assumed";		-yearName = "Assumed";		-</tag>		-		-		-<ruleref uri="#Date_Weekday" />		-prochain		-<tag>		-offset = rules.Date_Weekday;		-weekdayOffset = GetOffsetFromWeekday(offset, "next");		-altWeekdayOffset = weekdayOffset + 7;		-</tag>		-		-		-<ruleref uri="#Date_Weekday" />		-dernier		-passé		-<tag>		-offset = rules.Date_Weekday;		-weekdayOffset = GetOffsetFromWeekday(offset, "previous");		-altWeekdayOffset = weekdayOffset - 7;		-</tag>		-		-<tag>		-		-curDate = GetDateFromOffset(weekdayOffset);		-altDate = GetDateFromOffset(altWeekdayOffset);		-		-out.Day._value = curDate.getDate();		-out.Day._attributes.name = dayName;		-out.Month._value = curDate.getMonth() + 1;		-out.Month._attributes.name = monthName;		-out.Year._value = curDate.getFullYear();		-out.Year._attributes.name = yearName;		-out.AlternateDay._value = altDate.getDate();		-out.AlternateMonth._value = altDate.getMonth() + 1;		-out.AlternateYear._value = altDate.getFullYear();		-out.IsValidDate = IsValidDate(out.Month._value, out.Day._value, out.Year._value);		-</tag>		-		-
+
+<!-- Date BASIC rules -->		-<example> vendredi  </example>		-<example> samedi  </example>		-		-<ruleref uri="#Date_Weekday" />		-		-		-<ruleref uri="#Date_Month" />		-		-		-<ruleref uri="#Date_MonthNum" />		-		-		-<ruleref uri="#Date_DayNum" />		-		-		-
+
+<!-- out.Date_Weekday._value: integer -->		-<example> vendredi  </example>		-<example> samedi  </example>		-		-dimanche <tag> out = 1 </tag>		-		-		-lundi <tag> out = 2 </tag>		-		-		-mardi <tag> out = 3 </tag>		-		-		-mercredi <tag> out = 4 </tag>		-		-		-jeudi <tag> out = 5 </tag>		-		-		-vendredi <tag> out = 6 </tag>		-		-		-samedi <tag> out = 7 </tag>		-		-
+
+<!-- out.Date_Month._value : integer [1...12] -->		-<example> février  </example>		-<example> mars  </example>		-<example> avril  </example>		-		-janvier <tag> out = 1 </tag>		-		-		-février <tag> out = 2 </tag>		-		-		-mars <tag> out = 3 </tag>		-		-		-avril <tag> out = 4 </tag>		-		-		-mai <tag> out = 5 </tag>		-		-		-juin <tag> out = 6 </tag>		-		-		-juillet <tag> out = 7 </tag>		-		-		-août <tag> out = 8 </tag>		-		-		-septembre <tag> out = 9 </tag>		-		-		-octobre <tag> out = 10 </tag>		-		-		-novembre <tag> out = 11 </tag>		-		-		-décembre <tag> out = 12 </tag>		-		-
+
+<!-- out.Date_MonthNum._value: integer -->		-<example> quatre  </example>		-<example> cinq  </example>		-<example> six  </example>		-		-<item repeat="0-1">		-<ruleref uri="#Cardinal_0" />		-		-<ruleref uri="#Cardinal_1_to_9" />		-<tag> out = rules.Cardinal_1_to_9; </tag>		-		-		-dix <tag> out = 10; </tag>		-		-		-onze <tag> out = 11; </tag>		-		-		-douze <tag> out = 12; </tag>		-		-
+
+<!-- out.Date_DayNum._value: integer -->		-<example> zéro trois  </example>		-<example> vingt  </example>		-		-<item repeat="0-1">		-<ruleref uri="#Cardinal_0" />		-		-<ruleref uri="#Cardinal_1_to_9" />		-<tag> out = rules.Cardinal_1_to_9; </tag>		-		-		-<ruleref uri="#Cardinal_10_to_19" />		-<tag> out = rules.Cardinal_10_to_19; </tag>		-		-		-<ruleref uri="#Cardinal_20_to_29" />		-<tag> out = rules.Cardinal_20_to_29; </tag>		-		-		-trente <tag> out = 30; </tag>		-		-		-trente et un <tag> out = 31; </tag>		-		-		-
+
+<!--Date_Year-->		-		-<example> deux mille un</example>		- <tag>		-out.Year = new Object();		-var offset = 1;		-out.AlternateYear = new Object();		-</tag>		-		-		-mille neuf cent		-		-		-dix-neuf cent		-		-<ruleref uri="#Cardinal_1_to_99" />		-<tag>		-out.Year._value = 1900 + rules.Cardinal_1_to_99;		-out.Year._attributes.name = "Explicit";		-out.Year._attributes.form = "Long Form";		-out.AlternateYear._value = out.Year._value;		-</tag>		-		-		-deux mille		-<ruleref uri="#Cardinal_1_to_99" />		-<tag>		-out.Year._value = 2000 + rules.Cardinal_1_to_99;		-out.Year._attributes.name = "Explicit";		-out.Year._attributes.form = "Long Form";		-out.AlternateYear._value = out.Year._value;		-</tag>		-		-		-		-<ruleref uri="#Cardinal_0" />		-<ruleref uri="#Cardinal_1_to_9" />		-<tag>		-offset = rules.Cardinal_1_to_9;		-</tag>		-		-		-<ruleref uri="#Cardinal_10_to_19" />		-<tag>		-offset = rules.Cardinal_10_to_19;		-</tag>		-		-		-<ruleref uri="#Cardinal_20_to_99" />		-<tag>		-offset = rules.Cardinal_20_to_99;		-</tag>		-		-<tag>		-out.Year._attributes.name = "Derived";		-out.Year._attributes.form = "Short Form";		-if(offset >= 30)		-{		-out.Year._value = 1900 + offset;		-out.AlternateYear._value = 2000 + offset;		-}		-else		-{		-out.Year._value = 2000 + offset;		-out.AlternateYear._value = 1900 + offset;		-}		-</tag>		-		-		-
+
+<!--Time-->		-<example> dix heures du matin </example>		-<example> midi et demie </example>		-<example> sept heures </example>		-<example> six heures moins cinq </example>		-<example> dix heures et deux minutes </example>		-<example> dix heures moins quart </example>		-<example> quinze heures et quart </example>		-<example> sept heures vingt-cinq du matin </example>		-<example> trois heures et quart </example>		-<example> dix-huit heures vingt </example>		-<tag>		-out.Hour = new Object();		-out.Minute = new Object();		-var offset;		-</tag>		-		-<ruleref uri="#Time_Hour" />		-<tag>		-out.Hour = rules.Time_Hour.Hour;		-out.Minute._value = 0;		-out.AlternateHour = new Object();		-out.AlternateHour = rules.Time_Hour.AlternateHour;		-</tag>		-		-		-<ruleref uri="#Time_Hour" />		-<tag>		-out.Hour = rules.Time_Hour.Hour;		-		-out.AlternateHour = new Object();		-out.AlternateHour = rules.Time_Hour.AlternateHour;		-</tag>		-<ruleref uri="#Time_BeforeAfter" />		-<tag>		-offset = rules.Time_BeforeAfter.Hour._value;		-out.Hour._value = Hour24(out.Hour._value + offset,"");		-out.Minute._value = rules.Time_BeforeAfter.Minute._value;		-out.AlternateHour._value = Hour24(out.AlternateHour._value + offset,"");		-		-</tag>		-		-		-une heure		-<ruleref uri="#Time_Minute" />		-<tag>		-offset = rules.Time_Minute;		-out.Hour._value = Hour24(1, "");		-out.Hour._attributes.name = "Assumed";		-out.Minute._value = offset;		-		-out.AlternateHour = new Object();		-out.AlternateHour._value = AlternateHour24(1);		-</tag>		-		-		-<ruleref uri="#Time_HourNum_2_to_11" />		-heures		-<tag>		-offset = rules.Time_HourNum_2_to_11;		-out.Hour._value = Hour24(offset, "");		-out.Hour._attributes.name = "Assumed";		- </tag>		-<ruleref uri="#Time_Minute" />		-<tag>		-out.Minute._value = rules.Time_Minute;		-		-out.AlternateHour = new Object();		-out.AlternateHour._value = AlternateHour24(offset);		-</tag>		-		-		-<ruleref uri="#Time_HourNum_13_to_23" />		-heures		-<tag>		-offset = rules.Time_HourNum_13_to_23;		-out.Hour._value = Hour24(offset, "");		-out.Hour._attributes.name = "Explicit";		-</tag>		-<ruleref uri="#Time_Minute" />		-<tag>		-out.Minute._value = rules.Time_Minute;		-</tag>		-		-		-<ruleref uri="#Time_HourNum_2_to_11" />		-<tag> var offset1 = rules.Time_HourNum_2_to_11; </tag>		-heures		-<ruleref uri="#Time_Minute" />		-<tag>		-offset = rules.Time_Minute;		-</tag>		-<ruleref uri="#Time_AmPm" />		-<tag>		-out.Hour._value = Hour24(offset1, rules.Time_AmPm);		-out.Hour._attributes.name = "Explicit";		-out.Minute._value = offset;		-</tag>		-		-		-midi		-<tag>		-out.Hour._value = 12;		-out.Hour._attributes.name = "Explicit";		-out.Minute._value = 0;		-</tag>		-		-		-midi		-<ruleref uri="#Time_BeforeAfter" />		-<tag>		-offset = rules.Time_BeforeAfter.Hour._value;		-var offsets = rules.Time_BeforeAfter.Minute._value;		-out.Hour._value = 12;		-out.Hour._attributes.name = "Explicit";		-out.Minute._value = offsets;		-</tag>		-		-		-minuit		-<tag>		-out.Hour._value = 0;		-out.Hour._attributes.name = "Explicit";		-out.Minute._value = 0;		-		-</tag>		-		-		-minuit		-<ruleref uri="#Time_BeforeAfter" />		-<tag>		-		-offset = rules.Time_BeforeAfter.Hour._value;		-if(offset == 0)		-{		-out.Hour._value = 0;		-}		-else		-{		-out.Hour._value = 23;		-}		-out.Hour._attributes.name = "Explicit";		-out.Minute._value = rules.Time_BeforeAfter.Minute._value;		-</tag>		-		-		-
+
+<!-- out.Time_Hour.Hour: Hour -->		-<example>une heure </example>		-<tag>		-out.Hour = new Object();		-out.AlternateHour = new Object();		-var offset;		-</tag>		-		-une heure		-<tag>		-out.Hour._value = Hour24(1, "");		-out.Hour._attributes.name = "Assumed";		-out.AlternateHour._value = AlternateHour24(1);		-</tag>		-		-		-<ruleref uri="#Time_HourNum_2_to_11" />		-heures		-<tag>		-offset = rules.Time_HourNum_2_to_11;		-out.Hour._value = Hour24(offset, "");		-out.Hour._attributes.name = "Assumed";		-out.AlternateHour._value = AlternateHour24(offset);		-</tag>		-		-		-une heure		-<ruleref uri="#Time_AmPm" />		-<tag>		-out.Hour._value = Hour24(1, rules.Time_AmPm);		-out.Hour._attributes.name = "Explicit";		-out.AlternateHour._value = out.Hour._value;		-</tag>		-		-		-<ruleref uri="#Time_HourNum_2_to_11" />		-<tag> offset = rules.Time_HourNum_2_to_11; </tag>		-heures		-<ruleref uri="#Time_AmPm" /><tag>		-out.Hour._value = Hour24(offset, rules.Time_AmPm);		-out.Hour._attributes.name = "Explicit";		-out.AlternateHour._value = out.Hour._value;		-</tag>		-		-		-<ruleref uri="#Time_HourNum_13_to_23" />		-heures		-<tag>		-offset = rules.Time_HourNum_13_to_23;		-out.Hour._value = Hour24(offset, "");		-out.Hour._attributes.name = "Explicit";		-out.AlternateHour._value = AlternateHour24(offset);		-</tag>		-		-
+
+<!-- out.Time_HourNum_2_to_11._value: integer -->		-<example> six  </example>		-		-<ruleref uri="#Cardinal_2_to_9" />		-<tag> out = rules.Cardinal_2_to_9;</tag>		-		-		-dix <tag> out = 10 </tag>		-		-		-onze <tag> out = 11 </tag>		-		-		-
+
+<!-- out.Time_HourNum_13_to_23._value: integer -->		-<example> quinze  </example>		-		-treize <tag> out = 13 </tag>		-		-		-quatorze <tag> out = 14 </tag>		-		-		-quinze <tag> out = 15 </tag>		-		-		-seize <tag> out = 16 </tag>		-		-		-dix-sept <tag> out = 17 </tag>		-		-		-dix-huit <tag> out = 18 </tag>		-		-		-dix-neuf <tag> out = 19 </tag>		-		-		-vingt <tag> out = 20 </tag>		-		-		-vingt et une <tag> out = 21 </tag>		-		-		-vingt-deux <tag> out = 22 </tag>		-		-		-vingt-trois <tag> out = 23 </tag>		-		-		-
+
+<!--		-out.Time_BeforeAfter		--->		-<example>et quart </example>		-<tag>var offset; out.Hour = new Object(); out.Minute = new Object();</tag>		-		-et quart		-<tag>   out.Minute._value = 15; out.Hour._value = 0;</tag>		-		-		-moins <item repeat="0-1"> le  quart		-<tag>   out.Minute._value = 45; out.Hour._value = -1;</tag>		-		-		-et demie		- <tag>   out.Minute._value = 30; out.Hour._value = 0;</tag>		-		-		-moins  <ruleref uri="#Time_Minute" />		-<tag>   out.Minute._value = 60-rules.Time_Minute._value; out.Hour._value = -1;</tag>		-		-		-<item repeat="0-1"> et   <ruleref uri="#Time_Minute" /> minutes		-<tag>   out.Minute._value = rules.Time_Minute._value; out.Hour._value = 0;</tag>		-		-		-		-<ruleref uri="#Time_Minute" />		-<item repeat="0-1"> minutes 		-<tag>   out.Minute._value = rules.Time_Minute._value; out.Hour._value = 0;</tag>		-		-		-
+
+<!--Time_One_Minute-->		-<example> une minute</example>		-		-une		-<item repeat="0-1">		-minute		-		-<tag> out = 1;</tag>		-		-		-
+
+<!-- out.Time_Minute._value: integer -->		-<example> sept </example>		-<example> vingt-trois </example>		-		-<ruleref uri="#Time_One_Minute" />		-		-		-		-<ruleref uri="#Cardinal_2_to_9" />		-		-		-<ruleref uri="#Cardinal_10_to_19" />		-		-		-<ruleref uri="#Cardinal_20_to_29" />		-		-		-<ruleref uri="#Cardinal_30_to_39" />		-		-		-<ruleref uri="#Cardinal_40_to_49" />		-		-		-<ruleref uri="#Cardinal_50_to_59" />		-		-<item repeat="0-1">		-minutes		-		-		-		-
+
+<!-- out.Time_AmPm._value: string -->		-<example> du soir  </example>		-<tag> out._value = "";</tag>		-		-du matin <tag> out._value = "AM";</tag>		-		-		-de l'après-midi <tag> out._value = "PM";</tag>		-		-		-du soir <tag> out._value = "PM";</tag>		-		-		-
+
+<!-- out.PhoneNumber -->		-<example> zéro sept zéro zéro trente-six sept trois trente-six</example>		-<tag> out._value = ""; </tag>		-		-<ruleref uri="#PhoneNumber_AreaCode" />		-<tag>		-out._value += rules.PhoneNumber_AreaCode._value;		-</tag>		-<ruleref uri="#PhoneNumber_LocalNumber" />		-<tag>		-out._value += rules.PhoneNumber_LocalNumber._value;		-</tag>		-		-		-
+
+<!-- out.PhoneNumber_AreaCode._value: string [2 characters] -->		-<example> zero trois </example>		-<example> zero six </example>		-<tag> out._value = ""; </tag>		-		-<ruleref uri="#Cardinal_0" />		-<tag> out._value += rules.Cardinal_0; </tag>		-<ruleref uri="#PHONE_TAG_Cardinal_0_to_9" />		-<tag> out._value += rules.PHONE_TAG_Cardinal_0_to_9; </tag>		-		-		-
+
+<!-- out.PhoneNumber_LocalNumber._value: string  -->		-<example> zéro zéro sept trois trente-six trente-six </example>		-<tag> out._value = "";</tag>		-		-<ruleref uri="#PHONE_TAG_DigitBlock_2Digits" />		-<tag> out._value += rules.PHONE_TAG_DigitBlock_2Digits._value; </tag>		-<ruleref uri="#PHONE_TAG_DigitBlock_2Digits" />		-<tag> out._value += rules.PHONE_TAG_DigitBlock_2Digits._value; </tag>		-<ruleref uri="#PHONE_TAG_DigitBlock_2Digits" />		-<tag> out._value += rules.PHONE_TAG_DigitBlock_2Digits._value; </tag>		-<ruleref uri="#PHONE_TAG_DigitBlock_2Digits" />		-<tag> out._value += rules.PHONE_TAG_DigitBlock_2Digits._value;  </tag>		-		-		-		-
+
+<!--activation du scan cyclique-->		-lancele balayage		-active balayage		-scan la zone		-Balaye la zone		-passe en balayage actif		-
+
+<!--coupure du scan cyclique-->		-coupe le balayage		-stop le balayage		-arrête le scanne		-coupe le scanne		-
+
+<!--déverrouiller une cible-->		-déverrouille la cible		-déverrouillage la cible		-
+
+<!--Armement switch gun/missile-->		-change d'arme		-
+
+<!--verrouiller une cible-->		-verrouille la cible		-verrouillage la cible		-
+
+<!--Armement switch gun/missile-->		-change la quantité missile		-
+
+<!--Armement lancer les missiles-->		-feu à volonté		-mise à feu		-feu		-lance le missile		-lance les missile
