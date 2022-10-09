@@ -120,3 +120,45 @@
 2022-10-09 19:15:51    undefined    undefined    undefined
 2022-10-09 19:17:1    undefined    undefined    undefined
 2022-10-09 19:41:45    undefined    undefined    undefined
+2022-10-09 21:14:46    0.879    SWAN tu es là    test_de_swan
+2022-10-09 21:16:53    undefined    undefined    undefined
+2022-10-09 21:17:4    0.903    SWAN tu es là    test_de_swan
+2022-10-09 21:17:17    0.965    SWAN on y va    emergency_take_off
+2022-10-09 21:23:6    0.827    SWAN éteint les feux    light_off
+2022-10-09 21:23:46    0.952    SWAN on y va    emergency_take_off
+2022-10-09 21:26:17    0.928    SWAN rentre le train    close_gear
+2022-10-09 21:26:24    0.914    SWAN on arrive    landing_seq
+2022-10-09 21:26:43    0.924    SWAN rentre le train    close_gear
+2022-10-09 21:27:1    0.858    SWAN on arrive    landing_seq
+2022-10-09 21:27:7    0.945    SWAN on arrive    landing_seq
+2022-10-09 21:27:40    0.947    SWAN tu es là    test_de_swan
+2022-10-09 21:27:45    0.900    SWAN on arrive    landing_seq
+2022-10-09 21:29:58    undefined    undefined    undefined
+2022-10-09 21:30:6    0.922    SWAN tu es là    test_de_swan
+2022-10-09 21:30:19    0.956    SWAN on arrive    landing_seq
+2022-10-09 21:31:40    0.913    on y voit rien    light_on
+2022-10-09 21:34:16    0.933    SWAN on y va    emergency_take_off
+2022-10-09 21:35:26    0.868    SWAN rentre le train    close_gear
+2022-10-09 21:38:48    0.947    SWAN on arrive    landing_seq
+2022-10-09 21:39:28    0.885    SWAN rentre le train    close_gear
+2022-10-09 21:39:50    0.957    SWAN on arrive    landing_seq
+2022-10-09 21:47:13    0.937    SWAN on y va    emergency_take_off
+2022-10-09 21:52:53    0.949    SWAN on arrive    landing_seq
+2022-10-09 21:53:34    0.906    SWAN éteint les feux    light_off
+2022-10-09 21:57:39    0.903    SWAN on y va    emergency_take_off
+2022-10-09 21:58:35    0.872    SWAN ouvre la starmap    open_starmap
+2022-10-09 21:58:59    0.836    SWAN lance le moteur quantique    quantum_on
+2022-10-09 21:59:41    0.917    SWAN Lance le saut    launch_jump_q
+2022-10-09 22:2:5    0.929    SWAN coupe la musique    stop_music
+2022-10-09 22:2:16    0.949    SWAN coupe la musique    stop_music
+2022-10-09 22:3:52    0.909    SWAN Lance le saut    launch_jump_q
+2022-10-09 22:5:37    undefined    undefined    undefined
+2022-10-09 22:5:42    0.897    SWAN coupe le moteur quantique    quantum_off
+2022-10-09 22:6:30    undefined    undefined    undefined
+2022-10-09 22:6:37    0.951    SWAN on arrive    landing_seq
+2022-10-09 22:7:50    0.825    SWAN coupe les feux    light_off
+2022-10-09 22:8:13    0.847    SWAN je quite la passerelle    exit_seat
+2022-10-09 22:20:50    undefined    undefined    undefined
+2022-10-09 22:21:10    0.935    SWAN on y va    emergency_take_off
+2022-10-09 22:21:30    0.914    SWAN coupe la musique    stop_music
+2022-10-09 22:34:28    0.816    feu    fire_missile
