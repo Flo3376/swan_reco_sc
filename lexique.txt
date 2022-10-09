@@ -18,6 +18,25 @@
 		-coupe les spots
 		-
 
+<!--ouverture ou passage en VTOL-->
+		-active les stabilisateurs
+		-ouvre les stabilisateurs
+		-sort les stabilisateurs
+		-active le VTOL
+		-passe en VTOL
+		-met en route les stabilisateur
+		-stabilise le vaisseau
+		-stabilise l'appareil
+		-
+
+<!--Fermeture ou  quitte le VTOL-->
+		-désactive les stabilisateur
+		-fermes les stabilisateurs
+		-rentre les stabilisateurs
+		-coupe les stabilisateurs
+		-coupe le VTOL
+		-
+
 <!--Met plus de puissance sur les moteurs (capacitor)-->
 		-Met plus de puissance sur les moteurs
 		-Met plus de jue sur les moteurs
@@ -32,23 +51,18 @@
 		-transfert plus de jue sur les moteurs
 		-
 
-<!--Fermeture ou  quitte le VTOL-->
-		-désactive les stabilisateur
-		-fermes les stabilisateurs
-		-rentre les stabilisateurs
-		-coupe les stabilisateurs
-		-coupe le VTOL
-		-
-
-<!--ouverture ou passage en VTOL-->
-		-active les stabilisateurs
-		-ouvre les stabilisateurs
-		-sort les stabilisateurs
-		-active le VTOL
-		-passe en VTOL
-		-met en route les stabilisateur
-		-stabilise le vaisseau
-		-stabilise l'appareil
+<!--Met plus de puissance sur les boucliers (capacitor)-->
+		-Met plus de puissance sur les boucliers
+		-Met plus de jue sur les boucliers
+		-Envoie plus de jue sur les boucliers
+		-bascule plus de jue sur les boucliers
+		-plus de puissance sur les boucliers
+		-Envoie plus de puissance sur les boucliers
+		-bascule plus de puissance sur les boucliers
+		-bascule tous le jue sur les boucliers
+		-plus de jue sur les boucliers
+		-transfert plus de puissance sur les boucliers
+		-transfert plus de jue sur les boucliers
 		-
 
 <!--Met plus de puissance sur les armes (capacitor)-->
@@ -76,20 +90,6 @@
 		-Envoie tous le jue sur les boucliers
 		-transfert toute la puissance sur les boucliers
 		-transfert tous le jue sur les boucliers
-		-
-
-<!--Met plus de puissance sur les boucliers (capacitor)-->
-		-Met plus de puissance sur les boucliers
-		-Met plus de jue sur les boucliers
-		-Envoie plus de jue sur les boucliers
-		-bascule plus de jue sur les boucliers
-		-plus de puissance sur les boucliers
-		-Envoie plus de puissance sur les boucliers
-		-bascule plus de puissance sur les boucliers
-		-bascule tous le jue sur les boucliers
-		-plus de jue sur les boucliers
-		-transfert plus de puissance sur les boucliers
-		-transfert plus de jue sur les boucliers
 		-
 
 <!--Met toutes la puissance sur les moteurs(capacitor)-->
@@ -125,11 +125,34 @@
 		-reset la puissance
 		-
 
+<!--Ouvrir les train d'aterrissage-->
+		-sort le train d'attérissage
+		-sort les trains d'attérissage
+		-sort les trains
+		-sort le train
+		-ouvre le train d'attérissage
+		-ouvre les trains d'attérissage
+		-ouvre les trains
+		-ouvre le train
+		-
+
 <!--Le bot ne parlera plus, il n'emmetra plus que des bips-->
 		-activation du mod discret
 		-Passe en mod discret
 		-Met toi en mod discret
 		-active le mod discret
+		-
+
+<!--Le bot n'emmetra plus des bips, il parlera-->
+		-coupe le mod discret
+		-désactivation du mod discret
+		-Sort du mod discret
+		-repasse en mod normale
+		-
+
+<!--Activation ou réactivation du bot-->
+		-met toi en sommeil
+		-met toi en veille
 		-
 
 <!--Fermer les train d'aterrissage-->
@@ -143,34 +166,6 @@
 		-rentre le train
 		-
 
-<!--Le bot n'emmetra plus des bips, il parlera-->
-		-coupe le mod discret
-		-désactivation du mod discret
-		-Sort du mod discret
-		-repasse en mod normale
-		-
-
-<!--Ouvrir les train d'aterrissage-->
-		-sort le train d'attérissage
-		-sort les trains d'attérissage
-		-sort les trains
-		-sort le train
-		-ouvre le train d'attérissage
-		-ouvre les trains d'attérissage
-		-ouvre les trains
-		-ouvre le train
-		-
-
-<!--Activation ou réactivation du bot-->
-		-met toi en sommeil
-		-met toi en veille
-		-
-
-<!--Désactivation du bot-->
-		-remet toi en écoute
-		-réveille toi
-		-
-
 <!--Test de fonctionnement du bot, le classique jarvis tu es là -->
 		-es tu là
 		-tu es là
@@ -180,6 +175,11 @@
 
 <!--Recharge les banque sonore -->
 		-recharge ta base de donnée sonore
+		-
+
+<!--Désactivation du bot-->
+		-remet toi en écoute
+		-réveille toi
 		-
 
 <!--recharge le keybinding, la configuration...Mais ça marche bof, un redémarrage est plus efficace -->
@@ -239,6 +239,13 @@
 		-prepare toi à l'aterrissage
 		-
 
+<!--Lancer un saut quantique-->
+		-Lance le saut
+		-On saute
+		-go pour le saut
+		-Hyperespace
+		-
+
 <!--Coupure urgence d'un saut quantique, coupure générateur puis rallumage-->
 		-coupure d'urgence
 		-stop tout
@@ -277,13 +284,6 @@
 		-ferme les soutes
 		-
 
-<!--Lancer un saut quantique-->
-		-Lance le saut
-		-On saute
-		-go pour le saut
-		-Hyperespace
-		-
-
 <!--Armement switch gun/missile-->
 		-lance ma playlist
 		-
@@ -308,21 +308,14 @@
 		-désactive le moteur quantique
 		-
 
-<!--Mode offensif, triange de puissance vers arme et bouclier -->
-		-mode offensif
-		-mode attaque 
-		-passe en mode offensif
-		-passe en mode attaque 
-		-
-
-<!--mode navigation,triange de puissance au centre, bouclier équilibré -->
-		-passe en mode navigation
-		-mode navigation
-		-
-
-<!--Mode minage,puissance du bouclier avec l'avant + ouverture du bras -->
-		-mode minage
-		-passe en mode minage
+<!--Démarre les moteur convetionels -->
+		-démarre le moteur
+		-démarre les moteurs
+		-allume les moteurs
+		-lance le moteur
+		-lance les moteurs
+		-fait chauffer les moteurs
+		-fait chauffer le moteur
 		-
 
 <!--coupe les moteur convetionel -->
@@ -335,19 +328,21 @@
 		-coupure propulsions
 		-
 
-<!--mode défensif triange de puissance vers réacteur et bouclier -->
-		-mode défensif  
-		-passe en mode défensif 
+<!--mode navigation,triange de puissance au centre, bouclier équilibré -->
+		-passe en mode navigation
+		-mode navigation
 		-
 
-<!--Démarre les moteur convetionels -->
-		-démarre le moteur
-		-démarre les moteurs
-		-allume les moteurs
-		-lance le moteur
-		-lance les moteurs
-		-fait chauffer les moteurs
-		-fait chauffer le moteur
+<!--Mode minage,puissance du bouclier avec l'avant + ouverture du bras -->
+		-mode minage
+		-passe en mode minage
+		-
+
+<!--Mode offensif, triange de puissance vers arme et bouclier -->
+		-mode offensif
+		-mode attaque 
+		-passe en mode offensif
+		-passe en mode attaque 
 		-
 
 <!--sortir le bras de minage-->
@@ -355,6 +350,11 @@
 		-sort le bras
 		-ouvre le bras
 		-ferme le bras
+		-
+
+<!--mode défensif triange de puissance vers réacteur et bouclier -->
+		-mode défensif  
+		-passe en mode défensif 
 		-
 
 <!--larguer la cargaison instable-->
@@ -381,13 +381,9 @@
 		-range le bras
 		-
 
-<!--allume les générateurs-->
-		-démarre le générateur
-		-allume les générateurs
-		-allume le générateur
-		-démarre les générateurs
-		-lance le générateur
-		-lance les générateurs
+<!--passage de minage à rammasage et inversement-->
+		-change l'outils
+		-change d'outils
 		-
 
 <!--sortir le bras de minage !!pas encore fonctionnel-->
@@ -396,9 +392,13 @@
 		-
 		-
 
-<!--passage de minage à rammasage et inversement-->
-		-change l'outils
-		-change d'outils
+<!--allume les générateurs-->
+		-démarre le générateur
+		-allume les générateurs
+		-allume le générateur
+		-démarre les générateurs
+		-lance le générateur
+		-lance les générateurs
 		-
 
 <!--coupe les générateurs-->
@@ -410,14 +410,22 @@
 		-éteint les générateurs
 		-
 
+<!--envoie sur le chat, mon id discord-->
+		-envoie mon discord
+		-
+
 <!--envoie sur le chat, le discord de la corpo-->
 		-envoie une invitation discord
 		-envoie notre discord
 		-envoie une invite
 		-
 
-<!--envoie sur le chat, mon id discord-->
-		-envoie mon discord
+<!--appel la station-->
+		-appel la station
+		-appel la base
+		-ouvre le hangar
+		-appel le hangar
+		-appel le pad
 		-
 
 <!--lancer le chrono 15 minutes pour les quantainium-->
@@ -431,23 +439,7 @@
 		-
 
 <!--appel la station-->
-		-appel la station
-		-appel la base
-		-ouvre le hangar
-		-appel le hangar
-		-appel le pad
-		-
-
-<!--appel la station-->
 		-Demande l'autorisation d'aterrire'
-		-
-
-<!--couper le chrono 15 minutes pour les quantainium-->
-		-annulation du chrono
-		-annulation compte à rebours
-		-stop le  compte à rebours
-		-annule le chrono
-		-stop le  chrono
 		-
 
 <!--mettre tous les boucliers à gauche-->
@@ -462,6 +454,28 @@
 		-plus de jue sur le bouclier gauche
 		-transfert plus de puissance sur le bouclier gauche
 		-transfert plus de jue sur le bouclier gauche
+		-
+
+<!--couper le chrono 15 minutes pour les quantainium-->
+		-annulation du chrono
+		-annulation compte à rebours
+		-stop le  compte à rebours
+		-annule le chrono
+		-stop le  chrono
+		-
+
+<!--mettre plus les boucliers  à droite-->
+		-Met plus de puissance sur le bouclier droit
+		-Met plus de jue sur le bouclier droit
+		-Envoie plus de jue sur le bouclier droit
+		-bascule plus de jue sur le bouclier droit
+		-plus de puissance sur le bouclier droit
+		-Envoie plus de puissance sur le bouclier droit
+		-bascule plus de puissance sur le bouclier droit
+		-bascule tous le jue sur le bouclier droit
+		-plus de jue sur le bouclier droit
+		-transfert plus de puissance sur le bouclier droit
+		-transfert plus de jue sur le bouclier droit
 		-
 
 <!--mettre plus les boucliers  à l'avant-->
@@ -491,33 +505,19 @@
 		-transfert plus de jue sur le bouclier arrière
 		-
 
-<!--mettre tous les boucliers  à l'arriére-->
-		-Met tous de puissance sur le bouclier gauche
-		-Met tous de jue sur le bouclier gauche
-		-Envoie tous de jue sur le bouclier gauche
-		-bascule tous de jue sur le bouclier gauche
-		-tous de puissance sur le bouclier gauche
-		-Envoie tous de puissance sur le bouclier gauche
-		-bascule tous de puissance sur le bouclier gauche
-		-bascule tous le jue sur le bouclier gauche
-		-tous de jue sur le bouclier gauche
-		-transfert tous de puissance sur le bouclier gauche
-		-transfert tous de jue sur le bouclier gauche
-		-puissance bouclier gauche
-		-
-
-<!--mettre plus les boucliers  à droite-->
-		-Met plus de puissance sur le bouclier droit
-		-Met plus de jue sur le bouclier droit
-		-Envoie plus de jue sur le bouclier droit
-		-bascule plus de jue sur le bouclier droit
-		-plus de puissance sur le bouclier droit
-		-Envoie plus de puissance sur le bouclier droit
-		-bascule plus de puissance sur le bouclier droit
-		-bascule tous le jue sur le bouclier droit
-		-plus de jue sur le bouclier droit
-		-transfert plus de puissance sur le bouclier droit
-		-transfert plus de jue sur le bouclier droit
+<!--mettre tous les boucliers  à l'avant-->
+		-Met tous de puissance sur le bouclier avant
+		-Met tous de jue sur le bouclier avant
+		-Envoie tous de jue sur le bouclier avant
+		-bascule tous de jue sur le bouclier avant
+		-tous de puissance sur le bouclier avant
+		-Envoie tous de puissance sur le bouclier avant
+		-bascule tous de puissance sur le bouclier avant
+		-bascule tous le jue sur le bouclier avant
+		-tous de jue sur le bouclier avant
+		-transfert tous de puissance sur le bouclier avant
+		-transfert tous de jue sur le bouclier avant
+		-puissance bouclier avant
 		-
 
 <!--mettre tous les boucliers  à droite-->
@@ -535,19 +535,19 @@
 		-puissance bouclier droit
 		-
 
-<!--mettre tous les boucliers  à l'avant-->
-		-Met tous de puissance sur le bouclier avant
-		-Met tous de jue sur le bouclier avant
-		-Envoie tous de jue sur le bouclier avant
-		-bascule tous de jue sur le bouclier avant
-		-tous de puissance sur le bouclier avant
-		-Envoie tous de puissance sur le bouclier avant
-		-bascule tous de puissance sur le bouclier avant
-		-bascule tous le jue sur le bouclier avant
-		-tous de jue sur le bouclier avant
-		-transfert tous de puissance sur le bouclier avant
-		-transfert tous de jue sur le bouclier avant
-		-puissance bouclier avant
+<!--mettre tous les boucliers  à l'arriére-->
+		-Met tous de puissance sur le bouclier gauche
+		-Met tous de jue sur le bouclier gauche
+		-Envoie tous de jue sur le bouclier gauche
+		-bascule tous de jue sur le bouclier gauche
+		-tous de puissance sur le bouclier gauche
+		-Envoie tous de puissance sur le bouclier gauche
+		-bascule tous de puissance sur le bouclier gauche
+		-bascule tous le jue sur le bouclier gauche
+		-tous de jue sur le bouclier gauche
+		-transfert tous de puissance sur le bouclier gauche
+		-transfert tous de jue sur le bouclier gauche
+		-puissance bouclier gauche
 		-
 
 <!--mettre tous les boucliers  à l'arriére-->
@@ -565,6 +565,12 @@
 		-puissance bouclier avant
 		-
 
+<!--remettre les boucliers au centre-->
+		-remet les boucliers au centre
+		-réinitialise les boucliers
+		-reset les boucliers
+		-
+
 <!--activation du scan cyclique-->
 		-lancele balayage
 		-active balayage
@@ -573,11 +579,9 @@
 		-passe en balayage actif
 		-
 
-<!--coupure du scan cyclique-->
-		-coupe le balayage
-		-stop le balayage
-		-arrête le scanne
-		-coupe le scanne
+<!--déverrouiller une cible-->
+		-déverrouille la cible
+		-déverrouillage la cible
 		-
 
 <!--verrouiller une cible-->
@@ -585,15 +589,11 @@
 		-verrouillage la cible
 		-
 
-<!--remettre les boucliers au centre-->
-		-remet les boucliers au centre
-		-réinitialise les boucliers
-		-reset les boucliers
-		-
-
-<!--déverrouiller une cible-->
-		-déverrouille la cible
-		-déverrouillage la cible
+<!--coupure du scan cyclique-->
+		-coupe le balayage
+		-stop le balayage
+		-arrête le scanne
+		-coupe le scanne
 		-
 
 <!--Armement switch gun/missile-->

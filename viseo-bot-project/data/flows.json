@@ -7,6 +7,13 @@
         "info": ""
     },
     {
+        "id": "e23f34c2.ea7468",
+        "type": "tab",
+        "label": "Routeur et diag",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "f07cdeb.340a32",
         "type": "tab",
         "label": "Train / VTOL",
@@ -17,13 +24,6 @@
         "id": "3fe3ff74.5af25",
         "type": "tab",
         "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "e23f34c2.ea7468",
-        "type": "tab",
-        "label": "Routeur et diag",
         "disabled": false,
         "info": ""
     },
