@@ -162,3 +162,5 @@
 2022-10-09 22:21:10    0.935    SWAN on y va    emergency_take_off
 2022-10-09 22:21:30    0.914    SWAN coupe la musique    stop_music
 2022-10-09 22:34:28    0.816    feu    fire_missile
+2022-10-10 19:16:41    0.825    feu    fire_missile
+2022-10-10 20:27:9    0.847    tu es là    test_de_swan

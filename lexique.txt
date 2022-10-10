@@ -9,15 +9,6 @@
 		-éclair la zone
 		-
 
-<!--Coupe les éclairages-->
-		-éteint les phares
-		-éteint les feux
-		-éteint les spots
-		-coupe les phares
-		-coupe les feux
-		-coupe les spots
-		-
-
 <!--ouverture ou passage en VTOL-->
 		-active les stabilisateurs
 		-ouvre les stabilisateurs
@@ -29,12 +20,33 @@
 		-stabilise l'appareil
 		-
 
+<!--Coupe les éclairages-->
+		-éteint les phares
+		-éteint les feux
+		-éteint les spots
+		-coupe les phares
+		-coupe les feux
+		-coupe les spots
+		-
+
 <!--Fermeture ou  quitte le VTOL-->
 		-désactive les stabilisateur
 		-fermes les stabilisateurs
 		-rentre les stabilisateurs
 		-coupe les stabilisateurs
 		-coupe le VTOL
+		-
+
+<!--ouverture ou passage en VTOL-->
+		-découple
+		-découplage
+		-découplage moteur
+		-
+
+<!--ouverture ou passage en VTOL-->
+		-recouple
+		-recouplage
+		-recouplage moteur
 		-
 
 <!--Met plus de puissance sur les moteurs (capacitor)-->
@@ -147,9 +159,11 @@
 		-rentre le train
 		-
 
-<!--Activation ou réactivation du bot-->
-		-met toi en sommeil
-		-met toi en veille
+<!--Le bot ne parlera plus, il n'emmetra plus que des bips-->
+		-activation du mod discret
+		-Passe en mod discret
+		-Met toi en mod discret
+		-active le mod discret
 		-
 
 <!--Le bot n'emmetra plus des bips, il parlera-->
@@ -157,6 +171,11 @@
 		-désactivation du mod discret
 		-Sort du mod discret
 		-repasse en mod normale
+		-
+
+<!--Activation ou réactivation du bot-->
+		-met toi en sommeil
+		-met toi en veille
 		-
 
 <!--Désactivation du bot-->
@@ -173,13 +192,6 @@
 
 <!--Recharge les banque sonore -->
 		-recharge ta base de donnée sonore
-		-
-
-<!--Le bot ne parlera plus, il n'emmetra plus que des bips-->
-		-activation du mod discret
-		-Passe en mod discret
-		-Met toi en mod discret
-		-active le mod discret
 		-
 
 <!--recharge le keybinding, la configuration...Mais ça marche bof, un redémarrage est plus efficace -->
@@ -540,6 +552,21 @@
 		-puissance bouclier droit
 		-
 
+<!--mettre tous les boucliers  à l'avant-->
+		-Met tous de puissance sur le bouclier avant
+		-Met tous de jue sur le bouclier avant
+		-Envoie tous de jue sur le bouclier avant
+		-bascule tous de jue sur le bouclier avant
+		-tous de puissance sur le bouclier avant
+		-Envoie tous de puissance sur le bouclier avant
+		-bascule tous de puissance sur le bouclier avant
+		-bascule tous le jue sur le bouclier avant
+		-tous de jue sur le bouclier avant
+		-transfert tous de puissance sur le bouclier avant
+		-transfert tous de jue sur le bouclier avant
+		-puissance bouclier avant
+		-
+
 <!--mettre tous les boucliers  à l'arriére-->
 		-Met tous de puissance sur le bouclier avant
 		-Met tous de jue sur le bouclier avant
@@ -559,21 +586,6 @@
 		-remet les boucliers au centre
 		-réinitialise les boucliers
 		-reset les boucliers
-		-
-
-<!--mettre tous les boucliers  à l'avant-->
-		-Met tous de puissance sur le bouclier avant
-		-Met tous de jue sur le bouclier avant
-		-Envoie tous de jue sur le bouclier avant
-		-bascule tous de jue sur le bouclier avant
-		-tous de puissance sur le bouclier avant
-		-Envoie tous de puissance sur le bouclier avant
-		-bascule tous de puissance sur le bouclier avant
-		-bascule tous le jue sur le bouclier avant
-		-tous de jue sur le bouclier avant
-		-transfert tous de puissance sur le bouclier avant
-		-transfert tous de jue sur le bouclier avant
-		-puissance bouclier avant
 		-
 
 <!--activation du scan cyclique-->
