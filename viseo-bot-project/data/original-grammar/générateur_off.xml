@@ -1,0 +1,16 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="cut_gen" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="cut_gen" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--coupe les générateurs-->
+		<one-of>
+			<item>arrête le générateur</item>
+			<item>arrête les générateurs</item>
+			<item>coupe le générateur</item>
+			<item>coupe les générateurs</item>
+			<item>éteint le générateur</item>
+			<item>éteint les générateurs</item>
+		</one-of>
+		<tag>out.action.action="cut_gen";</tag>
+	</rule> 
+</grammar>
