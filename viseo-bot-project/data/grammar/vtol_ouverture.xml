@@ -1,0 +1,18 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ouverture_vtol" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="ouverture_vtol" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--ouverture ou passage en VTOL-->
+		<one-of>
+			<item>active les stabilisateurs</item>
+			<item>ouvre les stabilisateurs</item>
+			<item>sort les stabilisateurs</item>
+			<item>active le VTOL</item>
+			<item>passe en VTOL</item>
+			<item>met en route les stabilisateur</item>
+			<item>stabilise le vaisseau</item>
+			<item>stabilise l'appareil</item>
+		</one-of>
+		<tag>out.action.action="open_vtol";</tag>
+	</rule> 
+</grammar>

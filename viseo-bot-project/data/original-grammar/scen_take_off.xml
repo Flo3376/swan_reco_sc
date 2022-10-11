@@ -1,0 +1,14 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="emergency_take_off" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="emergency_take_off" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--mettre tous les boucliers  à l'arriére-->
+		<one-of>
+			<item>Décollage immédiat</item>
+			<item>Décollage d'urgence</item>
+			<item>on y va</item>
+			<item>on décolle</item>
+		</one-of>
+		<tag>out.action.action="emergency_take_off";</tag>
+	</rule> 
+</grammar>

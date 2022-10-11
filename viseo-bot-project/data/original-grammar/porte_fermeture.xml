@@ -1,0 +1,16 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="fermer_porte" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="fermer_porte" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--Fermeture des issues-->
+		<one-of>
+			<item>ferme la porte</item>
+			<item>ferme les portes</item>
+			<item>ferme le sasse</item>
+			<item>ferme les sasse</item>
+			<item>ferme la soute</item>
+			<item>ferme les soutes</item>
+		</one-of>
+		<tag>out.action.action="close_door";</tag>
+	</rule> 
+</grammar>

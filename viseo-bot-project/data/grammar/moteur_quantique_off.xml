@@ -1,0 +1,15 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="cut_mot_quantique" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="cut_mot_quantique" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--Coupe le moteur quantique-->
+		<one-of>
+			<item>coupe le quantum</item>
+			<item>éteint le quantum</item>
+			<item>désactive le quantum</item>
+			<item>coupe le moteur quantique</item>
+			<item>désactive le moteur quantique</item>
+		</one-of>
+		<tag>out.action.action="quantum_off";</tag>
+	</rule> 
+</grammar>
