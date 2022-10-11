@@ -1,1 +1,0 @@
-This folder hosts user data (flows, credentials, database files, and node-red user files).
