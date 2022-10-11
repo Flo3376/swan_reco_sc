@@ -4,9 +4,9 @@
 		<item>SWAN</item>
 		<!--ouverture ou passage en VTOL-->
 		<one-of>
-			<item>découple</item>
-			<item>découplage</item>
-			<item>découplage moteur</item>
+			<item>recouple</item>
+			<item>recouplage</item>
+			<item>recouplage moteur</item>
 		</one-of>
 		<tag>out.action.action="coupled_on";</tag>
 	</rule> 

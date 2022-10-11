@@ -16,7 +16,7 @@
     {
         "id": "f07cdeb.340a32",
         "type": "tab",
-        "label": "Train / VTOL",
+        "label": "Train / VTOL /vol découplé",
         "disabled": false,
         "info": ""
     },
@@ -2319,7 +2319,8 @@
         "wires": [
             [
                 "4de78e7d.7e08",
-                "774a745c.73980c"
+                "774a745c.73980c",
+                "7c499da5.dc22b4"
             ]
         ]
     },
@@ -2493,7 +2494,7 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 940,
+        "x": 930,
         "y": 380,
         "wires": [
             [
@@ -2510,7 +2511,7 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 940,
+        "x": 930,
         "y": 420,
         "wires": [
             [
@@ -8922,8 +8923,7 @@
         "y": 1420,
         "wires": [
             [
-                "daa0ad87.3889d",
-                "916f2824.e0c8b8"
+                "8fdf3dac.2f05"
             ]
         ]
     },
@@ -9747,8 +9747,8 @@
         "z": "dc4e7734.5f3478",
         "name": "gestion du config.ini",
         "info": "\n\n",
-        "x": 110,
-        "y": 1480,
+        "x": 90,
+        "y": 1600,
         "wires": []
     },
     {
@@ -9951,32 +9951,6 @@
         "wires": []
     },
     {
-        "id": "4112590f.5e8bd8",
-        "type": "win-speak",
-        "z": "dc4e7734.5f3478",
-        "x": 1170,
-        "y": 1460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8dc756e0.c57ff8",
-        "type": "function",
-        "z": "dc4e7734.5f3478",
-        "name": "si message",
-        "func": "msg.payload=\"chargement du fichier de configuration terminé\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 970,
-        "y": 1460,
-        "wires": [
-            [
-                "4112590f.5e8bd8"
-            ]
-        ]
-    },
-    {
         "id": "55a29342.78013c",
         "type": "function",
         "z": "dc4e7734.5f3478",
@@ -9998,25 +9972,6 @@
         "z": "dc4e7734.5f3478",
         "x": 1190,
         "y": 1920,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "daa0ad87.3889d",
-        "type": "trigger",
-        "z": "dc4e7734.5f3478",
-        "op1": "",
-        "op2": "",
-        "op1type": "nul",
-        "op2type": "pay",
-        "duration": "1",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 500,
-        "y": 1460,
         "wires": [
             []
         ]
@@ -10127,7 +10082,7 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "Config initiale clavier",
-        "func": "//train\nglobal.set('v_atc_request',``);\n\nglobal.set('v_toggle_landing_system',`{n}`);\nglobal.set('v_toggle_landing_system',`{n}`);\n\nglobal.set('v_lights',`{l}`);\nglobal.set('v_lights',`{l}`);\n\nglobal.set('v_flightready',`{r}`);\n\nglobal.set('v_starmap',`{F2}`);\n\nglobal.set('v_invoke_ping',`{TAB}`);\n\nglobal.set('v_open_all_doors',``);\nglobal.set('v_close_all_doors',``);\n\nglobal.set('v_power_set_thrusters_on',`{i}`);\nglobal.set('v_power_set_thrusters_off',`{i}`);\n\nglobal.set('v_power_set_on',`{u}`);\nglobal.set('v_power_set_off',`{u}`);\n\nglobal.set('v_toggle_quantum_mode',`{b}`);\nglobal.set('v_toggle_quantum_mode',`{b}`);\nglobal.set('v_toggle_qdrive_engagement',`{LONG}{b}`);\n\nglobal.set('open_min_tools',`{,}`);\nglobal.set('close_min_tools',`{,}`);\nglobal.set('v_jettison_volatile_cargo',`{LAlt}{j}`);\n\nglobal.set('v_toggle_mining_mode',`{right_click}`);\n\nglobal.set('exit',`{LONG}{y}`);\n\nglobal.set('v_toggle_vtol',`{k}`);\nglobal.set('v_toggle_vtol',`{k}`);\n\nglobal.set('v_capacitor_assignment_weapon_combined_increase_max',`{F5}`);\nglobal.set('v_capacitor_assignment_engine_combined_increase_max',`{F6}`);\nglobal.set('v_capacitor_assignment_shield_combined_increase_max',`{F7}`);\nglobal.set('v_capacitor_assignment_reset',`{F8}`);\n\nglobal.set('v_shield_reset_level',`{Numpad5}`);\nglobal.set('v_shield_raise_level_forward',`{Numpad8}`);\nglobal.set('v_shield_raise_level_back',`{Numpad2}`);\nglobal.set('v_shield_raise_level_left',`{Numpad4}`);\nglobal.set('v_shield_raise_level_right',`{Numpad6}`);\n\nglobal.set('v_target_cycle_in_view_reset',`{t}`);\nglobal.set('v_target_unlock_selected',`{LAlt}{t}`);\nglobal.set('v_toggle_missile_mode',`{molette_click}`);\nglobal.set('v_weapon_launch_missile',`{left_click}`);\nglobal.set('v_weapon_increase_max_missiles',`{g}`);\n\nglobal.set('my_id_discord',`Flo3376#8040`);\nglobal.set('my_discord',`https://discord.gg/ZY3Gwdav`);\n\nreturn msg;",
+        "func": "//train\nglobal.set('v_atc_request',``);\n\nglobal.set('v_toggle_landing_system',`{n}`);\nglobal.set('v_toggle_landing_system',`{n}`);\n\nglobal.set('v_lights',`{l}`);\nglobal.set('v_lights',`{l}`);\n\nglobal.set('v_flightready',`{r}`);\n\nglobal.set('v_starmap',`{F2}`);\n\nglobal.set('v_invoke_ping',`{TAB}`);\n\nglobal.set('v_open_all_doors',``);\nglobal.set('v_close_all_doors',``);\n\nglobal.set('v_power_set_thrusters_on',`{i}`);\nglobal.set('v_power_set_thrusters_off',`{i}`);\n\nglobal.set('v_power_set_on',`{u}`);\nglobal.set('v_power_set_off',`{u}`);\n\nglobal.set('v_toggle_quantum_mode',`{b}`);\nglobal.set('v_toggle_quantum_mode',`{b}`);\nglobal.set('v_toggle_qdrive_engagement',`{LONG}{b}`);\n\nglobal.set('open_min_tools',`{,}`);\nglobal.set('close_min_tools',`{,}`);\nglobal.set('v_jettison_volatile_cargo',`{LAlt}{j}`);\n\nglobal.set('v_toggle_mining_mode',`{right_click}`);\n\nglobal.set('exit',`{LONG}{y}`);\n\nglobal.set('v_toggle_vtol',`{k}`);\nglobal.set('v_toggle_vtol',`{k}`);\n\nglobal.set('v_capacitor_assignment_weapon_combined_increase_max',`{F5}`);\nglobal.set('v_capacitor_assignment_engine_combined_increase_max',`{F6}`);\nglobal.set('v_capacitor_assignment_shield_combined_increase_max',`{F7}`);\nglobal.set('v_capacitor_assignment_reset',`{F8}`);\n\nglobal.set('v_shield_reset_level',`{Numpad5}`);\nglobal.set('v_shield_raise_level_forward',`{Numpad8}`);\nglobal.set('v_shield_raise_level_back',`{Numpad2}`);\nglobal.set('v_shield_raise_level_left',`{Numpad4}`);\nglobal.set('v_shield_raise_level_right',`{Numpad6}`);\n\nglobal.set('v_target_cycle_in_view_reset',`{t}`);\nglobal.set('v_target_unlock_selected',`{LAlt}{t}`);\nglobal.set('v_toggle_missile_mode',`{molette_click}`);\nglobal.set('v_weapon_launch_missile',`{left_click}`);\nglobal.set('v_weapon_increase_max_missiles',`{g}`);\nglobal.set('v_ifcs_toggle_vector_decoupling', `{LAlt}{c}`)\n\nglobal.set('my_id_discord',`Flo3376#8040`);\nglobal.set('my_discord',`https://discord.gg/ZY3Gwdav`);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 580,
@@ -10352,7 +10307,7 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "Config creator",
-        "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Où se trouve votre répertoire sc live I:\\\\Roberts Space Industries\\\\StarCitizen\\\\LIVE\\\\\\n\";\nmsg.payload+=\"sc_path=\"+global.get(\"sc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\";\nmsg.payload+=\"# Quelle voix utilisez vous (voix_1, voix_2), voix_1 ->SWAN voix_2->TROPPER par défaut voix_1\\n\";\nmsg.payload+=\"voice=\"+global.get(\"voice\")+\"\\n\\n\";\n\nmsg.payload+=\"# Si vous avez déjà modifier le nom et que vous voulez en changer de nouveau, il faut mettre le dernier nom utilisé\\n\";\nmsg.payload+=\"last_swan_name=\"+global.get(\"last_swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# La définition de votre écran pour Higor le déménageur breton\\n\";\nmsg.payload+=\"# 1920x1080 ou  2560x1440 ou 7680x1440\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"display\")+\"\\n\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre identifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\n\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"#v_atc_request=\"+global.get(\"v_atc_request\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"#v_toggle_landing_system=\"+global.get(\"v_toggle_landing_system\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"#v_toggle_landing_system=\"+global.get(\"v_toggle_landing_system\")+\"\\n\\n\";\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"#v_lights=\"+global.get(\"v_lights\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"#v_lights=\"+global.get(\"v_lights\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"#v_flightready=\"+global.get(\"v_flightready\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"#v_starmap=\"+global.get(\"v_starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"#v_invoke_ping=\"+global.get(\"v_invoke_ping\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"#v_open_all_doors=\"+global.get(\"v_open_all_doors\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"#v_close_all_doors=\"+global.get(\"v_close_all_doors\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"#v_power_set_thrusters_on=\"+global.get(\"v_power_set_thrusters_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"#v_power_set_thrusters_off=\"+global.get(\"v_power_set_thrusters_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"#v_power_set_on=\"+global.get(\"v_power_set_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"#v_power_set_off=\"+global.get(\"v_power_set_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"#v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"#v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"#v_toggle_qdrive_engagement=\"+global.get(\"v_toggle_qdrive_engagement\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"#open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"#close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"#v_toggle_mining_mode=\"+global.get(\"v_toggle_mining_mode\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"#v_jettison_volatile_cargo=\"+global.get(\"v_jettison_volatile_cargo\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"#exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"#v_toggle_vtol=\"+global.get(\"v_toggle_vtol\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"#v_toggle_vtol=\"+global.get(\"v_toggle_vtol\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"v_capacitor_assignment_shield_increase=\"+global.get(\"v_capacitor_assignment_shield_increase\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"v_capacitor_assignment_reset=\"+global.get(\"v_capacitor_assignment_reset\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"#v_shield_raise_level_forward=\"+global.get(\"v_shield_raise_level_forward\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"#v_shield_raise_level_back=\"+global.get(\"v_shield_raise_level_back\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"#v_shield_raise_level_left=\"+global.get(\"v_shield_raise_level_left\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"#v_shield_raise_level_right=\"+global.get(\"v_shield_raise_level_right\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"#v_shield_reset_level=\"+global.get(\"v_shield_reset_level\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"#target_lock=\"+global.get('v_target_cycle_in_view_reset')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"#target_unlock=\"+global.get('v_target_unlock_selected')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"#v_toggle_missile_mode=\"+global.get('v_toggle_missile_mode')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"#v_weapon_launch_missile=\"+global.get('v_weapon_launch_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"#v_weapon_increase_max_missiles=\"+global.get('v_weapon_increase_max_missiles')+\"\\n\\n\";\n\nreturn msg;\n//config de base\n\n\n",
+        "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Où se trouve votre répertoire sc live I:\\\\Roberts Space Industries\\\\StarCitizen\\\\LIVE\\\\\\n\";\nmsg.payload+=\"sc_path=\"+global.get(\"sc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\";\nmsg.payload+=\"# Quelle voix utilisez vous (voix_1, voix_2), voix_1 ->SWAN voix_2->TROPPER par défaut voix_1\\n\";\nmsg.payload+=\"voice=\"+global.get(\"voice\")+\"\\n\\n\";\n\nmsg.payload+=\"# Si vous avez déjà modifier le nom et que vous voulez en changer de nouveau, il faut mettre le dernier nom utilisé\\n\";\nmsg.payload+=\"last_swan_name=\"+global.get(\"last_swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# La définition de votre écran pour Higor le déménageur breton\\n\";\nmsg.payload+=\"# 1920x1080 ou  2560x1440 ou 7680x1440\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"display\")+\"\\n\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre identifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\n\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"#v_atc_request=\"+global.get(\"v_atc_request\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"#v_toggle_landing_system=\"+global.get(\"v_toggle_landing_system\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"#v_toggle_landing_system=\"+global.get(\"v_toggle_landing_system\")+\"\\n\\n\";\n\nmsg.payload+=\"# passer en découplé\\n\";\nmsg.payload+=\"#v_ifcs_toggle_vector_decoupling=\"+global.get(\"v_ifcs_toggle_vector_decoupling\")+\"\\n\";\nmsg.payload+=\"# passer en couplé\\n\";\nmsg.payload+=\"#v_ifcs_toggle_vector_decoupling=\"+global.get(\"v_ifcs_toggle_vector_decoupling\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"#v_lights=\"+global.get(\"v_lights\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"#v_lights=\"+global.get(\"v_lights\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"#v_flightready=\"+global.get(\"v_flightready\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"#v_starmap=\"+global.get(\"v_starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"#v_invoke_ping=\"+global.get(\"v_invoke_ping\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"#v_open_all_doors=\"+global.get(\"v_open_all_doors\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"#v_close_all_doors=\"+global.get(\"v_close_all_doors\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"#v_power_set_thrusters_on=\"+global.get(\"v_power_set_thrusters_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"#v_power_set_thrusters_off=\"+global.get(\"v_power_set_thrusters_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"#v_power_set_on=\"+global.get(\"v_power_set_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"#v_power_set_off=\"+global.get(\"v_power_set_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"#v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"#v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"#v_toggle_qdrive_engagement=\"+global.get(\"v_toggle_qdrive_engagement\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"#open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"#close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"#v_toggle_mining_mode=\"+global.get(\"v_toggle_mining_mode\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"#v_jettison_volatile_cargo=\"+global.get(\"v_jettison_volatile_cargo\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"#exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"#v_toggle_vtol=\"+global.get(\"v_toggle_vtol\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"#v_toggle_vtol=\"+global.get(\"v_toggle_vtol\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"v_capacitor_assignment_shield_increase=\"+global.get(\"v_capacitor_assignment_shield_increase\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"v_capacitor_assignment_reset=\"+global.get(\"v_capacitor_assignment_reset\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"#v_shield_raise_level_forward=\"+global.get(\"v_shield_raise_level_forward\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"#v_shield_raise_level_back=\"+global.get(\"v_shield_raise_level_back\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"#v_shield_raise_level_left=\"+global.get(\"v_shield_raise_level_left\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"#v_shield_raise_level_right=\"+global.get(\"v_shield_raise_level_right\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"#v_shield_reset_level=\"+global.get(\"v_shield_reset_level\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"#target_lock=\"+global.get('v_target_cycle_in_view_reset')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"#target_unlock=\"+global.get('v_target_unlock_selected')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"#v_toggle_missile_mode=\"+global.get('v_toggle_missile_mode')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"#v_weapon_launch_missile=\"+global.get('v_weapon_launch_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"#v_weapon_increase_max_missiles=\"+global.get('v_weapon_increase_max_missiles')+\"\\n\\n\";\n\nreturn msg;\n//config de base\n\n\n",
         "outputs": "1",
         "noerr": 0,
         "x": 720,
@@ -11947,5 +11902,259 @@
         "x": 420,
         "y": 520,
         "wires": []
+    },
+    {
+        "id": "7c499da5.dc22b4",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 160,
+        "y": 560,
+        "wires": [
+            [
+                "d5ccaed6.e8f19"
+            ]
+        ]
+    },
+    {
+        "id": "d5ccaed6.e8f19",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "sommeil / attente",
+        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "b3a0b1c2.bf779",
+                "4966461.c254eb8"
+            ]
+        ]
+    },
+    {
+        "id": "b3a0b1c2.bf779",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "Vol en découplé",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"coupled_off\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "e73eeba5.960118"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4966461.c254eb8",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "Vol en couplé",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"coupled_on\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 600,
+        "y": 600,
+        "wires": [
+            [
+                "a38452eb.b64a8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e73eeba5.960118",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 560,
+        "wires": [
+            [
+                "106129.f70a2ed7",
+                "b3eee790.867e28"
+            ]
+        ]
+    },
+    {
+        "id": "a38452eb.b64a8",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 600,
+        "wires": [
+            [
+                "bda7342a.1701a8",
+                "35ce4583.3b873a"
+            ]
+        ]
+    },
+    {
+        "id": "106129.f70a2ed7",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "keybinding_auto v_toggle_landing_system",
+        "func": "let keybinding=global.get('v_ifcs_toggle_vector_decoupling');\nconsole.log(keybinding);\nlet before=\"\";\nlet after=\"\";\nlet para_1=\"\";\nlet para_2=\"\";\nlet exec=global.get(\"a_k_auto_path\");\nlet exec_long=global.get(\"a_k_auto_long_path\");\nlet exec_mouse=global.get(\"a_k_mouse\");\n//let sound=`\\\"`+global.get(\"a_k_auto_path\")+`bip\\\\bip_0.mp4\\\"`;\nif (keybinding.includes(\"{right_click}\") || keybinding.includes(\"{molette_click}\") || keybinding.includes(\"{left_click}\"))\n{\n    keybinding=keybinding.replace(\"{right_click}\", \"right\")\n    keybinding=keybinding.replace(\"{molette_click}\", \"middle\")\n    keybinding=keybinding.replace(\"{left_click}\", \"left\")\n    \n    msg.payload=exec_mouse+\" \\\"\"+keybinding+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse if(keybinding.includes(\"{LONG}\"))\n{\n    keybinding=keybinding.replace('{LONG}','');\n    if(keybinding.includes('{LAlt}'))\n    {\n        para_1+=\"{LAlt down}\";\n        para_2+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        para_1+=\"{RAlt down}\";\n        para_2+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        para_1+=\"{LShift down}\";\n        para_2+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        para_1+=\"{RShift down}\";\n        para_2+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        para_1+=\"{RCtrl down}\";\n        para_2+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        para_1+=\"{LCtrl down}\";\n        para_2+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    let n=keybinding.lastIndexOf(\"}\");\n    \n    let down=keybinding.substring(0,n)+\" down \"+keybinding.substring(n);\n    let up=keybinding.substring(0,n)+\" up \"+keybinding.substring(n);\n   // var str2 = str.substring(0,n)+\" again \"+str.substring(n);\n    //console.log(str2); // Hello planet earth, you are a great  again planet. \n    \n    \n    msg.payload=exec_long+\"  \\\"\"+para_1+up+\"\\\" \\\"\"+para_2+down+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse //if(keybinding.includes('{LONG}') && !keybinding.includes(\"{right_click}\") && !keybinding.includes(\"{molette_click}\") && !keybinding.includes(\"{left_click}\"))\n{\n    if(keybinding.includes('{LAlt}'))\n    {\n        before+=\"{LAlt down}\";\n        after+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        before+=\"{RAlt down}\";\n        after+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        before+=\"{LShift down}\";\n        after+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        before+=\"{RShift down}\";\n        after+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        before+=\"{RCtrl down}\";\n        after+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        before+=\"{LCtrl down}\";\n        after+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    msg.payload=exec+\" \\\"\"+before+keybinding+after+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    \n    return msg;\n}\n\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 1330,
+        "y": 560,
+        "wires": [
+            [
+                "3e71cdac.66ae82"
+            ]
+        ]
+    },
+    {
+        "id": "bda7342a.1701a8",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "keybinding_auto v_toggle_landing_system",
+        "func": "let keybinding=global.get('v_ifcs_toggle_vector_decoupling');\nconsole.log(keybinding);\nlet before=\"\";\nlet after=\"\";\nlet para_1=\"\";\nlet para_2=\"\";\nlet exec=global.get(\"a_k_auto_path\");\nlet exec_long=global.get(\"a_k_auto_long_path\");\nlet exec_mouse=global.get(\"a_k_mouse\");\n//let sound=`\\\"`+global.get(\"a_k_auto_path\")+`bip\\\\bip_0.mp4\\\"`;\nif (keybinding.includes(\"{right_click}\") || keybinding.includes(\"{molette_click}\") || keybinding.includes(\"{left_click}\"))\n{\n    keybinding=keybinding.replace(\"{right_click}\", \"right\")\n    keybinding=keybinding.replace(\"{molette_click}\", \"middle\")\n    keybinding=keybinding.replace(\"{left_click}\", \"left\")\n    \n    msg.payload=exec_mouse+\" \\\"\"+keybinding+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse if(keybinding.includes(\"{LONG}\"))\n{\n    keybinding=keybinding.replace('{LONG}','');\n    if(keybinding.includes('{LAlt}'))\n    {\n        para_1+=\"{LAlt down}\";\n        para_2+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        para_1+=\"{RAlt down}\";\n        para_2+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        para_1+=\"{LShift down}\";\n        para_2+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        para_1+=\"{RShift down}\";\n        para_2+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        para_1+=\"{RCtrl down}\";\n        para_2+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        para_1+=\"{LCtrl down}\";\n        para_2+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    let n=keybinding.lastIndexOf(\"}\");\n    \n    let down=keybinding.substring(0,n)+\" down \"+keybinding.substring(n);\n    let up=keybinding.substring(0,n)+\" up \"+keybinding.substring(n);\n   // var str2 = str.substring(0,n)+\" again \"+str.substring(n);\n    //console.log(str2); // Hello planet earth, you are a great  again planet. \n    \n    \n    msg.payload=exec_long+\"  \\\"\"+para_1+up+\"\\\" \\\"\"+para_2+down+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse //if(keybinding.includes('{LONG}') && !keybinding.includes(\"{right_click}\") && !keybinding.includes(\"{molette_click}\") && !keybinding.includes(\"{left_click}\"))\n{\n    if(keybinding.includes('{LAlt}'))\n    {\n        before+=\"{LAlt down}\";\n        after+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        before+=\"{RAlt down}\";\n        after+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        before+=\"{LShift down}\";\n        after+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        before+=\"{RShift down}\";\n        after+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        before+=\"{RCtrl down}\";\n        after+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        before+=\"{LCtrl down}\";\n        after+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    msg.payload=exec+\" \\\"\"+before+keybinding+after+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    \n    return msg;\n}\n\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 1330,
+        "y": 600,
+        "wires": [
+            [
+                "3e71cdac.66ae82"
+            ]
+        ]
+    },
+    {
+        "id": "3e71cdac.66ae82",
+        "type": "exec",
+        "z": "f07cdeb.340a32",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "exec_cmd",
+        "x": 1690,
+        "y": 580,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b3eee790.867e28",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "ng_sfx vol_couplé",
+        "func": "let sound_effect=[];\nlet track_id='vol_couplé';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1330,
+        "y": 520,
+        "wires": [
+            [
+                "3e71cdac.66ae82"
+            ]
+        ]
+    },
+    {
+        "id": "35ce4583.3b873a",
+        "type": "function",
+        "z": "f07cdeb.340a32",
+        "name": "ng_sfx vol_découplé",
+        "func": "let sound_effect=[];\nlet track_id='vol_découplé';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1360,
+        "y": 640,
+        "wires": [
+            [
+                "3e71cdac.66ae82"
+            ]
+        ]
+    },
+    {
+        "id": "120313f2.946ddc",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search vol_couplé sounds",
+        "path": "./../sounds/phase_décollage/",
+        "pathType": "str",
+        "filter": "*",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 370,
+        "y": 1500,
+        "wires": [
+            [
+                "dac1688e.5f4ec8"
+            ]
+        ]
+    },
+    {
+        "id": "8fdf3dac.2f05",
+        "type": "fs-ops-dir",
+        "z": "dc4e7734.5f3478",
+        "name": "search vol_découplé sounds",
+        "path": "./../sounds/vol_découplé/",
+        "pathType": "str",
+        "filter": "*",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 660,
+        "y": 1480,
+        "wires": [
+            [
+                "8ef04fb8.4d7"
+            ]
+        ]
+    },
+    {
+        "id": "dac1688e.5f4ec8",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"vol_couplé\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",sounds_check)\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 960,
+        "y": 1500,
+        "wires": [
+            [
+                "916f2824.e0c8b8"
+            ]
+        ]
+    },
+    {
+        "id": "8ef04fb8.4d7",
+        "type": "function",
+        "z": "dc4e7734.5f3478",
+        "name": "set number directory",
+        "func": "let thematique=\"vol_découplé\";\nglobal.set(thematique+\"_q\",msg.files.length);\nlet sounds_check=[]\n\nfor (i=0;i<msg.files.length;i++)\n{\n    if(msg.files[i].startsWith(global.get(\"voice\")))\n    {\n        sounds_check.push(msg.files[i])\n    }\n    \n}\nglobal.set(thematique+\"_sound\",sounds_check)\nmsg={};msg.start=\"Started\";\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1480,
+        "wires": [
+            [
+                "120313f2.946ddc"
+            ]
+        ]
     }
 ]

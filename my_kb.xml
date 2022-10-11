@@ -61,6 +61,9 @@
    <action name="v_ifcs_toggle_speed_limiter">
     <rebind input="js3_button9"/>
    </action>
+   <action name="v_ifcs_toggle_vector_decoupling">
+    <rebind input="kb1_ "/>
+   </action>
    <action name="v_pitch">
     <rebind input="js3_y"/>
    </action>
