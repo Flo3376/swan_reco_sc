@@ -1,0 +1,75 @@
+[
+    {
+        "id": "b66acd7.74f2a3",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "65f33c0b.3eaaa4",
+        "type": "win-listen-config",
+        "z": "",
+        "name": "Default",
+        "process": "",
+        "language": "",
+        "confidence": "",
+        "recognizer": "",
+        "hotword": ""
+    },
+    {
+        "id": "eca62edf.68a5c",
+        "type": "win-sarah",
+        "z": "b66acd7.74f2a3",
+        "name": "",
+        "active": true,
+        "options": "65f33c0b.3eaaa4",
+        "grammar": "",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "a1367c1f.7fa15",
+                "c2ef12dc.fc57"
+            ]
+        ]
+    },
+    {
+        "id": "9b87a9ab.c673f8",
+        "type": "win-speak",
+        "z": "b66acd7.74f2a3",
+        "name": "",
+        "input": "",
+        "x": 430,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1367c1f.7fa15",
+        "type": "debug",
+        "z": "b66acd7.74f2a3",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 310,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c2ef12dc.fc57",
+        "type": "function",
+        "z": "b66acd7.74f2a3",
+        "name": "Sentence",
+        "func": "msg.payload = \"Parfait je t'entends\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "9b87a9ab.c673f8"
+            ]
+        ]
+    }
+]
