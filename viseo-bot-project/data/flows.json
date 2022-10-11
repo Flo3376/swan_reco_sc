@@ -105,6 +105,13 @@
         "info": ""
     },
     {
+        "id": "265103d4.e1c8dc",
+        "type": "tab",
+        "label": "sei demo",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "65f33c0b.3eaaa4",
         "type": "win-listen-config",
         "z": "",
@@ -11727,5 +11734,218 @@
                 "d528781b.f80508"
             ]
         ]
+    },
+    {
+        "id": "6869539e.95d34c",
+        "type": "start-up-trigger",
+        "z": "265103d4.e1c8dc",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "583b61d9.afc2f"
+            ]
+        ]
+    },
+    {
+        "id": "583b61d9.afc2f",
+        "type": "trigger",
+        "z": "265103d4.e1c8dc",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "b2180a4.83e6ff8"
+            ]
+        ]
+    },
+    {
+        "id": "98045328.c8d1e",
+        "type": "comment",
+        "z": "265103d4.e1c8dc",
+        "name": "quand Heilie démarre",
+        "info": "",
+        "x": 160,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "42d4b431.9dc43c",
+        "type": "comment",
+        "z": "265103d4.e1c8dc",
+        "name": "toutes les 250 milliseconde",
+        "info": "",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b2180a4.83e6ff8",
+        "type": "function",
+        "z": "265103d4.e1c8dc",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 860,
+        "y": 160,
+        "wires": [
+            [
+                "bfbaa3f7.51513"
+            ]
+        ]
+    },
+    {
+        "id": "bfbaa3f7.51513",
+        "type": "function",
+        "z": "265103d4.e1c8dc",
+        "name": "sommeil / attente",
+        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1170,
+        "y": 160,
+        "wires": [
+            [
+                "732eecee.5abda4"
+            ]
+        ]
+    },
+    {
+        "id": "77c6722.dd6718c",
+        "type": "comment",
+        "z": "265103d4.e1c8dc",
+        "name": "Elle va interroger la mémoire,",
+        "info": "",
+        "x": 860,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c845d561.a4f368",
+        "type": "comment",
+        "z": "265103d4.e1c8dc",
+        "name": "Si elle n'est pas en mod sommeil",
+        "info": "",
+        "x": 1190,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "732eecee.5abda4",
+        "type": "function",
+        "z": "265103d4.e1c8dc",
+        "name": "extinction feu",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"light_off\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "7e3bc0ba.438af"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7e3bc0ba.438af",
+        "type": "function",
+        "z": "265103d4.e1c8dc",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 280,
+        "wires": [
+            [
+                "cfec3786.224e48"
+            ]
+        ]
+    },
+    {
+        "id": "cfec3786.224e48",
+        "type": "function",
+        "z": "265103d4.e1c8dc",
+        "name": "keybinding_auto v_lights",
+        "func": "let keybinding=global.get('v_lights');\nconsole.log(keybinding);\nlet before=\"\";\nlet after=\"\";\nlet para_1=\"\";\nlet para_2=\"\";\nlet exec=global.get(\"a_k_auto_path\");\nlet exec_long=global.get(\"a_k_auto_long_path\");\nlet exec_mouse=global.get(\"a_k_mouse\");\n//let sound=`\\\"`+global.get(\"a_k_auto_path\")+`bip\\\\bip_0.mp4\\\"`;\nif (keybinding.includes(\"{right_click}\") || keybinding.includes(\"{molette_click}\") || keybinding.includes(\"{left_click}\"))\n{\n    keybinding=keybinding.replace(\"{right_click}\", \"right\")\n    keybinding=keybinding.replace(\"{molette_click}\", \"middle\")\n    keybinding=keybinding.replace(\"{left_click}\", \"left\")\n    \n    msg.payload=exec_mouse+\" \\\"\"+keybinding+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse if(keybinding.includes(\"{LONG}\"))\n{\n    keybinding=keybinding.replace('{LONG}','');\n    if(keybinding.includes('{LAlt}'))\n    {\n        para_1+=\"{LAlt down}\";\n        para_2+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        para_1+=\"{RAlt down}\";\n        para_2+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        para_1+=\"{LShift down}\";\n        para_2+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        para_1+=\"{RShift down}\";\n        para_2+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        para_1+=\"{RCtrl down}\";\n        para_2+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        para_1+=\"{LCtrl down}\";\n        para_2+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    let n=keybinding.lastIndexOf(\"}\");\n    \n    let down=keybinding.substring(0,n)+\" down \"+keybinding.substring(n);\n    let up=keybinding.substring(0,n)+\" up \"+keybinding.substring(n);\n   // var str2 = str.substring(0,n)+\" again \"+str.substring(n);\n    //console.log(str2); // Hello planet earth, you are a great  again planet. \n    \n    \n    msg.payload=exec_long+\"  \\\"\"+para_1+up+\"\\\" \\\"\"+para_2+down+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse //if(keybinding.includes('{LONG}') && !keybinding.includes(\"{right_click}\") && !keybinding.includes(\"{molette_click}\") && !keybinding.includes(\"{left_click}\"))\n{\n    if(keybinding.includes('{LAlt}'))\n    {\n        before+=\"{LAlt down}\";\n        after+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        before+=\"{RAlt down}\";\n        after+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        before+=\"{LShift down}\";\n        after+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        before+=\"{RShift down}\";\n        after+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        before+=\"{RCtrl down}\";\n        after+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        before+=\"{LCtrl down}\";\n        after+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    msg.payload=exec+\" \\\"\"+before+keybinding+after+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    \n    return msg;\n}\n\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 1270,
+        "y": 280,
+        "wires": [
+            [
+                "1b5dee3e.c80e32"
+            ]
+        ]
+    },
+    {
+        "id": "b2b96c76.c063",
+        "type": "comment",
+        "z": "265103d4.e1c8dc",
+        "name": "et quelle trouve une instruction concernant les feux,",
+        "info": "",
+        "x": 230,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "aacf868e.f2db28",
+        "type": "comment",
+        "z": "265103d4.e1c8dc",
+        "name": "elle enléve l'instruction de la mémoire,",
+        "info": "",
+        "x": 830,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "60493145.d9c66",
+        "type": "comment",
+        "z": "265103d4.e1c8dc",
+        "name": "elle va chercher le bouton correspondant",
+        "info": "",
+        "x": 1280,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1b5dee3e.c80e32",
+        "type": "exec",
+        "z": "265103d4.e1c8dc",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "exec_cmd",
+        "x": 470,
+        "y": 460,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c44da6f5.104a38",
+        "type": "comment",
+        "z": "265103d4.e1c8dc",
+        "name": " et va executer la commande",
+        "info": "",
+        "x": 420,
+        "y": 520,
+        "wires": []
     }
 ]
