@@ -4,6 +4,10 @@
 SET NODE_PATH=%~dp0node-v8.3.0-win-x86
 SET BOT_ROOT=%~dp0viseo-bot-project
 SET FRAMEWORK_ROOT=%~dp0viseo-bot-framework
+SET MECANICAL_GRAMAR=%~dp0viseo-bot-project\data\grammar\
+SET MY_GRAMAR=%~dp0viseo-bot-project\data\my_grammar\
+
+copy /y %MY_GRAMAR% %MECANICAL_GRAMAR%
 
 :: Project parameters
 SET NODE_ENV=dev

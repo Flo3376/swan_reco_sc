@@ -47,7 +47,6 @@ Thumbs.db
 # Project
 ##########################################
 
-node-red-contrib/*/node_modules
 /data/*.db
 /data/*.log
 start.sh
