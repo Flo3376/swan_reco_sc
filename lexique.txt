@@ -39,16 +39,16 @@
 		-
 
 <!--ouverture ou passage en VTOL-->
-		-recouple
-		-recouplage
-		-recouplage moteur
-		-
-
-<!--ouverture ou passage en VTOL-->
 		-
 		-découple
 		-découplage
 		-découplage moteur
+		-
+
+<!--ouverture ou passage en VTOL-->
+		-recouple
+		-recouplage
+		-recouplage moteur
 		-
 
 <!--Met plus de puissance sur les moteurs (capacitor)-->
@@ -167,18 +167,18 @@
 		-      tu peux me donner l'heure
 		-
 
-<!--Le bot n'emmetra plus des bips, il parlera-->
-		-coupe le mod discret
-		-désactivation du mod discret
-		-Sort du mod discret
-		-repasse en mod normale
-		-
-
 <!--Le bot ne parlera plus, il n'emmetra plus que des bips-->
 		-activation du mod discret
 		-Passe en mod discret
 		-Met toi en mod discret
 		-active le mod discret
+		-
+
+<!--Le bot n'emmetra plus des bips, il parlera-->
+		-coupe le mod discret
+		-désactivation du mod discret
+		-Sort du mod discret
+		-repasse en mod normale
 		-
 
 <!--Activation ou réactivation du bot-->
@@ -210,17 +210,6 @@
 		-coupe la musique
 		-
 
-<!--fermer la starmap -->
-		-ferme la carte
-		-ferme la starmap
-		-ferme moi la carte
-		-ferme moi la starmap
-		-coupe la starmap
-		-coupe la map
-		-coupe moi la starmap
-		-coupe moi la map
-		-
-
 <!--ouvrir la starmap -->
 		-affiche la carte
 		-affiche la position
@@ -242,11 +231,15 @@
 		-prépare un itinéraire
 		-
 
-<!--mettre tous les boucliers  à l'arriére-->
-		-Décollage immédiat
-		-Décollage d'urgence
-		-on y va
-		-on décolle
+<!--fermer la starmap -->
+		-ferme la carte
+		-ferme la starmap
+		-ferme moi la carte
+		-ferme moi la starmap
+		-coupe la starmap
+		-coupe la map
+		-coupe moi la starmap
+		-coupe moi la map
 		-
 
 <!--Sortir du siége de pilote-->
@@ -256,6 +249,13 @@
 		-je quitte le poste
 		-je sort de l'appareil
 		-je sort du vaisseau
+		-
+
+<!--mettre tous les boucliers  à l'arriére-->
+		-Décollage immédiat
+		-Décollage d'urgence
+		-on y va
+		-on décolle
 		-
 
 <!--mettre tous les boucliers  à l'arriére-->
@@ -275,6 +275,10 @@
 		-On saute
 		-go pour le saut
 		-Hyperespace
+		-
+
+<!--Test de fonctionnement du bot, le classique jarvis tu es là -->
+		-redémarre complement ton système
 		-
 
 <!--Mise en route rapide ready to fly-->
@@ -351,10 +355,6 @@
 		-éteint le moteur
 		-éteint les moteurs
 		-coupure propulsions
-		-
-
-<!--Test de fonctionnement du bot, le classique jarvis tu es là -->
-		-redémarre complement ton système
 		-
 
 <!--Mode offensif, triange de puissance vers arme et bouclier -->
