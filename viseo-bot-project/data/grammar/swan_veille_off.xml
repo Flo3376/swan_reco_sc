@@ -4,8 +4,9 @@
 		<item>SWAN</item>
 		<!--Désactivation du bot-->
 		<one-of>
-			<item>remet toi en écoute</item>
-			<item>réveille toi</item>
+			<item>Chérie je suis rentré</item>
+			<item>on se réveille</item>
+			<item>on a du boulot aujourd'hui</item>
 		</one-of>
 		<tag>out.action.action="veille_off";</tag>
 	</rule> 
