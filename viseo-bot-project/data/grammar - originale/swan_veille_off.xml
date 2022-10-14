@@ -1,0 +1,11 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="veille_off" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="veille_off" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>remet toi en écoute</item>
+			<item>réveille toi</item>
+		</one-of>
+		<tag>out.action.action="veille_off";</tag>
+	</rule> 
+</grammar>

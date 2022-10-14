@@ -1,0 +1,20 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="more_shield_left" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="more_shield_left" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>Met plus de puissance sur le bouclier gauche</item>
+			<item>Met plus de jue sur le bouclier gauche</item>
+			<item>Envoie plus de jue sur le bouclier gauche</item>
+			<item>bascule plus de jue sur le bouclier gauche</item>
+			<item>plus de puissance sur le bouclier gauche</item>
+			<item>Envoie plus de puissance sur le bouclier gauche</item>
+			<item>bascule plus de puissance sur le bouclier gauche</item>
+			<item>bascule tous le jue sur le bouclier gauche</item>
+			<item>plus de jue sur le bouclier gauche</item>
+			<item>transfert plus de puissance sur le bouclier gauche</item>
+			<item>transfert plus de jue sur le bouclier gauche</item>
+		</one-of>
+		<tag>out.action.action="more_shield_left";</tag>
+	</rule> 
+</grammar>
