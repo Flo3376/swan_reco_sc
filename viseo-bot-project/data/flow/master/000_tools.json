@@ -1,0 +1,435 @@
+[
+    {
+        "id": "86bd29de.a40548",
+        "type": "tab",
+        "label": "000_tools",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e803f58d.9ef3d8",
+        "type": "inject",
+        "z": "86bd29de.a40548",
+        "name": "FLOW CREATOR",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "216ea5f7.8072aa"
+            ]
+        ]
+    },
+    {
+        "id": "216ea5f7.8072aa",
+        "type": "fs-ops-dir",
+        "z": "86bd29de.a40548",
+        "name": "search flow.json",
+        "path": "./../viseo-bot-project/data/flow/master/",
+        "pathType": "str",
+        "filter": "*.json",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "eb775a44.4965a8",
+                "80297bff.db6a98"
+            ]
+        ]
+    },
+    {
+        "id": "eb775a44.4965a8",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "conv tableau",
+        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 180,
+        "wires": [
+            [
+                "abfa0ec4.1b2e7"
+            ]
+        ]
+    },
+    {
+        "id": "abfa0ec4.1b2e7",
+        "type": "loop",
+        "z": "86bd29de.a40548",
+        "name": "parcour fichiers json",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload",
+        "enumerationType": "msg",
+        "limit": "",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-orig",
+        "x": 760,
+        "y": 180,
+        "wires": [
+            [
+                "100d82fb.c10dfd"
+            ],
+            [
+                "ccc2b518.d2c128"
+            ]
+        ]
+    },
+    {
+        "id": "ccc2b518.d2c128",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "fichier en cours",
+        "func": "//msg.reset=\"reset\"\nmsg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\flow\\\\master\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 940,
+        "y": 180,
+        "wires": [
+            [
+                "5315d669.07a658",
+                "51a13008.37d2d"
+            ]
+        ]
+    },
+    {
+        "id": "5315d669.07a658",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 1230,
+        "y": 180,
+        "wires": [
+            [
+                "bbf72a48.841658"
+            ]
+        ]
+    },
+    {
+        "id": "bbf72a48.841658",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "to memory json",
+        "func": "let data=global.get(\"jsonflow\")\n\ndata+=msg.payload\nglobal.set(\"jsonflow\",data)\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1400,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ea0fea05.f0b508",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "réécriture flows json",
+        "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 240,
+        "wires": [
+            [
+                "876ad3ad.9d0b7"
+            ]
+        ]
+    },
+    {
+        "id": "876ad3ad.9d0b7",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "filename": "./../viseo-bot-project/data/flow/flows.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1240,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "100d82fb.c10dfd",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "2",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 740,
+        "y": 240,
+        "wires": [
+            [
+                "ea0fea05.f0b508"
+            ]
+        ]
+    },
+    {
+        "id": "6841ddf6.281db4",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "réécriture flows json",
+        "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 860,
+        "y": 960,
+        "wires": [
+            [
+                "27a5c166.4f110e"
+            ]
+        ]
+    },
+    {
+        "id": "266917a1.433ad8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "filename": "./../viseo-bot-project/data/flow/flows.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1180,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "89d1e390.684ba",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 660,
+        "y": 960,
+        "wires": [
+            [
+                "6841ddf6.281db4"
+            ]
+        ]
+    },
+    {
+        "id": "27a5c166.4f110e",
+        "type": "debug",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1230,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "596f1587.8b1c1c",
+        "type": "inject",
+        "z": "86bd29de.a40548",
+        "name": "FLOW CREATOR",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 880,
+        "wires": [
+            [
+                "3dd552d8.67766e"
+            ]
+        ]
+    },
+    {
+        "id": "3dd552d8.67766e",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let info=global.get(\"jsonflow-data\")\nconsole.log(info)\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 860,
+        "wires": [
+            [
+                "94a3ffe0.9e71c"
+            ]
+        ]
+    },
+    {
+        "id": "94a3ffe0.9e71c",
+        "type": "debug",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 570,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "80297bff.db6a98",
+        "type": "debug",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 575,
+        "y": 305,
+        "wires": []
+    },
+    {
+        "id": "51a13008.37d2d",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "250",
+        "extend": true,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 1100,
+        "y": 180,
+        "wires": [
+            [
+                "abfa0ec4.1b2e7"
+            ]
+        ]
+    },
+    {
+        "id": "36e8b6f5.1a31da",
+        "type": "inject",
+        "z": "86bd29de.a40548",
+        "name": "exportation du flow",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "eeeec94e.5f8b08"
+            ]
+        ]
+    },
+    {
+        "id": "eeeec94e.5f8b08",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 80,
+        "wires": [
+            [
+                "88e5ba2.0801e48"
+            ]
+        ]
+    },
+    {
+        "id": "88e5ba2.0801e48",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "762da921.246448"
+            ]
+        ]
+    },
+    {
+        "id": "762da921.246448",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"000_tools\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 80,
+        "wires": [
+            [
+                "d9bd4b4e.634fb8"
+            ]
+        ]
+    },
+    {
+        "id": "d9bd4b4e.634fb8",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 80,
+        "wires": [
+            [
+                "fe5c76a3.9b29e8"
+            ]
+        ]
+    },
+    {
+        "id": "fe5c76a3.9b29e8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "000_tools.json",
+        "filename": "./../viseo-bot-project/data/flow/master/000_tools.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 840,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d072adef.5694e",
+        "type": "comment",
+        "z": "86bd29de.a40548",
+        "name": "sauvegarde du flow pour exportation ou modeur",
+        "info": "",
+        "x": 200,
+        "y": 40,
+        "wires": []
+    }
+]

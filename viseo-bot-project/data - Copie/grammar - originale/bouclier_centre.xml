@@ -1,0 +1,12 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="center_shield" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="center_shield" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<one-of>
+			<item>remet les boucliers au centre</item>
+			<item>réinitialise les boucliers</item>
+			<item>reset les boucliers</item>
+		</one-of>
+		<tag>out.action.action="center_shield";</tag>
+	</rule> 
+</grammar>

@@ -1,0 +1,21 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="tri_more_engine" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="tri_more_engine" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--Met plus de puissance sur les moteurs (capacitor)-->
+		<one-of>
+			<item>Met plus de puissance sur les moteurs</item>
+			<item>Met plus de jue sur les moteurs</item>
+			<item>Envoie plus de jue sur les moteurs</item>
+			<item>bascule plus de jue sur les moteurs</item>
+			<item>plus de puissance sur les moteurs</item>
+			<item>Envoie plus de puissance sur les moteurs</item>
+			<item>bascule plus de puissance sur les moteurs</item>
+			<item>bascule tous le jue sur les moteurs</item>
+			<item>plus de jue sur les moteurs</item>
+			<item>transfert plus de puissance sur les moteurs</item>
+			<item>transfert plus de jue sur les moteurs</item>
+		</one-of>
+		<tag>out.action.action="tri_more_engine";</tag>
+	</rule> 
+</grammar>

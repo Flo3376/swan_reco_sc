@@ -1,0 +1,432 @@
+[
+    {
+        "id": "e3b59118.5cbf8",
+        "type": "tab",
+        "label": "02_test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3665e237.535f9e",
+        "type": "trigger",
+        "z": "e3b59118.5cbf8",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "39c45fb4.57551",
+                "839f097e.1681e8"
+            ]
+        ]
+    },
+    {
+        "id": "e8dcf20b.a6d38",
+        "type": "start-up-trigger",
+        "z": "e3b59118.5cbf8",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "3665e237.535f9e"
+            ]
+        ]
+    },
+    {
+        "id": "924855c2.14aba8",
+        "type": "comment",
+        "z": "e3b59118.5cbf8",
+        "name": "en ligne",
+        "info": "\n\n",
+        "x": 90,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a787a95.a92a258",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "test de swan",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"test_de_swan\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "b09dc518.8906c8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ca92d4a5.7adcf8",
+        "type": "exec",
+        "z": "e3b59118.5cbf8",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "exec_cmd",
+        "x": 1410,
+        "y": 240,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2a382fd6.7b8b1",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "ng_sfx online",
+        "func": "let sound_effect=[];\nlet track_id='online';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1190,
+        "y": 240,
+        "wires": [
+            [
+                "ca92d4a5.7adcf8"
+            ]
+        ]
+    },
+    {
+        "id": "39c45fb4.57551",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "a787a95.a92a258"
+            ]
+        ]
+    },
+    {
+        "id": "b09dc518.8906c8",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 240,
+        "wires": [
+            [
+                "2a382fd6.7b8b1"
+            ]
+        ]
+    },
+    {
+        "id": "fa531996.82e138",
+        "type": "comment",
+        "z": "e3b59118.5cbf8",
+        "name": "discret et veille",
+        "info": "\n",
+        "x": 120,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b3e8e127.8cfb5",
+        "type": "exec",
+        "z": "e3b59118.5cbf8",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "exec_cmd",
+        "x": 1410,
+        "y": 420,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d0c82831.8588f8",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "activation mod discret (sf)",
+        "func": "let search=[]\nsearch.push('discret_mod_on');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('discret',true);\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 360,
+        "wires": [
+            [
+                "1bd6902b.2a92b"
+            ]
+        ]
+    },
+    {
+        "id": "b4b3cbaf.71b268",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "mise en someil/veille (sf)",
+        "func": "let search=[];\nsearch.push('veille_on');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('swan_active',false);\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 620,
+        "wires": [
+            [
+                "d38fbeb5.d8d32"
+            ]
+        ]
+    },
+    {
+        "id": "87750d9.108b4f",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "désactivation mod discret (sf)",
+        "func": "let search=[];\nsearch.push('discret_mod_off');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('discret',false);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 400,
+        "wires": [
+            [
+                "2530e467.9d121c"
+            ]
+        ]
+    },
+    {
+        "id": "f70bd897.a72f28",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "remise en attente (sf)",
+        "func": "let search=[];\nsearch.push('veille_off');\n\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            //console.log(\"ask : \"+ask)\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('swan_active',true);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 580,
+        "wires": [
+            [
+                "ac692f25.721ef"
+            ]
+        ]
+    },
+    {
+        "id": "7ce6a307.b7c2ec",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "sound_effect bip",
+        "func": "let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1140,
+        "y": 420,
+        "wires": [
+            [
+                "b3e8e127.8cfb5"
+            ]
+        ]
+    },
+    {
+        "id": "1bd6902b.2a92b",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 360,
+        "wires": [
+            [
+                "7ce6a307.b7c2ec"
+            ]
+        ]
+    },
+    {
+        "id": "2530e467.9d121c",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 400,
+        "wires": [
+            [
+                "7ce6a307.b7c2ec"
+            ]
+        ]
+    },
+    {
+        "id": "ac692f25.721ef",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 580,
+        "wires": [
+            [
+                "7ce6a307.b7c2ec"
+            ]
+        ]
+    },
+    {
+        "id": "d38fbeb5.d8d32",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 880,
+        "y": 620,
+        "wires": [
+            [
+                "7ce6a307.b7c2ec"
+            ]
+        ]
+    },
+    {
+        "id": "839f097e.1681e8",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "d0c82831.8588f8",
+                "87750d9.108b4f",
+                "f70bd897.a72f28",
+                "b4b3cbaf.71b268"
+            ]
+        ]
+    },
+    {
+        "id": "96e896e6.a2dd98",
+        "type": "inject",
+        "z": "e3b59118.5cbf8",
+        "name": "exportation du flow",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "71fb6004.5475e"
+            ]
+        ]
+    },
+    {
+        "id": "71fb6004.5475e",
+        "type": "file in",
+        "z": "e3b59118.5cbf8",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 310,
+        "y": 60,
+        "wires": [
+            [
+                "88866edf.a350e"
+            ]
+        ]
+    },
+    {
+        "id": "88866edf.a350e",
+        "type": "json",
+        "z": "e3b59118.5cbf8",
+        "name": "from json",
+        "pretty": false,
+        "x": 440,
+        "y": 60,
+        "wires": [
+            [
+                "bde87c89.6c351"
+            ]
+        ]
+    },
+    {
+        "id": "bde87c89.6c351",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"02_test\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 60,
+        "wires": [
+            [
+                "e62e91a6.9b044"
+            ]
+        ]
+    },
+    {
+        "id": "e62e91a6.9b044",
+        "type": "json",
+        "z": "e3b59118.5cbf8",
+        "name": "to json",
+        "pretty": true,
+        "x": 710,
+        "y": 60,
+        "wires": [
+            [
+                "43c07830.c9b108"
+            ]
+        ]
+    },
+    {
+        "id": "43c07830.c9b108",
+        "type": "file",
+        "z": "e3b59118.5cbf8",
+        "name": "02_test.json",
+        "filename": "./../viseo-bot-project/data/flow/master/02_test.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 850,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6c9b8993.7dca38",
+        "type": "comment",
+        "z": "e3b59118.5cbf8",
+        "name": "sauvegarde du flow pour exportation ou modeur",
+        "info": "",
+        "x": 220,
+        "y": 20,
+        "wires": []
+    }
+]

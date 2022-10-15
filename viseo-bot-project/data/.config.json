@@ -362,7 +362,7 @@
      "types": [
       "api-ai"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-api-ai",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-api-ai\\node-api-ai.js"
@@ -379,7 +379,7 @@
      "types": [
       "bear-query"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-bear",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-bear\\node-bear-query.js"
@@ -396,7 +396,7 @@
      "types": [
       "blink-login"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-blink",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-login.js"
@@ -406,7 +406,7 @@
      "types": [
       "blink-home"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-blink",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-home.js"
@@ -416,7 +416,7 @@
      "types": [
       "blink-event"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-blink",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-blink\\node-blink-event.js"
@@ -433,7 +433,7 @@
      "types": [
       "send-card"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\send\\msbot-send-card.js"
@@ -443,7 +443,7 @@
      "types": [
       "bot"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-connect.js"
@@ -453,7 +453,7 @@
      "types": [
       "wechat"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-wechat.js"
@@ -463,7 +463,7 @@
      "types": [
       "profile"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-profile.js"
@@ -473,7 +473,7 @@
      "types": [
       "bot-event"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-event.js"
@@ -483,7 +483,7 @@
      "types": [
       "bot-continue"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\connect\\msbot-continue.js"
@@ -493,7 +493,7 @@
      "types": [
       "attachment"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\attachment\\msbot-attachment.js"
@@ -503,7 +503,7 @@
      "types": [
       "fb-profile"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-profile.js"
@@ -513,7 +513,7 @@
      "types": [
       "fb-greeting"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-greeting.js"
@@ -523,7 +523,7 @@
      "types": [
       "fb-log"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-log.js"
@@ -533,7 +533,7 @@
      "types": [
       "facebook-config"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-botbuilder",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-botbuilder\\nodes\\channel\\msbot-fb-config.js"
@@ -550,7 +550,7 @@
      "types": [
       "gif"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ffmpeg",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ffmpeg\\node-gif.js"
@@ -560,7 +560,7 @@
      "types": [
       "thumbnail"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ffmpeg",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ffmpeg\\node-thumbnail.js"
@@ -577,7 +577,7 @@
      "types": [
       "file-out"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-file",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-file\\node-file-out.js"
@@ -594,7 +594,7 @@
      "types": [
       "filter"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-filter",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-filter\\node-filter.js"
@@ -638,7 +638,7 @@
      "types": [
       "help-html"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-help",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-help\\node-html.js"
@@ -655,7 +655,7 @@
      "types": [
       "jimp"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-jimp",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-jimp\\node-jimp.js"
@@ -672,7 +672,7 @@
      "types": [
       "log-file"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-log",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-file.js"
@@ -682,7 +682,7 @@
      "types": [
       "log-azure-appinsight"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-log",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-azure-appinsight.js"
@@ -692,7 +692,7 @@
      "types": [
       "log-xiti"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-log",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-xiti.js"
@@ -702,7 +702,7 @@
      "types": [
       "logstach"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-log",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-logstach.js"
@@ -712,7 +712,7 @@
      "types": [
       "log-sqlite"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-log",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-log\\node-log-sqlite.js"
@@ -729,7 +729,7 @@
      "types": [
       "loop-management"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-loop",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-loop\\node-loop-management.js"
@@ -746,7 +746,7 @@
      "types": [
       "mongodb"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-mongodb",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-mongodb\\node-mongodb.js"
@@ -763,7 +763,7 @@
      "types": [
       "ms-graph-oauth"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-graph",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-graph\\node-ms-graph-oauth.js"
@@ -780,7 +780,7 @@
      "types": [
       "ms-video-face-track"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-video-face-track.js"
@@ -790,7 +790,7 @@
      "types": [
       "ms-vision-face-detect"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-face-detect.js"
@@ -800,7 +800,7 @@
      "types": [
       "ms-speech-text"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-speech-text.js"
@@ -810,7 +810,7 @@
      "types": [
       "ms-luis"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-luis.js"
@@ -820,7 +820,7 @@
      "types": [
       "ms-qna"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-qna.js"
@@ -830,7 +830,7 @@
      "types": [
       "ms-luis-config"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-luis-config.js"
@@ -840,7 +840,7 @@
      "types": [
       "ms-config"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-ms-config.js"
@@ -850,7 +850,7 @@
      "types": [
       "vision-get-description"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-get-description.js"
@@ -860,7 +860,7 @@
      "types": [
       "vision-get-persons"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-ms-oxford",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-ms-oxford\\node-vision-get-persons.js"
@@ -877,7 +877,7 @@
      "types": [
       "nedb"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-nedb",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nedb\\node-nedb.js"
@@ -887,7 +887,7 @@
      "types": [
       "xlsx"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-nedb",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nedb\\node-xlsx.js"
@@ -904,7 +904,7 @@
      "types": [
       "nosql"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-nosql",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-nosql\\node-nosql.js"
@@ -921,7 +921,7 @@
      "types": [
       "phantomjs-snapshot"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-phantomjs",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-phantomjs\\node-phantomjs-snapshot.js"
@@ -938,7 +938,7 @@
      "types": [
       "qrDecode"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-qrcode",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-qrcode\\node-qrcode.js"
@@ -955,7 +955,7 @@
      "types": [
       "random"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-random",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-random\\node-random.js"
@@ -972,7 +972,7 @@
      "types": [
       "repeat"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-repeat",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-repeat\\node-repeat.js"
@@ -1026,7 +1026,7 @@
      "types": [
       "sensit"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-sensit",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-sensit\\node-sensit.js"
@@ -1043,7 +1043,7 @@
      "types": [
       "socketio-in"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-socketio",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-socketio\\node-socketio-in.js"
@@ -1053,7 +1053,7 @@
      "types": [
       "socketio-out"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-socketio",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-socketio\\node-socketio-out.js"
@@ -1070,7 +1070,7 @@
      "types": [
       "soundex"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-soundex",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-soundex\\soundex.js"
@@ -1087,7 +1087,7 @@
      "types": [
       "tokenizer"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-tokenizer",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-tokenizer\\node-tokenizer.js"
@@ -1105,7 +1105,7 @@
       "trello-config",
       "trello-list-id"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-trello",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-config.js"
@@ -1115,7 +1115,7 @@
      "types": [
       "trello-in"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-trello",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-in.js"
@@ -1125,7 +1125,7 @@
      "types": [
       "trello-card"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-contrib-viseo-trello",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-contrib-viseo-trello\\node-trello-card.js"
@@ -1143,7 +1143,7 @@
       "e-mail",
       "e-mail in"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-node-email",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-node-email\\61-email.js"
@@ -1160,7 +1160,7 @@
      "types": [
       "feedparse"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-node-feedparser",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-node-feedparser\\32-feedparse.js"
@@ -1177,7 +1177,7 @@
      "types": [
       "rbe"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-node-rbe",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-node-rbe\\rbe.js"
@@ -1196,27 +1196,27 @@
       "twitter in",
       "twitter out"
      ],
-     "enabled": false,
+     "enabled": true,
      "local": false,
      "module": "node-red-node-twitter",
      "file": "C:\\swan\\viseo-bot-framework\\node_modules\\node-red-node-twitter\\27-twitter.js"
     }
    }
   },
-  "node-red-contrib-startup-trigger": {
-   "name": "node-red-contrib-startup-trigger",
-   "version": "0.1.0",
+  "node-red-contrib-cheerio": {
+   "name": "node-red-contrib-cheerio",
+   "version": "1.1.0",
    "local": true,
    "nodes": {
-    "trigger": {
-     "name": "trigger",
+    "cheerio": {
+     "name": "cheerio",
      "types": [
-      "start-up-trigger"
+      "cheerio"
      ],
      "enabled": true,
      "local": true,
-     "module": "node-red-contrib-startup-trigger",
-     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-startup-trigger\\trigger\\trigger.js"
+     "module": "node-red-contrib-cheerio",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-cheerio\\cheerio.js"
     }
    }
   },
@@ -1264,20 +1264,20 @@
     }
    }
   },
-  "node-red-contrib-cheerio": {
-   "name": "node-red-contrib-cheerio",
-   "version": "1.1.0",
+  "node-red-contrib-startup-trigger": {
+   "name": "node-red-contrib-startup-trigger",
+   "version": "0.1.0",
    "local": true,
    "nodes": {
-    "cheerio": {
-     "name": "cheerio",
+    "trigger": {
+     "name": "trigger",
      "types": [
-      "cheerio"
+      "start-up-trigger"
      ],
      "enabled": true,
      "local": true,
-     "module": "node-red-contrib-cheerio",
-     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-cheerio\\cheerio.js"
+     "module": "node-red-contrib-startup-trigger",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-startup-trigger\\trigger\\trigger.js"
     }
    }
   }
