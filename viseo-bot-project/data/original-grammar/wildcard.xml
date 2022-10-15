@@ -1,6 +1,0 @@
-﻿<grammar version="1.0" xml:lang="fr-FR" mode="voice"  root="ruleWildcard" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
-  <rule id="ruleWildcard" scope="public">
-      <tag>out.action=new Object(); </tag>
-      <item>Oueche gro <ruleref special="GARBAGE" /></item> 
-  </rule>
-</grammar>
