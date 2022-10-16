@@ -278,8 +278,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 480,
-        "y": 300,
+        "x": 550,
+        "y": 260,
         "wires": []
     },
     {
@@ -290,7 +290,7 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 250,
+        "x": 550,
         "y": 300,
         "wires": []
     },

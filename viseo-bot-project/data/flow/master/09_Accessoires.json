@@ -345,7 +345,8 @@
         "y": 480,
         "wires": [
             [
-                "ce37e7b8.8d9708"
+                "ce37e7b8.8d9708",
+                "7bae9865.b2f7d8"
             ],
             []
         ]
@@ -658,5 +659,19 @@
         "x": 240,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "7bae9865.b2f7d8",
+        "type": "function",
+        "z": "67565b43.7eac14",
+        "name": "activation mod discret (sf)",
+        "func": "let search=[]\nsearch.push('discret_mod_on');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('discret',true);\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 540,
+        "wires": [
+            []
+        ]
     }
 ]

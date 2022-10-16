@@ -1203,6 +1203,33 @@
     }
    }
   },
+  "node-red-contrib-spotify": {
+   "name": "node-red-contrib-spotify",
+   "version": "0.1.4",
+   "local": true,
+   "nodes": {
+    "spotify": {
+     "name": "spotify",
+     "types": [
+      "spotify"
+     ],
+     "enabled": false,
+     "local": true,
+     "module": "node-red-contrib-spotify",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-spotify\\src\\spotify.js"
+    },
+    "spotify-auth": {
+     "name": "spotify-auth",
+     "types": [
+      "spotify-auth"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-spotify",
+     "file": "C:\\swan\\viseo-bot-project\\data\\node_modules\\node-red-contrib-spotify\\src\\authorize.js"
+    }
+   }
+  },
   "node-red-contrib-cheerio": {
    "name": "node-red-contrib-cheerio",
    "version": "1.1.0",

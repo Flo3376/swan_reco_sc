@@ -2,7 +2,7 @@
 	<rule id="music_on" scope="public">
 		<tag>out.action=new Object(); </tag>
 		<item>SWAN</item>
-		<!--activation du scan cyclique-->
+		<!--active la mise en route automatique de la musique en fonction des thématique-->
 		<one-of>
 			<item>Active le mod musicale</item>
 		</one-of>

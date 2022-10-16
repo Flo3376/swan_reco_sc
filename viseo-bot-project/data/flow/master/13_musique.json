@@ -2079,9 +2079,7 @@
         "wires": [
             [
                 "57b78999.fa7208",
-                "a12609dd.707f78",
-                "3d99134b.03b41c",
-                "5a5f7250.86405c"
+                "a12609dd.707f78"
             ]
         ]
     },
@@ -2097,7 +2095,9 @@
         "y": 1980,
         "wires": [
             [
-                "4da0fafa.063ad4"
+                "4da0fafa.063ad4",
+                "c754f714.f5fb68",
+                "3d99134b.03b41c"
             ]
         ]
     },
@@ -2145,7 +2145,9 @@
         "y": 2100,
         "wires": [
             [
-                "7b5921b1.67a6a"
+                "7b5921b1.67a6a",
+                "4d5773d4.fafbbc",
+                "5a5f7250.86405c"
             ]
         ]
     },
@@ -2214,7 +2216,7 @@
         "func": "let sound_effect=[];\nlet track_id='commun_swan';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
+        "x": 1280,
         "y": 2020,
         "wires": [
             [
@@ -2230,7 +2232,7 @@
         "func": "let sound_effect=[];\nlet track_id='commun_swan';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
+        "x": 1280,
         "y": 2060,
         "wires": [
             [
@@ -2270,5 +2272,61 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "c754f714.f5fb68",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "du con",
+        "func": "msg.payload=\"ici du con\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 2220,
+        "wires": [
+            [
+                "6027ff00.6c318"
+            ]
+        ]
+    },
+    {
+        "id": "6027ff00.6c318",
+        "type": "debug",
+        "z": "e51f5302.12682",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1210,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "4d5773d4.fafbbc",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "du con",
+        "func": "msg.payload=\"ici du con\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 2280,
+        "wires": [
+            [
+                "6d6d9080.cca87"
+            ]
+        ]
+    },
+    {
+        "id": "6d6d9080.cca87",
+        "type": "debug",
+        "z": "e51f5302.12682",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1210,
+        "y": 2280,
+        "wires": []
     }
 ]

@@ -62,7 +62,9 @@
         "y": 240,
         "wires": [
             [
-                "b09dc518.8906c8"
+                "b09dc518.8906c8",
+                "e282d36f.0c754",
+                "f10c9ee2.a875d"
             ],
             []
         ]
@@ -428,5 +430,75 @@
         "x": 220,
         "y": 20,
         "wires": []
+    },
+    {
+        "id": "e282d36f.0c754",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "timer",
+        "func": "msg.payload=Date.now();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "3b253fbd.a59e1"
+            ]
+        ]
+    },
+    {
+        "id": "3b253fbd.a59e1",
+        "type": "debug",
+        "z": "e3b59118.5cbf8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 890,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2e2c783a.b67c98",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "du con",
+        "func": "msg.payload=\"ici du con\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 750,
+        "y": 740,
+        "wires": [
+            [
+                "16f49bad.fc2ce4"
+            ]
+        ]
+    },
+    {
+        "id": "16f49bad.fc2ce4",
+        "type": "debug",
+        "z": "e3b59118.5cbf8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 930,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "f10c9ee2.a875d",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "désactivation mod discret (sf)",
+        "func": "let search=[];\nsearch.push('discret_mod_off');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('discret',false);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 200,
+        "wires": [
+            []
+        ]
     }
 ]

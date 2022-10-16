@@ -112,11 +112,6 @@
         "info": ""
     },
     {
-        "id": "7ca35b31.a2ad64",
-        "type": "tab",
-        "label": "Flow 2"
-    },
-    {
         "id": "bfb3471d.26ac28",
         "type": "win-listen-config",
         "z": "",
@@ -126,6 +121,13 @@
         "confidence": "",
         "recognizer": "",
         "hotword": "swan"
+    },
+    {
+        "id": "5f3d4eff.68f75",
+        "type": "spotify-auth",
+        "z": "",
+        "name": "",
+        "scope": ""
     },
     {
         "id": "e803f58d.9ef3d8",
@@ -3827,7 +3829,8 @@
         "wires": [
             [
                 "b09dc518.8906c8",
-                "e282d36f.0c754"
+                "e282d36f.0c754",
+                "f10c9ee2.a875d"
             ],
             []
         ]
@@ -8898,7 +8901,8 @@
         "y": 480,
         "wires": [
             [
-                "ce37e7b8.8d9708"
+                "ce37e7b8.8d9708",
+                "7bae9865.b2f7d8"
             ],
             []
         ]
@@ -16912,5 +16916,33 @@
         "x": 1210,
         "y": 2280,
         "wires": []
+    },
+    {
+        "id": "f10c9ee2.a875d",
+        "type": "function",
+        "z": "e3b59118.5cbf8",
+        "name": "désactivation mod discret (sf)",
+        "func": "let search=[];\nsearch.push('discret_mod_off');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[]\n    global.set('discret',false);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7bae9865.b2f7d8",
+        "type": "function",
+        "z": "67565b43.7eac14",
+        "name": "activation mod discret (sf)",
+        "func": "let search=[]\nsearch.push('discret_mod_on');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n}\nif(find===true)\n{\n    search=[];\n    global.set('discret',true);\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850,
+        "y": 540,
+        "wires": [
+            []
+        ]
     }
 ]
