@@ -1,0 +1,11 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="music_on" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="music_on" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--activation du scan cyclique-->
+		<one-of>
+			<item>Active le mod musicale</item>
+		</one-of>
+		<tag>out.action.action="music_on";</tag>
+	</rule> 
+</grammar>

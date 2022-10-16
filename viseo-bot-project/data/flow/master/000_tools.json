@@ -17,8 +17,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 150,
-        "y": 180,
+        "x": 130,
+        "y": 780,
         "wires": [
             [
                 "216ea5f7.8072aa"
@@ -36,8 +36,8 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 340,
-        "y": 180,
+        "x": 320,
+        "y": 780,
         "wires": [
             [
                 "eb775a44.4965a8",
@@ -53,8 +53,8 @@
         "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 530,
-        "y": 180,
+        "x": 510,
+        "y": 780,
         "wires": [
             [
                 "abfa0ec4.1b2e7"
@@ -78,8 +78,8 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 760,
-        "y": 180,
+        "x": 740,
+        "y": 780,
         "wires": [
             [
                 "100d82fb.c10dfd"
@@ -97,8 +97,8 @@
         "func": "//msg.reset=\"reset\"\nmsg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\flow\\\\master\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 940,
-        "y": 180,
+        "x": 920,
+        "y": 780,
         "wires": [
             [
                 "5315d669.07a658",
@@ -115,8 +115,8 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 1230,
-        "y": 180,
+        "x": 1210,
+        "y": 780,
         "wires": [
             [
                 "bbf72a48.841658"
@@ -131,8 +131,8 @@
         "func": "let data=global.get(\"jsonflow\")\n\ndata+=msg.payload\nglobal.set(\"jsonflow\",data)\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1400,
-        "y": 180,
+        "x": 1380,
+        "y": 780,
         "wires": [
             []
         ]
@@ -145,8 +145,8 @@
         "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 920,
-        "y": 240,
+        "x": 900,
+        "y": 840,
         "wires": [
             [
                 "876ad3ad.9d0b7"
@@ -162,8 +162,8 @@
         "appendNewline": false,
         "createDir": true,
         "overwriteFile": "true",
-        "x": 1240,
-        "y": 240,
+        "x": 1220,
+        "y": 840,
         "wires": []
     },
     {
@@ -179,122 +179,13 @@
         "units": "s",
         "reset": "",
         "name": "",
-        "x": 740,
-        "y": 240,
+        "x": 720,
+        "y": 840,
         "wires": [
             [
                 "ea0fea05.f0b508"
             ]
         ]
-    },
-    {
-        "id": "6841ddf6.281db4",
-        "type": "function",
-        "z": "86bd29de.a40548",
-        "name": "réécriture flows json",
-        "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 960,
-        "wires": [
-            [
-                "27a5c166.4f110e"
-            ]
-        ]
-    },
-    {
-        "id": "266917a1.433ad8",
-        "type": "file",
-        "z": "86bd29de.a40548",
-        "name": "",
-        "filename": "./../viseo-bot-project/data/flow/flows.json",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "true",
-        "x": 1180,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "89d1e390.684ba",
-        "type": "trigger",
-        "z": "86bd29de.a40548",
-        "op1": "1",
-        "op2": "0",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "1",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 660,
-        "y": 960,
-        "wires": [
-            [
-                "6841ddf6.281db4"
-            ]
-        ]
-    },
-    {
-        "id": "27a5c166.4f110e",
-        "type": "debug",
-        "z": "86bd29de.a40548",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1230,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "596f1587.8b1c1c",
-        "type": "inject",
-        "z": "86bd29de.a40548",
-        "name": "FLOW CREATOR",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 130,
-        "y": 880,
-        "wires": [
-            [
-                "3dd552d8.67766e"
-            ]
-        ]
-    },
-    {
-        "id": "3dd552d8.67766e",
-        "type": "function",
-        "z": "86bd29de.a40548",
-        "name": "targeting",
-        "func": "let info=global.get(\"jsonflow-data\")\nconsole.log(info)\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 320,
-        "y": 860,
-        "wires": [
-            [
-                "94a3ffe0.9e71c"
-            ]
-        ]
-    },
-    {
-        "id": "94a3ffe0.9e71c",
-        "type": "debug",
-        "z": "86bd29de.a40548",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 570,
-        "y": 860,
-        "wires": []
     },
     {
         "id": "80297bff.db6a98",
@@ -304,8 +195,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 575,
-        "y": 305,
+        "x": 510,
+        "y": 840,
         "wires": []
     },
     {
@@ -321,8 +212,8 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1100,
-        "y": 180,
+        "x": 1080,
+        "y": 780,
         "wires": [
             [
                 "abfa0ec4.1b2e7"
@@ -344,7 +235,8 @@
         "y": 80,
         "wires": [
             [
-                "eeeec94e.5f8b08"
+                "eeeec94e.5f8b08",
+                "2a81308f.fadce"
             ]
         ]
     },
@@ -431,5 +323,1444 @@
         "x": 200,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "a4a09a7d.7d55c8",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "3d1f2b52.1af3d4"
+            ]
+        ]
+    },
+    {
+        "id": "3d1f2b52.1af3d4",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "10271514.21aabb"
+            ]
+        ]
+    },
+    {
+        "id": "10271514.21aabb",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"00_initialisation\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 120,
+        "wires": [
+            [
+                "e86cdd8a.c17dc"
+            ]
+        ]
+    },
+    {
+        "id": "e86cdd8a.c17dc",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 120,
+        "wires": [
+            [
+                "7772131e.fbdd1c"
+            ]
+        ]
+    },
+    {
+        "id": "7772131e.fbdd1c",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "00_initialisation.json",
+        "filename": "./../viseo-bot-project/data/flow/master/00_initialisation.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 860,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a1497d51.bad1",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "a6efa91e.c2d938"
+            ]
+        ]
+    },
+    {
+        "id": "a6efa91e.c2d938",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "6b65e6da.1afce8"
+            ]
+        ]
+    },
+    {
+        "id": "6b65e6da.1afce8",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"01_routeur\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [
+                "a58cc6d0.6852c8"
+            ]
+        ]
+    },
+    {
+        "id": "a58cc6d0.6852c8",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "d28ed438.fc97f8"
+            ]
+        ]
+    },
+    {
+        "id": "d28ed438.fc97f8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "01_routeur.json",
+        "filename": "./../viseo-bot-project/data/flow/master/01_routeur.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 840,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "bba932a7.8a73c",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "b170e943.c83c78"
+            ]
+        ]
+    },
+    {
+        "id": "b170e943.c83c78",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "382af266.ae2e8e"
+            ]
+        ]
+    },
+    {
+        "id": "382af266.ae2e8e",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"02_test\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "e28f9ad7.c8fb08"
+            ]
+        ]
+    },
+    {
+        "id": "e28f9ad7.c8fb08",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "5fcf290b.748a78"
+            ]
+        ]
+    },
+    {
+        "id": "5fcf290b.748a78",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "02_test.json",
+        "filename": "./../viseo-bot-project/data/flow/master/02_test.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 830,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cda57fce.9af96",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "65436836.419148"
+            ]
+        ]
+    },
+    {
+        "id": "65436836.419148",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "411fafd4.b2b8d"
+            ]
+        ]
+    },
+    {
+        "id": "411fafd4.b2b8d",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"03_combat\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "362b1025.b960e"
+            ]
+        ]
+    },
+    {
+        "id": "362b1025.b960e",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 240,
+        "wires": [
+            [
+                "80e957f0.3abdb8"
+            ]
+        ]
+    },
+    {
+        "id": "80e957f0.3abdb8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "03_combat.json",
+        "filename": "./../viseo-bot-project/data/flow/master/03_combat.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 840,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8f956e89.13556",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "ac29da21.6982b8"
+            ]
+        ]
+    },
+    {
+        "id": "ac29da21.6982b8",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "22c2ea03.d9dbc6"
+            ]
+        ]
+    },
+    {
+        "id": "22c2ea03.d9dbc6",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"04_T_Puissance\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "d43fe4b5.d4e7e8"
+            ]
+        ]
+    },
+    {
+        "id": "d43fe4b5.d4e7e8",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 280,
+        "wires": [
+            [
+                "856c6ae7.9cd1c8"
+            ]
+        ]
+    },
+    {
+        "id": "856c6ae7.9cd1c8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "04_T_Puissance.json",
+        "filename": "./../viseo-bot-project/data/flow/master/04_T_Puissance.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 860,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9655c6df.3e5678",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "11e7844b.f2f8bc"
+            ]
+        ]
+    },
+    {
+        "id": "11e7844b.f2f8bc",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "738a85e8.fd7ebc"
+            ]
+        ]
+    },
+    {
+        "id": "738a85e8.fd7ebc",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"05_Boucliers\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "1b8936f4.ac83b9"
+            ]
+        ]
+    },
+    {
+        "id": "1b8936f4.ac83b9",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "7764243f.57e21c"
+            ]
+        ]
+    },
+    {
+        "id": "7764243f.57e21c",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "05_Boucliers.json",
+        "filename": "./../viseo-bot-project/data/flow/master/05_Boucliers.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 850,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "937ef4c5.fddf18",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "4f8a6c78.cc02a4"
+            ]
+        ]
+    },
+    {
+        "id": "4f8a6c78.cc02a4",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "32df27dd.24c2e8"
+            ]
+        ]
+    },
+    {
+        "id": "32df27dd.24c2e8",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"06_Starmap_qt\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 360,
+        "wires": [
+            [
+                "8a586ec.d94249"
+            ]
+        ]
+    },
+    {
+        "id": "8a586ec.d94249",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 360,
+        "wires": [
+            [
+                "38722c04.d8ade4"
+            ]
+        ]
+    },
+    {
+        "id": "38722c04.d8ade4",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "06_Starmap_qt.json",
+        "filename": "./../viseo-bot-project/data/flow/master/06_Starmap_qt.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 860,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "c1e6d040.d1f29",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "b02adcbb.15b47"
+            ]
+        ]
+    },
+    {
+        "id": "b02adcbb.15b47",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 400,
+        "wires": [
+            [
+                "2778a0ae.41b09"
+            ]
+        ]
+    },
+    {
+        "id": "2778a0ae.41b09",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"07_Communication\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 400,
+        "wires": [
+            [
+                "32a6354c.b55fba"
+            ]
+        ]
+    },
+    {
+        "id": "32a6354c.b55fba",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "5fe08e95.1c429"
+            ]
+        ]
+    },
+    {
+        "id": "5fe08e95.1c429",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "07_Communication.json",
+        "filename": "./../viseo-bot-project/data/flow/master/07_Communication.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 870,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6151c27c.5ff3bc",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "83d150b4.ceb73"
+            ]
+        ]
+    },
+    {
+        "id": "83d150b4.ceb73",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 440,
+        "wires": [
+            [
+                "9d2a44ff.b82458"
+            ]
+        ]
+    },
+    {
+        "id": "9d2a44ff.b82458",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"08_Train_VTOL _vol_découplé\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 440,
+        "wires": [
+            [
+                "6bc0b4eb.0b9f3c"
+            ]
+        ]
+    },
+    {
+        "id": "6bc0b4eb.0b9f3c",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 440,
+        "wires": [
+            [
+                "20c4bea.cb74d42"
+            ]
+        ]
+    },
+    {
+        "id": "20c4bea.cb74d42",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "08_Train_VTOL _vol_découplé.json",
+        "filename": "./../viseo-bot-project/data/flow/master/08_Train_VTOL _vol_découplé.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 900,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b715ceee.536bc",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 480,
+        "wires": [
+            [
+                "2119e57e.ef244a"
+            ]
+        ]
+    },
+    {
+        "id": "2119e57e.ef244a",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 480,
+        "wires": [
+            [
+                "abc2247b.f0c798"
+            ]
+        ]
+    },
+    {
+        "id": "abc2247b.f0c798",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"09_Accessoires\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 480,
+        "wires": [
+            [
+                "4483cb9d.6c1be4"
+            ]
+        ]
+    },
+    {
+        "id": "4483cb9d.6c1be4",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 480,
+        "wires": [
+            [
+                "380c7faf.63c37"
+            ]
+        ]
+    },
+    {
+        "id": "380c7faf.63c37",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "09_Accessoires.json",
+        "filename": "./../viseo-bot-project/data/flow/master/09_Accessoires.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 860,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "809574b2.851c58",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [
+                "926f683d.60e358"
+            ]
+        ]
+    },
+    {
+        "id": "926f683d.60e358",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "50473c86.2a0b64"
+            ]
+        ]
+    },
+    {
+        "id": "50473c86.2a0b64",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"10_Démarrage_coupure\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 520,
+        "wires": [
+            [
+                "fcb07c7d.33e3"
+            ]
+        ]
+    },
+    {
+        "id": "fcb07c7d.33e3",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 520,
+        "wires": [
+            [
+                "e3b5569e.a0cae8"
+            ]
+        ]
+    },
+    {
+        "id": "e3b5569e.a0cae8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "10_Démarrage_coupure",
+        "filename": "./../viseo-bot-project/data/flow/master/10_Démarrage_coupure.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 870,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "415b0c92.4a46d4",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 560,
+        "wires": [
+            [
+                "cdc89ac5.599a68"
+            ]
+        ]
+    },
+    {
+        "id": "cdc89ac5.599a68",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 560,
+        "wires": [
+            [
+                "4bafe98f.2cc358"
+            ]
+        ]
+    },
+    {
+        "id": "4bafe98f.2cc358",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"11_minage_scan\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 560,
+        "wires": [
+            [
+                "7cde5ff5.f600d"
+            ]
+        ]
+    },
+    {
+        "id": "7cde5ff5.f600d",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 560,
+        "wires": [
+            [
+                "a4a18727.fbb468"
+            ]
+        ]
+    },
+    {
+        "id": "a4a18727.fbb468",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "11_minage_scan",
+        "filename": "./../viseo-bot-project/data/flow/master/11_minage_scan.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 850,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ee285947.c55488",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "cb1b4ede.ecd27"
+            ]
+        ]
+    },
+    {
+        "id": "cb1b4ede.ecd27",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 600,
+        "wires": [
+            [
+                "5351a8ed.720a08"
+            ]
+        ]
+    },
+    {
+        "id": "5351a8ed.720a08",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"12_Scénario\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 600,
+        "wires": [
+            [
+                "f4d084d9.3f8d28"
+            ]
+        ]
+    },
+    {
+        "id": "f4d084d9.3f8d28",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 600,
+        "wires": [
+            [
+                "83561e4a.2b6ce"
+            ]
+        ]
+    },
+    {
+        "id": "83561e4a.2b6ce",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "12_Scénario",
+        "filename": "./../viseo-bot-project/data/flow/master/12_Scénario.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 830,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "1f2051f3.c9d9ee",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 640,
+        "wires": [
+            [
+                "e19abd1e.c7f05"
+            ]
+        ]
+    },
+    {
+        "id": "e19abd1e.c7f05",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 640,
+        "wires": [
+            [
+                "923e5ed9.775c4"
+            ]
+        ]
+    },
+    {
+        "id": "923e5ed9.775c4",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"13_musique\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 640,
+        "wires": [
+            [
+                "c2159563.a08908"
+            ]
+        ]
+    },
+    {
+        "id": "c2159563.a08908",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 640,
+        "wires": [
+            [
+                "2b4434f7.b46a9c"
+            ]
+        ]
+    },
+    {
+        "id": "2b4434f7.b46a9c",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "13_musique",
+        "filename": "./../viseo-bot-project/data/flow/master/13_musique.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 830,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "e3b6838a.772ea",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 680,
+        "wires": [
+            [
+                "3025304c.7795"
+            ]
+        ]
+    },
+    {
+        "id": "3025304c.7795",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 680,
+        "wires": [
+            [
+                "93a75280.d569b"
+            ]
+        ]
+    },
+    {
+        "id": "93a75280.d569b",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"14_Modeurs_tools\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 680,
+        "wires": [
+            [
+                "1592476d.0b5639"
+            ]
+        ]
+    },
+    {
+        "id": "1592476d.0b5639",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 680,
+        "wires": [
+            [
+                "9ac15e3a.4d503"
+            ]
+        ]
+    },
+    {
+        "id": "9ac15e3a.4d503",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "14_Modeurs_tools.json",
+        "filename": "./../viseo-bot-project/data/flow/master/14_Modeurs_tools.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 870,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "2a81308f.fadce",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "a4a09a7d.7d55c8",
+                "fedd619a.cee29"
+            ]
+        ]
+    },
+    {
+        "id": "fedd619a.cee29",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "a1497d51.bad1",
+                "8f5490bc.216bd"
+            ]
+        ]
+    },
+    {
+        "id": "8f5490bc.216bd",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "bba932a7.8a73c",
+                "87059a86.b62f18"
+            ]
+        ]
+    },
+    {
+        "id": "87059a86.b62f18",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "cda57fce.9af96",
+                "168bca3e.9efc46"
+            ]
+        ]
+    },
+    {
+        "id": "168bca3e.9efc46",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "8f956e89.13556",
+                "2262128.4e4c8ee"
+            ]
+        ]
+    },
+    {
+        "id": "2262128.4e4c8ee",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "9655c6df.3e5678",
+                "98880b18.b34c98"
+            ]
+        ]
+    },
+    {
+        "id": "98880b18.b34c98",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "937ef4c5.fddf18",
+                "93e67f87.0f0e2"
+            ]
+        ]
+    },
+    {
+        "id": "93e67f87.0f0e2",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 400,
+        "wires": [
+            [
+                "c1e6d040.d1f29",
+                "72963a53.2c0734"
+            ]
+        ]
+    },
+    {
+        "id": "72963a53.2c0734",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 440,
+        "wires": [
+            [
+                "6151c27c.5ff3bc",
+                "99fe5af1.82e0a8"
+            ]
+        ]
+    },
+    {
+        "id": "99fe5af1.82e0a8",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "b715ceee.536bc",
+                "7e0ab32b.47417c"
+            ]
+        ]
+    },
+    {
+        "id": "7e0ab32b.47417c",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "809574b2.851c58",
+                "c5c10a44.a55fe8"
+            ]
+        ]
+    },
+    {
+        "id": "c5c10a44.a55fe8",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 560,
+        "wires": [
+            [
+                "415b0c92.4a46d4",
+                "37b29d19.bb40a2"
+            ]
+        ]
+    },
+    {
+        "id": "37b29d19.bb40a2",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 600,
+        "wires": [
+            [
+                "ee285947.c55488",
+                "eba40e33.c41ca"
+            ]
+        ]
+    },
+    {
+        "id": "eba40e33.c41ca",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 640,
+        "wires": [
+            [
+                "1f2051f3.c9d9ee",
+                "17e76398.cb55ac"
+            ]
+        ]
+    },
+    {
+        "id": "17e76398.cb55ac",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 680,
+        "wires": [
+            [
+                "e3b6838a.772ea"
+            ]
+        ]
     }
 ]

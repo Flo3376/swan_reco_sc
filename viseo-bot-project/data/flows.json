@@ -105,6 +105,18 @@
         "info": ""
     },
     {
+        "id": "d1b71e2b.e38c8",
+        "type": "tab",
+        "label": "14_Modeurs_tools",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7ca35b31.a2ad64",
+        "type": "tab",
+        "label": "Flow 2"
+    },
+    {
         "id": "bfb3471d.26ac28",
         "type": "win-listen-config",
         "z": "",
@@ -126,8 +138,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 150,
-        "y": 180,
+        "x": 130,
+        "y": 780,
         "wires": [
             [
                 "216ea5f7.8072aa"
@@ -145,8 +157,8 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 340,
-        "y": 180,
+        "x": 320,
+        "y": 780,
         "wires": [
             [
                 "eb775a44.4965a8",
@@ -162,8 +174,8 @@
         "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 530,
-        "y": 180,
+        "x": 510,
+        "y": 780,
         "wires": [
             [
                 "abfa0ec4.1b2e7"
@@ -187,8 +199,8 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 760,
-        "y": 180,
+        "x": 740,
+        "y": 780,
         "wires": [
             [
                 "100d82fb.c10dfd"
@@ -206,8 +218,8 @@
         "func": "//msg.reset=\"reset\"\nmsg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\flow\\\\master\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 940,
-        "y": 180,
+        "x": 920,
+        "y": 780,
         "wires": [
             [
                 "5315d669.07a658",
@@ -224,8 +236,8 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 1230,
-        "y": 180,
+        "x": 1210,
+        "y": 780,
         "wires": [
             [
                 "bbf72a48.841658"
@@ -240,8 +252,8 @@
         "func": "let data=global.get(\"jsonflow\")\n\ndata+=msg.payload\nglobal.set(\"jsonflow\",data)\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1400,
-        "y": 180,
+        "x": 1380,
+        "y": 780,
         "wires": [
             []
         ]
@@ -254,8 +266,8 @@
         "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 920,
-        "y": 240,
+        "x": 900,
+        "y": 840,
         "wires": [
             [
                 "876ad3ad.9d0b7"
@@ -271,8 +283,8 @@
         "appendNewline": false,
         "createDir": true,
         "overwriteFile": "true",
-        "x": 1240,
-        "y": 240,
+        "x": 1220,
+        "y": 840,
         "wires": []
     },
     {
@@ -288,122 +300,13 @@
         "units": "s",
         "reset": "",
         "name": "",
-        "x": 740,
-        "y": 240,
+        "x": 720,
+        "y": 840,
         "wires": [
             [
                 "ea0fea05.f0b508"
             ]
         ]
-    },
-    {
-        "id": "6841ddf6.281db4",
-        "type": "function",
-        "z": "86bd29de.a40548",
-        "name": "réécriture flows json",
-        "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 860,
-        "y": 960,
-        "wires": [
-            [
-                "27a5c166.4f110e"
-            ]
-        ]
-    },
-    {
-        "id": "266917a1.433ad8",
-        "type": "file",
-        "z": "86bd29de.a40548",
-        "name": "",
-        "filename": "./../viseo-bot-project/data/flow/flows.json",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "true",
-        "x": 1180,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "89d1e390.684ba",
-        "type": "trigger",
-        "z": "86bd29de.a40548",
-        "op1": "1",
-        "op2": "0",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "1",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 660,
-        "y": 960,
-        "wires": [
-            [
-                "6841ddf6.281db4"
-            ]
-        ]
-    },
-    {
-        "id": "27a5c166.4f110e",
-        "type": "debug",
-        "z": "86bd29de.a40548",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 1230,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "596f1587.8b1c1c",
-        "type": "inject",
-        "z": "86bd29de.a40548",
-        "name": "FLOW CREATOR",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 130,
-        "y": 880,
-        "wires": [
-            [
-                "3dd552d8.67766e"
-            ]
-        ]
-    },
-    {
-        "id": "3dd552d8.67766e",
-        "type": "function",
-        "z": "86bd29de.a40548",
-        "name": "targeting",
-        "func": "let info=global.get(\"jsonflow-data\")\nconsole.log(info)\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 320,
-        "y": 860,
-        "wires": [
-            [
-                "94a3ffe0.9e71c"
-            ]
-        ]
-    },
-    {
-        "id": "94a3ffe0.9e71c",
-        "type": "debug",
-        "z": "86bd29de.a40548",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 570,
-        "y": 860,
-        "wires": []
     },
     {
         "id": "80297bff.db6a98",
@@ -413,8 +316,8 @@
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 575,
-        "y": 305,
+        "x": 510,
+        "y": 840,
         "wires": []
     },
     {
@@ -430,8 +333,8 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1100,
-        "y": 180,
+        "x": 1080,
+        "y": 780,
         "wires": [
             [
                 "abfa0ec4.1b2e7"
@@ -453,7 +356,8 @@
         "y": 80,
         "wires": [
             [
-                "eeeec94e.5f8b08"
+                "eeeec94e.5f8b08",
+                "2a81308f.fadce"
             ]
         ]
     },
@@ -2096,7 +2000,7 @@
         "createDir": true,
         "overwriteFile": "false",
         "x": 1450,
-        "y": 1640,
+        "y": 1940,
         "wires": []
     },
     {
@@ -2205,12 +2109,12 @@
         "op2": "",
         "op1type": "nul",
         "op2type": "pay",
-        "duration": "1",
+        "duration": "500",
         "extend": false,
-        "units": "s",
+        "units": "ms",
         "reset": "",
         "name": "",
-        "x": 160,
+        "x": 180,
         "y": 2060,
         "wires": [
             [
@@ -2227,13 +2131,13 @@
         "op2": "",
         "op1type": "nul",
         "op2type": "pay",
-        "duration": "1",
+        "duration": "500",
         "extend": false,
-        "units": "s",
+        "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1640,
-        "y": 1700,
+        "x": 740,
+        "y": 1940,
         "wires": [
             [
                 "cc2b4307.0a7ba"
@@ -2372,12 +2276,12 @@
         "op2": "",
         "op1type": "nul",
         "op2type": "pay",
-        "duration": "1",
+        "duration": "500",
         "extend": false,
-        "units": "s",
+        "units": "ms",
         "reset": "",
         "name": "",
-        "x": 200,
+        "x": 220,
         "y": 1840,
         "wires": [
             [
@@ -2512,7 +2416,7 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "Config initiale systéme",
-        "func": "//instruction en attente\nglobal.set(\"SWAN_M\",[])\n//où se trouve swan\nglobal.set('swan_path','C:\\\\swan')\n\n//Où se trouve votre répertoire sc live I:\\\\Roberts Space Industries\\\\StarCitizen\\\\LIVE\\\\n\";\nglobal.set(\"sc_path\",\"I:\\\\Roberts Space Industries\\\\StarCitizen\\\\LIVE\\\\\");\n\n//où se trouve le répertoire son deswan\nglobal.set('path_sound',global.get('swan_path')+`\\\\sounds\\\\`);\n\n//quelle est le nom de swan\nglobal.set('swan_name',\"SWAN\");\n\n//quelle est le ancien nom de swan\nglobal.set('last_swan_name',\"SWAN\");\n\n//quella voix à utiliser\nglobal.set('voice',\"voice_1\");\n\n//a quelle niveau de confiance doit elle réagir\nglobal.set('confiance_gate',0.80);\n\n//volume de swan\nglobal.set('volume',0.7);\n\n//volume de swan\nglobal.set('volume2',0.5);\n\n//swan sera t'elle à l'acoute au démarrage\nglobal.set('swan_active',true);\n\n//balayage actif\nglobal.set('spy_scan',false);\n\n//swan utilise t'elle les sons (true) ou juste un bip (false)\nglobal.set('discret',false);\n\n//etat du lecteur audio\nglobal.set(\"player_status\",\"standy\")\n\n//paramétre et localisation de vlc\nglobal.set('vlc_path',`\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\" `)\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=100 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\nglobal.set('vlc_para2',`--gain=`+global.get('volume2')+` --volume=100 --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n//global.set('a_k_short_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard.ahk\")\n//global.set('a_k_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_long.ahk\")\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\n//global.set('a_k_alt_left_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_left_alt.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\nglobal.set(\"jsonflow\",\"\")\n\nconsole.log(`Le nom de votre IA est   : ${ global.get(\"swan_name\")}`)\nconsole.log(`les sons sont configurés à l'adresse : ${ global.get(\"path_sound\")}`)\nconsole.log(`le seuil d'assurance de reconnaisse est à  : ${ global.get(\"confiance_gate\")}`)\nreturn msg;",
+        "func": "//instruction en attente\nglobal.set(\"SWAN_M\",[])\n//où se trouve swan\nglobal.set('swan_path','C:\\\\swan')\n\n//Où se trouve votre répertoire sc live I:\\\\Roberts Space Industries\\\\StarCitizen\\\\LIVE\\\\n\";\nglobal.set(\"sc_path\",\"I:\\\\Roberts Space Industries\\\\StarCitizen\\\\LIVE\\\\\");\n\n//où se trouve le répertoire son deswan\nglobal.set('path_sound',global.get('swan_path')+`\\\\sounds\\\\`);\n\n//quelle est le nom de swan\nglobal.set('swan_name',\"SWAN\");\n\n//quelle est le ancien nom de swan\nglobal.set('last_swan_name',\"SWAN\");\n\n//quella voix à utiliser\nglobal.set('voice',\"voice_1\");\n\n//a quelle niveau de confiance doit elle réagir\nglobal.set('confiance_gate',0.80);\n\n//volume de swan\nglobal.set('volume',0.7);\n\n//volume de swan\nglobal.set('volume2',0.5);\n\n//swan sera t'elle à l'acoute au démarrage\nglobal.set('swan_active',true);\n\n//balayage actif\nglobal.set('spy_scan',false);\n\n//swan utilise t'elle les sons (true) ou juste un bip (false)\nglobal.set('discret',false);\n\n//etat du lecteur audio\nglobal.set(\"player_status\",\"standy\")\n\n//paramétre et localisation de vlc\nglobal.set('vlc_path',`\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\" `)\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\nglobal.set('vlc_para2',`--gain=`+global.get('volume2')+` --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n//global.set('a_k_short_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard.ahk\")\n//global.set('a_k_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_long.ahk\")\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\n//global.set('a_k_alt_left_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_left_alt.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\nglobal.set(\"jsonflow\",\"\")\n\nglobal.set(\"musical_mod\", \"true\")\n\n//console.log(`Le nom de votre IA est   : ${ global.get(\"swan_name\")}`)\n//console.log(`les sons sont configurés à l'adresse : ${ global.get(\"path_sound\")}`)\nconsole.log(`le seuil d'assurance de reconnaisse est à  : ${ global.get(\"confiance_gate\")}`)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 360,
@@ -2706,7 +2610,7 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "config loader",
-        "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    //console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    //quella voix à utiliser\n\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --volume=200  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n\n\n\nglobal.set(\"SWAN_M\",[])\n\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\nglobal.set('path_sound',global.get('swan_path')+'\\\\sounds\\\\');\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
+        "func": "data=msg.payload.split('\\n');\n\nlet data_to_load=[];\n\nfor(i=0; i< data.length; i++)\n{\n    if(!data[i].startsWith('*') && !data[i].startsWith('#'))\n    {\n        if(data[i]!==\"\"){\n           data_to_load.push(data[i]);\n        }\n        \n    }\n}\n\nfor(i=0; i< data_to_load.length; i++)\n{\n    //console.log(data_to_load[i])\n    let data=data_to_load[i].split('=');\n    global.set(data[0], data[1])\n    //quella voix à utiliser\n\n    \n   //global.set\n}\n\nglobal.set('vlc_para',`--gain=`+global.get('volume')+` --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\nglobal.set('vlc_para2',`--gain=`+global.get('volume2')+`  --qt-start-minimized --play-and-exit --qt-notification=0 --no-repeat --no-loop `)\n\n\nglobal.set(\"SWAN_M\",[])\n\nglobal.set('a_k_send_path',global.get('swan_path')+\"\\\\autohotkey\\\\send_text.ahk\")\nglobal.set('a_k_auto_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto.ahk\")\nglobal.set('a_k_auto_long_path',global.get('swan_path')+\"\\\\autohotkey\\\\keyboard_auto_long.ahk\")\nglobal.set('a_k_mouse',global.get('swan_path')+\"\\\\autohotkey\\\\mouse_click.ahk\")\nglobal.set('path_sound',global.get('swan_path')+'\\\\sounds\\\\');\n\n\nif(global.get('swan_active')==='true')\n{\n    global.set('swan_active',true)\n}\nelse\n{\n     global.set('swan_active',false)\n}\n\nif(global.get('discret')==='true')\n{\n    global.set('discret',true)\n}\nelse\n{\n     global.set('discret',false)\n}\n\nif(global.get('musical_mod')==='true')\n{\n    global.set('musical_mod',true)\n}\nelse\n{\n     global.set('musical_mod',false)\n}\nmsg={}\nmsg.topic=true\nmsg.payload=\"config chargée\"\nreturn msg\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "x": 530,
@@ -2753,7 +2657,7 @@
         "type": "function",
         "z": "dc4e7734.5f3478",
         "name": "Config creator",
-        "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Où se trouve votre répertoire sc live I:\\\\Roberts Space Industries\\\\StarCitizen\\\\LIVE\\\\\\n\";\nmsg.payload+=\"sc_path=\"+global.get(\"sc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\";\nmsg.payload+=\"# Quelle voix utilisez vous (voix_1, voix_2), voix_1 ->SWAN voix_2->TROPPER par défaut voix_1\\n\";\nmsg.payload+=\"voice=\"+global.get(\"voice\")+\"\\n\\n\";\n\nmsg.payload+=\"# Si vous avez déjà modifier le nom et que vous voulez en changer de nouveau, il faut mettre le dernier nom utilisé\\n\";\nmsg.payload+=\"last_swan_name=\"+global.get(\"last_swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# La définition de votre écran pour Higor le déménageur breton\\n\";\nmsg.payload+=\"# 1920x1080 ou  2560x1440 ou 7680x1440\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"display\")+\"\\n\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre identifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\n\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"#v_atc_request=\"+global.get(\"v_atc_request\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"#v_toggle_landing_system=\"+global.get(\"v_toggle_landing_system\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"#v_toggle_landing_system=\"+global.get(\"v_toggle_landing_system\")+\"\\n\\n\";\n\nmsg.payload+=\"# passer en découplé\\n\";\nmsg.payload+=\"#v_ifcs_toggle_vector_decoupling=\"+global.get(\"v_ifcs_toggle_vector_decoupling\")+\"\\n\";\nmsg.payload+=\"# passer en couplé\\n\";\nmsg.payload+=\"#v_ifcs_toggle_vector_decoupling=\"+global.get(\"v_ifcs_toggle_vector_decoupling\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"#v_lights=\"+global.get(\"v_lights\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"#v_lights=\"+global.get(\"v_lights\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"#v_flightready=\"+global.get(\"v_flightready\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"#v_starmap=\"+global.get(\"v_starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"#v_invoke_ping=\"+global.get(\"v_invoke_ping\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"#v_open_all_doors=\"+global.get(\"v_open_all_doors\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"#v_close_all_doors=\"+global.get(\"v_close_all_doors\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"#v_power_set_thrusters_on=\"+global.get(\"v_power_set_thrusters_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"#v_power_set_thrusters_off=\"+global.get(\"v_power_set_thrusters_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"#v_power_set_on=\"+global.get(\"v_power_set_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"#v_power_set_off=\"+global.get(\"v_power_set_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"#v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"#v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"#v_toggle_qdrive_engagement=\"+global.get(\"v_toggle_qdrive_engagement\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"#open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"#close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"#v_toggle_mining_mode=\"+global.get(\"v_toggle_mining_mode\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"#v_jettison_volatile_cargo=\"+global.get(\"v_jettison_volatile_cargo\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"#exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"#v_toggle_vtol=\"+global.get(\"v_toggle_vtol\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"#v_toggle_vtol=\"+global.get(\"v_toggle_vtol\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"v_capacitor_assignment_shield_increase=\"+global.get(\"v_capacitor_assignment_shield_increase\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"v_capacitor_assignment_reset=\"+global.get(\"v_capacitor_assignment_reset\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"#v_shield_raise_level_forward=\"+global.get(\"v_shield_raise_level_forward\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"#v_shield_raise_level_back=\"+global.get(\"v_shield_raise_level_back\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"#v_shield_raise_level_left=\"+global.get(\"v_shield_raise_level_left\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"#v_shield_raise_level_right=\"+global.get(\"v_shield_raise_level_right\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"#v_shield_reset_level=\"+global.get(\"v_shield_reset_level\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"#target_lock=\"+global.get('v_target_cycle_in_view_reset')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"#target_unlock=\"+global.get('v_target_unlock_selected')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"#v_toggle_missile_mode=\"+global.get('v_toggle_missile_mode')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"#v_weapon_launch_missile=\"+global.get('v_weapon_launch_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"#v_weapon_increase_max_missiles=\"+global.get('v_weapon_increase_max_missiles')+\"\\n\\n\";\n\nreturn msg;\n//config de base\n\n\n",
+        "func": "msg.payload=\"**************************************************\\n\";\nmsg.payload+=\"*         \t  config générale\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\n\nmsg.payload+=\"# Où se trouve Swan par defaut=C:\\\\swan\\n\";\nmsg.payload+=\"swan_path=\"+global.get(\"swan_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Où se trouve votre répertoire sc live I:\\\\Roberts Space Industries\\\\StarCitizen\\\\LIVE\\\\\\n\";\nmsg.payload+=\"sc_path=\"+global.get(\"sc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# Comment allez vous l'appeler !!!le nom doit être en majuscule et sans espace,\\n\";\nmsg.payload+=\"swan_name=\"+global.get(\"swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Quelle voix utilisez vous (voice_1, voice_2), voice_1 ->SWAN voice_2->TROPPER par défaut voice_1\\n\";\nmsg.payload+=\"voice=\"+global.get(\"voice\")+\"\\n\\n\";\n\nmsg.payload+=\"# Certaine action peuvent lancer de la musique en relation avec l'action, le souhaitez vous,true = oui, false = non\\n\";\nmsg.payload+=\"musical_mod=\"+global.get(\"musical_mod\")+\"\\n\\n\";\n\nmsg.payload+=\"# Si vous avez déjà modifier le nom et que vous voulez en changer de nouveau, il faut mettre le dernier nom utilisé\\n\";\nmsg.payload+=\"last_swan_name=\"+global.get(\"last_swan_name\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sévérité 0 à 1, plus il est faible plus elle risque de comprendre n'importe quoi,\\n\";\nmsg.payload+=\"# plus il est élevé plus vous devrez avoir une locution parfaite\\n\";\nmsg.payload+=\"# par défaut à 0.80\\n\";\nmsg.payload+=\"confiance_gate=\"+global.get(\"confiance_gate\")+\"\\n\\n\";\n\nmsg.payload+=\"# Niveau sonore 0 à 2, proche 0 inaudible, proche de 2 très très fort\\n\";\nmsg.payload+=\"# par défaut à 0.9\\n\";\nmsg.payload+=\"volume=\"+global.get(\"volume\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan vous écoutes dés le démarrage true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"swan_active=\"+global.get(\"swan_active\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Swan utilise sa voie pour vous réponde true = oui, false = non\\n\";\nmsg.payload+=\"# par défaut true\\n\";\nmsg.payload+=\"discret=\"+global.get(\"discret\")+\"\\n\\n\";\n\nmsg.payload+=\"# Swan utilise vlc, où se trouve t'il?\\n\";\nmsg.payload+=\"# par défaut \\\"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\\\"\\n\";\nmsg.payload+=\"vlc_path=\"+global.get(\"vlc_path\")+\"\\n\\n\";\n\nmsg.payload+=\"# La définition de votre écran pour Higor le déménageur breton\\n\";\nmsg.payload+=\"# 1920x1080 ou  2560x1440 ou 7680x1440\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"display\")+\"\\n\\n\\n\";\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  message à envoyer\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\nmsg.payload+=\"# votre identifiant discord\\n\";\nmsg.payload+=\"my_id_discord=\"+global.get(\"my_id_discord\")+\"\\n\";\nmsg.payload+=\"# votre discord\\n\";\nmsg.payload+=\"my_discord=\"+global.get(\"my_discord\")+\"\\n\\n\\n\";\n\n\n/*\n\nmsg.payload+=\"\\n\\n**************************************************\\n\";\nmsg.payload+=\"*         \t  config clavier\\n\";\nmsg.payload+=\"**************************************************\\n\\n\";\n\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"*     code clavier\\n\";\nmsg.payload+=\"*     ------------\\n\";\nmsg.payload+=\"*     !!!attention chaque touche doit être entouré de { et de }, exemple pour la touche u {u}\\n\";\nmsg.payload+=\"*     alt gauche {LAlt} exemple {LAlt}j\\n\";\nmsg.payload+=\"*     alt droit pas utilisable pour le moment\\n\";\nmsg.payload+=\"*     shift gauche {LShift} exemple {LShift}j\\n\";\nmsg.payload+=\"*     shift droit {RShift} exemple {RShift}j\\n\";\nmsg.payload+=\"*     controle gauche {RCtrl} exemple {RCtrl}j\\n\";\nmsg.payload+=\"*     Controle droit {LCtrl} exemple {LCtrl}j\\n\";\nmsg.payload+=\"*     touche fonction type F1 {F1}\\n\";\nmsg.payload+=\"*     chiffre clavier numéric 5 {NUMPAD5}\\n\";\nmsg.payload+=\"*     appuie long sur b {LONG}B (uniquement pour les touches simple pas de combinaison)\\n\";\nmsg.payload+=\"*     click droit {right_click}\\n\";\nmsg.payload+=\"*     click molette {molette_click}\\n\";\nmsg.payload+=\"*     click gauche {left_click}\\n\";\nmsg.payload+=\"**************************************************\\n\";\nmsg.payload+=\"# Demander l'atérrissage\\n\";\nmsg.payload+=\"#v_atc_request=\"+global.get(\"v_atc_request\")+\"\\n\";\n\nmsg.payload+=\"# Ouvrir le train d'atérrissage\\n\";\nmsg.payload+=\"#v_toggle_landing_system=\"+global.get(\"v_toggle_landing_system\")+\"\\n\";\nmsg.payload+=\"# Fermer le train d'atérrissage\\n\";\nmsg.payload+=\"#v_toggle_landing_system=\"+global.get(\"v_toggle_landing_system\")+\"\\n\\n\";\n\nmsg.payload+=\"# passer en découplé\\n\";\nmsg.payload+=\"#v_ifcs_toggle_vector_decoupling=\"+global.get(\"v_ifcs_toggle_vector_decoupling\")+\"\\n\";\nmsg.payload+=\"# passer en couplé\\n\";\nmsg.payload+=\"#v_ifcs_toggle_vector_decoupling=\"+global.get(\"v_ifcs_toggle_vector_decoupling\")+\"\\n\\n\";\n\n\nmsg.payload+=\"# Allumer les phares\\n\";\nmsg.payload+=\"#v_lights=\"+global.get(\"v_lights\")+\"\\n\";\nmsg.payload+=\"# Eteindre les phares\\n\";\nmsg.payload+=\"#v_lights=\"+global.get(\"v_lights\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ready to fly (r)\\n\";\nmsg.payload+=\"#v_flightready=\"+global.get(\"v_flightready\")+\"\\n\\n\";\n\nmsg.payload+=\"# Afficher / fermer la starmap\\n\";\nmsg.payload+=\"#v_starmap=\"+global.get(\"v_starmap\")+\"\\n\\n\";\n\nmsg.payload+=\"# Envoyer un ping\\n\";\nmsg.payload+=\"#v_invoke_ping=\"+global.get(\"v_invoke_ping\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir les portes\\n\";\nmsg.payload+=\"#v_open_all_doors=\"+global.get(\"v_open_all_doors\")+\"\\n\";\nmsg.payload+=\"# Fermer les portes\\n\";\nmsg.payload+=\"#v_close_all_doors=\"+global.get(\"v_close_all_doors\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les moteurs\\n\";\nmsg.payload+=\"#v_power_set_thrusters_on=\"+global.get(\"v_power_set_thrusters_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les moteurs\\n\";\nmsg.payload+=\"#v_power_set_thrusters_off=\"+global.get(\"v_power_set_thrusters_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer les générateur\\n\";\nmsg.payload+=\"#v_power_set_on=\"+global.get(\"v_power_set_on\")+\"\\n\";\nmsg.payload+=\"# Eteindre les générateur\\n\";\nmsg.payload+=\"#v_power_set_off=\"+global.get(\"v_power_set_off\")+\"\\n\\n\";\n\nmsg.payload+=\"# Démarrer le moteur quantique\\n\";\nmsg.payload+=\"#v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# Eteindre le moteur quantique\\n\";\nmsg.payload+=\"#v_toggle_quantum_mode=\"+global.get(\"v_toggle_quantum_mode\")+\"\\n\";\nmsg.payload+=\"# lancer le saut quantique\\n\";\nmsg.payload+=\"#v_toggle_qdrive_engagement=\"+global.get(\"v_toggle_qdrive_engagement\")+\"\\n\\n\";\n\nmsg.payload+=\"# Ouvrir le bras de minage\\n\";\nmsg.payload+=\"#open_min_tools=\"+global.get(\"open_min_tools\")+\"\\n\";\nmsg.payload+=\"# Fermer le bras de minage\\n\";\nmsg.payload+=\"#close_min_tools=\"+global.get(\"close_min_tools\")+\"\\n\";\nmsg.payload+=\"# Changer l'outils du bras de minage\\n\";\nmsg.payload+=\"#v_toggle_mining_mode=\"+global.get(\"v_toggle_mining_mode\")+\"\\n\";\nmsg.payload+=\"# ejecter le cargo instable\\n\";\nmsg.payload+=\"#v_jettison_volatile_cargo=\"+global.get(\"v_jettison_volatile_cargo\")+\"\\n\\n\";\n\nmsg.payload+=\"# Sortir du cockpit\\n\";\nmsg.payload+=\"#exit=\"+global.get(\"exit\")+\"\\n\\n\";\n\nmsg.payload+=\"# activer VTOL\\n\";\nmsg.payload+=\"#v_toggle_vtol=\"+global.get(\"v_toggle_vtol\")+\"\\n\";\nmsg.payload+=\"# désactiver VTOL\\n\";\nmsg.payload+=\"#v_toggle_vtol=\"+global.get(\"v_toggle_vtol\")+\"\\n\\n\";\n\nmsg.payload+=\"# ajout de puissance sur le capacitor des armes\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des moteurs\\n\";\nmsg.payload+=\"v_capacitor_assignment_weapon_increase=\"+global.get(\"v_capacitor_assignment_weapon_increase\")+\"\\n\";\nmsg.payload+=\"# ajout de puissance sur le capacitor des boucliers\\n\";\nmsg.payload+=\"v_capacitor_assignment_shield_increase=\"+global.get(\"v_capacitor_assignment_shield_increase\")+\"\\n\";\nmsg.payload+=\"# capacitors équilibrés\\n\";\nmsg.payload+=\"v_capacitor_assignment_reset=\"+global.get(\"v_capacitor_assignment_reset\")+\"\\n\\n\";\n\nmsg.payload+=\"# transfert de puissance sur le bouclier avant\\n\";\nmsg.payload+=\"#v_shield_raise_level_forward=\"+global.get(\"v_shield_raise_level_forward\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier arrière\\n\";\nmsg.payload+=\"#v_shield_raise_level_back=\"+global.get(\"v_shield_raise_level_back\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier gauche\\n\";\nmsg.payload+=\"#v_shield_raise_level_left=\"+global.get(\"v_shield_raise_level_left\")+\"\\n\";\nmsg.payload+=\"# transfert de puissance sur le bouclier droit\\n\";\nmsg.payload+=\"#v_shield_raise_level_right=\"+global.get(\"v_shield_raise_level_right\")+\"\\n\";\nmsg.payload+=\"# boucliers équilibrés\\n\";\nmsg.payload+=\"#v_shield_reset_level=\"+global.get(\"v_shield_reset_level\")+\"\\n\\n\";\n\nmsg.payload+=\"# verrouillage d'une cible\\n\";\nmsg.payload+=\"#target_lock=\"+global.get('v_target_cycle_in_view_reset')+\"\\n\";\n\nmsg.payload+=\"# déverrouillage d'une cible\\n\";\nmsg.payload+=\"#target_unlock=\"+global.get('v_target_unlock_selected')+\"\\n\";\n\nmsg.payload+=\"# passage de missile à canon et inversement\\n\";\nmsg.payload+=\"#v_toggle_missile_mode=\"+global.get('v_toggle_missile_mode')+\"\\n\";\n\nmsg.payload+=\"# feux missile\\n\";\nmsg.payload+=\"#v_weapon_launch_missile=\"+global.get('v_weapon_launch_missile')+\"\\n\";\n\nmsg.payload+=\"# changement du nombre de missile (cyclique)\\n\";\nmsg.payload+=\"#v_weapon_increase_max_missiles=\"+global.get('v_weapon_increase_max_missiles')+\"\\n\\n\";\n*/\nreturn msg;\n//config de base\n\n\n",
         "outputs": "1",
         "noerr": 0,
         "x": 760,
@@ -7684,7 +7588,7 @@
         "func": "msg.payload=global.get('a_k_send_path')+\" \"+global.get('my_discord')\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 1220,
+        "x": 1260,
         "y": 440,
         "wires": [
             [
@@ -7700,7 +7604,7 @@
         "func": "msg.payload=global.get('a_k_send_path')+\" \"+global.get('my_id_discord')\n\nreturn msg\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 1220,
+        "x": 1260,
         "y": 520,
         "wires": [
             [
@@ -11280,7 +11184,7 @@
         "outputs": "2",
         "noerr": 0,
         "x": 550,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "84d01a09.15cab8"
@@ -11342,7 +11246,7 @@
         "loopPayload": "loop-orig",
         "finalPayload": "final-orig",
         "x": 1590,
-        "y": 900,
+        "y": 960,
         "wires": [
             [],
             [
@@ -11362,7 +11266,7 @@
         "oldrc": false,
         "name": "exec_cmd",
         "x": 1870,
-        "y": 880,
+        "y": 940,
         "wires": [
             [],
             [],
@@ -11518,7 +11422,7 @@
         "reset": "reset",
         "name": "",
         "x": 960,
-        "y": 900,
+        "y": 960,
         "wires": [
             [
                 "8b69976a.e0fb98",
@@ -11648,7 +11552,8 @@
                 "1b0cce9e.a80d61",
                 "53a66314.3c3fec",
                 "e6ea2073.118eb",
-                "88005e17.12f75"
+                "88005e17.12f75",
+                "30587925.b77c96"
             ]
         ]
     },
@@ -11661,13 +11566,14 @@
         "outputs": 1,
         "noerr": 0,
         "x": 730,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "bf80b433.dc7c88",
                 "ea63eb8f.794278",
                 "62979dee.2d2e94",
-                "5c9cc285.ee0f7c"
+                "5c9cc285.ee0f7c",
+                "adfc6da8.aa0fc"
             ]
         ]
     },
@@ -11712,7 +11618,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1380,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "e2d38e42.a1903"
@@ -11808,7 +11714,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 180,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "f0f5c63b.5ac2b8"
@@ -11824,7 +11730,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 370,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "b102f835.589838"
@@ -11845,7 +11751,7 @@
         "reset": "reset",
         "name": "",
         "x": 1100,
-        "y": 940,
+        "y": 1000,
         "wires": [
             [
                 "42dd5271.324a8c"
@@ -12023,7 +11929,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1390,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "e2d38e42.a1903"
@@ -12038,8 +11944,8 @@
         "func": "let keybinding=global.get('v_capacitor_assignment_reset');\nconsole.log(keybinding);\nlet before=\"\";\nlet after=\"\";\nlet para_1=\"\";\nlet para_2=\"\";\nlet exec=global.get(\"a_k_auto_path\");\nlet exec_long=global.get(\"a_k_auto_long_path\");\nlet exec_mouse=global.get(\"a_k_mouse\");\n//let sound=`\\\"`+global.get(\"a_k_auto_path\")+`bip\\\\bip_0.mp4\\\"`;\nif (keybinding.includes(\"{right_click}\") || keybinding.includes(\"{molette_click}\") || keybinding.includes(\"{left_click}\"))\n{\n    keybinding=keybinding.replace(\"{right_click}\", \"right\")\n    keybinding=keybinding.replace(\"{molette_click}\", \"middle\")\n    keybinding=keybinding.replace(\"{left_click}\", \"left\")\n    \n    msg.payload=exec_mouse+\" \\\"\"+keybinding+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse if(keybinding.includes(\"{LONG}\"))\n{\n    keybinding=keybinding.replace('{LONG}','');\n    if(keybinding.includes('{LAlt}'))\n    {\n        para_1+=\"{LAlt down}\";\n        para_2+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        para_1+=\"{RAlt down}\";\n        para_2+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        para_1+=\"{LShift down}\";\n        para_2+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        para_1+=\"{RShift down}\";\n        para_2+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        para_1+=\"{RCtrl down}\";\n        para_2+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        para_1+=\"{LCtrl down}\";\n        para_2+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    let n=keybinding.lastIndexOf(\"}\");\n    \n    let down=keybinding.substring(0,n)+\" down \"+keybinding.substring(n);\n    let up=keybinding.substring(0,n)+\" up \"+keybinding.substring(n);\n   // var str2 = str.substring(0,n)+\" again \"+str.substring(n);\n    //console.log(str2); // Hello planet earth, you are a great  again planet. \n    \n    \n    msg.payload=exec_long+\"  \\\"\"+para_1+up+\"\\\" \\\"\"+para_2+down+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    return msg;\n}\nelse //if(keybinding.includes('{LONG}') && !keybinding.includes(\"{right_click}\") && !keybinding.includes(\"{molette_click}\") && !keybinding.includes(\"{left_click}\"))\n{\n    if(keybinding.includes('{LAlt}'))\n    {\n        before+=\"{LAlt down}\";\n        after+=\"{LAlt up}\";\n        keybinding=keybinding.replace('{LAlt}','');\n    }\n    if(keybinding.includes('{RAlt}'))\n    {\n        before+=\"{RAlt down}\";\n        after+=\"{RAlt up}\";\n        keybinding=keybinding.replace('{RAlt}','');\n    }\n    if(keybinding.includes('{LShift}'))\n    {\n        before+=\"{LShift down}\";\n        after+=\"{LShift up}\";\n        keybinding=keybinding.replace('{LShift}','');\n    }\n    if(keybinding.includes('{RShift}'))\n    {\n        before+=\"{RShift down}\";\n        after+=\"{RShift up}\";\n        keybinding=keybinding.replace('{RShift}','');\n    }\n    if(keybinding.includes('{RCtrl}'))\n    {\n        before+=\"{RCtrl down}\";\n        after+=\"{RCtrl up}\";\n        keybinding=keybinding.replace('{RCtrl}','');\n    }\n    if(keybinding.includes('{LCtrl}'))\n    {\n        before+=\"{LCtrl down}\";\n        after+=\"{LCtrl up}\";\n        keybinding=keybinding.replace('{LCtrl}','');\n    }\n    \n    msg.payload=exec+\" \\\"\"+before+keybinding+after+\"\\\"\";\n    console.log(\"j'envoie : \");\n    console.log( msg.payload);\n    console.log(\"fin!\");\n    \n    return msg;\n}\n\n",
         "outputs": "1",
         "noerr": 0,
-        "x": 1380,
-        "y": 1020,
+        "x": 1360,
+        "y": 1080,
         "wires": [
             [
                 "e2d38e42.a1903"
@@ -12055,7 +11961,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1380,
-        "y": 940,
+        "y": 1000,
         "wires": [
             [
                 "e2d38e42.a1903"
@@ -12071,7 +11977,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1360,
-        "y": 900,
+        "y": 960,
         "wires": [
             [
                 "8b69976a.e0fb98",
@@ -12106,7 +12012,7 @@
         "name": "Scénario mod minage",
         "info": "\n\n",
         "x": 140,
-        "y": 820,
+        "y": 880,
         "wires": []
     },
     {
@@ -12116,7 +12022,7 @@
         "name": "Scénario coupure d'urgence",
         "info": "\n\n",
         "x": 160,
-        "y": 1040,
+        "y": 1120,
         "wires": []
     },
     {
@@ -12128,7 +12034,7 @@
         "outputs": "2",
         "noerr": 0,
         "x": 550,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "b5c04f58.ada86"
@@ -12145,7 +12051,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 160,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "366c3f1e.4dbff"
@@ -12161,7 +12067,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 350,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "d777f583.866298"
@@ -12177,7 +12083,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 730,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "21765aa9.8ff476",
@@ -12200,7 +12106,7 @@
         "reset": "reset",
         "name": "",
         "x": 1000,
-        "y": 1160,
+        "y": 1240,
         "wires": [
             [
                 "9a12917a.5b9db",
@@ -12217,7 +12123,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1400,
-        "y": 1120,
+        "y": 1200,
         "wires": [
             [
                 "5b826cb6.76c544"
@@ -12233,7 +12139,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1400,
-        "y": 1160,
+        "y": 1240,
         "wires": [
             [
                 "5b826cb6.76c544"
@@ -12249,7 +12155,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1430,
-        "y": 1200,
+        "y": 1280,
         "wires": [
             [
                 "5b826cb6.76c544"
@@ -12270,7 +12176,7 @@
         "reset": "reset",
         "name": "",
         "x": 1160,
-        "y": 1200,
+        "y": 1280,
         "wires": [
             [
                 "f2776993.1eea38"
@@ -12289,7 +12195,7 @@
         "oldrc": false,
         "name": "exec_cmd",
         "x": 1750,
-        "y": 1120,
+        "y": 1200,
         "wires": [
             [],
             [],
@@ -12305,7 +12211,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1400,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "5b826cb6.76c544"
@@ -12321,7 +12227,7 @@
         "outputs": "2",
         "noerr": 0,
         "x": 560,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "9cd26162.82297"
@@ -12338,7 +12244,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 160,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "9e558df3.3c7cc"
@@ -12354,7 +12260,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 350,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "d4b050da.5661a"
@@ -12370,7 +12276,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 750,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "eb30819.5b18c8",
@@ -12394,7 +12300,7 @@
         "reset": "reset",
         "name": "",
         "x": 940,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "b7b1fd.0f602e",
@@ -12416,7 +12322,7 @@
         "reset": "reset",
         "name": "",
         "x": 1080,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
                 "437a3a7a.f1d134"
@@ -12435,7 +12341,7 @@
         "oldrc": false,
         "name": "exec_cmd",
         "x": 1750,
-        "y": 1300,
+        "y": 1360,
         "wires": [
             [],
             [],
@@ -12448,8 +12354,8 @@
         "z": "312c81eb.6f5b7e",
         "name": "Scénario décollage en urgence",
         "info": "\n\n",
-        "x": 170,
-        "y": 1220,
+        "x": 150,
+        "y": 1280,
         "wires": []
     },
     {
@@ -12461,7 +12367,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1400,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "a3005422.aca1b8"
@@ -12477,7 +12383,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1390,
-        "y": 1300,
+        "y": 1360,
         "wires": [
             [
                 "a3005422.aca1b8"
@@ -12493,7 +12399,7 @@
         "outputs": "1",
         "noerr": 0,
         "x": 1390,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
                 "a3005422.aca1b8"
@@ -12563,7 +12469,8 @@
             [
                 "d93b4520.071dd8",
                 "39a4d7f3.551c98",
-                "d1af4dcd.74396"
+                "d1af4dcd.74396",
+                "26f1ecf7.0a7724"
             ]
         ]
     },
@@ -12734,7 +12641,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1400,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "a3005422.aca1b8"
@@ -12771,10 +12678,9 @@
         "reset": "reset",
         "name": "",
         "x": 940,
-        "y": 1420,
+        "y": 1480,
         "wires": [
             [
-                "22d7a4b1.9b06ac",
                 "b4448091.af695"
             ]
         ]
@@ -12788,21 +12694,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 1390,
-        "y": 1420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "22d7a4b1.9b06ac",
-        "type": "function",
-        "z": "312c81eb.6f5b7e",
-        "name": "commande simulée stop_player",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'stop_player';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1390,
-        "y": 1460,
+        "y": 1480,
         "wires": [
             []
         ]
@@ -12821,7 +12713,7 @@
         "reset": "reset",
         "name": "",
         "x": 1120,
-        "y": 1420,
+        "y": 1480,
         "wires": [
             [
                 "9d24139d.9d4a7"
@@ -12942,7 +12834,7 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 1070,
+        "x": 1230,
         "y": 400,
         "wires": [
             [
@@ -12965,7 +12857,7 @@
         "y": 360,
         "wires": [
             [
-                "b5ade591.6b9c58"
+                "1a9917c3.7906c8"
             ]
         ]
     },
@@ -12986,7 +12878,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 1450,
+        "x": 1610,
         "y": 400,
         "wires": [
             [],
@@ -13003,7 +12895,7 @@
         "func": "let file_list=msg.files;\n\nfunction shuffle(array) {\nlet currentIndex = array.length,  randomIndex;\n\n  // While there remain elements to shuffle.\n  while (currentIndex !== 0) {\n\n    // Pick a remaining element.\n    randomIndex = Math.floor(Math.random() * currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    [array[currentIndex], array[randomIndex]] = [\n      array[randomIndex], array[currentIndex]];\n  }\n\n  return array;\n}\n\nshuffle(file_list);\n\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
+        "x": 1390,
         "y": 400,
         "wires": [
             [
@@ -13022,13 +12914,13 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
+        "x": 1930,
         "y": 480,
         "wires": [
             [],
             [],
             [
-                "c068ac19.f0709"
+                "e49d4f0a.ed5c3"
             ]
         ]
     },
@@ -13040,7 +12932,7 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_décollage\\\\\"+msg.payload\nmsg.filename=msg.payload\n\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para2`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1600,
+        "x": 1760,
         "y": 400,
         "wires": [
             [
@@ -13077,7 +12969,7 @@
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1490,
+        "x": 1650,
         "y": 560,
         "wires": [
             [
@@ -13093,7 +12985,7 @@
         "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nglobal.set(\"player_status\", \"playing\")\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
+        "x": 1360,
         "y": 440,
         "wires": [
             [
@@ -13114,7 +13006,7 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1160,
+        "x": 1320,
         "y": 520,
         "wires": [
             [
@@ -13149,7 +13041,7 @@
         "func": "global.set(\"player_status\", \"stop\")",
         "outputs": 1,
         "noerr": 0,
-        "x": 1150,
+        "x": 1310,
         "y": 480,
         "wires": [
             []
@@ -13326,7 +13218,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée go_them_take_off",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_take_off';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_take_off';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"playing\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 610,
@@ -13368,7 +13260,7 @@
         "y": 400,
         "wires": [
             [
-                "b5ade591.6b9c58"
+                "1a9917c3.7906c8"
             ]
         ]
     },
@@ -13396,7 +13288,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée stop_player",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'stop_player';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'stop_player';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"stop\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1470,
@@ -13491,7 +13383,7 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 1090,
+        "x": 1250,
         "y": 1360,
         "wires": [
             [
@@ -13514,7 +13406,7 @@
         "y": 1320,
         "wires": [
             [
-                "5c857144.30eb4"
+                "8b9eae43.d2eec"
             ]
         ]
     },
@@ -13535,7 +13427,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 1450,
+        "x": 1610,
         "y": 1360,
         "wires": [
             [],
@@ -13552,7 +13444,7 @@
         "func": "let file_list=msg.files;\n\nfunction shuffle(array) {\nlet currentIndex = array.length,  randomIndex;\n\n  // While there remain elements to shuffle.\n  while (currentIndex !== 0) {\n\n    // Pick a remaining element.\n    randomIndex = Math.floor(Math.random() * currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    [array[currentIndex], array[randomIndex]] = [\n      array[randomIndex], array[currentIndex]];\n  }\n\n  return array;\n}\n\n// Used like so\nvar arr = [2, 11, 37, 42];\nshuffle(file_list);\n//console.log(arr);\n\n\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
+        "x": 1390,
         "y": 1360,
         "wires": [
             [
@@ -13571,13 +13463,13 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
+        "x": 1930,
         "y": 1440,
         "wires": [
             [],
             [],
             [
-                "66cadbb0.ff2d54"
+                "5f970e66.7ac69"
             ]
         ]
     },
@@ -13589,7 +13481,7 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_chil\\\\\"+msg.payload\nmsg.filename=msg.payload\n\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para2`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1600,
+        "x": 1760,
         "y": 1360,
         "wires": [
             [
@@ -13626,7 +13518,7 @@
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1490,
+        "x": 1650,
         "y": 1520,
         "wires": [
             [
@@ -13642,7 +13534,7 @@
         "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nglobal.set(\"player_status\", \"playing\")\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
+        "x": 1380,
         "y": 1420,
         "wires": [
             [
@@ -13663,7 +13555,7 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1160,
+        "x": 1320,
         "y": 1500,
         "wires": [
             [
@@ -13698,7 +13590,7 @@
         "func": "global.set(\"player_status\", \"stop\")\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1170,
+        "x": 1330,
         "y": 1460,
         "wires": [
             [
@@ -13753,7 +13645,7 @@
         "y": 1360,
         "wires": [
             [
-                "5c857144.30eb4"
+                "8b9eae43.d2eec"
             ]
         ]
     },
@@ -13765,7 +13657,7 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 1450,
+        "x": 1610,
         "y": 1560,
         "wires": [
             []
@@ -13806,7 +13698,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée go_them_chil",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_chil';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_chil';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"playing\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 600,
@@ -13844,7 +13736,7 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 1450,
+        "x": 1610,
         "y": 1460,
         "wires": [
             []
@@ -13900,7 +13792,7 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 1070,
+        "x": 1230,
         "y": 720,
         "wires": [
             [
@@ -13923,7 +13815,7 @@
         "y": 680,
         "wires": [
             [
-                "3a174df8.3204a2"
+                "d7a52f2f.0d796"
             ]
         ]
     },
@@ -13944,7 +13836,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 1450,
+        "x": 1610,
         "y": 720,
         "wires": [
             [],
@@ -13961,7 +13853,7 @@
         "func": "let file_list=msg.files;\n\nfunction shuffle(array) {\nlet currentIndex = array.length,  randomIndex;\n\n  // While there remain elements to shuffle.\n  while (currentIndex !== 0) {\n\n    // Pick a remaining element.\n    randomIndex = Math.floor(Math.random() * currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    [array[currentIndex], array[randomIndex]] = [\n      array[randomIndex], array[currentIndex]];\n  }\n\n  return array;\n}\n\nshuffle(file_list);\n\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
+        "x": 1390,
         "y": 720,
         "wires": [
             [
@@ -13980,13 +13872,13 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
+        "x": 1930,
         "y": 800,
         "wires": [
             [],
             [],
             [
-                "49ec2aa6.5eae64"
+                "9b50c323.99845"
             ]
         ]
     },
@@ -13998,7 +13890,7 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_aterrisage\\\\\"+msg.payload\nmsg.filename=msg.payload\n\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para2`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1600,
+        "x": 1760,
         "y": 720,
         "wires": [
             [
@@ -14035,7 +13927,7 @@
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1490,
+        "x": 1650,
         "y": 880,
         "wires": [
             [
@@ -14051,7 +13943,7 @@
         "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nglobal.set(\"player_status\", \"playing\")\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
+        "x": 1360,
         "y": 760,
         "wires": [
             [
@@ -14072,7 +13964,7 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1160,
+        "x": 1320,
         "y": 840,
         "wires": [
             [
@@ -14107,7 +13999,7 @@
         "func": "global.set(\"player_status\", \"stop\")",
         "outputs": 1,
         "noerr": 0,
-        "x": 1150,
+        "x": 1310,
         "y": 800,
         "wires": [
             []
@@ -14191,7 +14083,7 @@
         "y": 720,
         "wires": [
             [
-                "3a174df8.3204a2"
+                "d7a52f2f.0d796"
             ]
         ]
     },
@@ -14230,7 +14122,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée go_them_landing",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_landing';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_landing';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"playing\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 610,
@@ -14285,7 +14177,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée go_them_phase_combat",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_phase_combat';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_phase_combat';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"playing\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 630,
@@ -14326,7 +14218,7 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 1060,
+        "x": 1220,
         "y": 1040,
         "wires": [
             [
@@ -14349,7 +14241,7 @@
         "y": 1000,
         "wires": [
             [
-                "aa8765e9.4e7358"
+                "9411f765.e1e8f8"
             ]
         ]
     },
@@ -14370,7 +14262,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 1450,
+        "x": 1610,
         "y": 1040,
         "wires": [
             [],
@@ -14387,7 +14279,7 @@
         "func": "let file_list=msg.files;\n\nfunction shuffle(array) {\nlet currentIndex = array.length,  randomIndex;\n\n  // While there remain elements to shuffle.\n  while (currentIndex !== 0) {\n\n    // Pick a remaining element.\n    randomIndex = Math.floor(Math.random() * currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    [array[currentIndex], array[randomIndex]] = [\n      array[randomIndex], array[currentIndex]];\n  }\n\n  return array;\n}\n\nshuffle(file_list);\n\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
+        "x": 1390,
         "y": 1040,
         "wires": [
             [
@@ -14406,13 +14298,13 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
+        "x": 1930,
         "y": 1120,
         "wires": [
             [],
             [],
             [
-                "b764bc36.4fa92"
+                "f06fecc0.51bb1"
             ]
         ]
     },
@@ -14424,7 +14316,7 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_combat\\\\\"+msg.payload\nmsg.filename=msg.payload\n\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para2`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1600,
+        "x": 1760,
         "y": 1040,
         "wires": [
             [
@@ -14461,7 +14353,7 @@
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1490,
+        "x": 1650,
         "y": 1200,
         "wires": [
             [
@@ -14477,7 +14369,7 @@
         "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nglobal.set(\"player_status\", \"playing\")\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
+        "x": 1360,
         "y": 1080,
         "wires": [
             [
@@ -14498,7 +14390,7 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1160,
+        "x": 1320,
         "y": 1160,
         "wires": [
             [
@@ -14533,7 +14425,7 @@
         "func": "global.set(\"player_status\", \"stop\")",
         "outputs": 1,
         "noerr": 0,
-        "x": 1150,
+        "x": 1310,
         "y": 1120,
         "wires": [
             []
@@ -14617,7 +14509,7 @@
         "y": 1040,
         "wires": [
             [
-                "aa8765e9.4e7358"
+                "9411f765.e1e8f8"
             ]
         ]
     },
@@ -14686,109 +14578,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "ca87834b.a8d0b",
-        "type": "inject",
-        "z": "e51f5302.12682",
-        "name": "exportation du flow",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 710,
-        "y": 180,
-        "wires": [
-            [
-                "9c31933f.ba0e"
-            ]
-        ]
-    },
-    {
-        "id": "9c31933f.ba0e",
-        "type": "file in",
-        "z": "e51f5302.12682",
-        "name": "auto",
-        "filename": "./../viseo-bot-project/data/flows.json",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "x": 870,
-        "y": 180,
-        "wires": [
-            [
-                "c6178b6.a225f78"
-            ]
-        ]
-    },
-    {
-        "id": "c6178b6.a225f78",
-        "type": "json",
-        "z": "e51f5302.12682",
-        "name": "from json",
-        "pretty": false,
-        "x": 1000,
-        "y": 180,
-        "wires": [
-            [
-                "c4e138a9.9e54d8"
-            ]
-        ]
-    },
-    {
-        "id": "c4e138a9.9e54d8",
-        "type": "function",
-        "z": "e51f5302.12682",
-        "name": "targeting",
-        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"Mixer Flow\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1140,
-        "y": 180,
-        "wires": [
-            [
-                "92b8c0b4.df10f"
-            ]
-        ]
-    },
-    {
-        "id": "92b8c0b4.df10f",
-        "type": "json",
-        "z": "e51f5302.12682",
-        "name": "to json",
-        "pretty": true,
-        "x": 1270,
-        "y": 180,
-        "wires": [
-            [
-                "95bef188.38863"
-            ]
-        ]
-    },
-    {
-        "id": "95bef188.38863",
-        "type": "file",
-        "z": "e51f5302.12682",
-        "name": "01_Mixer_Flow.json",
-        "filename": "./../viseo-bot-project/data/flow/mod/01_Mixer_Flow.json",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "true",
-        "x": 1440,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "c9378f9c.9a428",
-        "type": "comment",
-        "z": "e51f5302.12682",
-        "name": "sauvegarde du flow pour exportation ou modeur",
-        "info": "",
-        "x": 780,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "b191f970.a9b2f8",
@@ -14892,5 +14681,2121 @@
         "x": 220,
         "y": 20,
         "wires": []
+    },
+    {
+        "id": "5f970e66.7ac69",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "block if stop",
+        "func": "if(global.get(\"player_status\")!==\"stop\")\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 1400,
+        "wires": [
+            [
+                "66cadbb0.ff2d54"
+            ]
+        ]
+    },
+    {
+        "id": "f06fecc0.51bb1",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "block if stop",
+        "func": "if(global.get(\"player_status\")!==\"stop\")\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 1080,
+        "wires": [
+            [
+                "b764bc36.4fa92"
+            ]
+        ]
+    },
+    {
+        "id": "9b50c323.99845",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "block if stop",
+        "func": "if(global.get(\"player_status\")!==\"stop\")\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 760,
+        "wires": [
+            [
+                "49ec2aa6.5eae64"
+            ]
+        ]
+    },
+    {
+        "id": "e49d4f0a.ed5c3",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "block if stop",
+        "func": "if(global.get(\"player_status\")!==\"stop\")\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 440,
+        "wires": [
+            [
+                "c068ac19.f0709"
+            ]
+        ]
+    },
+    {
+        "id": "5ca3fb59.1c4124",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1480,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a9917c3.7906c8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 400,
+        "wires": [
+            [
+                "b5ade591.6b9c58"
+            ]
+        ]
+    },
+    {
+        "id": "d7a52f2f.0d796",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 720,
+        "wires": [
+            [
+                "3a174df8.3204a2"
+            ]
+        ]
+    },
+    {
+        "id": "9411f765.e1e8f8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 1040,
+        "wires": [
+            [
+                "aa8765e9.4e7358"
+            ]
+        ]
+    },
+    {
+        "id": "8b9eae43.d2eec",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 1360,
+        "wires": [
+            [
+                "5c857144.30eb4"
+            ]
+        ]
+    },
+    {
+        "id": "93470422.a61e48",
+        "type": "inject",
+        "z": "d1b71e2b.e38c8",
+        "name": "exportation du flow",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "c71f2adc.91be98"
+            ]
+        ]
+    },
+    {
+        "id": "c71f2adc.91be98",
+        "type": "file in",
+        "z": "d1b71e2b.e38c8",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "d916851a.c3ed68"
+            ]
+        ]
+    },
+    {
+        "id": "d916851a.c3ed68",
+        "type": "json",
+        "z": "d1b71e2b.e38c8",
+        "name": "from json",
+        "pretty": false,
+        "x": 440,
+        "y": 80,
+        "wires": [
+            [
+                "33dfe25c.78a56e"
+            ]
+        ]
+    },
+    {
+        "id": "33dfe25c.78a56e",
+        "type": "function",
+        "z": "d1b71e2b.e38c8",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"14_Modeurs_tools\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "595be767.cc8ea8"
+            ]
+        ]
+    },
+    {
+        "id": "595be767.cc8ea8",
+        "type": "json",
+        "z": "d1b71e2b.e38c8",
+        "name": "to json",
+        "pretty": true,
+        "x": 710,
+        "y": 80,
+        "wires": [
+            [
+                "c0aae154.9cf79"
+            ]
+        ]
+    },
+    {
+        "id": "c0aae154.9cf79",
+        "type": "file",
+        "z": "d1b71e2b.e38c8",
+        "name": "14_Modeurs_tools.json",
+        "filename": "./../viseo-bot-project/data/flow/mod/14_Modeurs_tools.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 890,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b6c68c5e.b8c6b",
+        "type": "comment",
+        "z": "d1b71e2b.e38c8",
+        "name": "sauvegarde du flow pour exportation ou modeur",
+        "info": "",
+        "x": 220,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "55b476cf.d1e5f8",
+        "type": "comment",
+        "z": "e51f5302.12682",
+        "name": "Switch musical mod",
+        "info": "\n\n",
+        "x": 150,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "4c78804c.57a98",
+        "type": "start-up-trigger",
+        "z": "e51f5302.12682",
+        "x": 140,
+        "y": 2040,
+        "wires": [
+            [
+                "704aa3e.899be5c"
+            ]
+        ]
+    },
+    {
+        "id": "704aa3e.899be5c",
+        "type": "trigger",
+        "z": "e51f5302.12682",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 360,
+        "y": 2040,
+        "wires": [
+            [
+                "94f7e9bf.82d4f8"
+            ]
+        ]
+    },
+    {
+        "id": "94f7e9bf.82d4f8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 2040,
+        "wires": [
+            [
+                "fda056dc.a918a8"
+            ]
+        ]
+    },
+    {
+        "id": "fda056dc.a918a8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "sommeil / attente",
+        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 810,
+        "y": 2040,
+        "wires": [
+            [
+                "57b78999.fa7208",
+                "a12609dd.707f78",
+                "3d99134b.03b41c",
+                "5a5f7250.86405c"
+            ]
+        ]
+    },
+    {
+        "id": "57b78999.fa7208",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "music_on",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"music_on\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n        return accept\n    }\n}",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 1020,
+        "y": 1980,
+        "wires": [
+            [
+                "4da0fafa.063ad4"
+            ]
+        ]
+    },
+    {
+        "id": "4da0fafa.063ad4",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "use memory and go",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        memory.push(last_memory[i])\n    }\n    \n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    \n    msg={}\n    msg.topic=\"true\"\n    msg.payload=true\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1980,
+        "wires": [
+            [
+                "20e0631.30e289c"
+            ]
+        ]
+    },
+    {
+        "id": "20e0631.30e289c",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod switch_on",
+        "func": "global.set(\"musical_mod\", true)\nmsg.payload=\"musical_mod : \"+global.get(\"musical_mod\")\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1430,
+        "y": 1980,
+        "wires": [
+            [
+                "6257056a.1aa8fc"
+            ]
+        ]
+    },
+    {
+        "id": "a12609dd.707f78",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "music_off",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"music_off\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n        return accept\n    }\n}",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 1020,
+        "y": 2100,
+        "wires": [
+            [
+                "7b5921b1.67a6a"
+            ]
+        ]
+    },
+    {
+        "id": "7b5921b1.67a6a",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "use memory and go",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        memory.push(last_memory[i])\n    }\n    \n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    \n    msg={}\n    msg.topic=\"true\"\n    msg.payload=true\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 2100,
+        "wires": [
+            [
+                "21b95d34.b2eb52",
+                "cdc287e0.7adea8"
+            ]
+        ]
+    },
+    {
+        "id": "21b95d34.b2eb52",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod switch_off",
+        "func": "global.set(\"musical_mod\", false)\nmsg.payload=\"musical_mod : \"+global.get(\"musical_mod\")\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1430,
+        "y": 2100,
+        "wires": [
+            [
+                "44aa858b.f784cc"
+            ]
+        ]
+    },
+    {
+        "id": "6257056a.1aa8fc",
+        "type": "debug",
+        "z": "e51f5302.12682",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1630,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "44aa858b.f784cc",
+        "type": "debug",
+        "z": "e51f5302.12682",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1630,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "3d99134b.03b41c",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "ng_sfx commun_swan",
+        "func": "let sound_effect=[];\nlet track_id='commun_swan';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 2020,
+        "wires": [
+            [
+                "c070b297.f140a"
+            ]
+        ]
+    },
+    {
+        "id": "5a5f7250.86405c",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "ng_sfx commun_swan",
+        "func": "let sound_effect=[];\nlet track_id='commun_swan';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 2060,
+        "wires": [
+            [
+                "c070b297.f140a"
+            ]
+        ]
+    },
+    {
+        "id": "c070b297.f140a",
+        "type": "exec",
+        "z": "e51f5302.12682",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "oldrc": false,
+        "name": "exec_cmd",
+        "x": 1630,
+        "y": 2040,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cdc287e0.7adea8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "commande simulée stop_player",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'stop_player';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1450,
+        "y": 2140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "26f1ecf7.0a7724",
+        "type": "trigger",
+        "z": "312c81eb.6f5b7e",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "name": "",
+        "x": 940,
+        "y": 1720,
+        "wires": [
+            [
+                "25dcb98b.ab13c6"
+            ]
+        ]
+    },
+    {
+        "id": "25dcb98b.ab13c6",
+        "type": "trigger",
+        "z": "312c81eb.6f5b7e",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "250",
+        "extend": false,
+        "units": "ms",
+        "reset": "reset",
+        "name": "",
+        "x": 1120,
+        "y": 1720,
+        "wires": [
+            [
+                "ead9b7d3.feeca8"
+            ]
+        ]
+    },
+    {
+        "id": "ead9b7d3.feeca8",
+        "type": "function",
+        "z": "312c81eb.6f5b7e",
+        "name": "commande simulée go_them_landing",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_landing';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1390,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adfc6da8.aa0fc",
+        "type": "trigger",
+        "z": "312c81eb.6f5b7e",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "name": "",
+        "x": 940,
+        "y": 1120,
+        "wires": [
+            [
+                "69cf7bb3.1ef334"
+            ]
+        ]
+    },
+    {
+        "id": "69cf7bb3.1ef334",
+        "type": "trigger",
+        "z": "312c81eb.6f5b7e",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "250",
+        "extend": false,
+        "units": "ms",
+        "reset": "reset",
+        "name": "",
+        "x": 1120,
+        "y": 1120,
+        "wires": [
+            [
+                "f20dfa6c.8b0ee8"
+            ]
+        ]
+    },
+    {
+        "id": "f20dfa6c.8b0ee8",
+        "type": "function",
+        "z": "312c81eb.6f5b7e",
+        "name": "commande simulée go_them_chil",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_chil';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1380,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30587925.b77c96",
+        "type": "trigger",
+        "z": "312c81eb.6f5b7e",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "3",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "name": "",
+        "x": 940,
+        "y": 820,
+        "wires": [
+            [
+                "5a81734c.93480c"
+            ]
+        ]
+    },
+    {
+        "id": "5a81734c.93480c",
+        "type": "trigger",
+        "z": "312c81eb.6f5b7e",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "250",
+        "extend": false,
+        "units": "ms",
+        "reset": "reset",
+        "name": "",
+        "x": 1120,
+        "y": 820,
+        "wires": [
+            [
+                "5446da7d.eb83f4"
+            ]
+        ]
+    },
+    {
+        "id": "5446da7d.eb83f4",
+        "type": "function",
+        "z": "312c81eb.6f5b7e",
+        "name": "commande simulée go_them_phase_combat",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_phase_combat';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1410,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a4a09a7d.7d55c8",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "3d1f2b52.1af3d4"
+            ]
+        ]
+    },
+    {
+        "id": "3d1f2b52.1af3d4",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "10271514.21aabb"
+            ]
+        ]
+    },
+    {
+        "id": "10271514.21aabb",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"00_initialisation\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 120,
+        "wires": [
+            [
+                "e86cdd8a.c17dc"
+            ]
+        ]
+    },
+    {
+        "id": "e86cdd8a.c17dc",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 120,
+        "wires": [
+            [
+                "7772131e.fbdd1c"
+            ]
+        ]
+    },
+    {
+        "id": "7772131e.fbdd1c",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "00_initialisation.json",
+        "filename": "./../viseo-bot-project/data/flow/master/00_initialisation.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 860,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a1497d51.bad1",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "a6efa91e.c2d938"
+            ]
+        ]
+    },
+    {
+        "id": "a6efa91e.c2d938",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "6b65e6da.1afce8"
+            ]
+        ]
+    },
+    {
+        "id": "6b65e6da.1afce8",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"01_routeur\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [
+                "a58cc6d0.6852c8"
+            ]
+        ]
+    },
+    {
+        "id": "a58cc6d0.6852c8",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "d28ed438.fc97f8"
+            ]
+        ]
+    },
+    {
+        "id": "d28ed438.fc97f8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "01_routeur.json",
+        "filename": "./../viseo-bot-project/data/flow/master/01_routeur.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 840,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "bba932a7.8a73c",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "b170e943.c83c78"
+            ]
+        ]
+    },
+    {
+        "id": "b170e943.c83c78",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "382af266.ae2e8e"
+            ]
+        ]
+    },
+    {
+        "id": "382af266.ae2e8e",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"02_test\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "e28f9ad7.c8fb08"
+            ]
+        ]
+    },
+    {
+        "id": "e28f9ad7.c8fb08",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "5fcf290b.748a78"
+            ]
+        ]
+    },
+    {
+        "id": "5fcf290b.748a78",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "02_test.json",
+        "filename": "./../viseo-bot-project/data/flow/master/02_test.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 830,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cda57fce.9af96",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "65436836.419148"
+            ]
+        ]
+    },
+    {
+        "id": "65436836.419148",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "411fafd4.b2b8d"
+            ]
+        ]
+    },
+    {
+        "id": "411fafd4.b2b8d",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"03_combat\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "362b1025.b960e"
+            ]
+        ]
+    },
+    {
+        "id": "362b1025.b960e",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 240,
+        "wires": [
+            [
+                "80e957f0.3abdb8"
+            ]
+        ]
+    },
+    {
+        "id": "80e957f0.3abdb8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "03_combat.json",
+        "filename": "./../viseo-bot-project/data/flow/master/03_combat.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 840,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8f956e89.13556",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "ac29da21.6982b8"
+            ]
+        ]
+    },
+    {
+        "id": "ac29da21.6982b8",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "22c2ea03.d9dbc6"
+            ]
+        ]
+    },
+    {
+        "id": "22c2ea03.d9dbc6",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"04_T_Puissance\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "d43fe4b5.d4e7e8"
+            ]
+        ]
+    },
+    {
+        "id": "d43fe4b5.d4e7e8",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 280,
+        "wires": [
+            [
+                "856c6ae7.9cd1c8"
+            ]
+        ]
+    },
+    {
+        "id": "856c6ae7.9cd1c8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "04_T_Puissance.json",
+        "filename": "./../viseo-bot-project/data/flow/master/04_T_Puissance.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 860,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9655c6df.3e5678",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "11e7844b.f2f8bc"
+            ]
+        ]
+    },
+    {
+        "id": "11e7844b.f2f8bc",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "738a85e8.fd7ebc"
+            ]
+        ]
+    },
+    {
+        "id": "738a85e8.fd7ebc",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"05_Boucliers\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "1b8936f4.ac83b9"
+            ]
+        ]
+    },
+    {
+        "id": "1b8936f4.ac83b9",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "7764243f.57e21c"
+            ]
+        ]
+    },
+    {
+        "id": "7764243f.57e21c",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "05_Boucliers.json",
+        "filename": "./../viseo-bot-project/data/flow/master/05_Boucliers.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 850,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "937ef4c5.fddf18",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "4f8a6c78.cc02a4"
+            ]
+        ]
+    },
+    {
+        "id": "4f8a6c78.cc02a4",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "32df27dd.24c2e8"
+            ]
+        ]
+    },
+    {
+        "id": "32df27dd.24c2e8",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"06_Starmap_qt\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 360,
+        "wires": [
+            [
+                "8a586ec.d94249"
+            ]
+        ]
+    },
+    {
+        "id": "8a586ec.d94249",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 360,
+        "wires": [
+            [
+                "38722c04.d8ade4"
+            ]
+        ]
+    },
+    {
+        "id": "38722c04.d8ade4",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "06_Starmap_qt.json",
+        "filename": "./../viseo-bot-project/data/flow/master/06_Starmap_qt.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 860,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "c1e6d040.d1f29",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "b02adcbb.15b47"
+            ]
+        ]
+    },
+    {
+        "id": "b02adcbb.15b47",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 400,
+        "wires": [
+            [
+                "2778a0ae.41b09"
+            ]
+        ]
+    },
+    {
+        "id": "2778a0ae.41b09",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"07_Communication\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 400,
+        "wires": [
+            [
+                "32a6354c.b55fba"
+            ]
+        ]
+    },
+    {
+        "id": "32a6354c.b55fba",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "5fe08e95.1c429"
+            ]
+        ]
+    },
+    {
+        "id": "5fe08e95.1c429",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "07_Communication.json",
+        "filename": "./../viseo-bot-project/data/flow/master/07_Communication.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 870,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6151c27c.5ff3bc",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "83d150b4.ceb73"
+            ]
+        ]
+    },
+    {
+        "id": "83d150b4.ceb73",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 440,
+        "wires": [
+            [
+                "9d2a44ff.b82458"
+            ]
+        ]
+    },
+    {
+        "id": "9d2a44ff.b82458",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"08_Train_VTOL _vol_découplé\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 440,
+        "wires": [
+            [
+                "6bc0b4eb.0b9f3c"
+            ]
+        ]
+    },
+    {
+        "id": "6bc0b4eb.0b9f3c",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 440,
+        "wires": [
+            [
+                "20c4bea.cb74d42"
+            ]
+        ]
+    },
+    {
+        "id": "20c4bea.cb74d42",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "08_Train_VTOL _vol_découplé.json",
+        "filename": "./../viseo-bot-project/data/flow/master/08_Train_VTOL _vol_découplé.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 900,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b715ceee.536bc",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 480,
+        "wires": [
+            [
+                "2119e57e.ef244a"
+            ]
+        ]
+    },
+    {
+        "id": "2119e57e.ef244a",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 480,
+        "wires": [
+            [
+                "abc2247b.f0c798"
+            ]
+        ]
+    },
+    {
+        "id": "abc2247b.f0c798",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"09_Accessoires\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 480,
+        "wires": [
+            [
+                "4483cb9d.6c1be4"
+            ]
+        ]
+    },
+    {
+        "id": "4483cb9d.6c1be4",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 480,
+        "wires": [
+            [
+                "380c7faf.63c37"
+            ]
+        ]
+    },
+    {
+        "id": "380c7faf.63c37",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "09_Accessoires.json",
+        "filename": "./../viseo-bot-project/data/flow/master/09_Accessoires.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 860,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "809574b2.851c58",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [
+                "926f683d.60e358"
+            ]
+        ]
+    },
+    {
+        "id": "926f683d.60e358",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "50473c86.2a0b64"
+            ]
+        ]
+    },
+    {
+        "id": "50473c86.2a0b64",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"10_Démarrage_coupure\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 520,
+        "wires": [
+            [
+                "fcb07c7d.33e3"
+            ]
+        ]
+    },
+    {
+        "id": "fcb07c7d.33e3",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 520,
+        "wires": [
+            [
+                "e3b5569e.a0cae8"
+            ]
+        ]
+    },
+    {
+        "id": "e3b5569e.a0cae8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "10_Démarrage_coupure",
+        "filename": "./../viseo-bot-project/data/flow/master/10_Démarrage_coupure.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 870,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "415b0c92.4a46d4",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 560,
+        "wires": [
+            [
+                "cdc89ac5.599a68"
+            ]
+        ]
+    },
+    {
+        "id": "cdc89ac5.599a68",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 560,
+        "wires": [
+            [
+                "4bafe98f.2cc358"
+            ]
+        ]
+    },
+    {
+        "id": "4bafe98f.2cc358",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"11_minage_scan\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 560,
+        "wires": [
+            [
+                "7cde5ff5.f600d"
+            ]
+        ]
+    },
+    {
+        "id": "7cde5ff5.f600d",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 560,
+        "wires": [
+            [
+                "a4a18727.fbb468"
+            ]
+        ]
+    },
+    {
+        "id": "a4a18727.fbb468",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "11_minage_scan",
+        "filename": "./../viseo-bot-project/data/flow/master/11_minage_scan.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 850,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ee285947.c55488",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "cb1b4ede.ecd27"
+            ]
+        ]
+    },
+    {
+        "id": "cb1b4ede.ecd27",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 600,
+        "wires": [
+            [
+                "5351a8ed.720a08"
+            ]
+        ]
+    },
+    {
+        "id": "5351a8ed.720a08",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"12_Scénario\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 600,
+        "wires": [
+            [
+                "f4d084d9.3f8d28"
+            ]
+        ]
+    },
+    {
+        "id": "f4d084d9.3f8d28",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 600,
+        "wires": [
+            [
+                "83561e4a.2b6ce"
+            ]
+        ]
+    },
+    {
+        "id": "83561e4a.2b6ce",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "12_Scénario",
+        "filename": "./../viseo-bot-project/data/flow/master/12_Scénario.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 830,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "1f2051f3.c9d9ee",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 640,
+        "wires": [
+            [
+                "e19abd1e.c7f05"
+            ]
+        ]
+    },
+    {
+        "id": "e19abd1e.c7f05",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 640,
+        "wires": [
+            [
+                "923e5ed9.775c4"
+            ]
+        ]
+    },
+    {
+        "id": "923e5ed9.775c4",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"13_musique\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 640,
+        "wires": [
+            [
+                "c2159563.a08908"
+            ]
+        ]
+    },
+    {
+        "id": "c2159563.a08908",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 640,
+        "wires": [
+            [
+                "2b4434f7.b46a9c"
+            ]
+        ]
+    },
+    {
+        "id": "2b4434f7.b46a9c",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "13_musique",
+        "filename": "./../viseo-bot-project/data/flow/master/13_musique.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 830,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "e3b6838a.772ea",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 290,
+        "y": 680,
+        "wires": [
+            [
+                "3025304c.7795"
+            ]
+        ]
+    },
+    {
+        "id": "3025304c.7795",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "from json",
+        "pretty": false,
+        "x": 420,
+        "y": 680,
+        "wires": [
+            [
+                "93a75280.d569b"
+            ]
+        ]
+    },
+    {
+        "id": "93a75280.d569b",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"14_Modeurs_tools\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 680,
+        "wires": [
+            [
+                "1592476d.0b5639"
+            ]
+        ]
+    },
+    {
+        "id": "1592476d.0b5639",
+        "type": "json",
+        "z": "86bd29de.a40548",
+        "name": "to json",
+        "pretty": true,
+        "x": 690,
+        "y": 680,
+        "wires": [
+            [
+                "9ac15e3a.4d503"
+            ]
+        ]
+    },
+    {
+        "id": "9ac15e3a.4d503",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "14_Modeurs_tools.json",
+        "filename": "./../viseo-bot-project/data/flow/master/14_Modeurs_tools.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 870,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "2a81308f.fadce",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "a4a09a7d.7d55c8",
+                "fedd619a.cee29"
+            ]
+        ]
+    },
+    {
+        "id": "fedd619a.cee29",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "a1497d51.bad1",
+                "8f5490bc.216bd"
+            ]
+        ]
+    },
+    {
+        "id": "8f5490bc.216bd",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "bba932a7.8a73c",
+                "87059a86.b62f18"
+            ]
+        ]
+    },
+    {
+        "id": "87059a86.b62f18",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "cda57fce.9af96",
+                "168bca3e.9efc46"
+            ]
+        ]
+    },
+    {
+        "id": "168bca3e.9efc46",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "8f956e89.13556",
+                "2262128.4e4c8ee"
+            ]
+        ]
+    },
+    {
+        "id": "2262128.4e4c8ee",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "9655c6df.3e5678",
+                "98880b18.b34c98"
+            ]
+        ]
+    },
+    {
+        "id": "98880b18.b34c98",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "937ef4c5.fddf18",
+                "93e67f87.0f0e2"
+            ]
+        ]
+    },
+    {
+        "id": "93e67f87.0f0e2",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 400,
+        "wires": [
+            [
+                "c1e6d040.d1f29",
+                "72963a53.2c0734"
+            ]
+        ]
+    },
+    {
+        "id": "72963a53.2c0734",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 440,
+        "wires": [
+            [
+                "6151c27c.5ff3bc",
+                "99fe5af1.82e0a8"
+            ]
+        ]
+    },
+    {
+        "id": "99fe5af1.82e0a8",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "b715ceee.536bc",
+                "7e0ab32b.47417c"
+            ]
+        ]
+    },
+    {
+        "id": "7e0ab32b.47417c",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "809574b2.851c58",
+                "c5c10a44.a55fe8"
+            ]
+        ]
+    },
+    {
+        "id": "c5c10a44.a55fe8",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 560,
+        "wires": [
+            [
+                "415b0c92.4a46d4",
+                "37b29d19.bb40a2"
+            ]
+        ]
+    },
+    {
+        "id": "37b29d19.bb40a2",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 600,
+        "wires": [
+            [
+                "ee285947.c55488",
+                "eba40e33.c41ca"
+            ]
+        ]
+    },
+    {
+        "id": "eba40e33.c41ca",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 640,
+        "wires": [
+            [
+                "1f2051f3.c9d9ee",
+                "17e76398.cb55ac"
+            ]
+        ]
+    },
+    {
+        "id": "17e76398.cb55ac",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 120,
+        "y": 680,
+        "wires": [
+            [
+                "e3b6838a.772ea"
+            ]
+        ]
     }
 ]

@@ -5,7 +5,8 @@
 		<item>SWAN</item>
 		<one-of>
 			<item>coupe la musique</item>
+			<item>Eteint la musique</item>
 		</one-of>
-		<tag>out.action.action="stop_music";</tag>
+		<tag>out.action.action="stop_player";</tag>
 	</rule> 
 </grammar>

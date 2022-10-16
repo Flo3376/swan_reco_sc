@@ -1,0 +1,112 @@
+[
+    {
+        "id": "d1b71e2b.e38c8",
+        "type": "tab",
+        "label": "14_Modeurs_tools",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "93470422.a61e48",
+        "type": "inject",
+        "z": "d1b71e2b.e38c8",
+        "name": "exportation du flow",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "c71f2adc.91be98"
+            ]
+        ]
+    },
+    {
+        "id": "c71f2adc.91be98",
+        "type": "file in",
+        "z": "d1b71e2b.e38c8",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "d916851a.c3ed68"
+            ]
+        ]
+    },
+    {
+        "id": "d916851a.c3ed68",
+        "type": "json",
+        "z": "d1b71e2b.e38c8",
+        "name": "from json",
+        "pretty": false,
+        "x": 440,
+        "y": 80,
+        "wires": [
+            [
+                "33dfe25c.78a56e"
+            ]
+        ]
+    },
+    {
+        "id": "33dfe25c.78a56e",
+        "type": "function",
+        "z": "d1b71e2b.e38c8",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"14_Modeurs_tools\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "595be767.cc8ea8"
+            ]
+        ]
+    },
+    {
+        "id": "595be767.cc8ea8",
+        "type": "json",
+        "z": "d1b71e2b.e38c8",
+        "name": "to json",
+        "pretty": true,
+        "x": 710,
+        "y": 80,
+        "wires": [
+            [
+                "c0aae154.9cf79"
+            ]
+        ]
+    },
+    {
+        "id": "c0aae154.9cf79",
+        "type": "file",
+        "z": "d1b71e2b.e38c8",
+        "name": "14_Modeurs_tools.json",
+        "filename": "./../viseo-bot-project/data/flow/mod/14_Modeurs_tools.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 890,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b6c68c5e.b8c6b",
+        "type": "comment",
+        "z": "d1b71e2b.e38c8",
+        "name": "sauvegarde du flow pour exportation ou modeur",
+        "info": "",
+        "x": 220,
+        "y": 40,
+        "wires": []
+    }
+]

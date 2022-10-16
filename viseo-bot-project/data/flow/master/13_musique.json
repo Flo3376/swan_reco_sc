@@ -17,7 +17,7 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 1070,
+        "x": 1230,
         "y": 400,
         "wires": [
             [
@@ -40,7 +40,7 @@
         "y": 360,
         "wires": [
             [
-                "b5ade591.6b9c58"
+                "1a9917c3.7906c8"
             ]
         ]
     },
@@ -61,7 +61,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 1450,
+        "x": 1610,
         "y": 400,
         "wires": [
             [],
@@ -78,7 +78,7 @@
         "func": "let file_list=msg.files;\n\nfunction shuffle(array) {\nlet currentIndex = array.length,  randomIndex;\n\n  // While there remain elements to shuffle.\n  while (currentIndex !== 0) {\n\n    // Pick a remaining element.\n    randomIndex = Math.floor(Math.random() * currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    [array[currentIndex], array[randomIndex]] = [\n      array[randomIndex], array[currentIndex]];\n  }\n\n  return array;\n}\n\nshuffle(file_list);\n\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
+        "x": 1390,
         "y": 400,
         "wires": [
             [
@@ -97,13 +97,13 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
+        "x": 1930,
         "y": 480,
         "wires": [
             [],
             [],
             [
-                "c068ac19.f0709"
+                "e49d4f0a.ed5c3"
             ]
         ]
     },
@@ -115,7 +115,7 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_décollage\\\\\"+msg.payload\nmsg.filename=msg.payload\n\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para2`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1600,
+        "x": 1760,
         "y": 400,
         "wires": [
             [
@@ -152,7 +152,7 @@
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1490,
+        "x": 1650,
         "y": 560,
         "wires": [
             [
@@ -168,7 +168,7 @@
         "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nglobal.set(\"player_status\", \"playing\")\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
+        "x": 1360,
         "y": 440,
         "wires": [
             [
@@ -189,7 +189,7 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1160,
+        "x": 1320,
         "y": 520,
         "wires": [
             [
@@ -224,7 +224,7 @@
         "func": "global.set(\"player_status\", \"stop\")",
         "outputs": 1,
         "noerr": 0,
-        "x": 1150,
+        "x": 1310,
         "y": 480,
         "wires": [
             []
@@ -401,7 +401,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée go_them_take_off",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_take_off';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_take_off';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"playing\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 610,
@@ -443,7 +443,7 @@
         "y": 400,
         "wires": [
             [
-                "b5ade591.6b9c58"
+                "1a9917c3.7906c8"
             ]
         ]
     },
@@ -471,7 +471,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée stop_player",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'stop_player';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'stop_player';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"stop\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1470,
@@ -566,7 +566,7 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 1090,
+        "x": 1250,
         "y": 1360,
         "wires": [
             [
@@ -589,7 +589,7 @@
         "y": 1320,
         "wires": [
             [
-                "5c857144.30eb4"
+                "8b9eae43.d2eec"
             ]
         ]
     },
@@ -610,7 +610,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 1450,
+        "x": 1610,
         "y": 1360,
         "wires": [
             [],
@@ -627,7 +627,7 @@
         "func": "let file_list=msg.files;\n\nfunction shuffle(array) {\nlet currentIndex = array.length,  randomIndex;\n\n  // While there remain elements to shuffle.\n  while (currentIndex !== 0) {\n\n    // Pick a remaining element.\n    randomIndex = Math.floor(Math.random() * currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    [array[currentIndex], array[randomIndex]] = [\n      array[randomIndex], array[currentIndex]];\n  }\n\n  return array;\n}\n\n// Used like so\nvar arr = [2, 11, 37, 42];\nshuffle(file_list);\n//console.log(arr);\n\n\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
+        "x": 1390,
         "y": 1360,
         "wires": [
             [
@@ -646,13 +646,13 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
+        "x": 1930,
         "y": 1440,
         "wires": [
             [],
             [],
             [
-                "66cadbb0.ff2d54"
+                "5f970e66.7ac69"
             ]
         ]
     },
@@ -664,7 +664,7 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_chil\\\\\"+msg.payload\nmsg.filename=msg.payload\n\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para2`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1600,
+        "x": 1760,
         "y": 1360,
         "wires": [
             [
@@ -701,7 +701,7 @@
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1490,
+        "x": 1650,
         "y": 1520,
         "wires": [
             [
@@ -717,7 +717,7 @@
         "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nglobal.set(\"player_status\", \"playing\")\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1220,
+        "x": 1380,
         "y": 1420,
         "wires": [
             [
@@ -738,7 +738,7 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1160,
+        "x": 1320,
         "y": 1500,
         "wires": [
             [
@@ -773,7 +773,7 @@
         "func": "global.set(\"player_status\", \"stop\")\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 1170,
+        "x": 1330,
         "y": 1460,
         "wires": [
             [
@@ -828,7 +828,7 @@
         "y": 1360,
         "wires": [
             [
-                "5c857144.30eb4"
+                "8b9eae43.d2eec"
             ]
         ]
     },
@@ -840,7 +840,7 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 1450,
+        "x": 1610,
         "y": 1560,
         "wires": [
             []
@@ -881,7 +881,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée go_them_chil",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_chil';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_chil';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"playing\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 600,
@@ -919,7 +919,7 @@
         "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 1450,
+        "x": 1610,
         "y": 1460,
         "wires": [
             []
@@ -975,7 +975,7 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 1070,
+        "x": 1230,
         "y": 720,
         "wires": [
             [
@@ -998,7 +998,7 @@
         "y": 680,
         "wires": [
             [
-                "3a174df8.3204a2"
+                "d7a52f2f.0d796"
             ]
         ]
     },
@@ -1019,7 +1019,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 1450,
+        "x": 1610,
         "y": 720,
         "wires": [
             [],
@@ -1036,7 +1036,7 @@
         "func": "let file_list=msg.files;\n\nfunction shuffle(array) {\nlet currentIndex = array.length,  randomIndex;\n\n  // While there remain elements to shuffle.\n  while (currentIndex !== 0) {\n\n    // Pick a remaining element.\n    randomIndex = Math.floor(Math.random() * currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    [array[currentIndex], array[randomIndex]] = [\n      array[randomIndex], array[currentIndex]];\n  }\n\n  return array;\n}\n\nshuffle(file_list);\n\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
+        "x": 1390,
         "y": 720,
         "wires": [
             [
@@ -1055,13 +1055,13 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
+        "x": 1930,
         "y": 800,
         "wires": [
             [],
             [],
             [
-                "49ec2aa6.5eae64"
+                "9b50c323.99845"
             ]
         ]
     },
@@ -1073,7 +1073,7 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_aterrisage\\\\\"+msg.payload\nmsg.filename=msg.payload\n\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para2`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1600,
+        "x": 1760,
         "y": 720,
         "wires": [
             [
@@ -1110,7 +1110,7 @@
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1490,
+        "x": 1650,
         "y": 880,
         "wires": [
             [
@@ -1126,7 +1126,7 @@
         "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nglobal.set(\"player_status\", \"playing\")\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
+        "x": 1360,
         "y": 760,
         "wires": [
             [
@@ -1147,7 +1147,7 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1160,
+        "x": 1320,
         "y": 840,
         "wires": [
             [
@@ -1182,7 +1182,7 @@
         "func": "global.set(\"player_status\", \"stop\")",
         "outputs": 1,
         "noerr": 0,
-        "x": 1150,
+        "x": 1310,
         "y": 800,
         "wires": [
             []
@@ -1266,7 +1266,7 @@
         "y": 720,
         "wires": [
             [
-                "3a174df8.3204a2"
+                "d7a52f2f.0d796"
             ]
         ]
     },
@@ -1305,7 +1305,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée go_them_landing",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_landing';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_landing';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"playing\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 610,
@@ -1360,7 +1360,7 @@
         "type": "function",
         "z": "e51f5302.12682",
         "name": "commande simulée go_them_phase_combat",
-        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_phase_combat';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'go_them_phase_combat';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\nglobal.set(\"player_status\", \"playing\")\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 630,
@@ -1401,7 +1401,7 @@
         "filterType": "str",
         "dir": "files",
         "dirType": "msg",
-        "x": 1060,
+        "x": 1220,
         "y": 1040,
         "wires": [
             [
@@ -1424,7 +1424,7 @@
         "y": 1000,
         "wires": [
             [
-                "aa8765e9.4e7358"
+                "9411f765.e1e8f8"
             ]
         ]
     },
@@ -1445,7 +1445,7 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-orig",
-        "x": 1450,
+        "x": 1610,
         "y": 1040,
         "wires": [
             [],
@@ -1462,7 +1462,7 @@
         "func": "let file_list=msg.files;\n\nfunction shuffle(array) {\nlet currentIndex = array.length,  randomIndex;\n\n  // While there remain elements to shuffle.\n  while (currentIndex !== 0) {\n\n    // Pick a remaining element.\n    randomIndex = Math.floor(Math.random() * currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    [array[currentIndex], array[randomIndex]] = [\n      array[randomIndex], array[currentIndex]];\n  }\n\n  return array;\n}\n\nshuffle(file_list);\n\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1230,
+        "x": 1390,
         "y": 1040,
         "wires": [
             [
@@ -1481,13 +1481,13 @@
         "timer": "",
         "oldrc": false,
         "name": "exec_cmd",
-        "x": 1770,
+        "x": 1930,
         "y": 1120,
         "wires": [
             [],
             [],
             [
-                "b764bc36.4fa92"
+                "f06fecc0.51bb1"
             ]
         ]
     },
@@ -1499,7 +1499,7 @@
         "func": "msg.payload=global.get('swan_path')+\"\\\\sounds\\\\phase_combat\\\\\"+msg.payload\nmsg.filename=msg.payload\n\n\nmsg.payload= global.get(`vlc_path`)+global.get(`vlc_para2`)+\" \\\"\"+msg.payload+\" \\\"\";\nconsole.log( msg.payload)\n\nreturn msg ",
         "outputs": 1,
         "noerr": 0,
-        "x": 1600,
+        "x": 1760,
         "y": 1040,
         "wires": [
             [
@@ -1536,7 +1536,7 @@
         "func": "\nmsg.payload='true'\nmsg.kill=\"vlc.exe\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1490,
+        "x": 1650,
         "y": 1200,
         "wires": [
             [
@@ -1552,7 +1552,7 @@
         "func": "\nmsg.payload=\"break\"\nmsg.payload.command=\"break\"\nmsg.command=\"break\"\n\nglobal.set(\"player_status\", \"playing\")\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1200,
+        "x": 1360,
         "y": 1080,
         "wires": [
             [
@@ -1573,7 +1573,7 @@
         "units": "ms",
         "reset": "",
         "name": "",
-        "x": 1160,
+        "x": 1320,
         "y": 1160,
         "wires": [
             [
@@ -1608,7 +1608,7 @@
         "func": "global.set(\"player_status\", \"stop\")",
         "outputs": 1,
         "noerr": 0,
-        "x": 1150,
+        "x": 1310,
         "y": 1120,
         "wires": [
             []
@@ -1692,7 +1692,7 @@
         "y": 1040,
         "wires": [
             [
-                "aa8765e9.4e7358"
+                "9411f765.e1e8f8"
             ]
         ]
     },
@@ -1761,109 +1761,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "ca87834b.a8d0b",
-        "type": "inject",
-        "z": "e51f5302.12682",
-        "name": "exportation du flow",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "x": 710,
-        "y": 180,
-        "wires": [
-            [
-                "9c31933f.ba0e"
-            ]
-        ]
-    },
-    {
-        "id": "9c31933f.ba0e",
-        "type": "file in",
-        "z": "e51f5302.12682",
-        "name": "auto",
-        "filename": "./../viseo-bot-project/data/flows.json",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "x": 870,
-        "y": 180,
-        "wires": [
-            [
-                "c6178b6.a225f78"
-            ]
-        ]
-    },
-    {
-        "id": "c6178b6.a225f78",
-        "type": "json",
-        "z": "e51f5302.12682",
-        "name": "from json",
-        "pretty": false,
-        "x": 1000,
-        "y": 180,
-        "wires": [
-            [
-                "c4e138a9.9e54d8"
-            ]
-        ]
-    },
-    {
-        "id": "c4e138a9.9e54d8",
-        "type": "function",
-        "z": "e51f5302.12682",
-        "name": "targeting",
-        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"Mixer Flow\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1140,
-        "y": 180,
-        "wires": [
-            [
-                "92b8c0b4.df10f"
-            ]
-        ]
-    },
-    {
-        "id": "92b8c0b4.df10f",
-        "type": "json",
-        "z": "e51f5302.12682",
-        "name": "to json",
-        "pretty": true,
-        "x": 1270,
-        "y": 180,
-        "wires": [
-            [
-                "95bef188.38863"
-            ]
-        ]
-    },
-    {
-        "id": "95bef188.38863",
-        "type": "file",
-        "z": "e51f5302.12682",
-        "name": "01_Mixer_Flow.json",
-        "filename": "./../viseo-bot-project/data/flow/mod/01_Mixer_Flow.json",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "true",
-        "x": 1440,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "c9378f9c.9a428",
-        "type": "comment",
-        "z": "e51f5302.12682",
-        "name": "sauvegarde du flow pour exportation ou modeur",
-        "info": "",
-        "x": 780,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "b191f970.a9b2f8",
@@ -1967,5 +1864,411 @@
         "x": 220,
         "y": 20,
         "wires": []
+    },
+    {
+        "id": "5f970e66.7ac69",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "block if stop",
+        "func": "if(global.get(\"player_status\")!==\"stop\")\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 1400,
+        "wires": [
+            [
+                "66cadbb0.ff2d54"
+            ]
+        ]
+    },
+    {
+        "id": "f06fecc0.51bb1",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "block if stop",
+        "func": "if(global.get(\"player_status\")!==\"stop\")\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 1080,
+        "wires": [
+            [
+                "b764bc36.4fa92"
+            ]
+        ]
+    },
+    {
+        "id": "9b50c323.99845",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "block if stop",
+        "func": "if(global.get(\"player_status\")!==\"stop\")\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 760,
+        "wires": [
+            [
+                "49ec2aa6.5eae64"
+            ]
+        ]
+    },
+    {
+        "id": "e49d4f0a.ed5c3",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "block if stop",
+        "func": "if(global.get(\"player_status\")!==\"stop\")\n{\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1610,
+        "y": 440,
+        "wires": [
+            [
+                "c068ac19.f0709"
+            ]
+        ]
+    },
+    {
+        "id": "5ca3fb59.1c4124",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1480,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a9917c3.7906c8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 400,
+        "wires": [
+            [
+                "b5ade591.6b9c58"
+            ]
+        ]
+    },
+    {
+        "id": "d7a52f2f.0d796",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 720,
+        "wires": [
+            [
+                "3a174df8.3204a2"
+            ]
+        ]
+    },
+    {
+        "id": "9411f765.e1e8f8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 1040,
+        "wires": [
+            [
+                "aa8765e9.4e7358"
+            ]
+        ]
+    },
+    {
+        "id": "8b9eae43.d2eec",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod",
+        "func": "if(global.get(\"musical_mod\")===true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1030,
+        "y": 1360,
+        "wires": [
+            [
+                "5c857144.30eb4"
+            ]
+        ]
+    },
+    {
+        "id": "55b476cf.d1e5f8",
+        "type": "comment",
+        "z": "e51f5302.12682",
+        "name": "Switch musical mod",
+        "info": "\n\n",
+        "x": 150,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "4c78804c.57a98",
+        "type": "start-up-trigger",
+        "z": "e51f5302.12682",
+        "x": 140,
+        "y": 2040,
+        "wires": [
+            [
+                "704aa3e.899be5c"
+            ]
+        ]
+    },
+    {
+        "id": "704aa3e.899be5c",
+        "type": "trigger",
+        "z": "e51f5302.12682",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 360,
+        "y": 2040,
+        "wires": [
+            [
+                "94f7e9bf.82d4f8"
+            ]
+        ]
+    },
+    {
+        "id": "94f7e9bf.82d4f8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 2040,
+        "wires": [
+            [
+                "fda056dc.a918a8"
+            ]
+        ]
+    },
+    {
+        "id": "fda056dc.a918a8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "sommeil / attente",
+        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 810,
+        "y": 2040,
+        "wires": [
+            [
+                "57b78999.fa7208",
+                "a12609dd.707f78",
+                "3d99134b.03b41c",
+                "5a5f7250.86405c"
+            ]
+        ]
+    },
+    {
+        "id": "57b78999.fa7208",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "music_on",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"music_on\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n        return accept\n    }\n}",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 1020,
+        "y": 1980,
+        "wires": [
+            [
+                "4da0fafa.063ad4"
+            ]
+        ]
+    },
+    {
+        "id": "4da0fafa.063ad4",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "use memory and go",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        memory.push(last_memory[i])\n    }\n    \n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    \n    msg={}\n    msg.topic=\"true\"\n    msg.payload=true\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1980,
+        "wires": [
+            [
+                "20e0631.30e289c"
+            ]
+        ]
+    },
+    {
+        "id": "20e0631.30e289c",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod switch_on",
+        "func": "global.set(\"musical_mod\", true)\nmsg.payload=\"musical_mod : \"+global.get(\"musical_mod\")\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1430,
+        "y": 1980,
+        "wires": [
+            [
+                "6257056a.1aa8fc"
+            ]
+        ]
+    },
+    {
+        "id": "a12609dd.707f78",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "music_off",
+        "func": "let accept={}\nlet reject={}\nlet search=[]\n\nsearch.push(\"music_off\")\n\nlet find=false\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask)\n                find=true\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n        return accept\n    }\n}",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 1020,
+        "y": 2100,
+        "wires": [
+            [
+                "7b5921b1.67a6a"
+            ]
+        ]
+    },
+    {
+        "id": "7b5921b1.67a6a",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "use memory and go",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        memory.push(last_memory[i])\n    }\n    \n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    \n    msg={}\n    msg.topic=\"true\"\n    msg.payload=true\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 2100,
+        "wires": [
+            [
+                "21b95d34.b2eb52",
+                "cdc287e0.7adea8"
+            ]
+        ]
+    },
+    {
+        "id": "21b95d34.b2eb52",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "musical_mod switch_off",
+        "func": "global.set(\"musical_mod\", false)\nmsg.payload=\"musical_mod : \"+global.get(\"musical_mod\")\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1430,
+        "y": 2100,
+        "wires": [
+            [
+                "44aa858b.f784cc"
+            ]
+        ]
+    },
+    {
+        "id": "6257056a.1aa8fc",
+        "type": "debug",
+        "z": "e51f5302.12682",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1630,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "44aa858b.f784cc",
+        "type": "debug",
+        "z": "e51f5302.12682",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1630,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "3d99134b.03b41c",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "ng_sfx commun_swan",
+        "func": "let sound_effect=[];\nlet track_id='commun_swan';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 2020,
+        "wires": [
+            [
+                "c070b297.f140a"
+            ]
+        ]
+    },
+    {
+        "id": "5a5f7250.86405c",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "ng_sfx commun_swan",
+        "func": "let sound_effect=[];\nlet track_id='commun_swan';\nlet number_tracks=global.get(track_id+\"_q\");\n\n\nsound_effect=global.get(track_id+\"_sound\")\n\nif(global.get('discret')===true || sound_effect.length===0)\n{\n    let sound=`\\\"`+global.get(\"path_sound\")+`bip\\\\bip_0.mp4\\\"`;\n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+sound+'.mp4';\n}\nelse\n{\n    let random=Math.floor(Math.random() * sound_effect.length)\n    let sound=sound_effect[random];\n    \n    msg.payload= global.get(`vlc_path`)+global.get(`vlc_para`)+`\\\"`+global.get(\"path_sound\")+track_id+\"\\\\\"+sound;\n    console.log( msg.payload)\n}\nreturn msg ",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 2060,
+        "wires": [
+            [
+                "c070b297.f140a"
+            ]
+        ]
+    },
+    {
+        "id": "c070b297.f140a",
+        "type": "exec",
+        "z": "e51f5302.12682",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "oldrc": false,
+        "name": "exec_cmd",
+        "x": 1630,
+        "y": 2040,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cdc287e0.7adea8",
+        "type": "function",
+        "z": "e51f5302.12682",
+        "name": "commande simulée stop_player",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'stop_player';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1450,
+        "y": 2140,
+        "wires": [
+            []
+        ]
     }
 ]
