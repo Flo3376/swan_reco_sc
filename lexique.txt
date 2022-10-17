@@ -20,13 +20,10 @@
 		-stabilise l'appareil
 		-
 
-<!--Coupe les éclairages-->
-		-éteint les phares
-		-éteint les feux
-		-éteint les spots
-		-coupe les phares
-		-coupe les feux
-		-coupe les spots
+<!--ouverture ou passage en VTOL-->
+		-recouple
+		-recouplage
+		-recouplage moteur
 		-
 
 <!--Fermeture ou  quitte le VTOL-->
@@ -37,10 +34,13 @@
 		-coupe le VTOL
 		-
 
-<!--ouverture ou passage en VTOL-->
-		-recouple
-		-recouplage
-		-recouplage moteur
+<!--Coupe les éclairages-->
+		-éteint les phares
+		-éteint les feux
+		-éteint les spots
+		-coupe les phares
+		-coupe les feux
+		-coupe les spots
 		-
 
 <!--Met plus de puissance sur les moteurs (capacitor)-->
@@ -64,20 +64,6 @@
 		-découplage moteur
 		-
 
-<!--Met plus de puissance sur les armes (capacitor)-->
-		-Met plus de puissance sur les armes
-		-Met plus de jue sur les armes
-		-Envoie plus de jue sur les armes
-		-bascule plus de jue sur les armes
-		-plus de puissance sur les armes
-		-Envoie plus de puissance sur les armes
-		-bascule plus de puissance sur les armes
-		-bascule tous le jue sur les armes
-		-plus de jue sur les armes
-		-transfert plus de puissance sur les armes
-		-transfert plus de jue sur les armes
-		-
-
 <!--Met plus de puissance sur les boucliers (capacitor)-->
 		-Met plus de puissance sur les boucliers
 		-Met plus de jue sur les boucliers
@@ -90,6 +76,20 @@
 		-plus de jue sur les boucliers
 		-transfert plus de puissance sur les boucliers
 		-transfert plus de jue sur les boucliers
+		-
+
+<!--Met plus de puissance sur les armes (capacitor)-->
+		-Met plus de puissance sur les armes
+		-Met plus de jue sur les armes
+		-Envoie plus de jue sur les armes
+		-bascule plus de jue sur les armes
+		-plus de puissance sur les armes
+		-Envoie plus de puissance sur les armes
+		-bascule plus de puissance sur les armes
+		-bascule tous le jue sur les armes
+		-plus de jue sur les armes
+		-transfert plus de puissance sur les armes
+		-transfert plus de jue sur les armes
 		-
 
 <!--Met toutes la puissance sur les boucliers (capacitor)-->
@@ -237,6 +237,13 @@
 		-coupe moi la map
 		-
 
+<!--mettre tous les boucliers  à l'arriére-->
+		-Décollage immédiat
+		-Décollage d'urgence
+		-on y va
+		-on décolle
+		-
+
 <!--Sortir du siége de pilote-->
 		-je te laisse les commandes
 		-je quite la passerelle
@@ -244,13 +251,6 @@
 		-je quitte le poste
 		-je sort de l'appareil
 		-je sort du vaisseau
-		-
-
-<!--mettre tous les boucliers  à l'arriére-->
-		-Décollage immédiat
-		-Décollage d'urgence
-		-on y va
-		-on décolle
 		-
 
 <!--mettre tous les boucliers  à l'arriére-->
@@ -263,10 +263,6 @@
 		-stop tout
 		-écrase les freins
 		-arrêt complet
-		-
-
-<!--Test de fonctionnement du bot, le classique jarvis tu es là -->
-		-redémarre complement ton système
 		-
 
 <!--Lancer un saut quantique-->
@@ -292,6 +288,10 @@
 <!--Met toutes la puissance sur les armes (capacitor)-->
 		-Prepare un saut quantique
 		-Prepare toi à sauter
+		-
+
+<!--Test de fonctionnement du bot, le classique jarvis tu es là -->
+		-redémarre complement ton système
 		-
 
 <!--Ouvertures des issues-->
@@ -322,10 +322,6 @@
 		-Désactive le mod musicale
 		-
 
-<!--active la mise en route automatique de la musique en fonction des thématique-->
-		-Active le mod musicale
-		-
-
 <!--Démarre le moteur quantique-->
 		-démarre le moteur quantique
 		-allume le moteur quantique
@@ -344,6 +340,10 @@
 		-désactive le quantum
 		-coupe le moteur quantique
 		-désactive le moteur quantique
+		-
+
+<!--active la mise en route automatique de la musique en fonction des thématique-->
+		-Active le mod musicale
 		-
 
 <!--Démarre les moteur convetionels -->
@@ -516,6 +516,19 @@
 		-transfert plus de jue sur le bouclier droit
 		-
 
+<!--mettre plus les boucliers  à l'avant-->
+		-Met plus de puissance sur le bouclier avant
+		-Met plus de jue sur le bouclier avant
+		-Envoie plus de jue sur le bouclier avant
+		-bascule plus de jue sur le bouclier avant
+		-plus de puissance sur le bouclier avant
+		-Envoie plus de puissance sur le bouclier avant
+		-bascule plus de puissance sur le bouclier avant
+		-plus de jue sur le bouclier avant
+		-transfert plus de puissance sur le bouclier avant
+		-transfert plus de jue sur le bouclier avant
+		-
+
 <!--mettre plus les boucliers  à l'arriére-->
 		-Met plus de puissance sur le bouclier arrière
 		-Met plus de jue sur le bouclier arrière
@@ -543,19 +556,6 @@
 		-transfert tous de puissance sur le bouclier gauche
 		-transfert tous de jue sur le bouclier gauche
 		-puissance bouclier gauche
-		-
-
-<!--mettre plus les boucliers  à l'avant-->
-		-Met plus de puissance sur le bouclier avant
-		-Met plus de jue sur le bouclier avant
-		-Envoie plus de jue sur le bouclier avant
-		-bascule plus de jue sur le bouclier avant
-		-plus de puissance sur le bouclier avant
-		-Envoie plus de puissance sur le bouclier avant
-		-bascule plus de puissance sur le bouclier avant
-		-plus de jue sur le bouclier avant
-		-transfert plus de puissance sur le bouclier avant
-		-transfert plus de jue sur le bouclier avant
 		-
 
 <!--mettre tous les boucliers  à droite-->
