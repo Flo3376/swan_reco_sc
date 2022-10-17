@@ -1,0 +1,628 @@
+[
+    {
+        "id": "d353be7d.3755a",
+        "type": "tab",
+        "label": "mod_prepare_qt_2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f3e64b1b.e27e58",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "Module pour faire des exportations",
+        "info": "Pour le configurer il faudra:\n-ouvrir la case targeting et remplacer \"<nom>\" par le nom de l'onglet\n-ouvrir la case fichier json et remplacer \"<nom>\" par le nom de l'onglet",
+        "x": 660,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "223897be.425b98",
+        "type": "inject",
+        "z": "d353be7d.3755a",
+        "name": "exportation du flow",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "74d4680f.8f29a8"
+            ]
+        ]
+    },
+    {
+        "id": "83558ea5.93203",
+        "type": "file in",
+        "z": "d353be7d.3755a",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "5b6287cb.7c3178"
+            ]
+        ]
+    },
+    {
+        "id": "32d56b28.3d6fe4",
+        "type": "json",
+        "z": "d353be7d.3755a",
+        "name": "from json",
+        "pretty": false,
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "dd2c9fe5.57a33"
+            ]
+        ]
+    },
+    {
+        "id": "53891bc4.bfc3f4",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"mod_prepare_qt\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 100,
+        "wires": [
+            [
+                "e118eace.cc4af8"
+            ]
+        ]
+    },
+    {
+        "id": "d417716a.c24af",
+        "type": "json",
+        "z": "d353be7d.3755a",
+        "name": "to json",
+        "pretty": true,
+        "x": 670,
+        "y": 100,
+        "wires": [
+            [
+                "275fa237.b032ce"
+            ]
+        ]
+    },
+    {
+        "id": "752285e6.0436dc",
+        "type": "file",
+        "z": "d353be7d.3755a",
+        "name": "fichierjson",
+        "filename": "./../viseo-bot-project/data/flow/mod/mod_prepare_qt.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 800,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "34862b2c.329814",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "prepare le saut quantique",
+        "func": "let accept={}\nlet reject={}\nlet search=[];\n\nsearch.push('prepare_qt');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "c5cc3ed.c11cfc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1dc9ecb9.bcfb63",
+        "type": "start-up-trigger",
+        "z": "d353be7d.3755a",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "9cd22180.bc6b6"
+            ]
+        ]
+    },
+    {
+        "id": "dace0fe7.28eb9",
+        "type": "trigger",
+        "z": "d353be7d.3755a",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "8f1d6cc6.9755b"
+            ]
+        ]
+    },
+    {
+        "id": "27b045c2.47da0a",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\n\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 700,
+        "y": 240,
+        "wires": [
+            [
+                "75276ece.5b2d2"
+            ]
+        ]
+    },
+    {
+        "id": "598c1f2.c851fe",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "sommeil / attente",
+        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 240,
+        "wires": [
+            [
+                "2c2293d5.9f4d6c"
+            ]
+        ]
+    },
+    {
+        "id": "3b623433.59dfec",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "20947e.b4dcfb82",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "Une fois que Swan à démarrer",
+        "info": "",
+        "x": 120,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a862cb26.988ac8",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "Toutes les 250 milliseconde",
+        "info": "",
+        "x": 400,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "adc8ce0b.67c1e",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "Elle regarde les informations qui passent",
+        "info": "",
+        "x": 720,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a1fb1949.004218",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "elle vérifie quelle est en veille ou active",
+        "info": "",
+        "x": 1050,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "85ad3513.b81b88",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "si elle reçois la consigne de la porte de hangar",
+        "info": "",
+        "x": 170,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1daf7674.d4e0ca",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "elle va supprimer l'information de la mémoire",
+        "info": "",
+        "x": 550,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b988d443.5c2d68",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "Module pour faire des exportations",
+        "info": "Pour le configurer il faudra:\n-ouvrir la case targeting et remplacer \"<nom>\" par le nom de l'onglet\n-ouvrir la case fichier json et remplacer \"<nom>\" par le nom de l'onglet",
+        "x": 660,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cadd7ade.2a3828",
+        "type": "inject",
+        "z": "d353be7d.3755a",
+        "name": "exportation du flow",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "74d4680f.8f29a8"
+            ]
+        ]
+    },
+    {
+        "id": "74d4680f.8f29a8",
+        "type": "file in",
+        "z": "d353be7d.3755a",
+        "name": "auto",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "5b6287cb.7c3178"
+            ]
+        ]
+    },
+    {
+        "id": "5b6287cb.7c3178",
+        "type": "json",
+        "z": "d353be7d.3755a",
+        "name": "from json",
+        "pretty": false,
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "dd2c9fe5.57a33"
+            ]
+        ]
+    },
+    {
+        "id": "dd2c9fe5.57a33",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "targeting",
+        "func": "let id_scan=\"\";data=msg.payload\n\nfor(i=0;i<data.length;i++)\n{\n    if(data[i].hasOwnProperty(\"type\"))\n    {\n       if (data[i].label===\"mod_prepare_qt_2\")\n        {\n            id_scan=data[i].id;\n        }\n    }\n}\n\nmsg.payload=[];\n\nfor(i=0;i<data.length;i++)\n{\n    if (data[i].z===id_scan || data[i].id===id_scan)\n        {\n            msg.payload.push(data[i])\n        }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 100,
+        "wires": [
+            [
+                "e118eace.cc4af8"
+            ]
+        ]
+    },
+    {
+        "id": "e118eace.cc4af8",
+        "type": "json",
+        "z": "d353be7d.3755a",
+        "name": "to json",
+        "pretty": true,
+        "x": 670,
+        "y": 100,
+        "wires": [
+            [
+                "275fa237.b032ce"
+            ]
+        ]
+    },
+    {
+        "id": "275fa237.b032ce",
+        "type": "file",
+        "z": "d353be7d.3755a",
+        "name": "fichierjson",
+        "filename": "./../viseo-bot-project/data/flow/mod/mod_prepare_qt_2.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 800,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2c2293d5.9f4d6c",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "prepare le saut quantique",
+        "func": "let accept={}\nlet reject={}\nlet search=[];\n\nsearch.push('prepare_qt');\nlet find=false;\n\nif (msg.topic===true){\n    search.forEach((ask) => {\n        if(find===false)\n        {\n            if(msg.action.toString()===ask.toString())\n            {\n                console.log(\"jai une correspondance avec : \"+ ask);\n                find=true;\n            }\n        }\n    });\n    \n    if(find===true)\n    {\n        search=[]\n        accept.topic=true;\n    }\n    else\n    {\n        reject.payload=msg.payload;\n        reject.topic=true;\n    }\n    return [accept,reject]\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "c5cc3ed.c11cfc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "70dc02f7.d1913c",
+        "type": "start-up-trigger",
+        "z": "d353be7d.3755a",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "9cd22180.bc6b6"
+            ]
+        ]
+    },
+    {
+        "id": "9cd22180.bc6b6",
+        "type": "trigger",
+        "z": "d353be7d.3755a",
+        "op1": "true",
+        "op2": "0",
+        "op1type": "bool",
+        "op2type": "str",
+        "duration": "-250",
+        "extend": false,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "8f1d6cc6.9755b"
+            ]
+        ]
+    },
+    {
+        "id": "8f1d6cc6.9755b",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "search in mem",
+        "func": "let last_memory=global.get(\"SWAN_M\")\n\n//console.log(global.get(\"SWAN_M\"))\n\nlet instruction=last_memory[0]\nmsg=instruction\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 700,
+        "y": 240,
+        "wires": [
+            [
+                "75276ece.5b2d2"
+            ]
+        ]
+    },
+    {
+        "id": "75276ece.5b2d2",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "sommeil / attente",
+        "func": "if (global.get('swan_active')===true){\n    return msg;\n       \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 240,
+        "wires": [
+            [
+                "2c2293d5.9f4d6c"
+            ]
+        ]
+    },
+    {
+        "id": "c5cc3ed.c11cfc",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "use memory",
+        "func": "if(msg.topic===true)\n{\n    let last_memory=global.get(\"SWAN_M\")\n    let memory=[]\n    \n    //console.log(global.get(\"SWAN_M\"))\n    let instruction=last_memory[0]\n    msg=instruction\n    \n    for (i=0; i<last_memory.length;i++)\n    {\n        //console.log(last_memory[i])\n        memory.push(last_memory[i])\n    }\n    \n    \n    //let memory=global.get(\"SWAN_M\")\n    //console.log(\"memory avant :\")\n    //console.log(memory)\n    //console.log(\"nb avant: \"+memory.length)\n    \n    memory = memory.slice(1);\n    global.set(\"SWAN_M\",memory)\n    //console.log(\"memory aprés :\")\n    //console.log(memory)\n    //console.log(\"nb aprés : \"+memory.length)\n    \n    //memory=global.get(\"SWAN_M\")\n    msg={}\n    msg.topic=true\n    msg.payload=memory\n    \n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 440,
+        "wires": [
+            [
+                "a9bb0b40.3a44e8",
+                "1b3ed2d7.2d324d",
+                "c0002c8d.a97fe",
+                "7c44bbe3.954c44"
+            ]
+        ]
+    },
+    {
+        "id": "244ff8bb.448248",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "Une fois que Swan à démarrer",
+        "info": "",
+        "x": 120,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2de9100c.c695a",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "Toutes les 250 milliseconde",
+        "info": "",
+        "x": 400,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "33f58275.72e6ae",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "Elle regarde les informations qui passent",
+        "info": "",
+        "x": 720,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9bf8230c.2d84c",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "elle vérifie quelle est en veille ou active",
+        "info": "",
+        "x": 1050,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "efeb368f.dd9c68",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "si elle reçois la consigne de la porte de hangar",
+        "info": "",
+        "x": 170,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d9a1d95b.8c4bf8",
+        "type": "comment",
+        "z": "d353be7d.3755a",
+        "name": "elle va supprimer l'information de la mémoire",
+        "info": "",
+        "x": 550,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a9bb0b40.3a44e8",
+        "type": "debug",
+        "z": "d353be7d.3755a",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 810,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1b3ed2d7.2d324d",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "commande simulée  light_on",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'light_on';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1220,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb78b6f4.2ef3f8",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "commande simulée  quantum_on",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'quantum_on';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1230,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4dcc193b.c65df8",
+        "type": "function",
+        "z": "d353be7d.3755a",
+        "name": "commande simulée  open_starmap",
+        "func": "data={}\ndata.topic= true;\ndata.payload= 'commande simulée';\ndata.action= 'open_starmap';\ndata.confiance= '0.99';\ndata.time= Date.now();\ndata.attemp=0\n\n\n\n\nglobal.get(\"SWAN_M\").push(data)\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1240,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c0002c8d.a97fe",
+        "type": "trigger",
+        "z": "d353be7d.3755a",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "5",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "name": "",
+        "x": 820,
+        "y": 480,
+        "wires": [
+            [
+                "cb78b6f4.2ef3f8"
+            ]
+        ]
+    },
+    {
+        "id": "7c44bbe3.954c44",
+        "type": "trigger",
+        "z": "d353be7d.3755a",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "8",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "name": "",
+        "x": 820,
+        "y": 520,
+        "wires": [
+            [
+                "4dcc193b.c65df8"
+            ]
+        ]
+    }
+]

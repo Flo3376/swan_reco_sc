@@ -1,0 +1,12 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="prepare_qt" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="prepare_qt" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<item>SWAN</item>
+		<!--Met toutes la puissance sur les armes (capacitor)-->
+		<one-of>
+			<item>Prepare un saut quantique</item>
+			<item>Prepare toi à sauter</item>
+		</one-of>
+		<tag>out.action.action="prepare_qt";</tag>
+	</rule> 
+</grammar>

@@ -10,15 +10,15 @@
         "id": "e803f58d.9ef3d8",
         "type": "inject",
         "z": "86bd29de.a40548",
-        "name": "FLOW CREATOR",
+        "name": "Générer le flow master + mod",
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 130,
-        "y": 780,
+        "x": 160,
+        "y": 740,
         "wires": [
             [
                 "216ea5f7.8072aa"
@@ -135,56 +135,6 @@
         "y": 780,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "ea0fea05.f0b508",
-        "type": "function",
-        "z": "86bd29de.a40548",
-        "name": "réécriture flows json",
-        "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 900,
-        "y": 840,
-        "wires": [
-            [
-                "876ad3ad.9d0b7"
-            ]
-        ]
-    },
-    {
-        "id": "876ad3ad.9d0b7",
-        "type": "file",
-        "z": "86bd29de.a40548",
-        "name": "",
-        "filename": "./../viseo-bot-project/data/flow/flows.json",
-        "appendNewline": false,
-        "createDir": true,
-        "overwriteFile": "true",
-        "x": 1220,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "100d82fb.c10dfd",
-        "type": "trigger",
-        "z": "86bd29de.a40548",
-        "op1": "",
-        "op2": "0",
-        "op1type": "nul",
-        "op2type": "str",
-        "duration": "2",
-        "extend": false,
-        "units": "s",
-        "reset": "",
-        "name": "",
-        "x": 720,
-        "y": 840,
-        "wires": [
-            [
-                "ea0fea05.f0b508"
-            ]
         ]
     },
     {
@@ -1761,6 +1711,536 @@
             [
                 "e3b6838a.772ea"
             ]
+        ]
+    },
+    {
+        "id": "12501f74.6867e1",
+        "type": "fs-ops-dir",
+        "z": "86bd29de.a40548",
+        "name": "search flow.json",
+        "path": "./../viseo-bot-project/data/flow/mod/",
+        "pathType": "str",
+        "filter": "*.json",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 320,
+        "y": 920,
+        "wires": [
+            [
+                "2098a6ba.d7024a",
+                "2b388551.67a4da"
+            ]
+        ]
+    },
+    {
+        "id": "2098a6ba.d7024a",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "conv tableau",
+        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 920,
+        "wires": [
+            [
+                "6806ccb6.34d154"
+            ]
+        ]
+    },
+    {
+        "id": "6806ccb6.34d154",
+        "type": "loop",
+        "z": "86bd29de.a40548",
+        "name": "parcour fichiers json",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload",
+        "enumerationType": "msg",
+        "limit": "",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-orig",
+        "x": 740,
+        "y": 920,
+        "wires": [
+            [
+                "3fdca1c7.683e8e"
+            ],
+            [
+                "31ffe0f3.915d7"
+            ]
+        ]
+    },
+    {
+        "id": "31ffe0f3.915d7",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "fichier en cours",
+        "func": "//msg.reset=\"reset\"\nmsg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\flow\\\\mod\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 920,
+        "wires": [
+            [
+                "a57553f9.73314",
+                "7cf666d0.a79a08"
+            ]
+        ]
+    },
+    {
+        "id": "a57553f9.73314",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 1210,
+        "y": 920,
+        "wires": [
+            [
+                "153ef704.52ddc9"
+            ]
+        ]
+    },
+    {
+        "id": "153ef704.52ddc9",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "to memory json",
+        "func": "let data=global.get(\"jsonflow\")\n\ndata+=msg.payload\nglobal.set(\"jsonflow\",data)\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1380,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6025c9a1.7c4528",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "réécriture flows json",
+        "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 900,
+        "y": 980,
+        "wires": [
+            [
+                "bcad0b93.af7238",
+                "d94e6e2f.b5cbd"
+            ]
+        ]
+    },
+    {
+        "id": "bcad0b93.af7238",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1200,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "3fdca1c7.683e8e",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "2",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 720,
+        "y": 980,
+        "wires": [
+            [
+                "6025c9a1.7c4528"
+            ]
+        ]
+    },
+    {
+        "id": "2b388551.67a4da",
+        "type": "debug",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 510,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "7cf666d0.a79a08",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "250",
+        "extend": true,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 1080,
+        "y": 920,
+        "wires": [
+            [
+                "6806ccb6.34d154"
+            ]
+        ]
+    },
+    {
+        "id": "100d82fb.c10dfd",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 730,
+        "y": 840,
+        "wires": [
+            [
+                "12501f74.6867e1"
+            ]
+        ]
+    },
+    {
+        "id": "d94e6e2f.b5cbd",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "si message",
+        "func": "msg.payload=\"Génération du nouveau programme terminé. Veuillez redémarrer Swan et la page internet viséo.\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650,
+        "y": 1120,
+        "wires": [
+            [
+                "50805e98.69811"
+            ]
+        ]
+    },
+    {
+        "id": "50805e98.69811",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "7",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "name": "",
+        "x": 820,
+        "y": 1120,
+        "wires": [
+            [
+                "efec60cc.543ca"
+            ]
+        ]
+    },
+    {
+        "id": "efec60cc.543ca",
+        "type": "win-speak",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "input": "",
+        "x": 950,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ff8aa89.29dad6",
+        "type": "inject",
+        "z": "86bd29de.a40548",
+        "name": "Générer le flow master uniquement",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 1180,
+        "wires": [
+            [
+                "3a0db3b0.0917ec"
+            ]
+        ]
+    },
+    {
+        "id": "3a0db3b0.0917ec",
+        "type": "fs-ops-dir",
+        "z": "86bd29de.a40548",
+        "name": "search flow.json",
+        "path": "./../viseo-bot-project/data/flow/master/",
+        "pathType": "str",
+        "filter": "*.json",
+        "filterType": "str",
+        "dir": "files",
+        "dirType": "msg",
+        "x": 320,
+        "y": 1220,
+        "wires": [
+            [
+                "3a6aa280.0508ae",
+                "5dfad44a.231e1c"
+            ]
+        ]
+    },
+    {
+        "id": "3a6aa280.0508ae",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "conv tableau",
+        "func": "let file_list=msg.files;\nmsg.payload=[];\n\nfor (i=0; i<file_list.length;i++)\n{\n     msg.payload.push(file_list[i]);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 1220,
+        "wires": [
+            [
+                "c2589584.bcb038"
+            ]
+        ]
+    },
+    {
+        "id": "c2589584.bcb038",
+        "type": "loop",
+        "z": "86bd29de.a40548",
+        "name": "parcour fichiers json",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload",
+        "enumerationType": "msg",
+        "limit": "",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-orig",
+        "x": 740,
+        "y": 1220,
+        "wires": [
+            [
+                "c14261e8.39548"
+            ],
+            [
+                "f5ff901b.a5b8"
+            ]
+        ]
+    },
+    {
+        "id": "f5ff901b.a5b8",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "fichier en cours",
+        "func": "//msg.reset=\"reset\"\nmsg.payload=global.get('swan_path')+\"\\\\viseo-bot-project\\\\data\\\\flow\\\\master\\\\\"+msg.payload\nmsg.filename=msg.payload\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 920,
+        "y": 1220,
+        "wires": [
+            [
+                "fc246f97.0abf5",
+                "bd1258cc.30c598"
+            ]
+        ]
+    },
+    {
+        "id": "fc246f97.0abf5",
+        "type": "file in",
+        "z": "86bd29de.a40548",
+        "name": "auto",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 1210,
+        "y": 1220,
+        "wires": [
+            [
+                "851e0b1a.06c278"
+            ]
+        ]
+    },
+    {
+        "id": "851e0b1a.06c278",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "to memory json",
+        "func": "let data=global.get(\"jsonflow\")\n\ndata+=msg.payload\nglobal.set(\"jsonflow\",data)\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1380,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5dfad44a.231e1c",
+        "type": "debug",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 510,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "bd1258cc.30c598",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "250",
+        "extend": true,
+        "units": "ms",
+        "reset": "",
+        "name": "",
+        "x": 1080,
+        "y": 1220,
+        "wires": [
+            [
+                "c2589584.bcb038"
+            ]
+        ]
+    },
+    {
+        "id": "a604aa88.5f9b78",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "réécriture flows json",
+        "func": "msg.payload=global.get(\"jsonflow\")\n\n\n\nvar patt = new RegExp(/\\]\\[/g);\nmsg.payload = msg.payload.replace(patt, \",\");\n  \nglobal.set(\"jsonflow\",\"\")  \n  \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 900,
+        "y": 1280,
+        "wires": [
+            [
+                "94bb9966.eedee8",
+                "859d65be.0dc668"
+            ]
+        ]
+    },
+    {
+        "id": "94bb9966.eedee8",
+        "type": "file",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "filename": "./../viseo-bot-project/data/flows.json",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1200,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "c14261e8.39548",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "2",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "name": "",
+        "x": 720,
+        "y": 1280,
+        "wires": [
+            [
+                "a604aa88.5f9b78"
+            ]
+        ]
+    },
+    {
+        "id": "859d65be.0dc668",
+        "type": "function",
+        "z": "86bd29de.a40548",
+        "name": "si message",
+        "func": "msg.payload=\"Génération du nouveau programme terminé. Veuillez redémarrer Swan et la page internet viséo.\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650,
+        "y": 1420,
+        "wires": [
+            [
+                "811e667a.f60348"
+            ]
+        ]
+    },
+    {
+        "id": "811e667a.f60348",
+        "type": "trigger",
+        "z": "86bd29de.a40548",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "7",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "name": "",
+        "x": 820,
+        "y": 1420,
+        "wires": [
+            [
+                "ef1fc5d7.4a6918"
+            ]
+        ]
+    },
+    {
+        "id": "ef1fc5d7.4a6918",
+        "type": "win-speak",
+        "z": "86bd29de.a40548",
+        "name": "",
+        "input": "",
+        "x": 950,
+        "y": 1420,
+        "wires": [
+            []
         ]
     }
 ]

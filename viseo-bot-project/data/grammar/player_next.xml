@@ -1,0 +1,14 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="play_next" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="play_next" scope="public">
+		<tag>out.action=new Object(); </tag>
+		<!--musique suivante-->
+		<item>SWAN</item>
+		<one-of>
+			<item>change de musique</item>
+			<item>met la musique suivante</item>
+		</one-of>
+		<tag>out.action.action="play_next";</tag>
+	</rule> 
+</grammar>
+
+play_next
